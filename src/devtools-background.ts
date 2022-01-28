@@ -1,1 +1,1 @@
-chrome.devtools.panels.create('Interceptor', '', 'static/index.html');
+chrome.devtools.panels.create('Interceptor', '', 'static/index.html')
