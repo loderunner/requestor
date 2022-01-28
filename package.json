@@ -4,6 +4,7 @@
   "description": "A Chrome devtools extension for intercepting and modifying HTTP requests",
   "main": "out/index.js",
   "scripts": {
+    "lint": "prettier --check . && eslint --max-warnings=0 .",
     "build": "esbuild src/devtools-background.ts src/index.tsx --loader:.woff2=file --loader:.woff=file --bundle --minify --outdir=out",
     "watch": "esbuild src/devtools-background.ts src/index.tsx --loader:.woff2=file --loader:.woff=file --bundle --sourcemap=inline --outdir=out --watch"
   },
