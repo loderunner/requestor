@@ -1,4 +1,5 @@
 module.exports = {
+  'sort-imports': ['warn', { ignoreDeclarationSort: true }],
   'import/first': 'warn',
   'import/order': [
     'warn',
@@ -14,7 +15,6 @@ module.exports = {
         'type',
       ],
       'newlines-between': 'always',
-      warnOnUnassignedImports: true,
       alphabetize: {
         order: 'asc',
         caseInsensitive: true,
