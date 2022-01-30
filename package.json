@@ -5,8 +5,8 @@
   "main": "out/index.js",
   "scripts": {
     "lint": "prettier --check . && eslint --max-warnings=0 .",
-    "build": "esbuild src/devtools-background.ts src/index.tsx --loader:.woff2=file --loader:.woff=file --bundle --minify --outdir=out",
-    "watch": "esbuild src/devtools-background.ts src/index.tsx --loader:.woff2=file --loader:.woff=file --bundle --sourcemap=inline --outdir=out --watch"
+    "build": "esbuild src/background/index.ts src/panel/index.tsx --loader:.woff2=file --loader:.woff=file --bundle --minify --outdir=out",
+    "watch": "esbuild src/background/index.ts src/panel/index.tsx --loader:.woff2=file --loader:.woff=file --bundle --sourcemap=inline --outdir=out --watch"
   },
   "author": "",
   "license": "Apache-2.0",
