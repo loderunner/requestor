@@ -56,7 +56,7 @@ const onDebuggerEvent = (
   }
 }
 
-let debuggee: chrome.debugger.Debuggee
+let debuggee: chrome.debugger.Debuggee | undefined
 
 const getTargets = async () => {
   return new Promise<TargetInfo[]>((resolve) =>
@@ -65,6 +65,10 @@ const getTargets = async () => {
 }
 
 export const listen = async () => {
+  if (debuggee !== undefined) {
+    return
+  }
+
   const targets = await getTargets()
   const target = targets.find(
     (t) => t.tabId === chrome.devtools.inspectedWindow.tabId
@@ -81,7 +85,12 @@ export const listen = async () => {
 }
 
 export const unlisten = () => {
+  if (debuggee === undefined) {
+    return
+  }
+
   chrome.debugger.sendCommand(debuggee, 'Fetch.disable', {})
   chrome.debugger.onEvent.removeListener(onDebuggerEvent)
   chrome.debugger.detach(debuggee)
+  debuggee = undefined
 }
