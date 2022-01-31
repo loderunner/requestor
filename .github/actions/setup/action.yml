@@ -1,10 +1,8 @@
-name: Checkout and setup
-description: Checkout and setup
+name: Setup
+description: Setup node and install dependencies
 runs:
   using: composite
   steps:
-    - name: Checkout
-      uses: actions/checkout@v2
     - name: Setup node
       uses: actions/setup-node@v2
       with:

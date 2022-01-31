@@ -12,14 +12,18 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout and setup
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
         uses: ./.github/actions/setup
       - name: Run linter
         run: npm run lint
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout and setup
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup
         uses: ./.github/actions/setup
       - name: Build project
         run: npm run build
