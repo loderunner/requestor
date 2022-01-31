@@ -15,32 +15,7 @@ class RequestEvent extends Event {
 
 type RequestEventListener = (req: Request) => void
 
-class RequestEventTarget {
-  private callbacks = new Map<RequestEventListener, EventListener>()
-  private eventTarget = new EventTarget()
-
-  addListener(listener: RequestEventListener): void {
-    const callback = (event: Event) => {
-      const requestEvent = event as RequestEvent
-      listener(requestEvent.request)
-    }
-    this.callbacks.set(listener, callback)
-    this.eventTarget.addEventListener('request', callback)
-  }
-
-  removeListener(listener: RequestEventListener): void {
-    const callback = this.callbacks.get(listener)
-    if (callback !== undefined) {
-      this.eventTarget.removeEventListener('request', callback)
-    }
-  }
-
-  dispatchEvent(request: Request): boolean {
-    return this.eventTarget.dispatchEvent(new RequestEvent(request))
-  }
-}
-
-export const onRequest = new RequestEventTarget()
+const requestEventTarget = new EventTarget()
 
 const onDebuggerEvent = (
   target: Debuggee,
@@ -49,7 +24,7 @@ const onDebuggerEvent = (
 ) => {
   if (method === 'Fetch.requestPaused') {
     const event: RequestPausedEvent = params as RequestPausedEvent
-    onRequest.dispatchEvent(event.request)
+    requestEventTarget.dispatchEvent(new RequestEvent(event.request))
     chrome.debugger.sendCommand(target, 'Fetch.continueRequest', {
       requestId: event.requestId,
     })
@@ -93,4 +68,19 @@ export const unlisten = () => {
   chrome.debugger.onEvent.removeListener(onDebuggerEvent)
   chrome.debugger.detach(debuggee)
   debuggee = undefined
+}
+
+export const subscribe = (listener: RequestEventListener) => {
+  const callback = (event: Event) => {
+    const requestEvent = event as RequestEvent
+    listener(requestEvent.request)
+  }
+
+  requestEventTarget.addEventListener('request', callback)
+
+  const unsubscribe = () => {
+    requestEventTarget.removeEventListener('request', callback)
+  }
+
+  return unsubscribe
 }
