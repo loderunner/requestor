@@ -66,14 +66,18 @@ const getTargets = async () => {
 
 export const subscribe = async () => {
   const targets = await getTargets()
-  for (const t of targets) {
-    if (t.tabId === chrome.devtools.inspectedWindow.tabId) {
-      debuggee = { targetId: t.id }
-      await chrome.debugger.attach(debuggee, '1.3')
-      chrome.debugger.onEvent.addListener(onDebuggerEvent)
-      await chrome.debugger.sendCommand(debuggee, 'Fetch.enable', {})
-    }
+  const target = targets.find(
+    (t) => t.tabId === chrome.devtools.inspectedWindow.tabId
+  )
+
+  if (target === undefined) {
+    throw new Error("Could not subscribe to inspected window's requests")
   }
+
+  debuggee = { targetId: target.id }
+  await chrome.debugger.attach(debuggee, '1.3')
+  chrome.debugger.onEvent.addListener(onDebuggerEvent)
+  await chrome.debugger.sendCommand(debuggee, 'Fetch.enable', {})
 }
 
 export const unsubscribe = () => {
