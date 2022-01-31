@@ -27,3 +27,12 @@ jobs:
         uses: ./.github/actions/setup
       - name: Build project
         run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: |
+            out/
+            static/
+            manifest.json
+            README.md
