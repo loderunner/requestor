@@ -11,7 +11,7 @@ requests.onRequest.addListener(onRequest)
 
 window.addEventListener('beforeunload', () => {
   requests.onRequest.removeListener(onRequest)
-  requests.unsubscribe()
+  requests.unlisten()
 })
 
-requests.subscribe()
+requests.listen()
