@@ -3,7 +3,7 @@ import * as React from 'react'
 import { useReducer } from 'react'
 
 const App = () => {
-  const [requests, pushRequest] = useReducer(
+  const [requests] = useReducer(
     (requests: string[], req: string) => [...requests, req],
     []
   )
