@@ -1,0 +1,13 @@
+name: Setup
+description: Setup node and install dependencies
+runs:
+  using: composite
+  steps:
+    - name: Setup node
+      uses: actions/setup-node@v2
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
+    - name: Install dependencies
+      shell: sh
+      run: npm install
