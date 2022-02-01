@@ -1,4 +1,4 @@
-import type * as api from '../api'
+import type * as api from '@api'
 
 const conn = chrome.runtime.connect({ name: 'devtools-page' })
 

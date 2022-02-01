@@ -1,4 +1,4 @@
-import type * as api from '../api'
+import type * as api from '@api'
 
 type Port = chrome.runtime.Port
 

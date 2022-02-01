@@ -4,7 +4,7 @@ import { useEffect, useReducer } from 'react'
 
 import * as Client from './client'
 
-import type * as api from '../api'
+import type * as api from '@api'
 
 const App = () => {
   const [requests, pushRequest] = useReducer(
