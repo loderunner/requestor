@@ -1,24 +1,13 @@
-import type { Protocol } from 'devtools-protocol'
-
-export type Request = Protocol.Network.Request
-
-interface Message {
-  type: string
-}
-
-interface RequestMessage extends Message {
-  type: 'request'
-  request: Request
-}
+import type * as api from '../api'
 
 const conn = chrome.runtime.connect({ name: 'devtools-page' })
 
-type RequestEventListener = (request: Request) => void
+type RequestEventListener = (request: api.Request) => void
 
 export const subscribe = (listener: RequestEventListener) => {
-  const onMessage = (message: Message) => {
+  const onMessage = (message: api.Message) => {
     if (message.type === 'request') {
-      const requestMessage = message as RequestMessage
+      const requestMessage = message as api.RequestMessage
       listener(requestMessage.request)
     }
   }

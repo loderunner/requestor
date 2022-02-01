@@ -1,7 +1,6 @@
-import type { Protocol } from 'devtools-protocol'
+import type * as api from '../api'
 
 type Port = chrome.runtime.Port
-type Request = Protocol.Network.Request
 
 const onMessage = (message: any) => console.log(message)
 
@@ -23,7 +22,7 @@ export const shutdown = () => {
   chrome.runtime.onConnect.removeListener(onConnect)
 }
 
-export const sendRequest = (request: Request) => {
+export const sendRequest = (request: api.Request) => {
   for (const conn of connections) {
     conn.postMessage({ type: 'request', request })
   }
