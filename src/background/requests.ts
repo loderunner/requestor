@@ -5,10 +5,12 @@ type Debuggee = chrome.debugger.Debuggee
 type RequestPausedEvent = Protocol.Fetch.RequestPausedEvent
 export type Request = Protocol.Network.Request
 
+const eventName = 'request'
+
 class RequestEvent extends Event {
   readonly request: Request
   constructor(request: Request) {
-    super('request')
+    super(eventName)
     this.request = request
   }
 }
@@ -76,10 +78,10 @@ export const subscribe = (listener: RequestEventListener) => {
     listener(requestEvent.request)
   }
 
-  requestEventTarget.addEventListener('request', callback)
+  requestEventTarget.addEventListener(eventName, callback)
 
   const unsubscribe = () => {
-    requestEventTarget.removeEventListener('request', callback)
+    requestEventTarget.removeEventListener(eventName, callback)
   }
 
   return unsubscribe
