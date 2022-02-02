@@ -23,7 +23,11 @@ export const shutdown = () => {
 }
 
 export const sendRequest = (request: api.Request) => {
-  const requestEvent: api.RequestEvent = { type: 'request', request }
+  const requestEvent: api.RequestEventMessage = {
+    type: 'event',
+    eventType: 'request',
+    request,
+  }
   for (const conn of connections) {
     conn.postMessage(requestEvent)
   }
