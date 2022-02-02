@@ -2,5 +2,9 @@
 export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  setupFilesAfterEnv: ['./jest.setup.ts'],
+  setupFilesAfterEnv: [
+    './node_modules/jest-enzyme/lib/index.js',
+    './__setups__/chrome.setup.ts',
+    './__setups__/enzyme.setup.ts',
+  ],
 }
