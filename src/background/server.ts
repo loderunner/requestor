@@ -2,7 +2,7 @@ import type * as api from '@api'
 
 type Port = chrome.runtime.Port
 
-const onMessage = (message: any) => console.log(message)
+const onMessage = (message: unknown) => console.log(message)
 
 const connections = new Set<Port>()
 const onConnect = (port: Port) => {
@@ -23,7 +23,8 @@ export const shutdown = () => {
 }
 
 export const sendRequest = (request: api.Request) => {
+  const requestEvent: api.RequestEvent = { type: 'request', request }
   for (const conn of connections) {
-    conn.postMessage({ type: 'request', request })
+    conn.postMessage(requestEvent)
   }
 }

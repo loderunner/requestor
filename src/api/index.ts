@@ -6,7 +6,8 @@ export interface Message {
   type: string
 }
 
-export interface RequestMessage extends Message {
-  type: 'request'
+export const RequestEventType = 'request'
+export interface RequestEvent extends Message {
+  type: typeof RequestEventType
   request: Request
 }

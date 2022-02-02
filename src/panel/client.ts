@@ -7,7 +7,7 @@ type RequestEventListener = (request: api.Request) => void
 export const subscribe = (listener: RequestEventListener) => {
   const onMessage = (message: api.Message) => {
     if (message.type === 'request') {
-      const requestMessage = message as api.RequestMessage
+      const requestMessage = message as api.RequestEvent
       listener(requestMessage.request)
     }
   }
