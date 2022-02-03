@@ -58,33 +58,48 @@ function toDebuggee(target: TargetInfo): Debuggee {
   return { targetId: target.id }
 }
 
-export async function createInterceptor(): Promise<InterceptorAPI> {
-  const debuggee = await Rx.firstValueFrom(
-    getTargets().pipe(Rx.map(findInspectedTarget), Rx.map(toDebuggee))
+export function createInterceptor(): InterceptorAPI {
+  const debuggee$ = getTargets().pipe(
+    Rx.map(findInspectedTarget),
+    Rx.map(toDebuggee),
+    Rx.shareReplay(1)
   )
 
   const continue$ = new Rx.Subject<{ requestId: RequestId; request: Request }>()
   const pause$ = new Rx.BehaviorSubject<boolean>(true)
 
-  const attach$ = attach(debuggee, '1.3').pipe(Rx.mapTo(null))
-  const detach$ = detach(debuggee).pipe(Rx.mapTo(null))
+  const attach$ = debuggee$.pipe(
+    Rx.switchMap((debuggee) => attach(debuggee, '1.3')),
+    Rx.mapTo(null)
+  )
 
-  const listen$ = Rx.merge(
-    pause$.pipe(
-      Rx.switchMap((pause) =>
-        pause
-          ? send(debuggee, 'Fetch.enable', {})
-          : send(debuggee, 'Fetch.disable', {})
-      ),
-      Rx.mapTo(null)
-    ),
-    continue$.pipe(
-      Rx.switchMap(({ requestId }) =>
-        send(debuggee, 'Fetch.continueRequest', { requestId })
-      ),
-      Rx.mapTo(null)
-    ),
-    debugger$.pipe(Rx.filter(([, method]) => method === 'Fetch.requestPaused'))
+  const detach$ = debuggee$.pipe(
+    Rx.switchMap((debuggee) => detach(debuggee)),
+    Rx.mapTo(null)
+  )
+
+  const listen$ = debuggee$.pipe(
+    Rx.switchMap((debuggee) =>
+      Rx.merge(
+        pause$.pipe(
+          Rx.switchMap((pause) =>
+            pause
+              ? send(debuggee, 'Fetch.enable', {})
+              : send(debuggee, 'Fetch.disable', {})
+          ),
+          Rx.mapTo(null)
+        ),
+        continue$.pipe(
+          Rx.switchMap(({ requestId }) =>
+            send(debuggee, 'Fetch.continueRequest', { requestId })
+          ),
+          Rx.mapTo(null)
+        ),
+        debugger$.pipe(
+          Rx.filter(([, method]) => method === 'Fetch.requestPaused')
+        )
+      )
+    )
   )
 
   const requests$ = Rx.concat(attach$, listen$, detach$)
