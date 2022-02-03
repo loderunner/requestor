@@ -3,5 +3,5 @@
 export default {
   preset: 'ts-jest',
   testEnvironment: 'jest-environment-jsdom',
-  setupFilesAfterEnv: ['jest-extended/all', './__setups__/chrome.setup.ts'],
+  setupFilesAfterEnv: ['jest-extended/all', './src/__setups__/chrome.setup.ts'],
 }
