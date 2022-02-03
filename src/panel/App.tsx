@@ -1,8 +1,8 @@
 import { Box, Stack } from '@mui/material'
 import * as React from 'react'
-import { useEffect, useReducer } from 'react'
+import { useCallback, useEffect, useReducer } from 'react'
 
-import * as Requests from './requests'
+import * as Requests from '../devtools/requests'
 
 const App = () => {
   const [requests, pushRequest] = useReducer(
@@ -10,30 +10,25 @@ const App = () => {
     []
   )
 
+  const cb = useCallback((message) => {
+    if (message.type === 'pausedRequest') {
+      pushRequest(message.payload.request)
+
+      chrome.runtime.sendMessage({
+        type: 'continue',
+        payload: {
+          requestId: message.payload.requestId,
+          request: message.payload.request,
+        },
+      })
+    }
+  }, [])
+
   useEffect(() => {
-    console.log('Init interceptor')
-    const interceptor = Requests.createInterceptor()
-    const { requests$, continue$ } = interceptor
-
-    const subscription = requests$.subscribe((args) => {
-      if (args === null) {
-        return
-      }
-
-      const [, , params] = args
-
-      console.log('====== INTERCEPTED ======', params)
-
-      if (params === undefined) {
-        return
-      }
-
-      pushRequest(params.request)
-
-      continue$.next({ requestId: params.requestId, request: params.request })
-    })
-
-    return subscription.unsubscribe
+    chrome.runtime.onMessage.addListener(cb)
+    return () => {
+      chrome.runtime.onMessage.removeListener(cb)
+    }
   }, [])
 
   return (
