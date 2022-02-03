@@ -18,6 +18,7 @@ export type InterceptorAPI = {
   requests$: Rx.Observable<PausedEvent | null>
   pause$: Rx.Subject<boolean>
   continue$: Rx.Subject<{ requestId: RequestId; request: Request }>
+  forceDetach$: Rx.Subject<boolean>
 }
 
 type DebuggerEventCallback = (
@@ -67,6 +68,7 @@ export function createInterceptor(): InterceptorAPI {
 
   const continue$ = new Rx.Subject<{ requestId: RequestId; request: Request }>()
   const pause$ = new Rx.BehaviorSubject<boolean>(true)
+  const forceDetach$ = new Rx.Subject<boolean>()
 
   const attach$ = debuggee$.pipe(
     Rx.switchMap((debuggee) => attach(debuggee, '1.3')),
@@ -95,6 +97,10 @@ export function createInterceptor(): InterceptorAPI {
           ),
           Rx.mapTo(null)
         ),
+        forceDetach$.pipe(
+          Rx.switchMap(() => detach$),
+          Rx.mapTo(null)
+        ),
         debugger$.pipe(
           Rx.filter(([, method]) => method === 'Fetch.requestPaused')
         )
@@ -102,11 +108,12 @@ export function createInterceptor(): InterceptorAPI {
     )
   )
 
-  const requests$ = Rx.concat(attach$, listen$, detach$)
+  const requests$ = Rx.concat(attach$, listen$)
 
   return {
     requests$,
     pause$,
     continue$,
+    forceDetach$,
   }
 }
