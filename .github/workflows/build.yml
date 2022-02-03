@@ -26,7 +26,7 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Run tests
-        run: npm test
+        run: npm test -- --ci
   build:
     runs-on: ubuntu-latest
     steps:
