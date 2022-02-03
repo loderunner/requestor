@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { cleanup, render } from '@testing-library/react'
+import { cleanup, render, waitFor } from '@testing-library/react'
 import React from 'react'
 import '@testing-library/jest-dom'
 
@@ -36,7 +36,7 @@ describe('[App]', () => {
     expect(unsubscribe).toBeCalled()
   })
 
-  it('should update after callback', () => {
+  it('should update after callback', async () => {
     let listener: Requests.RequestEventListener = () => {
       throw new Error('listener called before subscribe')
     }
@@ -53,7 +53,7 @@ describe('[App]', () => {
       method: 'GET',
       url: 'https://example.com',
     } as Requests.Request
-    listener(req)
+    await waitFor(() => listener(req))
 
     expect(container).not.toEqual(snapshot)
   })
