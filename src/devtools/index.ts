@@ -1,15 +1,28 @@
 import * as requests from './requests'
 
 chrome.devtools.panels.create('Interceptor', '', 'static/panel.html')
+;(async function () {
+  console.log('Init interceptor')
+  const interceptor = await requests.createInterceptor()
+  const { requests$, continue$ } = interceptor
 
-const unsubscribe = requests.subscribe((req: requests.Request) => {
-  const d = new Date()
-  console.log(`${d.toISOString()} - ${req.method} ${req.url}`)
-})
+  const subscription = requests$.subscribe((args) => {
+    if (args === null) {
+      return
+    }
 
-window.addEventListener('beforeunload', () => {
-  unsubscribe()
-  requests.unlisten()
-})
+    const [, , params] = args
 
-requests.listen()
+    console.log('====== INTERCEPTED ======', params)
+
+    if (params === undefined) {
+      return
+    }
+
+    continue$.next({ requestId: params.requestId, request: params.request })
+  })
+
+  window.addEventListener('beforeunload', () => {
+    subscription.unsubscribe()
+  })
+})()

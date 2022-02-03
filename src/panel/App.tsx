@@ -10,7 +10,9 @@ const App = () => {
 
   return (
     <>
-      <Box sx={{ typography: 'h1' }}>Hello World!</Box>
+      <Box sx={{ typography: 'h4' }}>
+        Undock devtools into separate window and press cmd+option+i
+      </Box>
       <Stack>
         {requests.map((req, i) => (
           <div key={i}>{req}</div>

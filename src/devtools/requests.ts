@@ -1,86 +1,97 @@
+import * as Rx from 'rxjs'
+
 import type Protocol from 'devtools-protocol'
 
 type TargetInfo = chrome.debugger.TargetInfo
-type Debuggee = chrome.debugger.Debuggee
-type RequestPausedEvent = Protocol.Fetch.RequestPausedEvent
+
+export type Debuggee = chrome.debugger.Debuggee
 export type Request = Protocol.Network.Request
-
-class RequestEvent extends Event {
-  readonly request: Request
-  constructor(request: Request) {
-    super('request')
-    this.request = request
-  }
-}
-
-type RequestEventListener = (req: Request) => void
-
-const requestEventTarget = new EventTarget()
-
-const onDebuggerEvent = (
-  target: Debuggee,
+export type RequestId = Protocol.Network.RequestId
+export type RequestPausedEvent = Protocol.Fetch.RequestPausedEvent
+export type PausedEvent = [
+  debuggee: Debuggee,
   method: string,
-  params?: unknown
-) => {
-  if (method === 'Fetch.requestPaused') {
-    const event: RequestPausedEvent = params as RequestPausedEvent
-    requestEventTarget.dispatchEvent(new RequestEvent(event.request))
-    chrome.debugger.sendCommand(target, 'Fetch.continueRequest', {
-      requestId: event.requestId,
-    })
-  }
+  params?: RequestPausedEvent | undefined
+]
+
+export type InterceptorAPI = {
+  requests$: Rx.Observable<PausedEvent | null>
+  pause$: Rx.Subject<boolean>
+  continue$: Rx.Subject<{ requestId: RequestId; request: Request }>
 }
 
-let debuggee: chrome.debugger.Debuggee | undefined
+type DebuggerEventCallback = (
+  source: Debuggee,
+  method: string,
+  params?: unknown | undefined
+) => void
 
-const getTargets = async () => {
-  return new Promise<TargetInfo[]>((resolve) =>
-    chrome.debugger.getTargets((targets) => resolve(targets))
-  )
+function addDebuggerListener(handler: DebuggerEventCallback) {
+  chrome.debugger.onEvent.addListener(handler)
 }
 
-export const listen = async () => {
-  if (debuggee !== undefined) {
-    return
-  }
+function removeDebuggerListener(handler: DebuggerEventCallback) {
+  chrome.debugger.onEvent.removeListener(handler)
+}
 
-  const targets = await getTargets()
+const debugger$ = Rx.fromEventPattern<PausedEvent>(
+  addDebuggerListener,
+  removeDebuggerListener
+)
+
+const getTargets = Rx.bindCallback(chrome.debugger.getTargets)
+const attach = Rx.bindCallback(chrome.debugger.attach)
+const detach = Rx.bindCallback(chrome.debugger.detach)
+const send = Rx.bindCallback(chrome.debugger.sendCommand)
+
+function findInspectedTarget(targets: TargetInfo[]) {
   const target = targets.find(
     (t) => t.tabId === chrome.devtools.inspectedWindow.tabId
   )
-
   if (target === undefined) {
     throw new Error("Could not subscribe to inspected window's requests")
   }
-
-  debuggee = { targetId: target.id }
-  await chrome.debugger.attach(debuggee, '1.3')
-  chrome.debugger.onEvent.addListener(onDebuggerEvent)
-  await chrome.debugger.sendCommand(debuggee, 'Fetch.enable', {})
+  return target
 }
 
-export const unlisten = () => {
-  if (debuggee === undefined) {
-    return
-  }
-
-  chrome.debugger.sendCommand(debuggee, 'Fetch.disable', {})
-  chrome.debugger.onEvent.removeListener(onDebuggerEvent)
-  chrome.debugger.detach(debuggee)
-  debuggee = undefined
+function toDebuggee(target: TargetInfo): Debuggee {
+  return { targetId: target.id }
 }
 
-export const subscribe = (listener: RequestEventListener) => {
-  const callback = (event: Event) => {
-    const requestEvent = event as RequestEvent
-    listener(requestEvent.request)
+export async function createInterceptor(): Promise<InterceptorAPI> {
+  const debuggee = await Rx.firstValueFrom(
+    getTargets().pipe(Rx.map(findInspectedTarget), Rx.map(toDebuggee))
+  )
+
+  const continue$ = new Rx.Subject<{ requestId: RequestId; request: Request }>()
+  const pause$ = new Rx.BehaviorSubject<boolean>(true)
+
+  const attach$ = attach(debuggee, '1.3').pipe(Rx.mapTo(null))
+  const detach$ = detach(debuggee).pipe(Rx.mapTo(null))
+
+  const listen$ = Rx.merge(
+    pause$.pipe(
+      Rx.switchMap((pause) =>
+        pause
+          ? send(debuggee, 'Fetch.enable', {})
+          : send(debuggee, 'Fetch.disable', {})
+      ),
+      Rx.mapTo(null)
+    ),
+    continue$.pipe(
+      Rx.switchMap(({ requestId }) =>
+        send(debuggee, 'Fetch.continueRequest', { requestId })
+      ),
+      Rx.mapTo(null)
+    ),
+    debugger$.pipe(Rx.filter(([, method]) => method === 'Fetch.requestPaused'))
+  )
+
+  const requests$ = Rx.concat(attach$, listen$, detach$)
+
+  return {
+    requests$,
+    pause$,
+    continue$,
   }
-
-  requestEventTarget.addEventListener('request', callback)
-
-  const unsubscribe = () => {
-    requestEventTarget.removeEventListener('request', callback)
-  }
-
-  return unsubscribe
 }
