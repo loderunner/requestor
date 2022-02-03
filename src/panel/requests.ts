@@ -13,7 +13,7 @@ class RequestEvent extends Event {
   }
 }
 
-type RequestEventListener = (req: Request) => void
+export type RequestEventListener = (req: Request) => void
 
 const requestEventTarget = new EventTarget()
 

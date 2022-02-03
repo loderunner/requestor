@@ -14,6 +14,9 @@ describe('[Requests]', () => {
   beforeEach(async () => {
     chrome.debugger.onEvent.clearListeners()
   })
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
 
   it('should crash without targets', async () => {
     chrome.debugger.getTargets.mockImplementation((callback) => callback([]))

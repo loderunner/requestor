@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { cleanup, render } from '@testing-library/react'
 import React from 'react'
 import '@testing-library/jest-dom'
@@ -9,7 +10,16 @@ jest.mock('../requests')
 const mockedRequests = Requests as jest.Mocked<typeof Requests>
 
 describe('[App]', () => {
-  afterEach(cleanup)
+  const unsubscribe = jest.fn()
+  beforeEach(() => {
+    mockedRequests.subscribe.mockImplementation(() => {
+      return unsubscribe
+    })
+  })
+  afterEach(() => {
+    cleanup()
+    jest.resetAllMocks()
+  })
 
   it('matches snapshot', () => {
     const { container } = render(<App />)
@@ -17,10 +27,6 @@ describe('[App]', () => {
   })
 
   it('should subscribe and unsubscribe', () => {
-    const unsubscribe = jest.fn()
-    mockedRequests.subscribe.mockImplementation(() => {
-      return unsubscribe
-    })
     const { unmount } = render(<App />)
 
     expect(mockedRequests.subscribe).toBeCalled()
@@ -28,5 +34,27 @@ describe('[App]', () => {
     unmount()
 
     expect(unsubscribe).toBeCalled()
+  })
+
+  it('should update after callback', () => {
+    let listener: Requests.RequestEventListener = () => {
+      throw new Error('listener called before subscribe')
+    }
+    mockedRequests.subscribe.mockImplementation((l) => {
+      listener = l
+      return unsubscribe
+    })
+
+    const { container } = render(<App />)
+
+    const snapshot = container.cloneNode(true)
+
+    const req = {
+      method: 'GET',
+      url: 'https://example.com',
+    } as Requests.Request
+    listener(req)
+
+    expect(container).not.toEqual(snapshot)
   })
 })
