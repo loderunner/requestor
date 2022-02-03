@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[App] matches snapshot 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-m25qqj"
+  >
+    Hello World!
+  </div>
+  <div
+    class="css-nen11g-MuiStack-root"
+  />
+</div>
+`;
