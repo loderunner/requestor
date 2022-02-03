@@ -1,6 +1,6 @@
 import { Box, Stack } from '@mui/material'
 import * as React from 'react'
-import { useEffect, useReducer } from 'react'
+import { useEffect, useLayoutEffect, useReducer, useState } from 'react'
 
 import * as Requests from './requests'
 
@@ -10,7 +10,7 @@ const App = () => {
     []
   )
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     Requests.listen()
     const unsubscribe = Requests.subscribe((req) => {
       pushRequest(req)
