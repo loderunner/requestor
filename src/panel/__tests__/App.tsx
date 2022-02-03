@@ -12,8 +12,8 @@ describe('[App]', () => {
   afterEach(cleanup)
 
   it('matches snapshot', () => {
-    const wrapper = render(<App />)
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<App />)
+    expect(container).toMatchSnapshot()
   })
 
   it('should subscribe and unsubscribe', () => {
@@ -21,11 +21,11 @@ describe('[App]', () => {
     mockedRequests.subscribe.mockImplementation(() => {
       return unsubscribe
     })
-    render(<App />)
+    const { unmount } = render(<App />)
 
     expect(mockedRequests.subscribe).toBeCalled()
 
-    cleanup()
+    unmount()
 
     expect(unsubscribe).toBeCalled()
   })
