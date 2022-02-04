@@ -8,10 +8,6 @@ const watch = ['y', 'yes', 'true', '1'].includes(
 esbuild
   .build({
     entryPoints: ['src/background/index.ts', 'src/panel/index.tsx'],
-    loader: {
-      '.woff': 'file',
-      '.woff2': 'file',
-    },
     bundle: true,
     minify: process.env.NODE_ENV !== 'production',
     sourcemap: process.env.NODE_ENV !== 'production' ? 'inline' : false,
