@@ -2,13 +2,24 @@
 
 exports[`[App] matches snapshot 1`] = `
 <div>
-  <div
-    class="MuiBox-root css-m25qqj"
-  >
+  <h1>
     Hello World!
+  </h1>
+  <div />
+</div>
+`;
+
+exports[`[App] should update after callback 1`] = `
+<div>
+  <h1>
+    Hello World!
+  </h1>
+  <div>
+    <div>
+      GET
+       
+      https://example.com
+    </div>
   </div>
-  <div
-    class="css-nen11g-MuiStack-root"
-  />
 </div>
 `;

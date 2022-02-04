@@ -1,4 +1,3 @@
-import { Box, Stack } from '@mui/material'
 import * as React from 'react'
 import { useLayoutEffect, useReducer } from 'react'
 
@@ -24,14 +23,14 @@ const App = () => {
 
   return (
     <>
-      <Box sx={{ typography: 'h1' }}>Hello World!</Box>
-      <Stack>
+      <h1>Hello World!</h1>
+      <div>
         {requests.map((request, i) => (
           <div key={i}>
             {request.method} {request.url}
           </div>
         ))}
-      </Stack>
+      </div>
     </>
   )
 }

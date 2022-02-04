@@ -56,5 +56,6 @@ describe('[App]', () => {
     await waitFor(() => listener(req))
 
     expect(container).not.toEqual(snapshot)
+    expect(container).toMatchSnapshot()
   })
 })
