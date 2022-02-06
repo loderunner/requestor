@@ -23,14 +23,14 @@ const App = () => {
 
   return (
     <>
-      <h1>Hello World!</h1>
-      <div>
+      <h1 className="text-3xl">Hello World!</h1>
+      <ul className="list-none">
         {requests.map((request, i) => (
-          <div key={i}>
+          <li key={i}>
             {request.method} {request.url}
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </>
   )
 }
