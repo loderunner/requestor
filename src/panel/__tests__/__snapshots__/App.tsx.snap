@@ -2,24 +2,32 @@
 
 exports[`[App] matches snapshot 1`] = `
 <div>
-  <h1>
+  <h1
+    class="text-3xl"
+  >
     Hello World!
   </h1>
-  <div />
+  <ul
+    class="list-none"
+  />
 </div>
 `;
 
 exports[`[App] should update after callback 1`] = `
 <div>
-  <h1>
+  <h1
+    class="text-3xl"
+  >
     Hello World!
   </h1>
-  <div>
-    <div>
+  <ul
+    class="list-none"
+  >
+    <li>
       GET
        
       https://example.com
-    </div>
-  </div>
+    </li>
+  </ul>
 </div>
 `;
