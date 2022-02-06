@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "prettier --check . && eslint --max-warnings=0 .",
     "test": "jest",
-    "build": "NODE_ENV=production node build.js",
+    "build": "rm -rf out && NODE_ENV=production node build.js",
     "watch": "NODE_ENV=development BUILD_WATCH=y node build.js"
   },
   "author": "",

@@ -1,9 +1,30 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
+const child_process = require('child_process')
+
 const esbuild = require('esbuild')
 
 const watch = ['y', 'yes', 'true', '1'].includes(
   process.env.BUILD_WATCH?.toLowerCase()
 )
+
+const tailwindCSSPlugin = {
+  name: 'tailwindcss',
+  setup: (build) => {
+    build.onEnd(() => {
+      const { stdout, stderr } = child_process.spawnSync('tailwindcss', [
+        '--input',
+        './static/main.css',
+        '--output',
+        './out/main.css',
+        '--color',
+        process.env.NODE_ENV !== 'production' ? '' : '--minify',
+      ])
+
+      process.stdout.write(stdout)
+      process.stderr.write(stderr)
+    })
+  },
+}
 
 esbuild
   .build({
@@ -11,6 +32,7 @@ esbuild
     bundle: true,
     minify: process.env.NODE_ENV !== 'production',
     sourcemap: process.env.NODE_ENV !== 'production' ? 'inline' : false,
+    plugins: [tailwindCSSPlugin],
     outdir: 'out',
 
     logLevel: 'info',
