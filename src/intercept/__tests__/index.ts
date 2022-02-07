@@ -1,6 +1,6 @@
 import { chrome } from 'jest-chrome'
 
-import * as Requests from '../requests'
+import * as Requests from '..'
 
 const target = {
   attached: false,

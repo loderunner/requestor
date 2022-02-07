@@ -1,4 +1,4 @@
-import type Protocol from 'devtools-protocol'
+import type { Protocol } from 'devtools-protocol'
 
 type TargetInfo = chrome.debugger.TargetInfo
 type Debuggee = chrome.debugger.Debuggee
