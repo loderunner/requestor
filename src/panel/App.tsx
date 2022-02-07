@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { useLayoutEffect, useReducer } from 'react'
 
+import Main from './Main'
 import * as Requests from './requests'
+import Sidebar from './Sidebar'
 
 const App = () => {
-  const [requests, pushRequest] = useReducer(
+  const [, pushRequest] = useReducer(
     (requests: Requests.Request[], req: Requests.Request) => [...requests, req],
     []
   )
@@ -22,16 +24,10 @@ const App = () => {
   }, [])
 
   return (
-    <>
-      <h1 className="text-3xl">Hello World!</h1>
-      <ul className="list-none">
-        {requests.map((request, i) => (
-          <li key={i}>
-            {request.method} {request.url}
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="flex justify-between">
+      <Sidebar className="" />
+      <Main />
+    </div>
   )
 }
 
