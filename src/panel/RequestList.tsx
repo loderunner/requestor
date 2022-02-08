@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useMemo } from 'react'
 
 import * as Intercept from '@/intercept'
 
@@ -10,7 +11,10 @@ interface Props {
 }
 
 const RequestList = ({ className, requests }: Props) => {
-  const items = requests.map((req, i) => <RequestItem key={i} request={req} />)
+  const items = useMemo(
+    () => requests.map((req, i) => <RequestItem key={i} request={req} />),
+    [requests]
+  )
   return <List className={className} header="Requests" items={items} />
 }
 
