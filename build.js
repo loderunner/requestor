@@ -17,7 +17,7 @@ const tailwindCSSPlugin = {
         '--output',
         './out/main.css',
         '--color',
-        process.env.NODE_ENV !== 'production' ? '' : '--minify',
+        process.env.NODE_ENV === 'production' ? '--minify' : '',
       ])
 
       process.stdout.write(stdout)
@@ -30,8 +30,8 @@ esbuild
   .build({
     entryPoints: ['src/background/index.ts', 'src/panel/index.tsx'],
     bundle: true,
-    minify: process.env.NODE_ENV !== 'production',
-    sourcemap: process.env.NODE_ENV !== 'production' ? 'inline' : false,
+    minify: process.env.NODE_ENV === 'production',
+    sourcemap: process.env.NODE_ENV === 'production' ? false : 'inline',
     plugins: [tailwindCSSPlugin],
     outdir: 'out',
 
