@@ -1,37 +1,40 @@
 import * as React from 'react'
 import { useLayoutEffect, useReducer } from 'react'
 
-import * as Requests from './requests'
+import * as Intercept from '@/intercept'
+
+import Main from './Main'
+import Sidebar from './Sidebar'
 
 const App = () => {
   const [requests, pushRequest] = useReducer(
-    (requests: Requests.Request[], req: Requests.Request) => [...requests, req],
+    (requests: Intercept.Request[], req: Intercept.Request) => [
+      ...requests,
+      req,
+    ],
     []
   )
 
   useLayoutEffect(() => {
-    Requests.listen()
-    const unsubscribe = Requests.subscribe((req) => {
+    Intercept.listen()
+    const unsubscribe = Intercept.subscribe((req) => {
       pushRequest(req)
     })
 
     return () => {
       unsubscribe()
-      Requests.unlisten()
+      Intercept.unlisten()
     }
   }, [])
 
   return (
-    <>
-      <h1 className="text-3xl">Hello World!</h1>
-      <ul className="list-none">
-        {requests.map((request, i) => (
-          <li key={i}>
-            {request.method} {request.url}
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="h-screen">
+      <Sidebar
+        className="fixed top-0 left-0 bottom-0 w-64"
+        requests={requests}
+      />
+      <Main className="ml-64" />
+    </div>
   )
 }
 
