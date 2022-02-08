@@ -4,6 +4,8 @@ interface Props {
   className?: string
 }
 
-const Main = ({ className }: Props) => <main className={className}></main>
+const Main = ({ className }: Props) => (
+  <main className={className}>Hello World!</main>
+)
 
 export default Main
