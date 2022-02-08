@@ -7,7 +7,7 @@ import * as Intercept from '@/intercept'
 
 import App from '../App'
 
-jest.mock('../intercept')
+jest.mock('@/intercept')
 const mockedRequests = Intercept as jest.Mocked<typeof Intercept>
 
 describe('[App]', () => {
