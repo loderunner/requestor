@@ -5,27 +5,37 @@ import * as Intercept from '@/intercept'
 
 import List from './components/List'
 
+interface ItemProps {
+  request: Intercept.Request
+}
+
+const Item = ({ request }: ItemProps) => (
+  <div className="select-none whitespace-nowrap overflow-hidden text-ellipsis">
+    <span>{request.url}</span>
+  </div>
+)
+
 interface Props {
   className?: string
   requests: Intercept.Request[]
 }
 
 const RequestList = ({ className, requests }: Props) => {
+  const header = useMemo(
+    () => (
+      <div className="p-1 flex justify-between font-bold select-none bg-slate-100">
+        Requests
+      </div>
+    ),
+    []
+  )
+
   const items = useMemo(
-    () => requests.map((req, i) => <RequestItem key={i} request={req} />),
+    () => requests.map((req, i) => <Item key={i} request={req} />),
     [requests]
   )
-  return <List className={className} header="Requests" items={items} />
-}
 
-interface ItemProps {
-  request: Intercept.Request
+  return <List className={className} header={header} items={items} />
 }
-
-const RequestItem = ({ request }: ItemProps) => (
-  <div className="whitespace-nowrap overflow-hidden text-ellipsis">
-    <span>{request.url}</span>
-  </div>
-)
 
 export default RequestList
