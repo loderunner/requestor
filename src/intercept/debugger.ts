@@ -27,20 +27,20 @@ const onDebuggerEvent = (
   if (method === 'Fetch.requestPaused') {
     const event: RequestPausedEvent = params as RequestPausedEvent
 
-    for (const i of intercepts) {
+    for (const inter of intercepts) {
       // Ignore disabled intercept
-      if (!i.enabled) {
+      if (!inter.enabled) {
         continue
       }
 
       // Ignore empty intercepts
-      if (i.pattern === undefined || i.pattern === '') {
+      if (inter.pattern === undefined || inter.pattern === '') {
         continue
       }
 
       let re: RegExp
       try {
-        re = new RegExp(i.pattern, 'i')
+        re = new RegExp(inter.pattern, 'i')
       } catch (error) {
         continue
       }
