@@ -40,7 +40,4 @@ export const Provider = ({ children }: Props) => {
   )
 }
 
-export const useIntercepts = () => {
-  const ctx = useContext(InterceptContext)
-  return ctx
-}
+export const useIntercepts = () => useContext(InterceptContext)
