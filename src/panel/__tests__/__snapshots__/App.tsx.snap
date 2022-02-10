@@ -70,7 +70,7 @@ exports[`[App] matches snapshot 1`] = `
           Welcome to Interceptor
         </div>
         <button
-          class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-white hover:opacity-75 active:opacity-100"
+          class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-sm text-white hover:opacity-75 active:opacity-100"
           title="Add intercept"
         >
           Add Intercept
@@ -159,7 +159,7 @@ exports[`[App] should update after callback 1`] = `
           Welcome to Interceptor
         </div>
         <button
-          class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-white hover:opacity-75 active:opacity-100"
+          class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-sm text-white hover:opacity-75 active:opacity-100"
           title="Add intercept"
         >
           Add Intercept
