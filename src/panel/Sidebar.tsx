@@ -10,7 +10,7 @@ interface Props {
   requests: Intercept.Request[]
 }
 
-const Sidebar = ({ className, requests }: Props) => (
+const Sidebar = ({ className = '', requests }: Props) => (
   <aside
     id="sidebar"
     className={`flex flex-col justify-between border-r border-slate-300 ${className}`}

@@ -5,7 +5,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   header?: React.ReactNode
 }
 
-const List = ({ className, header = '', items = [], ...props }: Props) => {
+const List = ({ className = '', header = '', items = [], ...props }: Props) => {
   if (typeof header === 'string') {
     header = <div className="font-bold bg-slate-100">{header}</div>
   }
