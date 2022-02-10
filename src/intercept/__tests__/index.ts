@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { chrome } from 'jest-chrome'
 
-import * as Requests from '..'
+import { RequestPausedEvent, listen, subscribe, unlisten } from '../debugger'
+import { addIntercept, intercepts, removeIntercept } from '../intercept'
 
-const target = {
+const target: chrome.debugger.TargetInfo = {
   attached: false,
   id: 'target',
   title: 'Title',
@@ -10,60 +12,100 @@ const target = {
   url: 'https://example.com',
 }
 
-describe('[Requests]', () => {
+const event: RequestPausedEvent = {
+  frameId: '1',
+  requestId: '1',
+  resourceType: 'Fetch',
+  request: {
+    headers: {},
+    initialPriority: 'Medium',
+    method: 'GET',
+    referrerPolicy: 'same-origin',
+    url: 'https://example.com',
+  },
+}
+
+describe('[intercept]', () => {
+  // unsubscribe callback placeholder - shared between tests
+  let unsubscribe = () => {}
+
+  // listener callback mock - shared between tests
+  const listener = jest.fn()
+
   beforeEach(async () => {
-    chrome.debugger.onEvent.clearListeners()
-  })
-  afterEach(() => {
     jest.resetAllMocks()
-  })
+    intercepts.splice(0, intercepts.length)
 
-  it('should crash without targets', async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) => callback([]))
-
-    await expect(Requests.listen()).rejects.toThrow()
-  })
-
-  it('should add a listener to debugger events', async () => {
     chrome.debugger.getTargets.mockImplementation((callback) =>
       callback([target])
     )
 
-    await Requests.listen()
-
-    expect(chrome.debugger.onEvent.hasListeners()).toBeTrue()
+    await listen()
+    unsubscribe = subscribe(listener)
   })
 
-  it('should remove the listener from debugger events', async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([target])
-    )
-
-    await Requests.listen()
-    await Requests.unlisten()
-
-    expect(chrome.debugger.onEvent.hasListeners()).toBeFalse()
+  afterEach(() => {
+    unsubscribe()
+    unlisten()
   })
 
-  it('should call subscribed callback', async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([target])
-    )
-
-    await Requests.listen()
-    const listener = jest.fn()
-    const unsubscribe = Requests.subscribe(listener)
-
+  it('should not call subscribed callback with no event', () => {
     expect(listener).not.toBeCalled()
+  })
 
-    const event = { request: 'toto' }
+  it('should not call subscribed callback without an intercept', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
       event
     )
-    expect(listener).toBeCalledWith('toto')
+    expect(listener).not.toBeCalled()
+    expect(chrome.debugger.sendCommand).toBeCalledWith(
+      { targetId: target.id },
+      'Fetch.continueRequest',
+      expect.anything()
+    )
+  })
 
-    unsubscribe()
+  it('should call subscribed callback with an intercept', () => {
+    addIntercept({ pattern: 'example.com', enabled: true })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).toBeCalledWith(event.request)
+  })
+
+  it('should not call subscribed callback with a disabled intercept', () => {
+    addIntercept({ pattern: 'example.com', enabled: false })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).not.toBeCalled()
+  })
+
+  it('should not call subscribed callback without a matching intercept', () => {
+    addIntercept({ pattern: 'eixample.com', enabled: true })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).not.toBeCalled()
+  })
+
+  it('should not call subscribed callback after removing intercept', () => {
+    const inter = { pattern: 'eixample.com', enabled: true }
+    addIntercept(inter)
+    removeIntercept(inter)
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).not.toBeCalled()
   })
 })

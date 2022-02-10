@@ -4,37 +4,54 @@ exports[`[App] matches snapshot 1`] = `
 <div>
   <div
     class="h-screen"
+    id="App"
   >
     <aside
       class="flex flex-col justify-between border-r border-slate-300 fixed top-0 left-0 bottom-0 w-64"
+      id="sidebar"
     >
       <div
         class="flex flex-col flex-initial overflow-y-auto"
+        id="request-list"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between font-bold select-none bg-slate-100"
         >
           Requests
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         />
       </div>
       <div
         class="flex flex-col flex-none overflow-y-auto"
+        id="intercept-list"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between select-none bg-slate-100"
         >
-          Intercepts
+          <span
+            class="font-bold"
+          >
+            Intercepts
+          </span>
+          <button
+            class="self-stretch"
+            title="Add intercept"
+          >
+            <svg
+              class="h-full w-auto"
+            />
+          </button>
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         />
       </div>
     </aside>
     <main
       class="ml-64"
+      id="Main"
     >
       Hello World!
     </main>
@@ -46,23 +63,26 @@ exports[`[App] should update after callback 1`] = `
 <div>
   <div
     class="h-screen"
+    id="App"
   >
     <aside
       class="flex flex-col justify-between border-r border-slate-300 fixed top-0 left-0 bottom-0 w-64"
+      id="sidebar"
     >
       <div
         class="flex flex-col flex-initial overflow-y-auto"
+        id="request-list"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between font-bold select-none bg-slate-100"
         >
           Requests
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         >
           <div
-            class="whitespace-nowrap overflow-hidden text-ellipsis"
+            class="select-none whitespace-nowrap overflow-hidden text-ellipsis"
           >
             <span>
               https://example.com
@@ -72,19 +92,33 @@ exports[`[App] should update after callback 1`] = `
       </div>
       <div
         class="flex flex-col flex-none overflow-y-auto"
+        id="intercept-list"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between select-none bg-slate-100"
         >
-          Intercepts
+          <span
+            class="font-bold"
+          >
+            Intercepts
+          </span>
+          <button
+            class="self-stretch"
+            title="Add intercept"
+          >
+            <svg
+              class="h-full w-auto"
+            />
+          </button>
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         />
       </div>
     </aside>
     <main
       class="ml-64"
+      id="Main"
     >
       Hello World!
     </main>

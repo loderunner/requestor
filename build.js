@@ -2,6 +2,7 @@
 const child_process = require('child_process')
 
 const esbuild = require('esbuild')
+const svgrPlugin = require('esbuild-plugin-svgr')
 
 const watch = ['y', 'yes', 'true', '1'].includes(
   process.env.BUILD_WATCH?.toLowerCase()
@@ -32,7 +33,7 @@ esbuild
     bundle: true,
     minify: process.env.NODE_ENV === 'production',
     sourcemap: process.env.NODE_ENV === 'production' ? false : 'inline',
-    plugins: [tailwindCSSPlugin],
+    plugins: [tailwindCSSPlugin, svgrPlugin({ icon: true })],
     outdir: 'out',
 
     logLevel: 'info',

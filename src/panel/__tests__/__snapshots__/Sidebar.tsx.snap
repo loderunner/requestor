@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Sidebar] should match empty snapshot 1`] = `
+<div>
+  <aside
+    class="flex flex-col justify-between border-r border-slate-300 undefined"
+    id="sidebar"
+  >
+    <div
+      class="flex flex-col flex-initial overflow-y-auto"
+      id="request-list"
+    >
+      <div
+        class="p-1 flex justify-between font-bold select-none bg-slate-100"
+      >
+        Requests
+      </div>
+      <div
+        class="flex flex-col overflow-y-auto"
+      />
+    </div>
+    <div
+      class="flex flex-col flex-none overflow-y-auto"
+      id="intercept-list"
+    >
+      <div
+        class="p-1 flex justify-between select-none bg-slate-100"
+      >
+        <span
+          class="font-bold"
+        >
+          Intercepts
+        </span>
+        <button
+          class="self-stretch"
+          title="Add intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+      <div
+        class="flex flex-col overflow-y-auto"
+      />
+    </div>
+  </aside>
+</div>
+`;
+
+exports[`[Sidebar] should match requestful snapshot 1`] = `
+<div>
+  <aside
+    class="flex flex-col justify-between border-r border-slate-300 undefined"
+    id="sidebar"
+  >
+    <div
+      class="flex flex-col flex-initial overflow-y-auto"
+      id="request-list"
+    >
+      <div
+        class="p-1 flex justify-between font-bold select-none bg-slate-100"
+      >
+        Requests
+      </div>
+      <div
+        class="flex flex-col overflow-y-auto"
+      >
+        <div
+          class="select-none whitespace-nowrap overflow-hidden text-ellipsis"
+        >
+          <span>
+            https://example.com
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col flex-none overflow-y-auto"
+      id="intercept-list"
+    >
+      <div
+        class="p-1 flex justify-between select-none bg-slate-100"
+      >
+        <span
+          class="font-bold"
+        >
+          Intercepts
+        </span>
+        <button
+          class="self-stretch"
+          title="Add intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+      <div
+        class="flex flex-col overflow-y-auto"
+      />
+    </div>
+  </aside>
+</div>
+`;

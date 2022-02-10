@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { cleanup, render, waitFor } from '@testing-library/react'
-import React from 'react'
+import * as React from 'react'
 import '@testing-library/jest-dom'
 
 import * as Intercept from '@/intercept'
@@ -8,12 +8,12 @@ import * as Intercept from '@/intercept'
 import App from '../App'
 
 jest.mock('@/intercept')
-const mockedRequests = Intercept as jest.Mocked<typeof Intercept>
+const mockedIntercept = Intercept as jest.Mocked<typeof Intercept>
 
 describe('[App]', () => {
   const unsubscribe = jest.fn()
   beforeEach(() => {
-    mockedRequests.subscribe.mockImplementation(() => {
+    mockedIntercept.subscribe.mockImplementation(() => {
       return unsubscribe
     })
   })
@@ -30,7 +30,7 @@ describe('[App]', () => {
   it('should subscribe and unsubscribe', () => {
     const { unmount } = render(<App />)
 
-    expect(mockedRequests.subscribe).toBeCalled()
+    expect(mockedIntercept.subscribe).toBeCalled()
 
     unmount()
 
@@ -41,7 +41,7 @@ describe('[App]', () => {
     let listener: Intercept.RequestEventListener = () => {
       throw new Error('listener called before subscribe')
     }
-    mockedRequests.subscribe.mockImplementation((l) => {
+    mockedIntercept.subscribe.mockImplementation((l) => {
       listener = l
       return unsubscribe
     })
