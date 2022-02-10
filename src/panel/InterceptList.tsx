@@ -11,20 +11,30 @@ interface ItemProps {
   onDelete: (inter: intercept.Intercept) => void
 }
 
-const Item = ({ inter, onDelete }: ItemProps) => (
-  <div className="p-1 flex justify-between select-none">
-    <span className="whitespace-nowrap overflow-hidden text-ellipsis">
-      {inter.pattern}
-    </span>
-    <button
-      className="self-stretch"
-      title="Delete intercept"
-      onClick={() => onDelete(inter)}
-    >
-      <ClearIcon className="h-full w-auto" />
-    </button>
-  </div>
-)
+const Item = ({ inter, onDelete }: ItemProps) => {
+  const [enabled, setEnabled] = useState(inter.enabled)
+  const onChange = () => {
+    inter.enabled = !inter.enabled
+    setEnabled(inter.enabled)
+  }
+  return (
+    <div className="p-1 w-full flex justify-between select-none">
+      <div className="flex items-center space-x-1 overflow-hidden">
+        <input type="checkbox" checked={enabled} onChange={onChange} />
+        <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+          {inter.pattern}
+        </span>
+      </div>
+      <button
+        className="self-stretch"
+        title="Delete intercept"
+        onClick={() => onDelete(inter)}
+      >
+        <ClearIcon className="h-full w-auto" />
+      </button>
+    </div>
+  )
+}
 
 interface Props {
   className?: string
@@ -56,7 +66,7 @@ const InterceptList = ({ className }: Props) => {
         <button
           className="self-stretch"
           title="Add intercept"
-          onClick={() => addIntercept('gql')}
+          onClick={() => addIntercept('')}
         >
           <PlusIcon className="h-full w-auto" />
         </button>
