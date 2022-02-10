@@ -28,7 +28,7 @@ const App = () => {
   }, [])
 
   return (
-    <div className="h-screen">
+    <div id="App" className="h-screen">
       <Sidebar
         className="fixed top-0 left-0 bottom-0 w-64"
         requests={requests}

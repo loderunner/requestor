@@ -35,7 +35,14 @@ const RequestList = ({ className, requests }: Props) => {
     [requests]
   )
 
-  return <List className={className} header={header} items={items} />
+  return (
+    <List
+      id="request-list"
+      className={className}
+      header={header}
+      items={items}
+    />
+  )
 }
 
 export default RequestList

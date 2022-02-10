@@ -5,7 +5,9 @@ interface Props {
 }
 
 const Main = ({ className }: Props) => (
-  <main className={className}>Hello World!</main>
+  <main id="Main" className={className}>
+    Hello World!
+  </main>
 )
 
 export default Main

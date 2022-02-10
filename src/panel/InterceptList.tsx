@@ -75,7 +75,14 @@ const InterceptList = ({ className }: Props) => {
     []
   )
 
-  return <List className={className} header={header} items={items}></List>
+  return (
+    <List
+      id="intercept-list"
+      className={className}
+      header={header}
+      items={items}
+    ></List>
+  )
 }
 
 export default InterceptList
