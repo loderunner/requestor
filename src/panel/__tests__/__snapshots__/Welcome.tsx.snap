@@ -3,23 +3,23 @@
 exports[`[Welcome] should click button 1`] = `
 <div>
   <div
-    class="container min-h-screen flex flex-col justify-center items-center bg-slate-50 "
+    class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
     id="welcome"
   >
     <div
       class="container max-w-xs"
     >
       <svg
-        class="w-full h-auto fill-indigo-700"
+        class="h-auto w-full fill-indigo-700"
       />
     </div>
     <div
-      class="font-bold text-4xl"
+      class="text-4xl font-bold"
     >
       Welcome to Interceptor
     </div>
     <button
-      class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-sm text-white hover:opacity-75 active:opacity-100"
+      class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
       title="Add intercept"
     >
       Add Intercept
@@ -31,23 +31,23 @@ exports[`[Welcome] should click button 1`] = `
 exports[`[Welcome] should match empty snapshot 1`] = `
 <div>
   <div
-    class="container min-h-screen flex flex-col justify-center items-center bg-slate-50 "
+    class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
     id="welcome"
   >
     <div
       class="container max-w-xs"
     >
       <svg
-        class="w-full h-auto fill-indigo-700"
+        class="h-auto w-full fill-indigo-700"
       />
     </div>
     <div
-      class="font-bold text-4xl"
+      class="text-4xl font-bold"
     >
       Welcome to Interceptor
     </div>
     <button
-      class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-sm text-white hover:opacity-75 active:opacity-100"
+      class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
       title="Add intercept"
     >
       Add Intercept

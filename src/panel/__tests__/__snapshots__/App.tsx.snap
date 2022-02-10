@@ -15,7 +15,7 @@ exports[`[App] matches snapshot 1`] = `
         id="request-list"
       >
         <div
-          class="p-1 flex justify-between font-bold select-none bg-slate-100"
+          class="flex select-none justify-between bg-slate-100 p-1 font-bold"
         >
           Requests
         </div>
@@ -28,7 +28,7 @@ exports[`[App] matches snapshot 1`] = `
         id="intercept-list"
       >
         <div
-          class="p-1 flex justify-between select-none bg-slate-100"
+          class="flex select-none justify-between bg-slate-100 p-1"
         >
           <span
             class="font-bold"
@@ -54,23 +54,23 @@ exports[`[App] matches snapshot 1`] = `
       id="main"
     >
       <div
-        class="container min-h-screen flex flex-col justify-center items-center bg-slate-50 "
+        class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
         id="welcome"
       >
         <div
           class="container max-w-xs"
         >
           <svg
-            class="w-full h-auto fill-indigo-700"
+            class="h-auto w-full fill-indigo-700"
           />
         </div>
         <div
-          class="font-bold text-4xl"
+          class="text-4xl font-bold"
         >
           Welcome to Interceptor
         </div>
         <button
-          class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-sm text-white hover:opacity-75 active:opacity-100"
+          class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
           title="Add intercept"
         >
           Add Intercept
@@ -96,7 +96,7 @@ exports[`[App] should update after callback 1`] = `
         id="request-list"
       >
         <div
-          class="p-1 flex justify-between font-bold select-none bg-slate-100"
+          class="flex select-none justify-between bg-slate-100 p-1 font-bold"
         >
           Requests
         </div>
@@ -104,7 +104,7 @@ exports[`[App] should update after callback 1`] = `
           class="flex flex-col overflow-y-auto"
         >
           <div
-            class="select-none whitespace-nowrap overflow-hidden text-ellipsis"
+            class="select-none overflow-hidden text-ellipsis whitespace-nowrap"
           >
             <span>
               https://example.com
@@ -117,7 +117,7 @@ exports[`[App] should update after callback 1`] = `
         id="intercept-list"
       >
         <div
-          class="p-1 flex justify-between select-none bg-slate-100"
+          class="flex select-none justify-between bg-slate-100 p-1"
         >
           <span
             class="font-bold"
@@ -143,23 +143,23 @@ exports[`[App] should update after callback 1`] = `
       id="main"
     >
       <div
-        class="container min-h-screen flex flex-col justify-center items-center bg-slate-50 "
+        class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
         id="welcome"
       >
         <div
           class="container max-w-xs"
         >
           <svg
-            class="w-full h-auto fill-indigo-700"
+            class="h-auto w-full fill-indigo-700"
           />
         </div>
         <div
-          class="font-bold text-4xl"
+          class="text-4xl font-bold"
         >
           Welcome to Interceptor
         </div>
         <button
-          class="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-sm text-white hover:opacity-75 active:opacity-100"
+          class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
           title="Add intercept"
         >
           Add Intercept

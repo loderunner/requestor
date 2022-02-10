@@ -7,7 +7,7 @@ exports[`[InterceptList] should match empty snapshot 1`] = `
     id="intercept-list"
   >
     <div
-      class="p-1 flex justify-between select-none bg-slate-100"
+      class="flex select-none justify-between bg-slate-100 p-1"
     >
       <span
         class="font-bold"
@@ -37,7 +37,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
     id="intercept-list"
   >
     <div
-      class="p-1 flex justify-between select-none bg-slate-100"
+      class="flex select-none justify-between bg-slate-100 p-1"
     >
       <span
         class="font-bold"
@@ -57,7 +57,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
       class="flex flex-col overflow-y-auto"
     >
       <div
-        class="p-1 w-full flex justify-between select-none"
+        class="flex w-full select-none justify-between p-1"
       >
         <div
           class="flex items-center space-x-1 overflow-hidden"
@@ -67,7 +67,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
             type="checkbox"
           />
           <span
-            class="whitespace-nowrap overflow-hidden text-ellipsis"
+            class="overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -91,7 +91,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 2`] = `
     id="intercept-list"
   >
     <div
-      class="p-1 flex justify-between select-none bg-slate-100"
+      class="flex select-none justify-between bg-slate-100 p-1"
     >
       <span
         class="font-bold"
