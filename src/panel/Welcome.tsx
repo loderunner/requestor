@@ -13,14 +13,14 @@ const Welcome = ({ className = '' }: Props) => {
   return (
     <div
       id="welcome"
-      className={`container min-h-screen flex flex-col justify-center items-center bg-slate-50 ${className}`}
+      className={`container flex min-h-screen flex-col items-center justify-center bg-slate-50 ${className}`}
     >
       <div className="container max-w-xs">
-        <LevelCrossing className="w-full h-auto fill-indigo-700" />
+        <LevelCrossing className="h-auto w-full fill-indigo-700" />
       </div>
-      <div className="font-bold text-4xl">Welcome to Interceptor</div>
+      <div className="text-4xl font-bold">Welcome to Interceptor</div>
       <button
-        className="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-sm text-white hover:opacity-75 active:opacity-100"
+        className="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
         title="Add intercept"
         onClick={() => addIntercept('')}
       >
