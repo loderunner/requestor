@@ -10,7 +10,7 @@ interface ItemProps {
 }
 
 const Item = ({ request }: ItemProps) => (
-  <div className="select-none whitespace-nowrap overflow-hidden text-ellipsis">
+  <div className="select-none overflow-hidden text-ellipsis whitespace-nowrap">
     <span>{request.url}</span>
   </div>
 )
@@ -23,7 +23,7 @@ interface Props {
 const RequestList = ({ className, requests }: Props) => {
   const header = useMemo(
     () => (
-      <div className="p-1 flex justify-between font-bold select-none bg-slate-100">
+      <div className="flex select-none justify-between bg-slate-100 p-1 font-bold">
         Requests
       </div>
     ),

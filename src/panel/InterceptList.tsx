@@ -19,10 +19,10 @@ const Item = ({ inter, onDelete }: ItemProps) => {
     setEnabled(inter.enabled)
   }
   return (
-    <div className="p-1 w-full flex justify-between select-none">
+    <div className="flex w-full select-none justify-between p-1">
       <div className="flex items-center space-x-1 overflow-hidden">
         <input type="checkbox" checked={enabled} onChange={onChange} />
-        <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+        <span className="overflow-hidden text-ellipsis whitespace-nowrap">
           {inter.pattern}
         </span>
       </div>
@@ -54,7 +54,7 @@ const InterceptList = ({ className }: Props) => {
 
   const header = useMemo(
     () => (
-      <div className="p-1 flex justify-between select-none bg-slate-100">
+      <div className="flex select-none justify-between bg-slate-100 p-1">
         <span className="font-bold">Intercepts</span>
         <button
           className="self-stretch"

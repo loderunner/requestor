@@ -7,7 +7,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const List = ({ className = '', header = '', items = [], ...props }: Props) => {
   if (typeof header === 'string') {
-    header = <div className="font-bold bg-slate-100">{header}</div>
+    header = <div className="bg-slate-100 font-bold">{header}</div>
   }
 
   return (
