@@ -3,7 +3,7 @@ import { cleanup, fireEvent, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import { Provider as InterceptProvider } from '@/intercept/react/intercept'
+import { Provider as InterceptProvider } from '@/interceptor/react/intercept'
 
 import InterceptList from '../InterceptList'
 

@@ -1,14 +1,14 @@
 import * as React from 'react'
 
-import * as Intercept from '@/intercept'
-import { Provider as InterceptProvider } from '@/intercept/react/intercept'
+import * as Interceptor from '@/interceptor'
+import { Provider as InterceptProvider } from '@/interceptor/react/intercept'
 
 import InterceptList from './InterceptList'
 import RequestList from './RequestList'
 
 interface Props {
   className?: string
-  requests: Intercept.Request[]
+  requests: Interceptor.Request[]
 }
 
 const Sidebar = ({ className = '', requests }: Props) => (

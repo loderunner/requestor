@@ -2,17 +2,17 @@ import * as React from 'react'
 import { useMemo, useState } from 'react'
 
 import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
-import * as intercept from '@/intercept'
+import * as Interceptor from '@/interceptor'
 import {
   Provider as InterceptProvider,
   useIntercepts,
-} from '@/intercept/react/intercept'
+} from '@/interceptor/react/intercept'
 
 import List from './components/List'
 
 interface ItemProps {
-  inter: intercept.Intercept
-  onDelete: (inter: intercept.Intercept) => void
+  inter: Interceptor.Intercept
+  onDelete: (inter: Interceptor.Intercept) => void
 }
 
 const Item = ({ inter, onDelete }: ItemProps) => {

@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { useLayoutEffect, useReducer } from 'react'
 
-import * as Intercept from '@/intercept'
+import * as Interceptor from '@/interceptor'
 
 import Main from './Main'
 import Sidebar from './Sidebar'
 
 const App = () => {
   const [requests, pushRequest] = useReducer(
-    (requests: Intercept.Request[], req: Intercept.Request) => [
+    (requests: Interceptor.Request[], req: Interceptor.Request) => [
       ...requests,
       req,
     ],
@@ -16,14 +16,14 @@ const App = () => {
   )
 
   useLayoutEffect(() => {
-    Intercept.listen()
-    const unsubscribe = Intercept.subscribe((req) => {
+    Interceptor.listen()
+    const unsubscribe = Interceptor.subscribe((req) => {
       pushRequest(req)
     })
 
     return () => {
       unsubscribe()
-      Intercept.unlisten()
+      Interceptor.unlisten()
     }
   }, [])
 
