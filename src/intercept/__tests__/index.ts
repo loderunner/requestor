@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { chrome } from 'jest-chrome'
 
-import {
-  RequestEventListener,
-  RequestPausedEvent,
-  listen,
-  subscribe,
-  unlisten,
-} from '../debugger'
+import { RequestPausedEvent, listen, subscribe, unlisten } from '../debugger'
 import { addIntercept, intercepts, removeIntercept } from '../intercept'
 
 const target: chrome.debugger.TargetInfo = {
