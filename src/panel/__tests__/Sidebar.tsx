@@ -3,12 +3,12 @@ import { cleanup, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import * as Intercept from '@/intercept'
+import * as Interceptor from '@/interceptor'
 
 import Sidebar from '../Sidebar'
 
 // mock request
-const request: Intercept.Request = {
+const request: Interceptor.Request = {
   headers: {},
   initialPriority: 'Medium',
   method: 'GET',

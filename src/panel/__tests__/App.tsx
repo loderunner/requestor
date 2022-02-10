@@ -3,12 +3,12 @@ import { cleanup, render, waitFor } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import * as Intercept from '@/intercept'
+import * as Interceptor from '@/interceptor'
 
 import App from '../App'
 
-jest.mock('@/intercept')
-const mockedIntercept = Intercept as jest.Mocked<typeof Intercept>
+jest.mock('@/interceptor')
+const mockedIntercept = Interceptor as jest.Mocked<typeof Interceptor>
 
 describe('[App]', () => {
   const unsubscribe = jest.fn()
@@ -38,7 +38,7 @@ describe('[App]', () => {
   })
 
   it('should update after callback', async () => {
-    let listener: Intercept.RequestEventListener = () => {
+    let listener: Interceptor.RequestEventListener = () => {
       throw new Error('listener called before subscribe')
     }
     mockedIntercept.subscribe.mockImplementation((l) => {
@@ -53,7 +53,7 @@ describe('[App]', () => {
     const req = {
       method: 'GET',
       url: 'https://example.com',
-    } as Intercept.Request
+    } as Interceptor.Request
     await waitFor(() => listener(req))
 
     expect(container).not.toEqual(snapshot)

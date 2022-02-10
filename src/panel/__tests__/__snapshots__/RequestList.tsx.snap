@@ -3,7 +3,7 @@
 exports[`[RequestList] should match empty snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col undefined"
+    class="flex flex-col "
     id="request-list"
   >
     <div
@@ -21,7 +21,7 @@ exports[`[RequestList] should match empty snapshot 1`] = `
 exports[`[RequestList] should match requestful snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col undefined"
+    class="flex flex-col "
     id="request-list"
   >
     <div
