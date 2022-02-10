@@ -14,7 +14,7 @@ const List = ({ className, header = '', items = [] }: Props) => {
   return (
     <div className={`flex flex-col ${className}`}>
       {header}
-      <div className="overflow-y-auto">{items}</div>
+      <div className="flex flex-col overflow-y-auto">{items}</div>
     </div>
   )
 }
