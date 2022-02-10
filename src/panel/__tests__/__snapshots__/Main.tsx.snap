@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Main] should match empty snapshot 1`] = `
+<div>
+  <main
+    id="Main"
+  >
+    Hello World!
+  </main>
+</div>
+`;
