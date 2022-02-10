@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 import * as Interceptor from '@/interceptor'
-import { InterceptProvider } from '@/interceptor/react'
 
 import InterceptList from './InterceptList'
 import RequestList from './RequestList'
@@ -18,9 +17,7 @@ const Sidebar = ({ className = '', requests }: Props) => (
   >
     <RequestList className="flex-initial overflow-y-auto" requests={requests} />
 
-    <InterceptProvider>
-      <InterceptList className="flex-none overflow-y-auto" />
-    </InterceptProvider>
+    <InterceptList className="flex-none overflow-y-auto" />
   </aside>
 )
 
