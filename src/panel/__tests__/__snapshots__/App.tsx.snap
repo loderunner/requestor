@@ -12,24 +12,36 @@ exports[`[App] matches snapshot 1`] = `
         class="flex flex-col flex-initial overflow-y-auto"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between font-bold select-none bg-slate-100"
         >
           Requests
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         />
       </div>
       <div
         class="flex flex-col flex-none overflow-y-auto"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between select-none bg-slate-100"
         >
-          Intercepts
+          <span
+            class="font-bold"
+          >
+            Intercepts
+          </span>
+          <button
+            class="self-stretch"
+            title="Add intercept"
+          >
+            <svg
+              class="h-full w-auto"
+            />
+          </button>
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         />
       </div>
     </aside>
@@ -54,15 +66,15 @@ exports[`[App] should update after callback 1`] = `
         class="flex flex-col flex-initial overflow-y-auto"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between font-bold select-none bg-slate-100"
         >
           Requests
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         >
           <div
-            class="whitespace-nowrap overflow-hidden text-ellipsis"
+            class="select-none whitespace-nowrap overflow-hidden text-ellipsis"
           >
             <span>
               https://example.com
@@ -74,12 +86,24 @@ exports[`[App] should update after callback 1`] = `
         class="flex flex-col flex-none overflow-y-auto"
       >
         <div
-          class="font-bold bg-slate-100"
+          class="p-1 flex justify-between select-none bg-slate-100"
         >
-          Intercepts
+          <span
+            class="font-bold"
+          >
+            Intercepts
+          </span>
+          <button
+            class="self-stretch"
+            title="Add intercept"
+          >
+            <svg
+              class="h-full w-auto"
+            />
+          </button>
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-auto"
         />
       </div>
     </aside>
