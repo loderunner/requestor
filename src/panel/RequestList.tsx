@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { useMemo } from 'react'
 
-import * as Intercept from '@/intercept'
+import * as Interceptor from '@/interceptor'
 
 import List from './components/List'
 
 interface ItemProps {
-  request: Intercept.Request
+  request: Interceptor.Request
 }
 
 const Item = ({ request }: ItemProps) => (
@@ -17,7 +17,7 @@ const Item = ({ request }: ItemProps) => (
 
 interface Props {
   className?: string
-  requests: Intercept.Request[]
+  requests: Interceptor.Request[]
 }
 
 const RequestList = ({ className, requests }: Props) => {
