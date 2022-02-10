@@ -3,10 +3,7 @@ import { useMemo, useState } from 'react'
 
 import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
 import * as Interceptor from '@/interceptor'
-import {
-  Provider as InterceptProvider,
-  useIntercepts,
-} from '@/interceptor/react/intercept'
+import { useIntercepts } from '@/interceptor/react'
 
 import List from './components/List'
 

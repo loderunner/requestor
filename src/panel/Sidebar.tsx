@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import * as Interceptor from '@/interceptor'
-import { Provider as InterceptProvider } from '@/interceptor/react/intercept'
+import { InterceptProvider } from '@/interceptor/react'
 
 import InterceptList from './InterceptList'
 import RequestList from './RequestList'
