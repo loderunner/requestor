@@ -3,7 +3,7 @@
 exports[`[Sidebar] should match empty snapshot 1`] = `
 <div>
   <aside
-    class="flex flex-col justify-between border-r border-slate-300 undefined"
+    class="flex flex-col justify-between border-r border-slate-300 "
     id="sidebar"
   >
     <div
@@ -51,7 +51,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
 exports[`[Sidebar] should match requestful snapshot 1`] = `
 <div>
   <aside
-    class="flex flex-col justify-between border-r border-slate-300 undefined"
+    class="flex flex-col justify-between border-r border-slate-300 "
     id="sidebar"
   >
     <div

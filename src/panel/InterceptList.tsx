@@ -3,6 +3,10 @@ import { useMemo, useState } from 'react'
 
 import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
 import * as intercept from '@/intercept'
+import {
+  Provider as InterceptProvider,
+  useIntercepts,
+} from '@/intercept/react/intercept'
 
 import List from './components/List'
 
@@ -41,15 +45,7 @@ interface Props {
 }
 
 const InterceptList = ({ className }: Props) => {
-  const [intercepts, setIntercepts] = useState([...intercept.intercepts])
-  const addIntercept = (pattern: string) => {
-    intercept.addIntercept({ pattern, enabled: true })
-    setIntercepts([...intercept.intercepts])
-  }
-  const removeIntercept = (inter: intercept.Intercept) => {
-    intercept.removeIntercept(inter)
-    setIntercepts([...intercept.intercepts])
-  }
+  const { intercepts, addIntercept, removeIntercept } = useIntercepts()
 
   const items = useMemo(
     () =>

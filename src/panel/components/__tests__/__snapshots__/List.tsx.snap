@@ -3,7 +3,7 @@
 exports[`[List] should match component header snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col undefined"
+    class="flex flex-col "
   >
     <div
       class="header"
@@ -20,7 +20,7 @@ exports[`[List] should match component header snapshot 1`] = `
 exports[`[List] should match empty snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col undefined"
+    class="flex flex-col "
   >
     <div
       class="font-bold bg-slate-100"
@@ -35,7 +35,7 @@ exports[`[List] should match empty snapshot 1`] = `
 exports[`[List] should match header + component items snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col undefined"
+    class="flex flex-col "
   >
     <div
       class="font-bold bg-slate-100"
@@ -62,7 +62,7 @@ exports[`[List] should match header + component items snapshot 1`] = `
 exports[`[List] should match header + string items snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col undefined"
+    class="flex flex-col "
   >
     <div
       class="font-bold bg-slate-100"
@@ -82,7 +82,7 @@ exports[`[List] should match header + string items snapshot 1`] = `
 exports[`[List] should match string header snapshot 1`] = `
 <div>
   <div
-    class="flex flex-col undefined"
+    class="flex flex-col "
   >
     <div
       class="font-bold bg-slate-100"

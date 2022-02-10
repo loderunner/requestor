@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import { chrome } from 'jest-chrome'
 
 import { RequestPausedEvent, listen, subscribe, unlisten } from '../debugger'

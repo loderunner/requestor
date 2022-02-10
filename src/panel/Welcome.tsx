@@ -16,7 +16,7 @@ const Welcome = ({ className = '' }: Props) => (
     </div>
     <div className="font-bold text-4xl">Welcome to Interceptor</div>
     <button
-      className="px-9 py-3 my-6 rounded font-semibold bg-blue-700 text-white hover:opacity-75 active:opacity-100"
+      className="px-9 py-3 my-6 rounded font-semibold bg-indigo-700 text-white hover:opacity-75 active:opacity-100"
       title="Add intercept"
     >
       Add Intercept
