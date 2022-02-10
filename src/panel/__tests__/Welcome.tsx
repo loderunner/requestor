@@ -16,10 +16,10 @@ describe('[Welcome]', () => {
   })
 
   it('should click button', () => {
-    const { getByRole } = render(<Welcome />)
+    const { container, getByRole } = render(<Welcome />)
     const button = getByRole('button', { name: 'Add intercept' })
     fireEvent.click(button)
 
-    expect.pass('TODO: do stuff on click')
+    expect(container).toMatchSnapshot()
   })
 })
