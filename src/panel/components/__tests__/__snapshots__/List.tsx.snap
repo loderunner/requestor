@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[List] should match component header snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+  >
+    <div
+      class="header"
+    >
+      Header Title
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    />
+  </div>
+</div>
+`;
+
+exports[`[List] should match empty snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+  >
+    <div
+      class="font-bold bg-slate-100"
+    />
+    <div
+      class="flex flex-col overflow-y-auto"
+    />
+  </div>
+</div>
+`;
+
+exports[`[List] should match header + component items snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+  >
+    <div
+      class="font-bold bg-slate-100"
+    >
+      Header title
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    >
+      <img
+        src="//image.png"
+      />
+      <label>
+        <input
+          type="checkbox"
+        />
+        Hello World
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[List] should match header + string items snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+  >
+    <div
+      class="font-bold bg-slate-100"
+    >
+      Header title
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    >
+      Hello
+      World
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[List] should match string header snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+  >
+    <div
+      class="font-bold bg-slate-100"
+    >
+      Header title
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    />
+  </div>
+</div>
+`;
