@@ -32,7 +32,10 @@ const event: RequestPausedEvent = {
 }
 
 describe('[intercept]', () => {
+  // unsubscribe callback placeholder - shared between tests
   let unsubscribe = () => {}
+
+  // listener callback mock - shared between tests
   const listener = jest.fn()
 
   beforeEach(async () => {

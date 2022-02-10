@@ -2,6 +2,7 @@ import { chrome } from 'jest-chrome'
 
 import { listen, unlisten } from '../debugger'
 
+// Mock debugger target from Chrome API
 const target: chrome.debugger.TargetInfo = {
   attached: false,
   id: 'target',
@@ -14,6 +15,7 @@ describe('[intercept.debugger]', () => {
   beforeEach(async () => {
     chrome.debugger.onEvent.clearListeners()
   })
+
   afterEach(() => {
     jest.resetAllMocks()
   })

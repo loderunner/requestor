@@ -2,6 +2,7 @@ import { addIntercept, intercepts, removeIntercept } from '../intercept'
 
 describe('[intercept.intercept]', () => {
   afterEach(() => {
+    // Empty intercepts array
     intercepts.splice(0, intercepts.length)
   })
 
