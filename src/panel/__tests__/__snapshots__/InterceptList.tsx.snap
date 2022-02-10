@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[InterceptList] should match empty snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+    id="intercept-list"
+  >
+    <div
+      class="p-1 flex justify-between select-none bg-slate-100"
+    >
+      <span
+        class="font-bold"
+      >
+        Intercepts
+      </span>
+      <button
+        class="self-stretch"
+        title="Add intercept"
+      >
+        <svg
+          class="h-full w-auto"
+        />
+      </button>
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    />
+  </div>
+</div>
+`;
+
+exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+    id="intercept-list"
+  >
+    <div
+      class="p-1 flex justify-between select-none bg-slate-100"
+    >
+      <span
+        class="font-bold"
+      >
+        Intercepts
+      </span>
+      <button
+        class="self-stretch"
+        title="Add intercept"
+      >
+        <svg
+          class="h-full w-auto"
+        />
+      </button>
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    >
+      <div
+        class="p-1 w-full flex justify-between select-none"
+      >
+        <div
+          class="flex items-center space-x-1 overflow-hidden"
+        >
+          <input
+            checked=""
+            type="checkbox"
+          />
+          <span
+            class="whitespace-nowrap overflow-hidden text-ellipsis"
+          />
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[InterceptList] should match snapshots after clicking buttons 2`] = `
+<div>
+  <div
+    class="flex flex-col undefined"
+    id="intercept-list"
+  >
+    <div
+      class="p-1 flex justify-between select-none bg-slate-100"
+    >
+      <span
+        class="font-bold"
+      >
+        Intercepts
+      </span>
+      <button
+        class="self-stretch"
+        title="Add intercept"
+      >
+        <svg
+          class="h-full w-auto"
+        />
+      </button>
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    />
+  </div>
+</div>
+`;
