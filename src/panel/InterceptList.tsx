@@ -1,18 +1,28 @@
 import * as React from 'react'
 import { useMemo, useState } from 'react'
 
-import { Plus as PlusIcon } from '@/icons'
+import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
 import * as intercept from '@/intercept'
 
 import List from './components/List'
 
 interface ItemProps {
   inter: intercept.Intercept
+  onDelete: (inter: intercept.Intercept) => void
 }
 
-const Item = ({ inter }: ItemProps) => (
-  <div className="select-none whitespace-nowrap overflow-hidden text-ellipsis">
-    <span>{inter.pattern}</span>
+const Item = ({ inter, onDelete }: ItemProps) => (
+  <div className="p-1 flex justify-between select-none">
+    <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+      {inter.pattern}
+    </span>
+    <button
+      className="self-stretch"
+      title="Delete intercept"
+      onClick={() => onDelete(inter)}
+    >
+      <ClearIcon className="h-full w-auto" />
+    </button>
   </div>
 )
 
@@ -26,9 +36,16 @@ const InterceptList = ({ className }: Props) => {
     intercept.addIntercept({ pattern, enabled: true })
     setIntercepts([...intercept.intercepts])
   }
+  const removeIntercept = (inter: intercept.Intercept) => {
+    intercept.removeIntercept(inter)
+    setIntercepts([...intercept.intercepts])
+  }
 
   const items = useMemo(
-    () => intercepts.map((inter, i) => <Item key={i} inter={inter} />),
+    () =>
+      intercepts.map((inter, i) => (
+        <Item key={i} inter={inter} onDelete={removeIntercept} />
+      )),
     [intercepts]
   )
 
