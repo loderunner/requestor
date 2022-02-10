@@ -15,7 +15,10 @@ const Welcome = ({ className = '' }: Props) => (
       <LevelCrossing className="w-full h-auto fill-indigo-700" />
     </div>
     <div className="font-bold text-4xl">Welcome to Interceptor</div>
-    <button className="px-9 py-3 my-6 rounded font-semibold bg-blue-700 text-white hover:opacity-75 active:opacity-100">
+    <button
+      className="px-9 py-3 my-6 rounded font-semibold bg-blue-700 text-white hover:opacity-75 active:opacity-100"
+      title="Add intercept"
+    >
       Add Intercept
     </button>
   </div>
