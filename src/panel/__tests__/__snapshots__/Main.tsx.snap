@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Main] should match empty snapshot 1`] = `
+exports[`[Main] should match empty selection snapshot 1`] = `
 <div>
   <main
     class="min-h-screen undefined"
@@ -20,7 +20,7 @@ exports[`[Main] should match empty snapshot 1`] = `
       <div
         class="text-4xl font-bold"
       >
-        Welcome to Interceptor
+        Interceptor
       </div>
       <button
         class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
@@ -29,6 +29,28 @@ exports[`[Main] should match empty snapshot 1`] = `
         Add Intercept
       </button>
     </div>
+  </main>
+</div>
+`;
+
+exports[`[Main] should match intercept selection snapshot 1`] = `
+<div>
+  <main
+    class="min-h-screen undefined"
+    id="main"
+  >
+    Not implemented yet
+  </main>
+</div>
+`;
+
+exports[`[Main] should match request selection snapshot 1`] = `
+<div>
+  <main
+    class="min-h-screen undefined"
+    id="main"
+  >
+    Not implemented yet
   </main>
 </div>
 `;
