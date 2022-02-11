@@ -1,5 +1,8 @@
 import * as React from 'react'
 
+import { Intercept } from '@/interceptor'
+
+import InterceptView from './InterceptView'
 import { useSelection } from './selection'
 import WelcomeView from './WelcomeView'
 
@@ -8,7 +11,7 @@ interface Props {
 }
 
 const Main = ({ className }: Props) => {
-  const [, , selectionType] = useSelection()
+  const [selection, , selectionType] = useSelection()
 
   let view
   switch (selectionType) {
@@ -16,7 +19,7 @@ const Main = ({ className }: Props) => {
       view = <WelcomeView />
       break
     case 'intercept':
-      view = 'Not implemented yet'
+      view = <InterceptView inter={selection as Intercept} />
       break
     case 'request':
       view = 'Not implemented yet'
