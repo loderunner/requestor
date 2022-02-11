@@ -53,6 +53,13 @@ const InterceptList = ({ className }: Props) => {
     setSelection(inter)
   }
 
+  const onDelete = (inter: Intercept) => {
+    if (selection === inter) {
+      setSelection(null)
+    }
+    removeIntercept(inter)
+  }
+
   const items = useMemo(
     () =>
       intercepts.map((inter, i) => (
@@ -60,7 +67,7 @@ const InterceptList = ({ className }: Props) => {
           key={i}
           className={inter === selection ? 'bg-blue-100' : ''}
           inter={inter}
-          onDelete={removeIntercept}
+          onDelete={onDelete}
         />
       )),
     [intercepts, selection]
