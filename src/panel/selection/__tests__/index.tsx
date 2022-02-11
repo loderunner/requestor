@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { cleanup, render } from '@testing-library/react'
+import { cleanup, render, waitFor } from '@testing-library/react'
 import * as React from 'react'
 
 import {
@@ -33,7 +33,7 @@ describe('[SelectionProvider]', () => {
     cleanup()
   })
 
-  it('should start with null selection', () => {
+  it('should start with null selection', async () => {
     render(
       <SelectionProvider>
         <Component />
@@ -44,7 +44,7 @@ describe('[SelectionProvider]', () => {
     expect(selection).toBeNull()
   })
 
-  it('should set intercept selection', () => {
+  it('should set intercept selection', async () => {
     let selection
     let setSelection: Function = () => {
       throw new Error('setSelection called before assignment')
@@ -61,39 +61,39 @@ describe('[SelectionProvider]', () => {
       </SelectionProvider>
     )
 
-    setSelection(inter)
+    await waitFor(() => setSelection(inter))
     expect(selectionType).toBe('intercept')
     expect(selection).toBe(inter)
   })
 
-  it('should set request selection', () => {
+  it('should set request selection', async () => {
     render(
       <SelectionProvider>
         <Component />
       </SelectionProvider>
     )
 
-    setSelection(request)
+    await waitFor(() => setSelection(request))
     expect(selectionType).toBe('request')
     expect(selection).toBe(request)
   })
 
-  it('should cycle between selections', () => {
+  it('should cycle between selections', async () => {
     render(
       <SelectionProvider>
         <Component />
       </SelectionProvider>
     )
 
-    setSelection(inter)
+    await waitFor(() => setSelection(inter))
     expect(selectionType).toBe('intercept')
     expect(selection).toBe(inter)
 
-    setSelection(request)
+    await waitFor(() => setSelection(request))
     expect(selectionType).toBe('request')
     expect(selection).toBe(request)
 
-    setSelection(null)
+    await waitFor(() => setSelection(null))
     expect(selectionType).toBe('null')
     expect(selection).toBeNull()
   })

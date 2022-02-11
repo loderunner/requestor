@@ -64,6 +64,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
         >
           <input
             checked=""
+            class="focus:ring-0"
             type="checkbox"
           />
           <span

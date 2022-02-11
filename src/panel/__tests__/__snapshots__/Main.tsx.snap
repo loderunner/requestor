@@ -39,7 +39,34 @@ exports[`[Main] should match intercept selection snapshot 1`] = `
     class="min-h-screen undefined"
     id="main"
   >
-    Not implemented yet
+    <div
+      class="max-w-5xl mx-24 mt-8 px-8 pt-2 grid grid-cols-1 gap-6"
+    >
+      <label
+        class="block"
+      >
+        <span
+          class="text-3xl font-bold"
+        >
+          Intercept
+        </span>
+      </label>
+      <label
+        class="block"
+      >
+        <span
+          class="text-sm text-gray-700"
+        >
+          If URL matches
+        </span>
+        <input
+          class="mt-1 block text-sm w-full"
+          placeholder="example.com"
+          type="text"
+          value="helloworld"
+        />
+      </label>
+    </div>
   </main>
 </div>
 `;
