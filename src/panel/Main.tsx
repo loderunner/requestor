@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { useSelection } from './selection'
-import Welcome from './Welcome'
+import WelcomeView from './WelcomeView'
 
 interface Props {
   className?: string
@@ -13,7 +13,7 @@ const Main = ({ className }: Props) => {
   let view
   switch (selectionType) {
     case 'null':
-      view = <Welcome />
+      view = <WelcomeView />
       break
     case 'intercept':
       view = 'Not implemented yet'

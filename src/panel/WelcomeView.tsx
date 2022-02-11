@@ -10,7 +10,7 @@ interface Props {
   className?: string
 }
 
-const Welcome = ({ className = '' }: Props) => {
+const WelcomeView = ({ className = '' }: Props) => {
   const [, setSelection] = useSelection()
   const { addIntercept } = useIntercepts()
 
@@ -22,7 +22,7 @@ const Welcome = ({ className = '' }: Props) => {
 
   return (
     <div
-      id="welcome"
+      id="welcome-view"
       className={`container flex min-h-screen flex-col items-center justify-center bg-slate-50 ${className}`}
     >
       <div className="container max-w-xs">
@@ -40,4 +40,4 @@ const Welcome = ({ className = '' }: Props) => {
   )
 }
 
-export default Welcome
+export default WelcomeView
