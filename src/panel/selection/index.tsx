@@ -29,10 +29,45 @@ export const Provider = ({ children }: Props) => {
   )
 }
 
-export const useSelection = () => {
+type SelectionType = 'null' | 'intercept' | 'request'
+
+type HookType = [
+  Selection,
+  React.Dispatch<React.SetStateAction<Selection>>,
+  SelectionType
+]
+
+const getType = (s: Selection): SelectionType => {
+  if (s === null) {
+    return 'null'
+  }
+  if (
+    'pattern' in s &&
+    typeof s.pattern === 'string' &&
+    'enabled' in s &&
+    typeof s.enabled === 'boolean'
+  ) {
+    return 'intercept'
+  }
+  if (
+    'headers' in s &&
+    typeof 'headers' === 'object' &&
+    'initialPriority' in s &&
+    typeof 'initialPriority' === 'string' &&
+    'method' in s &&
+    typeof 'method' === 'string' &&
+    'referrerPolicy' in s &&
+    typeof 'referrerPolicy' === 'string' &&
+    'url' in s &&
+    typeof 'url' === 'string'
+  ) {
+    return 'request'
+  }
+
+  throw new TypeError(`${typeof s} is not a Selection`)
+}
+
+export const useSelection = (): HookType => {
   const { selection, setSelection } = useContext(SelectionContext)
-  return [selection, setSelection] as [
-    Selection,
-    React.Dispatch<React.SetStateAction<Selection>>
-  ]
+  return [selection, setSelection, getType(selection)]
 }
