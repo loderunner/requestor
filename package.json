@@ -12,6 +12,7 @@
     "build": "rm -rf out && NODE_ENV=production node build.js"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.4.0",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.2",
     "@types/chrome": "0.0.178",

@@ -23,7 +23,12 @@ const Item = ({ className = '', inter, onDelete }: ItemProps) => {
   return (
     <div className={`flex w-full select-none justify-between p-1 ${className}`}>
       <div className="flex items-center space-x-1 overflow-hidden">
-        <input type="checkbox" checked={enabled} onChange={onChange} />
+        <input
+          type="checkbox"
+          className="focus:ring-0"
+          checked={enabled}
+          onChange={onChange}
+        />
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
           {inter.pattern}
         </span>
