@@ -1,5 +1,5 @@
 export interface Intercept {
-  pattern?: string
+  pattern: string
   enabled: boolean
 }
 
