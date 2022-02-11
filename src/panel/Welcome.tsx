@@ -1,14 +1,24 @@
 import * as React from 'react'
 
 import { LevelCrossing } from '@/icons'
+import { Intercept } from '@/interceptor'
 import { useIntercepts } from '@/interceptor/react'
+
+import { useSelection } from './selection'
 
 interface Props {
   className?: string
 }
 
 const Welcome = ({ className = '' }: Props) => {
+  const [, setSelection] = useSelection()
   const { addIntercept } = useIntercepts()
+
+  const onClick = () => {
+    const inter: Intercept = { pattern: '', enabled: true }
+    addIntercept(inter)
+    setSelection(inter)
+  }
 
   return (
     <div
@@ -22,7 +32,7 @@ const Welcome = ({ className = '' }: Props) => {
       <button
         className="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
         title="Add intercept"
-        onClick={() => addIntercept('')}
+        onClick={onClick}
       >
         Add Intercept
       </button>

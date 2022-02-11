@@ -5,7 +5,7 @@ import * as intercept from '../intercept'
 
 interface InterceptContextType {
   intercepts: intercept.Intercept[]
-  addIntercept: (pattern: string) => void
+  addIntercept: (inter: intercept.Intercept) => void
   removeIntercept: (inter: intercept.Intercept) => void
 }
 
@@ -22,8 +22,8 @@ interface Props {
 export const Provider = ({ children }: Props) => {
   const [intercepts, setIntercepts] = useState([...intercept.intercepts])
 
-  const addIntercept = (pattern: string) => {
-    intercept.addIntercept({ pattern, enabled: true })
+  const addIntercept = (inter: intercept.Intercept) => {
+    intercept.addIntercept(inter)
     setIntercepts([...intercept.intercepts])
   }
   const removeIntercept = (inter: intercept.Intercept) => {

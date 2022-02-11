@@ -2,24 +2,26 @@ import * as React from 'react'
 import { useMemo, useState } from 'react'
 
 import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
-import * as Interceptor from '@/interceptor'
+import { Intercept } from '@/interceptor'
 import { useIntercepts } from '@/interceptor/react'
 
 import List from './components/List'
+import { useSelection } from './selection'
 
 interface ItemProps {
-  inter: Interceptor.Intercept
-  onDelete: (inter: Interceptor.Intercept) => void
+  className?: string
+  inter: Intercept
+  onDelete: (inter: Intercept) => void
 }
 
-const Item = ({ inter, onDelete }: ItemProps) => {
+const Item = ({ className = '', inter, onDelete }: ItemProps) => {
   const [enabled, setEnabled] = useState(inter.enabled)
   const onChange = () => {
     inter.enabled = !inter.enabled
     setEnabled(inter.enabled)
   }
   return (
-    <div className="flex w-full select-none justify-between p-1">
+    <div className={`flex w-full select-none justify-between p-1 ${className}`}>
       <div className="flex items-center space-x-1 overflow-hidden">
         <input type="checkbox" checked={enabled} onChange={onChange} />
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
@@ -42,14 +44,26 @@ interface Props {
 }
 
 const InterceptList = ({ className }: Props) => {
+  const [selection, setSelection] = useSelection()
   const { intercepts, addIntercept, removeIntercept } = useIntercepts()
+
+  const onClick = () => {
+    const inter: Intercept = { pattern: '', enabled: true }
+    addIntercept(inter)
+    setSelection(inter)
+  }
 
   const items = useMemo(
     () =>
       intercepts.map((inter, i) => (
-        <Item key={i} inter={inter} onDelete={removeIntercept} />
+        <Item
+          key={i}
+          className={inter === selection ? 'bg-blue-100' : ''}
+          inter={inter}
+          onDelete={removeIntercept}
+        />
       )),
-    [intercepts]
+    [intercepts, selection]
   )
 
   const header = useMemo(
@@ -59,7 +73,7 @@ const InterceptList = ({ className }: Props) => {
         <button
           className="self-stretch"
           title="Add intercept"
-          onClick={() => addIntercept('')}
+          onClick={onClick}
         >
           <PlusIcon className="h-full w-auto" />
         </button>
