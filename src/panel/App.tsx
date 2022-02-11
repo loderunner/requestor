@@ -5,6 +5,7 @@ import * as Interceptor from '@/interceptor'
 import { InterceptProvider } from '@/interceptor/react'
 
 import Main from './Main'
+import { Provider as SelectionProvider } from './selection'
 import Sidebar from './Sidebar'
 
 const App = () => {
@@ -29,15 +30,17 @@ const App = () => {
   }, [])
 
   return (
-    <InterceptProvider>
-      <div id="App" className="h-screen">
-        <Sidebar
-          className="fixed top-0 left-0 bottom-0 w-64"
-          requests={requests}
-        />
-        <Main className="ml-64" />
-      </div>
-    </InterceptProvider>
+    <div id="App" className="h-screen">
+      <SelectionProvider>
+        <InterceptProvider>
+          <Sidebar
+            className="fixed top-0 left-0 bottom-0 w-64"
+            requests={requests}
+          />
+          <Main className="ml-64" />
+        </InterceptProvider>
+      </SelectionProvider>
+    </div>
   )
 }
 
