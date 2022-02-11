@@ -29,7 +29,7 @@ export const Provider = ({ children }: Props) => {
   )
 }
 
-type SelectionType = 'null' | 'intercept' | 'request'
+export type SelectionType = 'null' | 'intercept' | 'request'
 
 type HookType = [
   Selection,
@@ -51,15 +51,15 @@ const getType = (s: Selection): SelectionType => {
   }
   if (
     'headers' in s &&
-    typeof 'headers' === 'object' &&
+    typeof s.headers === 'object' &&
     'initialPriority' in s &&
-    typeof 'initialPriority' === 'string' &&
+    typeof s.initialPriority === 'string' &&
     'method' in s &&
-    typeof 'method' === 'string' &&
+    typeof s.method === 'string' &&
     'referrerPolicy' in s &&
-    typeof 'referrerPolicy' === 'string' &&
+    typeof s.referrerPolicy === 'string' &&
     'url' in s &&
-    typeof 'url' === 'string'
+    typeof s.url === 'string'
   ) {
     return 'request'
   }
