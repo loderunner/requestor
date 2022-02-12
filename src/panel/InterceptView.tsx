@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { useCallback } from 'react'
 
-import { Intercept } from '@/interceptor'
 import { useIntercept } from '@/interceptor/hooks'
 
 import { useSelection } from './selection'
+
+import type { Intercept } from '@/interceptor'
 
 interface Props {
   inter: Intercept
@@ -15,12 +16,23 @@ const InterceptView = ({ inter }: Props) => {
   const { intercept, setIntercept } = useIntercept(inter)
 
   const onToggleEnabled = useCallback(() => {
-    const inter = { ...intercept, enabled: !intercept.enabled }
+    const inter: Intercept = { ...intercept, enabled: !intercept.enabled }
     setIntercept(inter)
     if (selection === intercept) {
       setSelection(inter)
     }
   }, [selection, intercept])
+
+  const onChangePattern = useCallback(
+    (e) => {
+      const inter: Intercept = { ...intercept, pattern: e.target.value }
+      setIntercept(inter)
+      if (selection === intercept) {
+        setSelection(inter)
+      }
+    },
+    [selection, intercept]
+  )
 
   return (
     <div className="max-w-5xl mx-24 mt-8 px-8 pt-2 grid grid-cols-1 gap-6">
@@ -43,7 +55,7 @@ const InterceptView = ({ inter }: Props) => {
           className="mt-1 block text-sm w-full"
           placeholder="example.com"
           value={intercept.pattern}
-          onChange={() => {}}
+          onChange={onChangePattern}
         />
       </label>
     </div>

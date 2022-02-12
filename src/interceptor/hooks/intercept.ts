@@ -25,14 +25,19 @@ export const useIntercepts = () => {
 const interceptAtomsAtom = splitAtom(interceptsAtom)
 
 export const useIntercept = (inter: Interceptor.Intercept) => {
-  const [interceptAtoms, removeInterceptAtom] = useAtom(interceptAtomsAtom)
-  for (const a of interceptAtoms) {
-    const [intercept, setIntercept] = useAtom(a)
+  const { intercepts, removeIntercept } = useIntercepts()
+  for (const [i, intercept] of intercepts.entries()) {
     if (intercept === inter) {
+      const [interceptAtoms, removeInterceptAtom] = useAtom(interceptAtomsAtom)
+      const interceptAtom = interceptAtoms[i]
+      const [intercept, setIntercept] = useAtom(interceptAtom)
       return {
         intercept,
         setIntercept,
-        removeIntercept: () => removeInterceptAtom(a),
+        removeIntercept: () => {
+          removeInterceptAtom(interceptAtom)
+          removeIntercept(intercept)
+        },
       }
     }
   }
