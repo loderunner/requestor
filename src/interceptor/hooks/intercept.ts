@@ -2,7 +2,7 @@ import { atom, useAtom } from 'jotai'
 import { splitAtom } from 'jotai/utils'
 import { useCallback } from 'react'
 
-import * as Interceptor from '..'
+import * as Interceptor from '../intercept'
 
 const interceptsAtom = atom(Interceptor.intercepts as Interceptor.Intercept[])
 
@@ -25,18 +25,26 @@ export const useIntercepts = () => {
 const interceptAtomsAtom = splitAtom(interceptsAtom)
 
 export const useIntercept = (inter: Interceptor.Intercept) => {
-  const { intercepts, removeIntercept } = useIntercepts()
+  const [intercepts, setIntercepts] = useAtom(interceptsAtom)
   for (const [i, intercept] of intercepts.entries()) {
     if (intercept === inter) {
       const [interceptAtoms, removeInterceptAtom] = useAtom(interceptAtomsAtom)
       const interceptAtom = interceptAtoms[i]
-      const [intercept, setIntercept] = useAtom(interceptAtom)
+      const [intercept, updateIntercept] = useAtom(interceptAtom)
       return {
         intercept,
-        setIntercept,
+        setIntercept: (newInter: Interceptor.Intercept) => {
+          updateIntercept(newInter)
+          const j = Interceptor.intercepts.findIndex((old) => old === inter)
+          if (j !== -1) {
+            Interceptor.intercepts.splice(j, 1, newInter)
+          }
+          setIntercepts([...Interceptor.intercepts])
+        },
         removeIntercept: () => {
           removeInterceptAtom(interceptAtom)
-          removeIntercept(intercept)
+          Interceptor.removeIntercept(inter)
+          setIntercepts([...Interceptor.intercepts])
         },
       }
     }

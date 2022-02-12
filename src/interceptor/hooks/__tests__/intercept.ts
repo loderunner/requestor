@@ -1,9 +1,9 @@
 import { act, cleanup, renderHook } from '@testing-library/react-hooks'
 
 import { useIntercept, useIntercepts } from '..'
-import * as Interceptor from '../..'
+import * as Interceptor from '../../intercept'
 
-jest.mock('../..')
+jest.mock('../../intercept')
 const mockedInterceptor = Interceptor as jest.Mocked<typeof Interceptor>
 
 const mockInterceptor = () => {
