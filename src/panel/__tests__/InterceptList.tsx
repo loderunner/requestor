@@ -3,8 +3,6 @@ import { cleanup, fireEvent, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import { InterceptProvider } from '@/interceptor/react'
-
 import InterceptList from '../InterceptList'
 
 describe('[InterceptList]', () => {
@@ -19,11 +17,7 @@ describe('[InterceptList]', () => {
   })
 
   it('should match snapshots after clicking buttons', () => {
-    const { container, getByRole } = render(
-      <InterceptProvider>
-        <InterceptList />
-      </InterceptProvider>
-    )
+    const { container, getByRole } = render(<InterceptList />)
 
     const addButton = getByRole('button', { name: 'Add intercept' })
     fireEvent.click(addButton)

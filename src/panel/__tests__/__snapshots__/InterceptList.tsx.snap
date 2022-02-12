@@ -57,7 +57,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
       class="flex flex-col overflow-y-auto"
     >
       <div
-        class="flex w-full select-none justify-between p-1 "
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
       >
         <div
           class="flex items-center space-x-1 overflow-hidden"

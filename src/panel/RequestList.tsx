@@ -20,16 +20,13 @@ interface Props {
   requests: Interceptor.Request[]
 }
 
-const RequestList = ({ className, requests }: Props) => {
-  const header = useMemo(
-    () => (
-      <div className="flex select-none justify-between bg-slate-100 p-1 font-bold">
-        Requests
-      </div>
-    ),
-    []
-  )
+const header = (
+  <div className="flex select-none justify-between bg-slate-100 p-1 font-bold">
+    Requests
+  </div>
+)
 
+const RequestList = ({ className, requests }: Props) => {
   const items = useMemo(
     () => requests.map((req, i) => <Item key={i} request={req} />),
     [requests]

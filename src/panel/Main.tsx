@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { useMemo } from 'react'
 
 import { Intercept } from '@/interceptor'
 
@@ -11,20 +12,18 @@ interface Props {
 }
 
 const Main = ({ className }: Props) => {
-  const [selection, , selectionType] = useSelection()
+  const { selection, selectionType } = useSelection()
 
-  let view
-  switch (selectionType) {
-    case 'null':
-      view = <WelcomeView />
-      break
-    case 'intercept':
-      view = <InterceptView inter={selection as Intercept} />
-      break
-    case 'request':
-      view = 'Not implemented yet'
-      break
-  }
+  const view: React.ReactNode = useMemo(() => {
+    switch (selectionType) {
+      case 'null':
+        return <WelcomeView />
+      case 'intercept':
+        return <InterceptView inter={selection as Intercept} />
+      case 'request':
+        return 'Not implemented yet'
+    }
+  }, [selection])
 
   return (
     <main id="main" className={`min-h-screen ${className}`}>

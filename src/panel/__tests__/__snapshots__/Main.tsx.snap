@@ -54,6 +54,20 @@ exports[`[Main] should match intercept selection snapshot 1`] = `
       <label
         class="block"
       >
+        <input
+          checked=""
+          class="mt-1"
+          type="checkbox"
+        />
+        <span
+          class="ml-1 text-sm text-gray-700"
+        >
+          Enabled
+        </span>
+      </label>
+      <label
+        class="block"
+      >
         <span
           class="text-sm text-gray-700"
         >
