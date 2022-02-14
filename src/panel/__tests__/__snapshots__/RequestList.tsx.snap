@@ -36,6 +36,7 @@ exports[`[RequestList] should match requestful snapshot 1`] = `
     >
       <div
         class="select-none overflow-hidden text-ellipsis whitespace-nowrap"
+        role="listitem"
       >
         <span>
           https://example.com

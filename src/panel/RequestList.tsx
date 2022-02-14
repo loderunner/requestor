@@ -10,7 +10,10 @@ interface ItemProps {
 }
 
 const Item = ({ request }: ItemProps) => (
-  <div className="select-none overflow-hidden text-ellipsis whitespace-nowrap">
+  <div
+    className="select-none overflow-hidden text-ellipsis whitespace-nowrap"
+    role="listitem"
+  >
     <span>{request.url}</span>
   </div>
 )

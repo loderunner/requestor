@@ -108,6 +108,7 @@ exports[`[App] should update after callback 1`] = `
         >
           <div
             class="select-none overflow-hidden text-ellipsis whitespace-nowrap"
+            role="listitem"
           >
             <span>
               https://example.com
