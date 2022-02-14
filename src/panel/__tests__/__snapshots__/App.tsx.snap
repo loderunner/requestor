@@ -13,6 +13,7 @@ exports[`[App] matches snapshot 1`] = `
       <div
         class="flex flex-col flex-initial overflow-y-auto"
         id="request-list"
+        role="list"
       >
         <div
           class="flex select-none justify-between bg-slate-100 p-1 font-bold"
@@ -26,6 +27,7 @@ exports[`[App] matches snapshot 1`] = `
       <div
         class="flex flex-col flex-none overflow-y-auto"
         id="intercept-list"
+        role="list"
       >
         <div
           class="flex select-none justify-between bg-slate-100 p-1"
@@ -55,7 +57,7 @@ exports[`[App] matches snapshot 1`] = `
     >
       <div
         class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
-        id="welcome"
+        id="welcome-view"
       >
         <div
           class="container max-w-xs"
@@ -67,7 +69,7 @@ exports[`[App] matches snapshot 1`] = `
         <div
           class="text-4xl font-bold"
         >
-          Welcome to Interceptor
+          Interceptor
         </div>
         <button
           class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
@@ -94,6 +96,7 @@ exports[`[App] should update after callback 1`] = `
       <div
         class="flex flex-col flex-initial overflow-y-auto"
         id="request-list"
+        role="list"
       >
         <div
           class="flex select-none justify-between bg-slate-100 p-1 font-bold"
@@ -105,6 +108,7 @@ exports[`[App] should update after callback 1`] = `
         >
           <div
             class="select-none overflow-hidden text-ellipsis whitespace-nowrap"
+            role="listitem"
           >
             <span>
               https://example.com
@@ -115,6 +119,7 @@ exports[`[App] should update after callback 1`] = `
       <div
         class="flex flex-col flex-none overflow-y-auto"
         id="intercept-list"
+        role="list"
       >
         <div
           class="flex select-none justify-between bg-slate-100 p-1"
@@ -144,7 +149,7 @@ exports[`[App] should update after callback 1`] = `
     >
       <div
         class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
-        id="welcome"
+        id="welcome-view"
       >
         <div
           class="container max-w-xs"
@@ -156,7 +161,7 @@ exports[`[App] should update after callback 1`] = `
         <div
           class="text-4xl font-bold"
         >
-          Welcome to Interceptor
+          Interceptor
         </div>
         <button
           class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"

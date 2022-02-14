@@ -5,6 +5,7 @@ exports[`[InterceptList] should match empty snapshot 1`] = `
   <div
     class="flex flex-col "
     id="intercept-list"
+    role="list"
   >
     <div
       class="flex select-none justify-between bg-slate-100 p-1"
@@ -35,6 +36,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
   <div
     class="flex flex-col "
     id="intercept-list"
+    role="list"
   >
     <div
       class="flex select-none justify-between bg-slate-100 p-1"
@@ -57,13 +59,15 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
       class="flex flex-col overflow-y-auto"
     >
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
+        role="listitem"
       >
         <div
           class="flex items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
+            class="focus:ring-0"
             type="checkbox"
           />
           <span
@@ -89,6 +93,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 2`] = `
   <div
     class="flex flex-col "
     id="intercept-list"
+    role="list"
   >
     <div
       class="flex select-none justify-between bg-slate-100 p-1"
@@ -110,6 +115,252 @@ exports[`[InterceptList] should match snapshots after clicking buttons 2`] = `
     <div
       class="flex flex-col overflow-y-auto"
     />
+  </div>
+</div>
+`;
+
+exports[`[InterceptList] should match snapshots after clicking items 1`] = `
+<div>
+  <div
+    class="flex flex-col "
+    id="intercept-list"
+    role="list"
+  >
+    <div
+      class="flex select-none justify-between bg-slate-100 p-1"
+    >
+      <span
+        class="font-bold"
+      >
+        Intercepts
+      </span>
+      <button
+        class="self-stretch"
+        title="Add intercept"
+      >
+        <svg
+          class="h-full w-auto"
+        />
+      </button>
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    >
+      <div
+        class="flex w-full select-none justify-between p-1"
+        role="listitem"
+      >
+        <div
+          class="flex items-center space-x-1 overflow-hidden"
+        >
+          <input
+            checked=""
+            class="focus:ring-0"
+            type="checkbox"
+          />
+          <span
+            class="overflow-hidden text-ellipsis whitespace-nowrap"
+          />
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+      <div
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
+        role="listitem"
+      >
+        <div
+          class="flex items-center space-x-1 overflow-hidden"
+        >
+          <input
+            checked=""
+            class="focus:ring-0"
+            type="checkbox"
+          />
+          <span
+            class="overflow-hidden text-ellipsis whitespace-nowrap"
+          />
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[InterceptList] should match snapshots after clicking items 2`] = `
+<div>
+  <div
+    class="flex flex-col "
+    id="intercept-list"
+    role="list"
+  >
+    <div
+      class="flex select-none justify-between bg-slate-100 p-1"
+    >
+      <span
+        class="font-bold"
+      >
+        Intercepts
+      </span>
+      <button
+        class="self-stretch"
+        title="Add intercept"
+      >
+        <svg
+          class="h-full w-auto"
+        />
+      </button>
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    >
+      <div
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
+        role="listitem"
+      >
+        <div
+          class="flex items-center space-x-1 overflow-hidden"
+        >
+          <input
+            checked=""
+            class="focus:ring-0"
+            type="checkbox"
+          />
+          <span
+            class="overflow-hidden text-ellipsis whitespace-nowrap"
+          />
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+      <div
+        class="flex w-full select-none justify-between p-1"
+        role="listitem"
+      >
+        <div
+          class="flex items-center space-x-1 overflow-hidden"
+        >
+          <input
+            checked=""
+            class="focus:ring-0"
+            type="checkbox"
+          />
+          <span
+            class="overflow-hidden text-ellipsis whitespace-nowrap"
+          />
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[InterceptList] should match snapshots after clicking items 3`] = `
+<div>
+  <div
+    class="flex flex-col "
+    id="intercept-list"
+    role="list"
+  >
+    <div
+      class="flex select-none justify-between bg-slate-100 p-1"
+    >
+      <span
+        class="font-bold"
+      >
+        Intercepts
+      </span>
+      <button
+        class="self-stretch"
+        title="Add intercept"
+      >
+        <svg
+          class="h-full w-auto"
+        />
+      </button>
+    </div>
+    <div
+      class="flex flex-col overflow-y-auto"
+    >
+      <div
+        class="flex w-full select-none justify-between p-1"
+        role="listitem"
+      >
+        <div
+          class="flex items-center space-x-1 overflow-hidden"
+        >
+          <input
+            checked=""
+            class="focus:ring-0"
+            type="checkbox"
+          />
+          <span
+            class="overflow-hidden text-ellipsis whitespace-nowrap"
+          />
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+      <div
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
+        role="listitem"
+      >
+        <div
+          class="flex items-center space-x-1 overflow-hidden"
+        >
+          <input
+            checked=""
+            class="focus:ring-0"
+            type="checkbox"
+          />
+          <span
+            class="overflow-hidden text-ellipsis whitespace-nowrap"
+          />
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;

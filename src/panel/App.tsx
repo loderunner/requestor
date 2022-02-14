@@ -2,7 +2,6 @@ import * as React from 'react'
 import { useLayoutEffect, useReducer } from 'react'
 
 import * as Interceptor from '@/interceptor'
-import { InterceptProvider } from '@/interceptor/react'
 
 import Main from './Main'
 import Sidebar from './Sidebar'
@@ -29,15 +28,13 @@ const App = () => {
   }, [])
 
   return (
-    <InterceptProvider>
-      <div id="App" className="h-screen">
-        <Sidebar
-          className="fixed top-0 left-0 bottom-0 w-64"
-          requests={requests}
-        />
-        <Main className="ml-64" />
-      </div>
-    </InterceptProvider>
+    <div id="App" className="h-screen">
+      <Sidebar
+        className="fixed top-0 left-0 bottom-0 w-64"
+        requests={requests}
+      />
+      <Main className="ml-64" />
+    </div>
   )
 }
 

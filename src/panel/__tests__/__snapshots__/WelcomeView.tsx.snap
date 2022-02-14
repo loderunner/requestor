@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Welcome] should click button 1`] = `
+exports[`[WelcomeView] should click button 1`] = `
 <div>
   <div
     class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
-    id="welcome"
+    id="welcome-view"
   >
     <div
       class="container max-w-xs"
@@ -16,7 +16,7 @@ exports[`[Welcome] should click button 1`] = `
     <div
       class="text-4xl font-bold"
     >
-      Welcome to Interceptor
+      Interceptor
     </div>
     <button
       class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
@@ -28,11 +28,11 @@ exports[`[Welcome] should click button 1`] = `
 </div>
 `;
 
-exports[`[Welcome] should match empty snapshot 1`] = `
+exports[`[WelcomeView] should match empty snapshot 1`] = `
 <div>
   <div
     class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
-    id="welcome"
+    id="welcome-view"
   >
     <div
       class="container max-w-xs"
@@ -44,7 +44,7 @@ exports[`[Welcome] should match empty snapshot 1`] = `
     <div
       class="text-4xl font-bold"
     >
-      Welcome to Interceptor
+      Interceptor
     </div>
     <button
       class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"

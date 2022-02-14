@@ -11,7 +11,7 @@ const List = ({ className = '', header = '', items = [], ...props }: Props) => {
   }
 
   return (
-    <div className={`flex flex-col ${className}`} {...props}>
+    <div className={`flex flex-col ${className}`} role="list" {...props}>
       {header}
       <div className="flex flex-col overflow-y-auto">{items}</div>
     </div>

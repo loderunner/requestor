@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Main] should match empty snapshot 1`] = `
+exports[`[Main] should match empty selection snapshot 1`] = `
 <div>
   <main
     class="min-h-screen undefined"
@@ -8,7 +8,7 @@ exports[`[Main] should match empty snapshot 1`] = `
   >
     <div
       class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
-      id="welcome"
+      id="welcome-view"
     >
       <div
         class="container max-w-xs"
@@ -20,7 +20,7 @@ exports[`[Main] should match empty snapshot 1`] = `
       <div
         class="text-4xl font-bold"
       >
-        Welcome to Interceptor
+        Interceptor
       </div>
       <button
         class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
@@ -29,6 +29,69 @@ exports[`[Main] should match empty snapshot 1`] = `
         Add Intercept
       </button>
     </div>
+  </main>
+</div>
+`;
+
+exports[`[Main] should match intercept selection snapshot 1`] = `
+<div>
+  <main
+    class="min-h-screen undefined"
+    id="main"
+  >
+    <div
+      class="max-w-5xl mx-24 mt-8 px-8 pt-2 grid grid-cols-1 gap-6"
+    >
+      <label
+        class="block"
+      >
+        <span
+          class="text-3xl font-bold"
+        >
+          Intercept
+        </span>
+      </label>
+      <label
+        class="block"
+      >
+        <input
+          checked=""
+          class="mt-1"
+          type="checkbox"
+        />
+        <span
+          class="ml-1 text-sm text-gray-700"
+        >
+          Enabled
+        </span>
+      </label>
+      <label
+        class="block"
+      >
+        <span
+          class="text-sm text-gray-700"
+        >
+          If URL matches
+        </span>
+        <input
+          class="mt-1 block text-sm w-full"
+          placeholder="example.com"
+          type="text"
+          value="helloworld"
+        />
+      </label>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`[Main] should match request selection snapshot 1`] = `
+<div>
+  <main
+    class="min-h-screen undefined"
+    id="main"
+  >
+    Not implemented yet
   </main>
 </div>
 `;

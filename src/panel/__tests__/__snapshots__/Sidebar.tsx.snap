@@ -9,6 +9,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
     <div
       class="flex flex-col flex-initial overflow-y-auto"
       id="request-list"
+      role="list"
     >
       <div
         class="flex select-none justify-between bg-slate-100 p-1 font-bold"
@@ -22,6 +23,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
     <div
       class="flex flex-col flex-none overflow-y-auto"
       id="intercept-list"
+      role="list"
     >
       <div
         class="flex select-none justify-between bg-slate-100 p-1"
@@ -57,6 +59,7 @@ exports[`[Sidebar] should match requestful snapshot 1`] = `
     <div
       class="flex flex-col flex-initial overflow-y-auto"
       id="request-list"
+      role="list"
     >
       <div
         class="flex select-none justify-between bg-slate-100 p-1 font-bold"
@@ -68,6 +71,7 @@ exports[`[Sidebar] should match requestful snapshot 1`] = `
       >
         <div
           class="select-none overflow-hidden text-ellipsis whitespace-nowrap"
+          role="listitem"
         >
           <span>
             https://example.com
@@ -78,6 +82,7 @@ exports[`[Sidebar] should match requestful snapshot 1`] = `
     <div
       class="flex flex-col flex-none overflow-y-auto"
       id="intercept-list"
+      role="list"
     >
       <div
         class="flex select-none justify-between bg-slate-100 p-1"

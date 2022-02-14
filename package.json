@@ -2,24 +2,28 @@
   "name": "interceptor",
   "version": "1.0.0",
   "description": "A Chrome devtools extension for intercepting and modifying HTTP requests",
+  "license": "Apache-2.0",
+  "author": "",
   "main": "out/index.js",
   "scripts": {
     "lint": "prettier --check . && eslint --max-warnings=0 .",
     "test": "jest",
-    "build": "rm -rf out && NODE_ENV=production node build.js",
-    "watch": "NODE_ENV=development BUILD_WATCH=y node build.js"
+    "watch": "NODE_ENV=development BUILD_WATCH=y node build.js",
+    "build": "rm -rf out && NODE_ENV=production node build.js"
   },
-  "author": "",
-  "license": "Apache-2.0",
   "devDependencies": {
+    "@tailwindcss/forms": "^0.4.0",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.2",
+    "@testing-library/react-hooks": "^7.0.2",
     "@types/chrome": "0.0.178",
     "@types/jest": "27.4.0",
+    "@types/lodash": "^4.14.178",
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.12.0",
     "@typescript-eslint/parser": "5.12.0",
+    "devtools-protocol": "^0.0.970707",
     "esbuild": "0.14.21",
     "esbuild-plugin-svgr": "1.0.0",
     "eslint": "8.9.0",
@@ -30,15 +34,14 @@
     "jest": "27.5.1",
     "jest-chrome": "0.7.2",
     "jest-extended": "2.0.0",
+    "jotai": "^1.6.0",
+    "lodash": "^4.17.21",
     "prettier": "2.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "tailwindcss": "3.0.22",
     "ts-jest": "27.1.3",
     "ts-node": "10.5.0",
     "typescript": "4.5.5"
-  },
-  "dependencies": {
-    "devtools-protocol": "^0.0.970707",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
   }
 }
