@@ -39,7 +39,7 @@ export const useIntercept = (id: string) => {
       const [intercept, setIntercept] = useAtom(interceptAtom)
       return {
         intercept: intercept as Readonly<Intercept>,
-        setIntercept: (newInter: Omit<Intercept, 'id'>) => {
+        setIntercept: (newInter: Partial<Intercept>) => {
           const inter = Interceptor.updateIntercept(id, newInter)
           if (inter === undefined) {
             throw new Error(`intercept '${id}' not found`)
