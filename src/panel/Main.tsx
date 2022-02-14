@@ -18,8 +18,13 @@ const Main = ({ className }: Props) => {
     switch (selectionType) {
       case 'null':
         return <WelcomeView />
-      case 'intercept':
-        return <InterceptView inter={selection as Intercept} />
+      case 'intercept': {
+        const inter: Intercept = selection as Intercept
+        if (inter.id === undefined) {
+          throw new Error('missing intercept id')
+        }
+        return <InterceptView interceptId={inter.id} />
+      }
       case 'request':
         return 'Not implemented yet'
     }

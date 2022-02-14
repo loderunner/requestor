@@ -13,7 +13,7 @@ import type { Intercept, Request } from '@/interceptor'
 jest.mock('../selection')
 const mockedSelection = selection as jest.Mocked<typeof selection>
 
-const inter: Intercept = { pattern: 'helloworld', enabled: true }
+const inter: Intercept = { id: 'inter', pattern: 'helloworld', enabled: true }
 const request: Request = {
   headers: {},
   initialPriority: 'Medium',

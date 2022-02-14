@@ -2,53 +2,77 @@ import * as React from 'react'
 import { useCallback, useMemo } from 'react'
 
 import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
-import { Intercept } from '@/interceptor'
 import { useIntercept, useIntercepts } from '@/interceptor/hooks'
 
 import List from './components/List'
 import { useSelection } from './selection'
 
+import type { Intercept } from '@/interceptor'
+import type { SyntheticEvent } from 'react'
+
 interface ItemProps {
-  className?: string
-  inter: Intercept
+  interceptId?: string
+  onDelete: (inter: Intercept) => void
 }
 
-const Item = ({ className = '', inter }: ItemProps) => {
-  const { selection, setSelection } = useSelection()
-  const { intercept, setIntercept, removeIntercept } = useIntercept(inter)
+const Item = ({ interceptId, onDelete }: ItemProps) => {
+  if (interceptId === undefined) {
+    throw new Error('missing intercept id')
+  }
+
+  const { selection, setSelection, selectionType } = useSelection()
+  const { intercept, setIntercept } = useIntercept(interceptId)
 
   const onToggleEnabled = useCallback(() => {
-    const inter = { ...intercept, enabled: !intercept.enabled }
-    setIntercept(inter)
-    if (intercept === selection) {
-      setSelection(inter)
-    }
-  }, [intercept, selection])
+    setIntercept({ ...intercept, enabled: !intercept.enabled })
+  }, [intercept])
 
-  const onDelete = useCallback(() => {
-    if (intercept === selection) {
-      setSelection(null)
+  const onClickDelete = useCallback(
+    (e: SyntheticEvent) => {
+      e.stopPropagation()
+      onDelete(intercept)
+    },
+    [intercept, onDelete]
+  )
+
+  const onSelect = useCallback(
+    (e: SyntheticEvent) => {
+      e.stopPropagation()
+      setSelection({ ...intercept })
+    },
+    [intercept]
+  )
+
+  const className = useMemo(() => {
+    let className = 'flex w-full select-none justify-between p-1'
+    if (selectionType !== 'intercept') {
+      return className
     }
-    removeIntercept()
-  }, [intercept, selection])
+    const s = selection as Intercept
+    if (s.id === intercept.id) {
+      className += ' bg-blue-100'
+    }
+    return className
+  }, [selection, intercept])
 
   return (
-    <div className={`flex w-full select-none justify-between p-1 ${className}`}>
+    <div className={className} onClick={onSelect}>
       <div className="flex items-center space-x-1 overflow-hidden">
         <input
           type="checkbox"
           className="focus:ring-0"
           checked={intercept.enabled}
+          onClick={(e) => e.stopPropagation()}
           onChange={onToggleEnabled}
         />
         <span className="overflow-hidden text-ellipsis whitespace-nowrap">
-          {inter.pattern}
+          {intercept.pattern}
         </span>
       </div>
       <button
         className="self-stretch"
         title="Delete intercept"
-        onClick={onDelete}
+        onClick={onClickDelete}
       >
         <ClearIcon className="h-full w-auto" />
       </button>
@@ -61,25 +85,44 @@ interface Props {
 }
 
 const InterceptList = ({ className }: Props) => {
-  const { selection, setSelection } = useSelection()
-  const { intercepts, addIntercept } = useIntercepts()
+  const { selection, setSelection, selectionType } = useSelection()
+  const { intercepts, addIntercept, removeIntercept } = useIntercepts()
 
-  const onClick = useCallback(() => {
-    const inter: Intercept = { pattern: '', enabled: true }
-    addIntercept(inter)
-    setSelection(inter)
-  }, [])
+  const onDeleteIntercept = useCallback(
+    (inter: Intercept) => {
+      if (inter.id === undefined) {
+        throw new Error('missing intercept id')
+      }
+      if (selectionType === 'intercept') {
+        const s = selection as Intercept
+        if (s.id === inter.id) {
+          setSelection(null)
+        }
+      }
+      removeIntercept(inter.id)
+    },
+    [selection]
+  )
 
   const items = useMemo(
     () =>
-      intercepts.map((inter, i) => (
+      intercepts.map((inter) => (
         <Item
-          key={i}
-          className={inter === selection ? 'bg-blue-100' : ''}
-          inter={inter}
+          key={inter.id}
+          interceptId={inter.id}
+          onDelete={onDeleteIntercept}
         />
       )),
     [intercepts, selection]
+  )
+
+  const onAddIntercept = useCallback(
+    (e: SyntheticEvent) => {
+      e.stopPropagation()
+      const inter = addIntercept({ pattern: '', enabled: true })
+      setSelection({ ...inter })
+    },
+    [intercepts]
   )
 
   const header = useMemo(
@@ -89,7 +132,7 @@ const InterceptList = ({ className }: Props) => {
         <button
           className="self-stretch"
           title="Add intercept"
-          onClick={onClick}
+          onClick={onAddIntercept}
         >
           <PlusIcon className="h-full w-auto" />
         </button>

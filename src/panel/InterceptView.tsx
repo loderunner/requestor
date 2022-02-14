@@ -3,35 +3,22 @@ import { useCallback } from 'react'
 
 import { useIntercept } from '@/interceptor/hooks'
 
-import { useSelection } from './selection'
-
-import type { Intercept } from '@/interceptor'
-
 interface Props {
-  inter: Intercept
+  interceptId: string
 }
 
-const InterceptView = ({ inter }: Props) => {
-  const { selection, setSelection } = useSelection()
-  const { intercept, setIntercept } = useIntercept(inter)
+const InterceptView = ({ interceptId }: Props) => {
+  const { intercept, setIntercept } = useIntercept(interceptId)
 
   const onToggleEnabled = useCallback(() => {
-    const inter: Intercept = { ...intercept, enabled: !intercept.enabled }
-    setIntercept(inter)
-    if (selection === intercept) {
-      setSelection(inter)
-    }
-  }, [selection, intercept])
+    setIntercept({ ...intercept, enabled: !intercept.enabled })
+  }, [intercept])
 
   const onChangePattern = useCallback(
     (e) => {
-      const inter: Intercept = { ...intercept, pattern: e.target.value }
-      setIntercept(inter)
-      if (selection === intercept) {
-        setSelection(inter)
-      }
+      setIntercept({ ...intercept, pattern: e.target.value })
     },
-    [selection, intercept]
+    [intercept]
   )
 
   return (

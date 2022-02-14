@@ -97,9 +97,8 @@ describe('[intercept]', () => {
   })
 
   it('should not call subscribed callback after removing intercept', () => {
-    const inter = { pattern: 'eixample.com', enabled: true }
-    addIntercept(inter)
-    removeIntercept(inter)
+    const inter = addIntercept({ pattern: 'eixample.com', enabled: true })
+    removeIntercept(inter.id as string)
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',

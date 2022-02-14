@@ -1,50 +1,50 @@
-import { atom, useAtom } from 'jotai'
+import { atom, useAtom, useAtomValue } from 'jotai'
 import { splitAtom } from 'jotai/utils'
 import { useCallback } from 'react'
 
 import * as Interceptor from '../intercept'
 
-const interceptsAtom = atom(Interceptor.intercepts as Interceptor.Intercept[])
+import type { Intercept } from '../intercept'
+
+const interceptsAtom = atom([...Interceptor.intercepts])
 
 export const useIntercepts = () => {
   const [intercepts, setIntercepts] = useAtom(interceptsAtom)
 
-  const addIntercept = useCallback((inter: Interceptor.Intercept) => {
-    Interceptor.addIntercept(inter)
+  const addIntercept = useCallback((inter: Intercept): Intercept => {
+    const ret = Interceptor.addIntercept(inter)
+    setIntercepts([...Interceptor.intercepts])
+    return ret
+  }, [])
+
+  const removeIntercept = useCallback((id: string) => {
+    Interceptor.removeIntercept(id)
     setIntercepts([...Interceptor.intercepts])
   }, [])
 
-  const removeIntercept = useCallback((inter: Interceptor.Intercept) => {
-    Interceptor.removeIntercept(inter)
-    setIntercepts([...Interceptor.intercepts])
-  }, [])
-
-  return { intercepts, addIntercept, removeIntercept }
+  return {
+    intercepts: intercepts as ReadonlyArray<Readonly<Intercept>>,
+    addIntercept,
+    removeIntercept,
+  }
 }
 
 const interceptAtomsAtom = splitAtom(interceptsAtom)
 
-export const useIntercept = (inter: Interceptor.Intercept) => {
-  const [intercepts, setIntercepts] = useAtom(interceptsAtom)
-  for (const [i, intercept] of intercepts.entries()) {
-    if (intercept === inter) {
-      const [interceptAtoms, removeInterceptAtom] = useAtom(interceptAtomsAtom)
+export const useIntercept = (id: string) => {
+  for (const [i, inter] of Interceptor.intercepts.entries()) {
+    if (inter.id === id) {
+      const interceptAtoms = useAtomValue(interceptAtomsAtom)
       const interceptAtom = interceptAtoms[i]
-      const [intercept, updateIntercept] = useAtom(interceptAtom)
+      const [intercept, setIntercept] = useAtom(interceptAtom)
       return {
-        intercept,
-        setIntercept: (newInter: Interceptor.Intercept) => {
-          updateIntercept(newInter)
-          const j = Interceptor.intercepts.findIndex((old) => old === inter)
-          if (j !== -1) {
-            Interceptor.intercepts.splice(j, 1, newInter)
+        intercept: intercept as Readonly<Intercept>,
+        setIntercept: (newInter: Omit<Intercept, 'id'>) => {
+          const inter = Interceptor.updateIntercept(id, newInter)
+          if (inter === undefined) {
+            throw new Error(`intercept '${id}' not found`)
           }
-          setIntercepts([...Interceptor.intercepts])
-        },
-        removeIntercept: () => {
-          removeInterceptAtom(interceptAtom)
-          Interceptor.removeIntercept(inter)
-          setIntercepts([...Interceptor.intercepts])
+          setIntercept({ ...inter })
         },
       }
     }

@@ -1,16 +1,36 @@
 export interface Intercept {
+  id?: string
   pattern: string
   enabled: boolean
 }
 
 export const intercepts: Intercept[] = []
+let id = 0
 
-export const addIntercept = (intercept: Intercept) => {
-  intercepts.push(intercept)
+export const addIntercept = (inter: Intercept): Readonly<Intercept> => {
+  const newInter: Intercept = { ...inter, id: `intercept-${id++}` }
+  intercepts.push(newInter)
+  return newInter
 }
 
-export const removeIntercept = (intercept: Intercept) => {
-  const i = intercepts.indexOf(intercept)
+export const getIntercept = (id: string): Readonly<Intercept> | undefined => {
+  return intercepts.find((inter) => inter.id === id)
+}
+
+export const updateIntercept = (
+  id: string,
+  inter: Partial<Intercept>
+): Readonly<Intercept> | undefined => {
+  const current = intercepts.find((i) => i.id === id)
+  if (current !== undefined) {
+    current.pattern = inter.pattern ?? current.pattern
+    current.enabled = inter.enabled ?? current.enabled
+  }
+  return current
+}
+
+export const removeIntercept = (id: string): void => {
+  const i = intercepts.findIndex((inter) => inter.id === id)
   if (i !== -1) {
     intercepts.splice(i, 1)
   }

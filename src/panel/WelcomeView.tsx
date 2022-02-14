@@ -2,7 +2,6 @@ import * as React from 'react'
 import { useCallback } from 'react'
 
 import { LevelCrossing } from '@/icons'
-import { Intercept } from '@/interceptor'
 import { useIntercepts } from '@/interceptor/hooks'
 
 import { useSelection } from './selection'
@@ -16,9 +15,8 @@ const WelcomeView = ({ className = '' }: Props) => {
   const { addIntercept } = useIntercepts()
 
   const onClick = useCallback(() => {
-    const inter: Intercept = { pattern: '', enabled: true }
-    addIntercept(inter)
-    setSelection(inter)
+    const inter = addIntercept({ pattern: '', enabled: true })
+    setSelection({ ...inter })
   }, [])
 
   return (
