@@ -21,10 +21,10 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
   }
 
   const { selection, setSelection, selectionType } = useSelection()
-  const { intercept, setIntercept } = useIntercept(interceptId)
+  const { intercept, updateIntercept } = useIntercept(interceptId)
 
   const onToggleEnabled = useCallback(() => {
-    setIntercept({ ...intercept, enabled: !intercept.enabled })
+    updateIntercept({ ...intercept, enabled: !intercept.enabled })
   }, [intercept])
 
   const onClickDelete = useCallback(

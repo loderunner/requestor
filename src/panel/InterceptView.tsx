@@ -9,18 +9,18 @@ interface Props {
 }
 
 const InterceptView = ({ interceptId }: Props) => {
-  const { intercept, setIntercept } = useIntercept(interceptId)
-  const debouncedSetIntercept = debounce(setIntercept, 500)
+  const { intercept, updateIntercept } = useIntercept(interceptId)
+  const debouncedUpdateIntercept = debounce(updateIntercept, 500)
   const [pattern, setPattern] = useState(intercept.pattern)
 
   const onToggleEnabled = useCallback(() => {
-    setIntercept({ enabled: !intercept.enabled })
+    updateIntercept({ enabled: !intercept.enabled })
   }, [intercept])
 
   const onChangePattern = useCallback(
     (e) => {
       setPattern(e.target.value)
-      debouncedSetIntercept({ pattern: e.target.value })
+      debouncedUpdateIntercept({ pattern: e.target.value })
     },
     [intercept]
   )

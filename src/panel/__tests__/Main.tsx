@@ -33,7 +33,7 @@ mockedInterceptorHooks.useIntercepts.mockImplementation(() => ({
 }))
 mockedInterceptorHooks.useIntercept.mockImplementation(() => ({
   intercept: inter,
-  setIntercept: jest.fn(),
+  updateIntercept: jest.fn(),
   removeIntercept: jest.fn(),
 }))
 

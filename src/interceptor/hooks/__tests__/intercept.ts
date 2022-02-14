@@ -119,7 +119,7 @@ describe('[InterceptHooks.useIntercept]', () => {
     const { result } = renderHook(() => useIntercept(i.id as string))
 
     const inter2 = { pattern: 'helloworld', enabled: false }
-    act(() => result.current.setIntercept(inter2))
+    act(() => result.current.updateIntercept(inter2))
 
     expect(interceptsResult.current.intercepts).toBeArrayOfSize(1)
     expect(mockedInterceptor.updateIntercept).toHaveBeenCalledWith(
