@@ -56,7 +56,7 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
   }, [selection, intercept])
 
   return (
-    <div className={className} onClick={onSelect}>
+    <div className={className} role="listitem" onClick={onSelect}>
       <div className="flex items-center space-x-1 overflow-hidden">
         <input
           type="checkbox"
