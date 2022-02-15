@@ -1,8 +1,10 @@
 import { debounce } from 'lodash'
 import * as React from 'react'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useIntercept } from '@/interceptor/hooks'
+
+import type { ChangeEvent } from 'react'
 
 interface Props {
   interceptId: string
@@ -13,12 +15,14 @@ const InterceptView = ({ interceptId }: Props) => {
   const debouncedUpdateIntercept = debounce(updateIntercept, 500)
   const [pattern, setPattern] = useState(intercept.pattern)
 
+  useEffect(() => setPattern(intercept.pattern), [intercept])
+
   const onToggleEnabled = useCallback(() => {
     updateIntercept({ enabled: !intercept.enabled })
   }, [intercept])
 
   const onChangePattern = useCallback(
-    (e) => {
+    (e: ChangeEvent<HTMLInputElement>) => {
       setPattern(e.target.value)
       debouncedUpdateIntercept({ pattern: e.target.value })
     },

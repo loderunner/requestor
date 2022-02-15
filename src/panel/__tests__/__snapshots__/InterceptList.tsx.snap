@@ -71,7 +71,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
             type="checkbox"
           />
           <span
-            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+            class="w-full bg-red-100 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -159,7 +159,7 @@ exports[`[InterceptList] should match snapshots after clicking items 1`] = `
             type="checkbox"
           />
           <span
-            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+            class="w-full bg-red-100 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -184,7 +184,7 @@ exports[`[InterceptList] should match snapshots after clicking items 1`] = `
             type="checkbox"
           />
           <span
-            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+            class="w-full bg-red-100 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -241,7 +241,7 @@ exports[`[InterceptList] should match snapshots after clicking items 2`] = `
             type="checkbox"
           />
           <span
-            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+            class="w-full bg-red-100 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -266,7 +266,7 @@ exports[`[InterceptList] should match snapshots after clicking items 2`] = `
             type="checkbox"
           />
           <span
-            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+            class="w-full bg-red-100 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -323,7 +323,7 @@ exports[`[InterceptList] should match snapshots after clicking items 3`] = `
             type="checkbox"
           />
           <span
-            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+            class="w-full bg-red-100 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -348,7 +348,7 @@ exports[`[InterceptList] should match snapshots after clicking items 3`] = `
             type="checkbox"
           />
           <span
-            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+            class="w-full bg-red-100 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button

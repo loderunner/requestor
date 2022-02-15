@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
 import { useIntercept, useIntercepts } from '@/interceptor/hooks'
@@ -8,7 +8,7 @@ import List from './components/List'
 import { useSelection } from './selection'
 
 import type { Intercept } from '@/interceptor'
-import type { SyntheticEvent } from 'react'
+import type { ChangeEvent, KeyboardEvent, SyntheticEvent } from 'react'
 
 interface ItemProps {
   interceptId?: string
@@ -24,7 +24,7 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
   const { intercept, updateIntercept } = useIntercept(interceptId)
 
   const onToggleEnabled = useCallback(() => {
-    updateIntercept({ ...intercept, enabled: !intercept.enabled })
+    updateIntercept({ enabled: !intercept.enabled })
   }, [intercept])
 
   const onClickDelete = useCallback(
@@ -42,6 +42,68 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
     },
     [intercept]
   )
+
+  const patternEditRef = useRef<HTMLInputElement>(null)
+  const patternLabelRef = useRef<HTMLSpanElement>(null)
+
+  const [editing, setEditing] = useState(false)
+
+  const PatternEdit = useCallback(() => {
+    const [pattern, setPattern] = useState(intercept.pattern)
+    const onChangePattern = useCallback(
+      (e: ChangeEvent<HTMLInputElement>) => setPattern(e.target.value),
+      []
+    )
+    const onConfirm = useCallback(() => {
+      setEditing(false)
+      updateIntercept({ pattern })
+    }, [pattern])
+
+    const onKeyDown = useCallback(
+      (e: KeyboardEvent<HTMLInputElement>) => {
+        switch (e.key) {
+          case 'Enter':
+            setEditing(false)
+            updateIntercept({ pattern })
+            break
+          case 'Escape':
+            setEditing(false)
+            break
+          default:
+            return
+        }
+        e.stopPropagation()
+      },
+      [pattern]
+    )
+
+    useEffect(() => {
+      patternEditRef.current?.focus()
+      patternEditRef.current?.select()
+    }, [])
+
+    return (
+      <input
+        className="fixed"
+        type="text"
+        value={pattern}
+        onChange={onChangePattern}
+        onBlur={onConfirm}
+        onKeyDown={onKeyDown}
+        ref={patternEditRef}
+      />
+    )
+  }, [intercept])
+
+  const onDoubleClickPattern = useCallback((e: SyntheticEvent) => {
+    e.stopPropagation()
+    setEditing((e) => !e)
+    patternEditRef.current?.classList.add(
+      `left-[${patternLabelRef.current?.clientLeft}px]`,
+      `top-[${patternLabelRef.current?.clientTop}px]`,
+      `w-[${patternLabelRef.current?.clientWidth}px]`
+    )
+  }, [])
 
   const className = useMemo(() => {
     let className = 'flex w-full select-none justify-between p-1'
@@ -65,9 +127,14 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
           onClick={(e) => e.stopPropagation()}
           onChange={onToggleEnabled}
         />
-        <span className="flex-grow empty:before:content-['\200b'] overflow-hidden text-ellipsis whitespace-nowrap">
+        <span
+          className="w-full bg-red-100 empty:before:content-['\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+          onDoubleClick={onDoubleClickPattern}
+          ref={patternLabelRef}
+        >
           {intercept.pattern}
         </span>
+        {editing ? <PatternEdit /> : null}
       </div>
       <button
         className="self-stretch"
