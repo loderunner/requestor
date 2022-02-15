@@ -63,7 +63,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
         role="listitem"
       >
         <div
-          class="flex items-center space-x-1 overflow-hidden"
+          class="flex flex-grow items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
@@ -71,7 +71,7 @@ exports[`[InterceptList] should match snapshots after clicking buttons 1`] = `
             type="checkbox"
           />
           <span
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -151,7 +151,7 @@ exports[`[InterceptList] should match snapshots after clicking items 1`] = `
         role="listitem"
       >
         <div
-          class="flex items-center space-x-1 overflow-hidden"
+          class="flex flex-grow items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
@@ -159,7 +159,7 @@ exports[`[InterceptList] should match snapshots after clicking items 1`] = `
             type="checkbox"
           />
           <span
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -176,7 +176,7 @@ exports[`[InterceptList] should match snapshots after clicking items 1`] = `
         role="listitem"
       >
         <div
-          class="flex items-center space-x-1 overflow-hidden"
+          class="flex flex-grow items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
@@ -184,7 +184,7 @@ exports[`[InterceptList] should match snapshots after clicking items 1`] = `
             type="checkbox"
           />
           <span
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -233,7 +233,7 @@ exports[`[InterceptList] should match snapshots after clicking items 2`] = `
         role="listitem"
       >
         <div
-          class="flex items-center space-x-1 overflow-hidden"
+          class="flex flex-grow items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
@@ -241,7 +241,7 @@ exports[`[InterceptList] should match snapshots after clicking items 2`] = `
             type="checkbox"
           />
           <span
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -258,7 +258,7 @@ exports[`[InterceptList] should match snapshots after clicking items 2`] = `
         role="listitem"
       >
         <div
-          class="flex items-center space-x-1 overflow-hidden"
+          class="flex flex-grow items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
@@ -266,7 +266,7 @@ exports[`[InterceptList] should match snapshots after clicking items 2`] = `
             type="checkbox"
           />
           <span
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -315,7 +315,7 @@ exports[`[InterceptList] should match snapshots after clicking items 3`] = `
         role="listitem"
       >
         <div
-          class="flex items-center space-x-1 overflow-hidden"
+          class="flex flex-grow items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
@@ -323,7 +323,7 @@ exports[`[InterceptList] should match snapshots after clicking items 3`] = `
             type="checkbox"
           />
           <span
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button
@@ -340,7 +340,7 @@ exports[`[InterceptList] should match snapshots after clicking items 3`] = `
         role="listitem"
       >
         <div
-          class="flex items-center space-x-1 overflow-hidden"
+          class="flex flex-grow items-center space-x-1 overflow-hidden"
         >
           <input
             checked=""
@@ -348,7 +348,7 @@ exports[`[InterceptList] should match snapshots after clicking items 3`] = `
             type="checkbox"
           />
           <span
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-grow empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           />
         </div>
         <button

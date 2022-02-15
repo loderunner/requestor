@@ -57,7 +57,7 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
 
   return (
     <div className={className} role="listitem" onClick={onSelect}>
-      <div className="flex items-center space-x-1 overflow-hidden">
+      <div className="flex flex-grow items-center space-x-1 overflow-hidden">
         <input
           type="checkbox"
           className="focus:ring-0"
@@ -65,7 +65,7 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
           onClick={(e) => e.stopPropagation()}
           onChange={onToggleEnabled}
         />
-        <span className="overflow-hidden text-ellipsis whitespace-nowrap">
+        <span className="flex-grow empty:before:content-['\200b'] overflow-hidden text-ellipsis whitespace-nowrap">
           {intercept.pattern}
         </span>
       </div>
