@@ -16,24 +16,20 @@ const inter = { id: 'inter', pattern: 'helloworld', enabled: true }
 
 const mockHooks = () => {
   const intercepts: Intercept[] = []
-  mockedHooks.useIntercepts.mockImplementation(() => {
-    return {
-      intercepts: intercepts as ReadonlyArray<Readonly<Intercept>>,
-      addIntercept: jest.fn(() => {
-        intercepts.push(inter)
-        return inter
-      }),
-      removeIntercept: jest.fn(() => {
-        intercepts.pop()
-      }),
-    }
-  })
-  mockedHooks.useIntercept.mockImplementation(() => {
-    return {
-      intercept: inter,
-      updateIntercept: jest.fn(() => inter),
-    }
-  })
+  mockedHooks.useIntercepts.mockImplementation(() => ({
+    intercepts: intercepts as ReadonlyArray<Readonly<Intercept>>,
+    addIntercept: jest.fn(() => {
+      intercepts.push({ ...inter, id: Math.random().toPrecision(6) })
+      return intercepts.at(-1) ?? inter
+    }),
+    removeIntercept: jest.fn(() => {
+      intercepts.pop()
+    }),
+  }))
+  mockedHooks.useIntercept.mockImplementation(() => ({
+    intercept: inter,
+    updateIntercept: jest.fn(() => inter),
+  }))
 }
 
 describe('InterceptList', () => {
