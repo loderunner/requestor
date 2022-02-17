@@ -23,7 +23,7 @@
     "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "5.12.0",
     "@typescript-eslint/parser": "5.12.0",
-    "devtools-protocol": "0.0.971358",
+    "devtools-protocol": "0.0.972468",
     "esbuild": "0.14.22",
     "esbuild-plugin-svgr": "1.0.0",
     "eslint": "8.9.0",
