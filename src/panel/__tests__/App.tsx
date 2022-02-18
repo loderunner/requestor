@@ -3,12 +3,24 @@ import { cleanup, render, waitFor } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
+import { act } from 'react-dom/test-utils'
+
 import * as Interceptor from '@/interceptor'
 
 import App from '../App'
 
 jest.mock('@/interceptor')
 const mockedIntercept = Interceptor as jest.Mocked<typeof Interceptor>
+
+// mock request
+const request: Interceptor.Request = {
+  id: 'request',
+  headers: {},
+  initialPriority: 'Medium',
+  method: 'GET',
+  referrerPolicy: 'same-origin',
+  url: 'https://example.com',
+}
 
 describe('[App]', () => {
   const unsubscribe = jest.fn()
@@ -35,28 +47,5 @@ describe('[App]', () => {
     unmount()
 
     expect(unsubscribe).toBeCalled()
-  })
-
-  it('should update after callback', async () => {
-    let listener: Interceptor.RequestEventListener = () => {
-      throw new Error('listener called before subscribe')
-    }
-    mockedIntercept.subscribe.mockImplementation((l) => {
-      listener = l
-      return unsubscribe
-    })
-
-    const { container } = render(<App />)
-
-    const snapshot = container.cloneNode(true)
-
-    const req = {
-      method: 'GET',
-      url: 'https://example.com',
-    } as Interceptor.Request
-    await waitFor(() => listener(req))
-
-    expect(container).not.toEqual(snapshot)
-    expect(container).toMatchSnapshot()
   })
 })

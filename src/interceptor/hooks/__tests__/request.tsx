@@ -42,7 +42,7 @@ describe('[RequestHooks.useRequests]', () => {
     expect(result.current).toBeArrayOfSize(0)
   })
 
-  it('should add a request to the list on listener', async () => {
+  it('should add a request to the list on listener', () => {
     let listener: RequestEventListener = () => {
       throw new Error('listener called before subscribe')
     }
@@ -57,7 +57,7 @@ describe('[RequestHooks.useRequests]', () => {
       <RequestProvider>{children}</RequestProvider>
     )
     const { result } = renderHook(() => useRequests(), { wrapper })
-    await actHook(() => {
+    actHook(() => {
       mockedInterceptor.pushRequest(request)
       listener(request)
     })
@@ -86,7 +86,7 @@ describe('[RequestHooks.useRequest]', () => {
     expect(result.error).toBeDefined()
   })
 
-  it('should add a request to the list on listener', async () => {
+  it('should add a request to the list on listener', () => {
     let listener: RequestEventListener = () => {
       throw new Error('listener called before subscribe')
     }
@@ -101,7 +101,7 @@ describe('[RequestHooks.useRequest]', () => {
       <RequestProvider>{children}</RequestProvider>
     )
     const { result } = renderHook(() => useRequest('request'), { wrapper })
-    await actHook(() => {
+    actHook(() => {
       mockedInterceptor.pushRequest(request)
       listener(request)
     })

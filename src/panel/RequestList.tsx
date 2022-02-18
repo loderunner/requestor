@@ -2,6 +2,8 @@ import { clone } from 'lodash'
 import * as React from 'react'
 import { useCallback, useMemo } from 'react'
 
+import { useRequests } from '@/interceptor/hooks'
+
 import List from './components/List'
 import { useSelection } from './selection'
 
@@ -45,7 +47,6 @@ const Item = ({ request }: ItemProps) => {
 
 interface Props {
   className?: string
-  requests: Request[]
 }
 
 const header = (
@@ -54,7 +55,8 @@ const header = (
   </div>
 )
 
-const RequestList = ({ className, requests }: Props) => {
+const RequestList = ({ className }: Props) => {
+  const requests = useRequests()
   const items = useMemo(
     () => requests.map((req, i) => <Item key={i} request={req} />),
     [requests]

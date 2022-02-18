@@ -4,6 +4,7 @@ import * as React from 'react'
 import '@testing-library/jest-dom'
 
 import * as Interceptor from '@/interceptor'
+import { RequestProvider } from '@/interceptor/hooks'
 
 import RequestList from '../RequestList'
 
@@ -24,12 +25,20 @@ describe('[RequestList]', () => {
   })
 
   it('should match empty snapshot', () => {
-    const { container } = render(<RequestList requests={[]} />)
+    const { container } = render(
+      <RequestProvider>
+        <RequestList />
+      </RequestProvider>
+    )
     expect(container).toMatchSnapshot()
   })
 
   it('should match requestful snapshot', async () => {
-    const { container } = render(<RequestList requests={[request]} />)
+    const { container } = render(
+      <RequestProvider>
+        <RequestList />
+      </RequestProvider>
+    )
     expect(container).toMatchSnapshot()
   })
 })
