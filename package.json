@@ -16,6 +16,7 @@
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.3",
     "@testing-library/react-hooks": "7.0.2",
+    "@testing-library/user-event": "^14.0.0-beta",
     "@types/chrome": "0.0.178",
     "@types/jest": "27.4.0",
     "@types/lodash": "4.14.178",

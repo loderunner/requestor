@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { cleanup, render } from '@testing-library/react'
-import React from 'react'
+import * as React from 'react'
 import '@testing-library/jest-dom'
 
 import List from '../List'
