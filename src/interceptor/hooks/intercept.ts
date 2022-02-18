@@ -1,12 +1,38 @@
-import { atom, useAtom, useAtomValue } from 'jotai'
-import { splitAtom } from 'jotai/utils'
+import { useAtom, useAtomValue } from 'jotai'
+import { atomWithStorage, splitAtom } from 'jotai/utils'
 import { useCallback } from 'react'
 
+import { addIntercept } from '..'
 import * as Interceptor from '../intercept'
 
 import type { Intercept } from '../intercept'
 
-const interceptsAtom = atom([...Interceptor.intercepts])
+const storage = {
+  getItem: (key: string): Intercept[] => {
+    try {
+      const json = localStorage.getItem(key)
+      const intercepts = JSON.parse(json as string)
+      for (const inter of intercepts as Intercept[]) {
+        addIntercept(inter)
+      }
+      return [...Interceptor.intercepts]
+    } catch (err) {
+      return []
+    }
+  },
+  setItem: (key: string, newIntercepts: Intercept[]) => {
+    localStorage.setItem(key, JSON.stringify(newIntercepts))
+  },
+  removeItem: (key: string) => {
+    localStorage.removeItem(key)
+  },
+}
+
+const interceptsAtom = atomWithStorage(
+  'intercepts',
+  [...Interceptor.intercepts],
+  storage
+)
 
 export const useIntercepts = () => {
   const [intercepts, setIntercepts] = useAtom(interceptsAtom)

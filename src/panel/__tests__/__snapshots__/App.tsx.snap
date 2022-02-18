@@ -21,7 +21,7 @@ exports[`[App] matches snapshot 1`] = `
           Requests
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-visible"
         />
       </div>
       <div
@@ -47,7 +47,7 @@ exports[`[App] matches snapshot 1`] = `
           </button>
         </div>
         <div
-          class="overflow-y-auto"
+          class="flex flex-col overflow-y-visible"
         />
       </div>
     </aside>
