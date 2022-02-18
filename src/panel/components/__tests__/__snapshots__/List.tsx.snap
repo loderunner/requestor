@@ -12,7 +12,7 @@ exports[`[List] should match component header snapshot 1`] = `
       Header Title
     </div>
     <div
-      class="overflow-y-auto"
+      class="flex flex-col overflow-y-visible"
     />
   </div>
 </div>
@@ -28,7 +28,7 @@ exports[`[List] should match empty snapshot 1`] = `
       class="bg-slate-100 font-bold"
     />
     <div
-      class="overflow-y-auto"
+      class="flex flex-col overflow-y-visible"
     />
   </div>
 </div>
@@ -46,7 +46,7 @@ exports[`[List] should match header + component items snapshot 1`] = `
       Header title
     </div>
     <div
-      class="overflow-y-auto"
+      class="flex flex-col overflow-y-visible"
     >
       <img
         src="//image.png"
@@ -74,7 +74,7 @@ exports[`[List] should match header + string items snapshot 1`] = `
       Header title
     </div>
     <div
-      class="overflow-y-auto"
+      class="flex flex-col overflow-y-visible"
     >
       Hello
       World
@@ -95,7 +95,7 @@ exports[`[List] should match string header snapshot 1`] = `
       Header title
     </div>
     <div
-      class="overflow-y-auto"
+      class="flex flex-col overflow-y-visible"
     />
   </div>
 </div>

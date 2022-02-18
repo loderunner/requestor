@@ -13,7 +13,7 @@ exports[`[RequestList] should match empty snapshot 1`] = `
       Requests
     </div>
     <div
-      class="overflow-y-auto"
+      class="flex flex-col overflow-y-visible"
     />
   </div>
 </div>
@@ -32,7 +32,7 @@ exports[`[RequestList] should match requestful snapshot 1`] = `
       Requests
     </div>
     <div
-      class="overflow-y-auto"
+      class="flex flex-col overflow-y-visible"
     />
   </div>
 </div>
