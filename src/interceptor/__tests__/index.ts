@@ -1,7 +1,8 @@
 import { chrome } from 'jest-chrome'
 
-import { RequestPausedEvent, listen, subscribe, unlisten } from '../debugger'
+import { RequestPausedEvent, listen, unlisten } from '../debugger'
 import { addIntercept, intercepts, removeIntercept } from '../intercept'
+import { subscribe } from '../request'
 
 const target: chrome.debugger.TargetInfo = {
   attached: false,
@@ -73,7 +74,7 @@ describe('[intercept]', () => {
       'Fetch.requestPaused',
       event
     )
-    expect(listener).toBeCalledWith(event.request)
+    expect(listener).toBeCalledWith({ id: event.requestId, ...event.request })
   })
 
   it('should not call subscribed callback with a disabled intercept', () => {

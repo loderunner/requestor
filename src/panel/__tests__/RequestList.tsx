@@ -9,6 +9,7 @@ import RequestList from '../RequestList'
 
 // mock request
 const request: Interceptor.Request = {
+  id: 'request',
   headers: {},
   initialPriority: 'Medium',
   method: 'GET',

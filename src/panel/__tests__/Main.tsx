@@ -15,6 +15,7 @@ const mockedSelection = selection as jest.Mocked<typeof selection>
 
 const inter: Intercept = { id: 'inter', pattern: 'helloworld', enabled: true }
 const request: Request = {
+  id: 'request',
   headers: {},
   initialPriority: 'Medium',
   method: 'GET',

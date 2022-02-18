@@ -9,6 +9,7 @@ import Sidebar from '../Sidebar'
 
 // mock request
 const request: Interceptor.Request = {
+  id: 'request',
   headers: {},
   initialPriority: 'Medium',
   method: 'GET',
