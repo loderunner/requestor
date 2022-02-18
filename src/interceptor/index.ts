@@ -7,7 +7,7 @@ const readonlyIntercepts = readWriteIntercepts as ReadonlyArray<
 export const intercepts = readonlyIntercepts
 
 const readonlyRequests = readWriteRequests as ReadonlyArray<Readonly<Request>>
-export const request = readonlyRequests
+export const requests = readonlyRequests
 
 export { listen, unlisten } from './debugger'
 export { Request, RequestEventListener, subscribe } from './request'

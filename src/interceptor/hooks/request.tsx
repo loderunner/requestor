@@ -1,13 +1,12 @@
 import {
   Provider as JotaiProvider,
   atom,
-  useAtom,
   useAtomValue,
   useSetAtom,
 } from 'jotai'
 import React, { useLayoutEffect } from 'react'
 
-import * as Interceptor from '../request'
+import * as Interceptor from '..'
 
 const requestScope = Symbol('RequestProviderScope')
 

@@ -3,20 +3,9 @@ import { cleanup, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import * as Interceptor from '@/interceptor'
 import { RequestProvider } from '@/interceptor/hooks'
 
 import Sidebar from '../Sidebar'
-
-// mock request
-const request: Interceptor.Request = {
-  id: 'request',
-  headers: {},
-  initialPriority: 'Medium',
-  method: 'GET',
-  referrerPolicy: 'same-origin',
-  url: 'https://example.com',
-}
 
 describe('[Sidebar]', () => {
   afterEach(() => {

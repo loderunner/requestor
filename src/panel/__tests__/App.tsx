@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { cleanup, render, waitFor } from '@testing-library/react'
+import { cleanup, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
-
-import { act } from 'react-dom/test-utils'
 
 import * as Interceptor from '@/interceptor'
 
@@ -11,16 +9,6 @@ import App from '../App'
 
 jest.mock('@/interceptor')
 const mockedIntercept = Interceptor as jest.Mocked<typeof Interceptor>
-
-// mock request
-const request: Interceptor.Request = {
-  id: 'request',
-  headers: {},
-  initialPriority: 'Medium',
-  method: 'GET',
-  referrerPolicy: 'same-origin',
-  url: 'https://example.com',
-}
 
 describe('[App]', () => {
   const unsubscribe = jest.fn()

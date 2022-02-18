@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import * as Interceptor from '@/interceptor'
-
 import InterceptList from './InterceptList'
 import RequestList from './RequestList'
 
