@@ -6,6 +6,7 @@ import type { Intercept, Request } from '@/interceptor'
 
 const inter: Intercept = { pattern: 'helloworld', enabled: true }
 const request: Request = {
+  id: 'request',
   headers: {},
   initialPriority: 'Medium',
   method: 'GET',

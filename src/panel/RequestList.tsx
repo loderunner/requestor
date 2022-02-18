@@ -1,26 +1,52 @@
+import { clone } from 'lodash'
 import * as React from 'react'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
-import * as Interceptor from '@/interceptor'
+import { useRequests } from '@/interceptor/hooks'
 
 import List from './components/List'
+import { useSelection } from './selection'
+
+import type { Request } from '@/interceptor'
+import type { SyntheticEvent } from 'react'
 
 interface ItemProps {
-  request: Interceptor.Request
+  request: Request
 }
 
-const Item = ({ request }: ItemProps) => (
-  <div
-    className="select-none overflow-hidden text-ellipsis whitespace-nowrap"
-    role="listitem"
-  >
-    <span>{request.url}</span>
-  </div>
-)
+const Item = ({ request }: ItemProps) => {
+  const { selection, selectionType, setSelection } = useSelection()
+
+  const onSelect = useCallback(
+    (e: SyntheticEvent) => {
+      e.stopPropagation()
+      setSelection(clone(request))
+    },
+    [request]
+  )
+
+  const className = useMemo(() => {
+    let className =
+      'select-none overflow-hidden text-ellipsis whitespace-nowrap'
+    if (selectionType !== 'request') {
+      return className
+    }
+    const s = selection as Request
+    if (s.id === request.id) {
+      className += ' bg-blue-100'
+    }
+    return className
+  }, [selection, request])
+
+  return (
+    <div className={className} role="listitem" onClick={onSelect}>
+      <span>{request.url}</span>
+    </div>
+  )
+}
 
 interface Props {
   className?: string
-  requests: Interceptor.Request[]
 }
 
 const header = (
@@ -29,7 +55,8 @@ const header = (
   </div>
 )
 
-const RequestList = ({ className, requests }: Props) => {
+const RequestList = ({ className }: Props) => {
+  const requests = useRequests()
   const items = useMemo(
     () => requests.map((req, i) => <Item key={i} request={req} />),
     [requests]

@@ -1,23 +1,11 @@
 import { intercepts } from './intercept'
+import { pushRequest } from './request'
 
-import type { Request } from './request'
 import type { Protocol } from 'devtools-protocol'
 
 type TargetInfo = chrome.debugger.TargetInfo
 type Debuggee = chrome.debugger.Debuggee
 export type RequestPausedEvent = Protocol.Fetch.RequestPausedEvent
-
-class RequestEvent extends Event {
-  readonly request: Request
-  constructor(request: Request) {
-    super('request')
-    this.request = request
-  }
-}
-
-export type RequestEventListener = (req: Request) => void
-
-const requestEventTarget = new EventTarget()
 
 const onDebuggerEvent = (
   target: Debuggee,
@@ -48,7 +36,7 @@ const onDebuggerEvent = (
       // Dispatch event if the intercept matches
       const req = event.request
       if (re.test(req.url)) {
-        requestEventTarget.dispatchEvent(new RequestEvent(event.request))
+        pushRequest({ id: event.requestId, ...req })
       }
     }
 
@@ -95,19 +83,4 @@ export const unlisten = () => {
   chrome.debugger.onEvent.removeListener(onDebuggerEvent)
   chrome.debugger.detach(debuggee)
   debuggee = undefined
-}
-
-export const subscribe = (listener: RequestEventListener) => {
-  const callback = (event: Event) => {
-    const requestEvent = event as RequestEvent
-    listener(requestEvent.request)
-  }
-
-  requestEventTarget.addEventListener('request', callback)
-
-  const unsubscribe = () => {
-    requestEventTarget.removeEventListener('request', callback)
-  }
-
-  return unsubscribe
 }

@@ -3,18 +3,9 @@ import { cleanup, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import * as Interceptor from '@/interceptor'
+import { RequestProvider } from '@/interceptor/hooks'
 
 import RequestList from '../RequestList'
-
-// mock request
-const request: Interceptor.Request = {
-  headers: {},
-  initialPriority: 'Medium',
-  method: 'GET',
-  referrerPolicy: 'same-origin',
-  url: 'https://example.com',
-}
 
 describe('[RequestList]', () => {
   afterEach(() => {
@@ -23,12 +14,20 @@ describe('[RequestList]', () => {
   })
 
   it('should match empty snapshot', () => {
-    const { container } = render(<RequestList requests={[]} />)
+    const { container } = render(
+      <RequestProvider>
+        <RequestList />
+      </RequestProvider>
+    )
     expect(container).toMatchSnapshot()
   })
 
   it('should match requestful snapshot', async () => {
-    const { container } = render(<RequestList requests={[request]} />)
+    const { container } = render(
+      <RequestProvider>
+        <RequestList />
+      </RequestProvider>
+    )
     expect(container).toMatchSnapshot()
   })
 })
