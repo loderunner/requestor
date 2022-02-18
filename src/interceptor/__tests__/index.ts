@@ -77,6 +77,17 @@ describe('[intercept]', () => {
     expect(listener).toBeCalledWith({ id: event.requestId, ...event.request })
   })
 
+  it('should not call subscribed callback twice if 2 intercepts match', () => {
+    addIntercept({ pattern: 'example.com', enabled: true })
+    addIntercept({ pattern: 'example', enabled: true })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).toBeCalledTimes(1)
+  })
+
   it('should not call subscribed callback with a disabled intercept', () => {
     addIntercept({ pattern: 'example.com', enabled: false })
     chrome.debugger.onEvent.callListeners(
