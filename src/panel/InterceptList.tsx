@@ -14,9 +14,10 @@ import type { SyntheticEvent } from 'react'
 interface ItemProps {
   interceptId?: string
   onDelete: (inter: Intercept) => void
+  editOnRender: boolean
 }
 
-const Item = ({ interceptId, onDelete }: ItemProps) => {
+const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
   if (interceptId === undefined) {
     throw new Error('missing intercept id')
   }
@@ -26,7 +27,7 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
   const [editing, setEditing] = useState(false)
   const patternLabelRef = useRef<HTMLSpanElement>(null)
 
-  useEffect(() => setEditing(true), [])
+  useEffect(() => setEditing(editOnRender), [])
 
   const onToggleEnabled = useCallback(
     () => updateIntercept({ enabled: !intercept.enabled }),
@@ -121,6 +122,9 @@ interface Props {
 const InterceptList = ({ className }: Props) => {
   const { selection, setSelection, selectionType } = useSelection()
   const { intercepts, addIntercept, removeIntercept } = useIntercepts()
+  const [firstRender, setFirstRender] = useState(true)
+
+  useEffect(() => setFirstRender(false), [])
 
   const onDeleteIntercept = useCallback(
     (inter: Intercept) => {
@@ -170,6 +174,7 @@ const InterceptList = ({ className }: Props) => {
           key={inter.id}
           interceptId={inter.id}
           onDelete={onDeleteIntercept}
+          editOnRender={!firstRender}
         />
       )),
     [intercepts, selection]
