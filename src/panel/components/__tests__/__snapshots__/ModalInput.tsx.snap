@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[ModalInput] should match empty snapshot 1`] = `
+<div>
+  <input
+    class="fixed"
+    style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
+    type="text"
+    value=""
+  />
+</div>
+`;
