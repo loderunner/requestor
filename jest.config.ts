@@ -11,6 +11,7 @@ export default {
   setupFilesAfterEnv: [
     'jest-extended/all',
     '<rootDir>/src/__setups__/chrome.setup.ts',
+    '<rootDir>/src/__setups__/testing-library.setup.ts',
   ],
   moduleNameMapper: {
     ...pathsToModuleNameMapper(compilerOptions.paths, {

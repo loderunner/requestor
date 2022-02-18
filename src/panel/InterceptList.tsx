@@ -23,8 +23,10 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
 
   const { selection, setSelection, selectionType } = useSelection()
   const { intercept, updateIntercept } = useIntercept(interceptId)
-  const [editing, setEditing] = useState(true)
+  const [editing, setEditing] = useState(false)
   const patternLabelRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => setEditing(true), [])
 
   const onToggleEnabled = useCallback(
     () => updateIntercept({ enabled: !intercept.enabled }),
@@ -59,7 +61,7 @@ const Item = ({ interceptId, onDelete }: ItemProps) => {
       return
     }
     e.stopPropagation()
-    setEditing((e) => !e)
+    setEditing(true)
   }, [])
 
   // Computed className from selection
