@@ -17,7 +17,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
         Requests
       </div>
       <div
-        class="flex flex-col overflow-y-auto"
+        class="overflow-y-auto"
       />
     </div>
     <div
@@ -43,7 +43,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
         </button>
       </div>
       <div
-        class="flex flex-col overflow-y-auto"
+        class="overflow-y-auto"
       />
     </div>
   </aside>
@@ -67,7 +67,7 @@ exports[`[Sidebar] should match requestful snapshot 1`] = `
         Requests
       </div>
       <div
-        class="flex flex-col overflow-y-auto"
+        class="overflow-y-auto"
       />
     </div>
     <div
@@ -93,7 +93,7 @@ exports[`[Sidebar] should match requestful snapshot 1`] = `
         </button>
       </div>
       <div
-        class="flex flex-col overflow-y-auto"
+        class="overflow-y-auto"
       />
     </div>
   </aside>
