@@ -1,7 +1,6 @@
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import * as React from 'react'
-import { useEffect, useRef, useState } from 'react'
 import '@testing-library/jest-dom'
 
 import ModalInput from '../ModalInput'
