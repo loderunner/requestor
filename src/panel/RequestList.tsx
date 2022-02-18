@@ -32,7 +32,7 @@ const Item = ({ request }: ItemProps) => {
       return className
     }
     const s = selection as Request
-    if (s === request) {
+    if (s.id === request.id) {
       className += ' bg-blue-100'
     }
     return className
