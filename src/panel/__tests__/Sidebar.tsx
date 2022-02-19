@@ -19,13 +19,4 @@ describe('[Sidebar]', () => {
     )
     expect(container).toMatchSnapshot()
   })
-
-  it('should match requestful snapshot', async () => {
-    const { container } = render(
-      <RequestProvider>
-        <Sidebar />
-      </RequestProvider>
-    )
-    expect(container).toMatchSnapshot()
-  })
 })
