@@ -37,7 +37,6 @@ const onDebuggerEvent = (
       // then break from loop to avoid duplicate capture
       const req = event.request
       if (re.test(req.url)) {
-        console.log(`intercepted request`, event.requestId)
         pushRequest({ id: event.requestId, ...req })
         break
       }
