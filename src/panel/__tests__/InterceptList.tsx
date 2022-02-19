@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
