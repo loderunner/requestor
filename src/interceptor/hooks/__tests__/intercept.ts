@@ -14,7 +14,8 @@ const mockInterceptor = () => {
     mockedInterceptor.intercepts.length
   )
 
-  mockedInterceptor.addIntercept.mockImplementation((i) => {
+  mockedInterceptor.addIntercept.mockImplementation((inter) => {
+    const i = { ...inter, id: globalMocks.intercept.id }
     ;(mockedInterceptor.intercepts as Interceptor.Intercept[]).push(i)
     return i
   })
@@ -95,7 +96,7 @@ describe('[InterceptHooks.useIntercept]', () => {
     const { result } = renderHook(() => useIntercept(i.id as string))
 
     expect(result.error).toBeUndefined()
-    expect(result.current.intercept).toBe(globalMocks.intercept)
+    expect(result.current.intercept).toEqual(globalMocks.intercept)
   })
 
   it('shoud throw on missing intercept', () => {

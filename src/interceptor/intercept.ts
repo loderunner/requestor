@@ -1,5 +1,5 @@
 export interface Intercept {
-  id?: string
+  id: string
   pattern: string
   enabled: boolean
 }
@@ -7,7 +7,9 @@ export interface Intercept {
 export const intercepts: Intercept[] = []
 let id = 0
 
-export const addIntercept = (inter: Intercept): Readonly<Intercept> => {
+export const addIntercept = (
+  inter: Omit<Intercept, 'id'>
+): Readonly<Intercept> => {
   const newInter: Intercept = { ...inter, id: `intercept-${id++}` }
   intercepts.push(newInter)
   return newInter
