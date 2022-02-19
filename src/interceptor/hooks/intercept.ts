@@ -37,11 +37,14 @@ const interceptsAtom = atomWithStorage(
 export const useIntercepts = () => {
   const [intercepts, setIntercepts] = useAtom(interceptsAtom)
 
-  const addIntercept = useCallback((inter: Intercept): Intercept => {
-    const ret = Interceptor.addIntercept(inter)
-    setIntercepts([...Interceptor.intercepts])
-    return ret
-  }, [])
+  const addIntercept = useCallback(
+    (inter: Omit<Intercept, 'id'>): Intercept => {
+      const ret = Interceptor.addIntercept(inter)
+      setIntercepts([...Interceptor.intercepts])
+      return ret
+    },
+    []
+  )
 
   const removeIntercept = useCallback((id: string) => {
     Interceptor.removeIntercept(id)
