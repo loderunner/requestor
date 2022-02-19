@@ -91,7 +91,11 @@ exports[`[Main] should match request selection snapshot 1`] = `
     class="min-h-screen undefined"
     id="main"
   >
-    Not implemented yet
+    <div
+      class="text-6xl font-medium"
+    >
+      GET https://example.com
+    </div>
   </main>
 </div>
 `;

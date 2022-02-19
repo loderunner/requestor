@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { useMemo } from 'react'
 
-import { Intercept } from '@/interceptor'
-
 import InterceptView from './InterceptView'
+import RequestView from './RequestView'
 import { useSelection } from './selection'
 import WelcomeView from './WelcomeView'
+
+import type { Intercept, Request } from '@/interceptor'
 
 interface Props {
   className?: string
@@ -20,13 +21,12 @@ const Main = ({ className }: Props) => {
         return <WelcomeView />
       case 'intercept': {
         const inter: Intercept = selection as Intercept
-        if (inter.id === undefined) {
-          throw new Error('missing intercept id')
-        }
         return <InterceptView interceptId={inter.id} />
       }
-      case 'request':
-        return 'Not implemented yet'
+      case 'request': {
+        const req: Request = selection as Request
+        return <RequestView requestId={req.id} />
+      }
     }
   }, [selection])
 

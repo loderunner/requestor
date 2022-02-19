@@ -25,6 +25,10 @@ mockedInterceptorHooks.useIntercept.mockImplementation(() => ({
   updateIntercept: jest.fn(),
   removeIntercept: jest.fn(),
 }))
+mockedInterceptorHooks.useRequests.mockImplementation(() => [
+  globalMocks.request,
+])
+mockedInterceptorHooks.useRequest.mockImplementation(() => globalMocks.request)
 
 describe('[Main]', () => {
   afterEach(() => {
