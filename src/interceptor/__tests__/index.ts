@@ -16,13 +16,7 @@ const event: RequestPausedEvent = {
   frameId: '1',
   requestId: '1',
   resourceType: 'Fetch',
-  request: {
-    headers: {},
-    initialPriority: 'Medium',
-    method: 'GET',
-    referrerPolicy: 'same-origin',
-    url: 'https://example.com',
-  },
+  request: globalMocks.request,
 }
 
 describe('[intercept]', () => {

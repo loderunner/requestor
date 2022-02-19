@@ -10,6 +10,7 @@ export default {
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: [
     'jest-extended/all',
+    '<rootDir>/src/__setups__/global-mocks.setup.ts',
     '<rootDir>/src/__setups__/chrome.setup.ts',
     '<rootDir>/src/__setups__/testing-library.setup.ts',
   ],

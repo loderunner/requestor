@@ -13,16 +13,6 @@ import type { RequestEventListener } from '../../request'
 jest.mock('../../request')
 const mockedInterceptor = Interceptor as jest.Mocked<typeof Interceptor>
 
-// mock request
-const request: Interceptor.Request = {
-  id: 'request',
-  headers: {},
-  initialPriority: 'Medium',
-  method: 'GET',
-  referrerPolicy: 'same-origin',
-  url: 'https://example.com',
-}
-
 describe('[RequestHooks.useRequests]', () => {
   afterEach(() => {
     cleanupHooks()
@@ -58,12 +48,12 @@ describe('[RequestHooks.useRequests]', () => {
     )
     const { result } = renderHook(() => useRequests(), { wrapper })
     actHook(() => {
-      mockedInterceptor.pushRequest(request)
-      listener(request)
+      mockedInterceptor.pushRequest(globalMocks.request)
+      listener(globalMocks.request)
     })
 
     expect(result.current).toBeArrayOfSize(1)
-    expect(result.current).toContain(request)
+    expect(result.current).toContain(globalMocks.request)
   })
 })
 
@@ -102,10 +92,10 @@ describe('[RequestHooks.useRequest]', () => {
     )
     const { result } = renderHook(() => useRequest('request'), { wrapper })
     actHook(() => {
-      mockedInterceptor.pushRequest(request)
-      listener(request)
+      mockedInterceptor.pushRequest(globalMocks.request)
+      listener(globalMocks.request)
     })
 
-    expect(result.current).toEqual(request)
+    expect(result.current).toEqual(globalMocks.request)
   })
 })
