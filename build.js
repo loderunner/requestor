@@ -4,9 +4,7 @@ const child_process = require('child_process')
 const esbuild = require('esbuild')
 const svgrPlugin = require('esbuild-plugin-svgr')
 
-const watch = ['y', 'yes', 'true', '1'].includes(
-  process.env.BUILD_WATCH?.toLowerCase()
-)
+const production = process.env.NODE_ENV === 'production'
 
 const tailwindCSSPlugin = {
   name: 'tailwindcss',
@@ -18,7 +16,7 @@ const tailwindCSSPlugin = {
         '--output',
         './out/main.css',
         '--color',
-        process.env.NODE_ENV === 'production' ? '--minify' : '',
+        production ? '--minify' : '',
       ])
 
       process.stdout.write(stdout)
@@ -27,12 +25,17 @@ const tailwindCSSPlugin = {
   },
 }
 
+const watch = ['y', 'yes', 'true', '1'].includes(
+  process.env.BUILD_WATCH?.toLowerCase()
+)
+
 esbuild
   .build({
     entryPoints: ['src/background/index.ts', 'src/panel/index.tsx'],
     bundle: true,
-    minify: process.env.NODE_ENV === 'production',
-    sourcemap: process.env.NODE_ENV === 'production' ? false : 'inline',
+    drop: production ? ['console', 'debugger'] : [],
+    minify: production,
+    sourcemap: production ? false : 'inline',
     plugins: [tailwindCSSPlugin, svgrPlugin({ icon: true })],
     outdir: 'out',
 

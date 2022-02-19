@@ -12,23 +12,24 @@ import type { Intercept } from '@/interceptor'
 jest.mock('@/interceptor/hooks')
 const mockedHooks = InterceptorHooks as jest.Mocked<typeof InterceptorHooks>
 
-const inter = { id: 'inter', pattern: 'helloworld', enabled: true }
-
 const mockHooks = () => {
   const intercepts: Intercept[] = []
   mockedHooks.useIntercepts.mockImplementation(() => ({
     intercepts: intercepts as ReadonlyArray<Readonly<Intercept>>,
     addIntercept: jest.fn(() => {
-      intercepts.push({ ...inter, id: `inter-${intercepts.length}` })
-      return intercepts.at(-1) ?? inter
+      intercepts.push({
+        ...globalMocks.intercept,
+        id: `inter-${intercepts.length}`,
+      })
+      return intercepts.at(-1) ?? globalMocks.intercept
     }),
     removeIntercept: jest.fn(() => {
       intercepts.pop()
     }),
   }))
   mockedHooks.useIntercept.mockImplementation(() => ({
-    intercept: inter,
-    updateIntercept: jest.fn(() => inter),
+    intercept: globalMocks.intercept,
+    updateIntercept: jest.fn(() => globalMocks.intercept),
   }))
 }
 

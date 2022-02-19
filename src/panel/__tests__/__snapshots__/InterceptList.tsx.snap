@@ -42,13 +42,13 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
           <input
             class="fixed"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
             type="text"
-            value="helloworld"
+            value="example.com"
           />
         </div>
         <button
@@ -107,13 +107,13 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
           <input
             class="fixed"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
             type="text"
-            value="helloworld"
+            value="example.com"
           />
         </div>
         <button
@@ -172,13 +172,13 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
           <input
             class="fixed"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
             type="text"
-            value="helloworld"
+            value="example.com"
           />
         </div>
         <button
@@ -237,7 +237,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
         </div>
         <button
@@ -264,13 +264,13 @@ exports[`InterceptList should change selection after clicking items 1`] = `
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
           <input
             class="fixed"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
             type="text"
-            value="helloworld"
+            value="example.com"
           />
         </div>
         <button
@@ -329,7 +329,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
         </div>
         <button
@@ -356,13 +356,13 @@ exports[`InterceptList should change selection after clicking items 2`] = `
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
           <input
             class="fixed"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
             type="text"
-            value="helloworld"
+            value="example.com"
           />
         </div>
         <button
@@ -421,7 +421,7 @@ exports[`InterceptList should change selection after clicking items 3`] = `
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
         </div>
         <button
@@ -448,13 +448,13 @@ exports[`InterceptList should change selection after clicking items 3`] = `
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
           <input
             class="fixed"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
             type="text"
-            value="helloworld"
+            value="example.com"
           />
         </div>
         <button
@@ -544,13 +544,13 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
           <span
             class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
           >
-            helloworld
+            example.com
           </span>
           <input
             class="fixed"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
             type="text"
-            value="helloworld"
+            value="example.com"
           />
         </div>
         <button

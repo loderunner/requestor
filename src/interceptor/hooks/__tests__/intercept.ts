@@ -8,8 +8,6 @@ import type { Intercept } from '../../intercept'
 jest.mock('../../intercept')
 const mockedInterceptor = Interceptor as jest.Mocked<typeof Interceptor>
 
-const inter = { id: 'inter', pattern: 'helloworld', enabled: true }
-
 const mockInterceptor = () => {
   ;(mockedInterceptor.intercepts as Interceptor.Intercept[]).splice(
     0,
@@ -28,8 +26,10 @@ const mockInterceptor = () => {
     )
   )
 
-  mockedInterceptor.getIntercept.mockImplementation(() => inter)
-  mockedInterceptor.updateIntercept.mockImplementation(() => inter)
+  mockedInterceptor.getIntercept.mockImplementation(() => globalMocks.intercept)
+  mockedInterceptor.updateIntercept.mockImplementation(
+    () => globalMocks.intercept
+  )
 }
 
 describe('[InterceptHooks.useIntercepts]', () => {
@@ -51,10 +51,12 @@ describe('[InterceptHooks.useIntercepts]', () => {
     const { result } = renderHook(() => useIntercepts())
 
     act(() => {
-      result.current.addIntercept(inter)
+      result.current.addIntercept(globalMocks.intercept)
     })
 
-    expect(mockedInterceptor.addIntercept).toHaveBeenCalledWith(inter)
+    expect(mockedInterceptor.addIntercept).toHaveBeenCalledWith(
+      globalMocks.intercept
+    )
     expect(result.current.intercepts).toBeArrayOfSize(1)
   })
 
@@ -87,20 +89,20 @@ describe('[InterceptHooks.useIntercept]', () => {
 
     let i: Intercept
     act(() => {
-      i = interceptsResult.current.addIntercept(inter)
+      i = interceptsResult.current.addIntercept(globalMocks.intercept)
     })
 
     const { result } = renderHook(() => useIntercept(i.id as string))
 
     expect(result.error).toBeUndefined()
-    expect(result.current.intercept).toBe(inter)
+    expect(result.current.intercept).toBe(globalMocks.intercept)
   })
 
   it('shoud throw on missing intercept', () => {
     const { result: interceptsResult } = renderHook(() => useIntercepts())
 
     act(() => {
-      interceptsResult.current.addIntercept(inter)
+      interceptsResult.current.addIntercept(globalMocks.intercept)
     })
 
     const { result } = renderHook(() => useIntercept('toto'))
@@ -113,7 +115,7 @@ describe('[InterceptHooks.useIntercept]', () => {
 
     let i: Intercept
     act(() => {
-      i = interceptsResult.current.addIntercept(inter)
+      i = interceptsResult.current.addIntercept(globalMocks.intercept)
     })
 
     const { result } = renderHook(() => useIntercept(i.id as string))

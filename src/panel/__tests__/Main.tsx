@@ -8,32 +8,20 @@ import * as InterceptorHooks from '@/interceptor/hooks'
 import Main from '../Main'
 import * as selection from '../selection'
 
-import type { Intercept, Request } from '@/interceptor'
-
 jest.mock('../selection')
 const mockedSelection = selection as jest.Mocked<typeof selection>
-
-const inter: Intercept = { id: 'inter', pattern: 'helloworld', enabled: true }
-const request: Request = {
-  id: 'request',
-  headers: {},
-  initialPriority: 'Medium',
-  method: 'GET',
-  referrerPolicy: 'same-origin',
-  url: 'https://example.com',
-}
 
 jest.mock('@/interceptor/hooks')
 const mockedInterceptorHooks = InterceptorHooks as jest.Mocked<
   typeof InterceptorHooks
 >
 mockedInterceptorHooks.useIntercepts.mockImplementation(() => ({
-  intercepts: [inter],
+  intercepts: [globalMocks.intercept],
   addIntercept: jest.fn(),
   removeIntercept: jest.fn(),
 }))
 mockedInterceptorHooks.useIntercept.mockImplementation(() => ({
-  intercept: inter,
+  intercept: globalMocks.intercept,
   updateIntercept: jest.fn(),
   removeIntercept: jest.fn(),
 }))
@@ -56,7 +44,7 @@ describe('[Main]', () => {
 
   it('should match intercept selection snapshot', () => {
     mockedSelection.useSelection.mockImplementation(() => ({
-      selection: inter,
+      selection: globalMocks.intercept,
       setSelection: () => {},
       selectionType: 'intercept',
     }))
@@ -66,7 +54,7 @@ describe('[Main]', () => {
 
   it('should match request selection snapshot', () => {
     mockedSelection.useSelection.mockImplementation(() => ({
-      selection: request,
+      selection: globalMocks.request,
       setSelection: () => {},
       selectionType: 'request',
     }))
