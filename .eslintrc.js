@@ -38,6 +38,7 @@ module.exports = {
     },
   },
   rules: {
+    'no-debugger': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     ...importRules,
   },
