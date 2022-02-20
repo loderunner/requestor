@@ -33,6 +33,8 @@ const globalMocks: GlobalMocks = {
     method: 'GET',
     referrerPolicy: 'origin',
     url: 'https://www.example.com/complete/search?q=toto&client=gws-wiz',
+    hasPostData: true,
+    postData: 'Hello World!',
   },
   intercept: { id: 'inter', pattern: 'example.com', enabled: true },
 }

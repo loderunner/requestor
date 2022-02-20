@@ -6,7 +6,6 @@ import {
   UnfoldLess as UnfoldLessIcon,
   UnfoldMore as UnfoldMoreIcon,
 } from '@/icons'
-import { useRequest } from '@/interceptor/hooks'
 
 import type { Request } from '@/interceptor'
 

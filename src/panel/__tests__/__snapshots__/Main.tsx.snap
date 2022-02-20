@@ -94,6 +94,21 @@ exports[`[Main] should match request selection snapshot 1`] = `
     <div
       class="max-w-5xl mx-24 mt-8 px-8 pt-2"
     >
+      <div
+        class="flex space-x-4 mb-4"
+      >
+        <button
+          class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+          disabled=""
+        >
+          Headers
+        </button>
+        <button
+          class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
+        >
+          Body
+        </button>
+      </div>
       <span
         class="text-3xl font-bold"
       >
