@@ -4,7 +4,7 @@ export const useIntercepts = jest.fn(() => ({
   removeIntercept: jest.fn(() => {}),
 }))
 
-export const useIntercept = jest.fn((id: string) => ({
+export const useIntercept = jest.fn(() => ({
   intercept: globalMocks.intercept,
   updateIntercept: jest.fn(() => {}),
 }))

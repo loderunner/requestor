@@ -92,9 +92,166 @@ exports[`[Main] should match request selection snapshot 1`] = `
     id="main"
   >
     <div
-      class="text-6xl font-medium"
+      class="max-w-5xl mx-24 mt-8 px-8 pt-2"
     >
-      GET https://example.com
+      <span
+        class="text-3xl font-bold"
+      >
+        www.example.com
+      </span>
+      <div
+        class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
+      >
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          URL
+        </span>
+        <span>
+          https://www.example.com/complete/search
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          Method
+        </span>
+        <span>
+          GET
+        </span>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4"
+        >
+          Query
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          q
+        </span>
+        <span>
+          toto
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          client
+        </span>
+        <span>
+          gws-wiz
+        </span>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4"
+        >
+          Headers
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          Accept
+        </span>
+        <span>
+          */*
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          Referer
+        </span>
+        <span>
+          https://www.google.com/
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          User-Agent
+        </span>
+        <span>
+          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua
+        </span>
+        <span>
+          " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua-arch
+        </span>
+        <span>
+          "x86"
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua-bitness
+        </span>
+        <span>
+          "64"
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua-full-version
+        </span>
+        <span>
+          "98.0.4758.102"
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua-mobile
+        </span>
+        <span>
+          ?0
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua-model
+        </span>
+        <span />
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua-platform
+        </span>
+        <span>
+          "macOS"
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          sec-ch-ua-platform-version
+        </span>
+        <span>
+          "12.1.0"
+        </span>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4"
+        >
+          Cookies
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          CONSENT
+        </span>
+        <span>
+          YES+srp.gws-20220217-0-RC1.en+FX+923
+        </span>
+        <span
+          class="text-right font-medium text-gray-500"
+        >
+          1P_JAR
+        </span>
+        <span>
+          2022-02-20-16
+        </span>
+      </div>
     </div>
   </main>
 </div>
