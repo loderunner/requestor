@@ -15,7 +15,9 @@ const Section = ({ title, entries }: SectionProps) => {
       entries.map(([name, value]) => (
         <React.Fragment key={`{title.toLowerCase()}-${name}`}>
           <span className="text-right font-medium text-gray-500">{name}</span>
-          <span>{value}</span>
+          <span className="text-ellipsis overflow-x-hidden whitespace-nowrap">
+            {value}
+          </span>
         </React.Fragment>
       )),
     [entries]
