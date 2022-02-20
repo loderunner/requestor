@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useMemo } from 'react'
 
 import InterceptView from './InterceptView'
-import RequestView from './RequestDetails'
+import RequestView from './RequestView'
 import { useSelection } from './selection'
 import WelcomeView from './WelcomeView'
 

@@ -2,268 +2,264 @@
 
 exports[`[RequestDetails] should match initial snapshot 1`] = `
 <div>
+  <span
+    class="text-3xl font-bold"
+  >
+    www.example.com
+  </span>
   <div
-    class="max-w-5xl mx-24 mt-8 px-8 pt-2"
+    class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
   >
     <span
-      class="text-3xl font-bold"
+      class="text-right font-medium text-gray-500 select-none"
     >
-      www.example.com
+      URL
     </span>
     <div
-      class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
+      class="flex overflow-x-hidden space-x-1"
     >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        URL
+        https://www.example.com/complete/search
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          https://www.example.com/complete/search
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      Method
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        Method
+        GET
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          GET
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-lg font-semibold col-span-2 mt-4 select-none"
+    >
+      Query
+    </span>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      q
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-lg font-semibold col-span-2 mt-4 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        Query
+        toto
       </span>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      client
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        q
+        gws-wiz
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          toto
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-lg font-semibold col-span-2 mt-4 select-none"
+    >
+      Headers
+    </span>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      Accept
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        client
+        */*
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          gws-wiz
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      Referer
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-lg font-semibold col-span-2 mt-4 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        Headers
+        https://www.google.com/
       </span>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      User-Agent
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        Accept
+        Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          */*
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        Referer
+        " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          https://www.google.com/
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua-arch
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        User-Agent
+        "x86"
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua-bitness
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        sec-ch-ua
+        "64"
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua-full-version
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        sec-ch-ua-arch
+        "98.0.4758.102"
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          "x86"
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua-mobile
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        sec-ch-ua-bitness
+        ?0
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          "64"
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua-model
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-full-version
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          "98.0.4758.102"
-        </span>
-      </div>
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+      />
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua-platform
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        sec-ch-ua-mobile
+        "macOS"
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          ?0
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      sec-ch-ua-platform-version
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        sec-ch-ua-model
+        "12.1.0"
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        />
-      </div>
+    </div>
+    <span
+      class="text-lg font-semibold col-span-2 mt-4 select-none"
+    >
+      Cookies
+    </span>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      CONSENT
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        sec-ch-ua-platform
+        YES+srp.gws-20220217-0-RC1.en+FX+923
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          "macOS"
-        </span>
-      </div>
+    </div>
+    <span
+      class="text-right font-medium text-gray-500 select-none"
+    >
+      1P_JAR
+    </span>
+    <div
+      class="flex overflow-x-hidden space-x-1"
+    >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        sec-ch-ua-platform-version
+        2022-02-20-16
       </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          "12.1.0"
-        </span>
-      </div>
-      <span
-        class="text-lg font-semibold col-span-2 mt-4 select-none"
-      >
-        Cookies
-      </span>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        CONSENT
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          YES+srp.gws-20220217-0-RC1.en+FX+923
-        </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        1P_JAR
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          2022-02-20-16
-        </span>
-      </div>
     </div>
   </div>
 </div>

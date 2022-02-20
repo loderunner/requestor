@@ -8,6 +8,8 @@ import {
 } from '@/icons'
 import { useRequest } from '@/interceptor/hooks'
 
+import type { Request } from '@/interceptor'
+
 const SectionValue = ({ value }: { value: string }) => {
   const [foldable, setFoldable] = useState(false)
   const [folded, setFolded] = useState(true)
@@ -103,12 +105,10 @@ const Section = ({ title, entries }: SectionProps) => {
 }
 
 interface Props {
-  requestId: string
+  request: Request
 }
 
-const RequestDetails = ({ requestId }: Props) => {
-  const request = useRequest(requestId)
-
+const RequestDetails = ({ request }: Props) => {
   const url = useMemo(() => new URL(request.url), [request])
 
   const querySection = useMemo(() => {
@@ -147,7 +147,7 @@ const RequestDetails = ({ requestId }: Props) => {
   }, [request])
 
   return (
-    <div className="max-w-5xl mx-24 mt-8 px-8 pt-2">
+    <>
       <span className="text-3xl font-bold">{url.host}</span>
       <div className="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1">
         {/* URL */}
@@ -165,7 +165,7 @@ const RequestDetails = ({ requestId }: Props) => {
         {headerSection}
         {cookieSection}
       </div>
-    </div>
+    </>
   )
 }
 
