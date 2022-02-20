@@ -120,7 +120,7 @@ const RequestDetails = ({ request }: Props) => {
   }, [url.searchParams])
 
   const headerSection = useMemo(() => {
-    const headers = [...Object.entries(request.headers)].filter(
+    const headers = Object.entries(request.headers).filter(
       ([headerName]) => headerName.toLowerCase() !== 'cookie'
     )
     if (headers.length === 0) {
@@ -131,7 +131,7 @@ const RequestDetails = ({ request }: Props) => {
   }, [request])
 
   const cookieSection = useMemo(() => {
-    const cookieHeader = [...Object.entries(request.headers)].find(
+    const cookieHeader = Object.entries(request.headers).find(
       ([headerName]) => headerName.toLowerCase() === 'cookie'
     )
     if (cookieHeader === undefined) {
