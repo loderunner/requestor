@@ -13,10 +13,10 @@ const Section = ({ title, entries }: SectionProps) => {
   const rows = useMemo(
     () =>
       entries.map(([name, value]) => (
-        <>
+        <React.Fragment key={`{title.toLowerCase()}-${name}`}>
           <span className="text-right font-medium text-gray-500">{name}</span>
           <span>{value}</span>
-        </>
+        </React.Fragment>
       )),
     [entries]
   )
