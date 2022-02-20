@@ -3,7 +3,6 @@ import * as React from 'react'
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import {
-  Copy as CopyIcon,
   UnfoldLess as UnfoldLessIcon,
   UnfoldMore as UnfoldMoreIcon,
 } from '@/icons'
