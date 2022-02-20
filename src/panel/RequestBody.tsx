@@ -11,7 +11,13 @@ interface Props {
 }
 
 const RequestBody = ({ request }: Props) => {
-  return <div>{request.postData}</div>
+  return (
+    <div>
+      <pre className="bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all">
+        {request.postData}
+      </pre>
+    </div>
+  )
 }
 
 export default RequestBody
