@@ -115,13 +115,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             https://www.example.com/complete/search
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -136,13 +129,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             GET
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
@@ -162,13 +148,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             toto
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -183,13 +162,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             gws-wiz
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
@@ -209,13 +181,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             */*
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -230,13 +195,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             https://www.google.com/
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -251,13 +209,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -272,13 +223,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -293,13 +237,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             "x86"
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -314,13 +251,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             "64"
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -335,13 +265,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             "98.0.4758.102"
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -356,13 +279,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             ?0
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -375,13 +291,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           <span
             class="text-ellipsis overflow-x-hidden whitespace-nowrap"
           />
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -396,13 +305,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             "macOS"
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -417,13 +319,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             "12.1.0"
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
@@ -443,13 +338,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             YES+srp.gws-20220217-0-RC1.en+FX+923
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
         <span
           class="text-right font-medium text-gray-500 select-none"
@@ -464,13 +352,6 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             2022-02-20-16
           </span>
-          <button
-            class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
-          >
-            <svg
-              class="fill-white"
-            />
-          </button>
         </div>
       </div>
     </div>

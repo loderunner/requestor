@@ -55,7 +55,7 @@ const SectionValue = ({ value }: { value: string }) => {
         )}
       </button>
     )
-  }, [foldable, folded, buttonClassName])
+  }, [foldable, folded, buttonClassName, onFold, onUnfold])
 
   const onHoverStart = useCallback(() => setShowButtons(true), [])
   const onHoverEnd = useCallback(() => setShowButtons(false), [])
@@ -70,9 +70,6 @@ const SectionValue = ({ value }: { value: string }) => {
         {value}
       </span>
       {unfoldButton}
-      <button className={buttonClassName}>
-        <CopyIcon className="fill-white" />
-      </button>
     </div>
   )
 }
