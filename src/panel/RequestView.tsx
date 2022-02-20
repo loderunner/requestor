@@ -160,6 +160,7 @@ const RequestView = ({ requestId }: Props) => {
           Method
         </span>
         <SectionValue value={request.method} />
+        {/* Sections */}
         {querySection}
         {headerSection}
         {cookieSection}
