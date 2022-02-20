@@ -28,7 +28,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
       class="flex flex-col overflow-y-visible"
     >
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
         role="listitem"
       >
         <div
@@ -44,12 +44,6 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
           >
             example.com
           </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
         </div>
         <button
           class="self-stretch"
@@ -93,7 +87,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
       class="flex flex-col overflow-y-visible"
     >
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
         role="listitem"
       >
         <div
@@ -109,12 +103,6 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
           >
             example.com
           </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
         </div>
         <button
           class="self-stretch"
@@ -174,12 +162,6 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
           >
             example.com
           </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
         </div>
         <button
           class="self-stretch"
@@ -223,7 +205,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
       class="flex flex-col overflow-y-visible"
     >
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
         role="listitem"
       >
         <div
@@ -250,7 +232,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
         </button>
       </div>
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
         role="listitem"
       >
         <div
@@ -266,12 +248,6 @@ exports[`InterceptList should change selection after clicking items 1`] = `
           >
             example.com
           </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
         </div>
         <button
           class="self-stretch"
@@ -358,104 +334,6 @@ exports[`InterceptList should change selection after clicking items 2`] = `
           >
             example.com
           </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
-        </div>
-        <button
-          class="self-stretch"
-          title="Delete intercept"
-        >
-          <svg
-            class="h-full w-auto"
-          />
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`InterceptList should change selection after clicking items 3`] = `
-<div>
-  <div
-    class="flex flex-col "
-    id="intercept-list"
-    role="list"
-  >
-    <div
-      class="flex select-none justify-between bg-slate-100 p-1"
-    >
-      <span
-        class="font-bold"
-      >
-        Intercepts
-      </span>
-      <button
-        class="self-stretch"
-        title="Add intercept"
-      >
-        <svg
-          class="h-full w-auto"
-        />
-      </button>
-    </div>
-    <div
-      class="flex flex-col overflow-y-visible"
-    >
-      <div
-        class="flex w-full select-none justify-between p-1 bg-blue-100"
-        role="listitem"
-      >
-        <div
-          class="flex flex-grow items-center overflow-hidden"
-        >
-          <input
-            checked=""
-            class="mr-0.5 focus:ring-0"
-            type="checkbox"
-          />
-          <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
-          >
-            example.com
-          </span>
-        </div>
-        <button
-          class="self-stretch"
-          title="Delete intercept"
-        >
-          <svg
-            class="h-full w-auto"
-          />
-        </button>
-      </div>
-      <div
-        class="flex w-full select-none justify-between p-1 bg-blue-100"
-        role="listitem"
-      >
-        <div
-          class="flex flex-grow items-center overflow-hidden"
-        >
-          <input
-            checked=""
-            class="mr-0.5 focus:ring-0"
-            type="checkbox"
-          />
-          <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
-          >
-            example.com
-          </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
         </div>
         <button
           class="self-stretch"
@@ -497,7 +375,35 @@ exports[`InterceptList should match empty snapshot 1`] = `
     </div>
     <div
       class="flex flex-col overflow-y-visible"
-    />
+    >
+      <div
+        class="flex w-full select-none justify-between p-1"
+        role="listitem"
+      >
+        <div
+          class="flex flex-grow items-center overflow-hidden"
+        >
+          <input
+            checked=""
+            class="mr-0.5 focus:ring-0"
+            type="checkbox"
+          />
+          <span
+            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+          >
+            example.com
+          </span>
+        </div>
+        <button
+          class="self-stretch"
+          title="Delete intercept"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -530,7 +436,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
       class="flex flex-col overflow-y-visible"
     >
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 bg-blue-100"
         role="listitem"
       >
         <div

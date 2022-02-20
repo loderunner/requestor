@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[InterceptView] should match initial snapshot 1`] = `
+<div>
+  <div
+    class="max-w-5xl mx-24 mt-8 px-8 pt-2 grid grid-cols-1 gap-6"
+  >
+    <label
+      class="block"
+    >
+      <span
+        class="text-3xl font-bold"
+      >
+        Intercept
+      </span>
+    </label>
+    <label
+      class="block"
+    >
+      <input
+        checked=""
+        class="mt-1"
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Enabled
+      </span>
+    </label>
+    <label
+      class="block"
+    >
+      <span
+        class="text-sm text-gray-700"
+      >
+        If URL matches
+      </span>
+      <input
+        class="mt-1 block text-sm w-full"
+        placeholder="example.com"
+        type="text"
+        value="example.com"
+      />
+    </label>
+  </div>
+</div>
+`;

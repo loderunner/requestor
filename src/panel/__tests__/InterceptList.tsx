@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
@@ -12,34 +11,10 @@ import type { Intercept } from '@/interceptor'
 jest.mock('@/interceptor/hooks')
 const mockedHooks = InterceptorHooks as jest.Mocked<typeof InterceptorHooks>
 
-const mockHooks = () => {
-  const intercepts: Intercept[] = []
-  mockedHooks.useIntercepts.mockImplementation(() => ({
-    intercepts: intercepts as ReadonlyArray<Readonly<Intercept>>,
-    addIntercept: jest.fn(() => {
-      intercepts.push({
-        ...globalMocks.intercept,
-        id: `inter-${intercepts.length}`,
-      })
-      return intercepts.at(-1) ?? globalMocks.intercept
-    }),
-    removeIntercept: jest.fn(() => {
-      intercepts.pop()
-    }),
-  }))
-  mockedHooks.useIntercept.mockImplementation(() => ({
-    intercept: globalMocks.intercept,
-    updateIntercept: jest.fn(() => globalMocks.intercept),
-  }))
-}
-
 describe('InterceptList', () => {
-  beforeEach(() => {
-    mockHooks()
-  })
   afterEach(() => {
     cleanup()
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   it('should match empty snapshot', () => {
@@ -54,10 +29,11 @@ describe('InterceptList', () => {
 
     const addButton = getByRole('button', { name: 'Add intercept' })
     fireEvent.click(addButton)
-    expect(
+    const addInterceptFn =
       mockedHooks.useIntercepts.mock.results[0].value.addIntercept
-    ).toHaveBeenCalled()
-    expect(mockedHooks.useIntercept).toHaveBeenCalledWith('inter-0')
+    expect(addInterceptFn).toHaveBeenCalled()
+    const interceptId = addInterceptFn.mock.results[0].value.id
+    expect(mockedHooks.useIntercept).toHaveBeenCalledWith(interceptId)
     expect(container).toMatchSnapshot()
 
     const enabledCheckbox = getByRole('checkbox')
@@ -67,21 +43,24 @@ describe('InterceptList', () => {
     ).toHaveBeenCalled()
     expect(container).toMatchSnapshot()
 
+    const removeInterceptFn =
+      mockedHooks.useIntercepts.mock.results.at(-1)?.value.removeIntercept
     const delButton = getByRole('button', { name: 'Delete intercept' })
     fireEvent.click(delButton)
-    expect(
-      mockedHooks.useIntercepts.mock.results.at(-1)?.value.removeIntercept
-    ).toHaveBeenCalledWith('inter')
+    expect(removeInterceptFn).toHaveBeenCalledWith(interceptId)
     expect(container).toMatchSnapshot()
   })
 
   it('should change selection after clicking items', () => {
-    const { container, getByRole, getAllByRole } = render(<InterceptList />)
-
-    const addButton = getByRole('button', { name: 'Add intercept' })
-    fireEvent.click(addButton)
-    fireEvent.click(addButton)
-    expect(container).toMatchSnapshot()
+    mockedHooks.useIntercepts.mockImplementation(() => ({
+      intercepts: [
+        globalMocks.intercept,
+        { ...globalMocks.intercept, id: 'helloworld' },
+      ],
+      addIntercept: () => globalMocks.intercept,
+      removeIntercept: () => {},
+    }))
+    const { container, getAllByRole } = render(<InterceptList />)
 
     const items = getAllByRole('listitem')
     expect(items).toBeArrayOfSize(2)
@@ -94,6 +73,15 @@ describe('InterceptList', () => {
   })
 
   it('should show and hide pattern edit modal', async () => {
+    const intercepts: Intercept[] = []
+    mockedHooks.useIntercepts.mockImplementation(() => ({
+      intercepts: intercepts,
+      addIntercept: () => {
+        intercepts.push(globalMocks.intercept)
+        return globalMocks.intercept
+      },
+      removeIntercept: () => {},
+    }))
     const { container, getByRole, findByRole, queryByRole } = render(
       <InterceptList />
     )

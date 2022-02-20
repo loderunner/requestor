@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { cleanup, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
@@ -13,15 +12,6 @@ describe('[Sidebar]', () => {
   })
 
   it('should match empty snapshot', () => {
-    const { container } = render(
-      <RequestProvider>
-        <Sidebar />
-      </RequestProvider>
-    )
-    expect(container).toMatchSnapshot()
-  })
-
-  it('should match requestful snapshot', async () => {
     const { container } = render(
       <RequestProvider>
         <Sidebar />

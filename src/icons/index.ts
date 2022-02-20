@@ -1,3 +1,6 @@
 export { default as Plus } from './plus.svg'
 export { default as Clear } from './clear.svg'
 export { default as LevelCrossing } from './level-crossing.svg'
+export { default as Copy } from './copy.svg'
+export { default as UnfoldMore } from './unfold-more.svg'
+export { default as UnfoldLess } from './unfold-less.svg'
