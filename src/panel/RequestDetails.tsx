@@ -106,7 +106,7 @@ interface Props {
   requestId: string
 }
 
-const RequestView = ({ requestId }: Props) => {
+const RequestDetails = ({ requestId }: Props) => {
   const request = useRequest(requestId)
 
   const url = useMemo(() => new URL(request.url), [request])
@@ -169,4 +169,4 @@ const RequestView = ({ requestId }: Props) => {
   )
 }
 
-export default RequestView
+export default RequestDetails

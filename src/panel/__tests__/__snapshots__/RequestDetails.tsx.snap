@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[RequestView] should match initial snapshot 1`] = `
+exports[`[RequestDetails] should match initial snapshot 1`] = `
 <div>
   <div
     class="max-w-5xl mx-24 mt-8 px-8 pt-2"
