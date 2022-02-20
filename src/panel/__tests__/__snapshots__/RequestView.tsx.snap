@@ -14,154 +14,375 @@ exports[`[RequestView] should match initial snapshot 1`] = `
       class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
     >
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         URL
       </span>
-      <span>
-        https://www.example.com/complete/search
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          https://www.example.com/complete/search
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         Method
       </span>
-      <span>
-        GET
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          GET
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-lg font-semibold col-span-2 mt-4"
+        class="text-lg font-semibold col-span-2 mt-4 select-none"
       >
         Query
       </span>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         q
       </span>
-      <span>
-        toto
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          toto
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         client
       </span>
-      <span>
-        gws-wiz
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          gws-wiz
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-lg font-semibold col-span-2 mt-4"
+        class="text-lg font-semibold col-span-2 mt-4 select-none"
       >
         Headers
       </span>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         Accept
       </span>
-      <span>
-        */*
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          */*
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         Referer
       </span>
-      <span>
-        https://www.google.com/
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          https://www.google.com/
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         User-Agent
       </span>
-      <span>
-        Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua
       </span>
-      <span>
-        " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua-arch
       </span>
-      <span>
-        "x86"
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          "x86"
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua-bitness
       </span>
-      <span>
-        "64"
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          "64"
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua-full-version
       </span>
-      <span>
-        "98.0.4758.102"
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          "98.0.4758.102"
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua-mobile
       </span>
-      <span>
-        ?0
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          ?0
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua-model
       </span>
-      <span />
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        />
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua-platform
       </span>
-      <span>
-        "macOS"
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          "macOS"
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         sec-ch-ua-platform-version
       </span>
-      <span>
-        "12.1.0"
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          "12.1.0"
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-lg font-semibold col-span-2 mt-4"
+        class="text-lg font-semibold col-span-2 mt-4 select-none"
       >
         Cookies
       </span>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         CONSENT
       </span>
-      <span>
-        YES+srp.gws-20220217-0-RC1.en+FX+923
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          YES+srp.gws-20220217-0-RC1.en+FX+923
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
       <span
-        class="text-right font-medium text-gray-500"
+        class="text-right font-medium text-gray-500 select-none"
       >
         1P_JAR
       </span>
-      <span>
-        2022-02-20-16
-      </span>
+      <div
+        class="flex overflow-x-hidden space-x-1"
+      >
+        <span
+          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        >
+          2022-02-20-16
+        </span>
+        <button
+          class="h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </div>
