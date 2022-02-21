@@ -25,6 +25,10 @@ const InterceptView = ({ interceptId }: Props) => {
     updateIntercept({ enabled: !intercept.enabled })
   }, [intercept.enabled, updateIntercept])
 
+  const onToggleRegexp = useCallback(() => {
+    updateIntercept({ regexp: !intercept.regexp })
+  }, [intercept.regexp, updateIntercept])
+
   const onChangePattern = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setPattern(e.target.value)
@@ -38,24 +42,33 @@ const InterceptView = ({ interceptId }: Props) => {
       <label className="block">
         <span className="text-3xl font-bold">Intercept</span>
       </label>
-      <label className="block">
+      <label className="mt-1 inline-flex items-center">
         <input
           type="checkbox"
-          className="mt-1"
           checked={intercept.enabled}
           onChange={onToggleEnabled}
         />
         <span className="ml-1 text-sm text-gray-700">Enabled</span>
       </label>
-      <label className="block">
+      <label className="mt-1 block">
         <span className="text-sm text-gray-700">If URL matches</span>
-        <input
-          type="text"
-          className="mt-1 block text-sm w-full"
-          placeholder="example.com"
-          value={pattern}
-          onChange={onChangePattern}
-        />
+        <div className="flex items-center space-x-2">
+          <input
+            type="text"
+            className="block text-sm flex-auto"
+            placeholder="example.com"
+            value={pattern}
+            onChange={onChangePattern}
+          />
+          <label className="inline-flex items-center">
+            <input
+              type="checkbox"
+              checked={intercept.regexp}
+              onChange={onToggleRegexp}
+            />
+            <span className="ml-1 text-sm text-gray-700">Regexp</span>
+          </label>
+        </div>
       </label>
     </div>
   )

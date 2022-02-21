@@ -50,11 +50,10 @@ exports[`[Main] should match intercept selection snapshot 1`] = `
         </span>
       </label>
       <label
-        class="block"
+        class="mt-1 inline-flex items-center"
       >
         <input
           checked=""
-          class="mt-1"
           type="checkbox"
         />
         <span
@@ -64,19 +63,35 @@ exports[`[Main] should match intercept selection snapshot 1`] = `
         </span>
       </label>
       <label
-        class="block"
+        class="mt-1 block"
       >
         <span
           class="text-sm text-gray-700"
         >
           If URL matches
         </span>
-        <input
-          class="mt-1 block text-sm w-full"
-          placeholder="example.com"
-          type="text"
-          value="example.com"
-        />
+        <div
+          class="flex items-center space-x-2"
+        >
+          <input
+            class="block text-sm flex-auto"
+            placeholder="example.com"
+            type="text"
+            value="example.com"
+          />
+          <label
+            class="inline-flex items-center"
+          >
+            <input
+              type="checkbox"
+            />
+            <span
+              class="ml-1 text-sm text-gray-700"
+            >
+              Regexp
+            </span>
+          </label>
+        </div>
       </label>
     </div>
   </main>
