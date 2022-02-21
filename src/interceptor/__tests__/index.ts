@@ -1,7 +1,12 @@
 import { chrome } from 'jest-chrome'
 
 import { RequestPausedEvent, listen, unlisten } from '../debugger'
-import { addIntercept, intercepts, removeIntercept } from '../intercept'
+import {
+  addIntercept,
+  intercepts,
+  removeIntercept,
+  updateIntercept,
+} from '../intercept'
 import { subscribe } from '../request'
 
 const target: chrome.debugger.TargetInfo = {
@@ -61,8 +66,30 @@ describe('[intercept]', () => {
     )
   })
 
-  it('should call subscribed callback with an intercept', () => {
+  it('should call subscribed callback with a matching string intercept', () => {
     addIntercept(globalMocks.intercept)
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).toBeCalledWith({ id: event.requestId, ...event.request })
+  })
+
+  it('should call subscribed callback with a matching regexp intercept', () => {
+    addIntercept({ ...globalMocks.intercept, pattern: '.*', regexp: true })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).toBeCalledWith({ id: event.requestId, ...event.request })
+
+    addIntercept({
+      ...globalMocks.intercept,
+      pattern: '(example)',
+      regexp: true,
+    })
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
@@ -92,8 +119,39 @@ describe('[intercept]', () => {
     expect(listener).not.toBeCalled()
   })
 
-  it('should not call subscribed callback without a matching intercept', () => {
+  it('should not call subscribed callback without a matching string pattern', () => {
     addIntercept({ ...globalMocks.intercept, pattern: 'eixample.com' })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).not.toBeCalled()
+  })
+
+  it('should not call subscribed callback without a matching regexp partern', () => {
+    addIntercept({ ...globalMocks.intercept, pattern: '.*' })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).not.toBeCalled()
+
+    updateIntercept(globalMocks.intercept.id, {
+      pattern: 'hello',
+      regexp: true,
+    })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).not.toBeCalled()
+  })
+
+  it('should not call subscribed callback without an invalid regexp partern', () => {
+    addIntercept({ ...globalMocks.intercept, pattern: '(example' })
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
