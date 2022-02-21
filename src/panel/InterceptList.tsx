@@ -19,11 +19,12 @@ import type { SyntheticEvent } from 'react'
 
 interface ItemProps {
   interceptId?: string
+  paused: boolean
   onDelete: (inter: Intercept) => void
   editOnRender: boolean
 }
 
-const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
+const Item = ({ interceptId, onDelete, editOnRender, paused }: ItemProps) => {
   if (interceptId === undefined) {
     throw new Error('missing intercept id')
   }
@@ -92,13 +93,15 @@ const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
       <div className="flex flex-grow items-center overflow-hidden">
         <input
           type="checkbox"
-          className="mr-0.5 focus:ring-0"
+          className={`mr-0.5 focus:ring-0 ${paused ? 'text-gray-400' : ''}`}
           checked={intercept.enabled}
           onClick={(e) => e.stopPropagation()}
           onChange={onToggleEnabled}
         />
         <span
-          className="w-full mx-0.5 empty:before:content-['\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+          className={`w-full mx-0.5 empty:before:content-['\\200b'] overflow-hidden text-ellipsis whitespace-nowrap ${
+            paused ? 'text-gray-400' : ''
+          }`}
           onDoubleClick={onDoubleClickPattern}
           ref={patternLabelRef}
         >
@@ -207,11 +210,12 @@ const InterceptList = ({ className }: Props) => {
         <Item
           key={inter.id}
           interceptId={inter.id}
+          paused={paused}
           onDelete={onDeleteIntercept}
           editOnRender={newIntercept === inter.id}
         />
       )),
-    [intercepts, onDeleteIntercept, newIntercept]
+    [intercepts, paused, onDeleteIntercept, newIntercept]
   )
 
   return (
