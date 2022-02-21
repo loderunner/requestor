@@ -32,14 +32,30 @@ interface PrimitiveProps {
 const PrimitiveView = ({ value }: PrimitiveProps) => {
   switch (typeof value) {
     case 'boolean':
-      return <pre className="text-green-500">{JSON.stringify(value)}</pre>
+      return (
+        <pre className="whitespace-pre-wrap break-all text-green-500">
+          {JSON.stringify(value)}
+        </pre>
+      )
     case 'number':
-      return <pre className="text-rose-500">{JSON.stringify(value)}</pre>
+      return (
+        <pre className="whitespace-pre-wrap break-all text-rose-500">
+          {JSON.stringify(value)}
+        </pre>
+      )
     case 'string':
-      return <pre className="text-sky-400">{JSON.stringify(value)}</pre>
+      return (
+        <pre className="whitespace-pre-wrap break-all text-sky-400">
+          {JSON.stringify(value)}
+        </pre>
+      )
     case 'object': {
       if (value === null) {
-        return <pre className="text-purple-500">{JSON.stringify(value)}</pre>
+        return (
+          <pre className="whitespace-pre-wrap break-all text-purple-500">
+            {JSON.stringify(value)}
+          </pre>
+        )
       }
     }
   }
