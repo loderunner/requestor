@@ -17,7 +17,7 @@ describe('[intercept.intercept]', () => {
   })
 
   it('should have 1 intercept after addIntercept', () => {
-    const newInter = { pattern: 'example.com', enabled: true }
+    const newInter = { pattern: 'example.com', enabled: true, regexp: false }
     const inter = addIntercept(newInter)
     expect(intercepts).toBeArrayOfSize(1)
     expect(intercepts).toContainEqual(inter)
@@ -27,13 +27,13 @@ describe('[intercept.intercept]', () => {
 
   it('should have 10 intercepts after addIntercept', () => {
     for (let i = 0; i < 10; i++) {
-      addIntercept({ pattern: `intercept-${i}`, enabled: true })
+      addIntercept({ ...globalMocks.intercept, pattern: `intercept-${i}` })
     }
     expect(intercepts).toBeArrayOfSize(10)
   })
 
   it('should getIntercept', () => {
-    const newInter = addIntercept({ pattern: 'example.com', enabled: true })
+    const newInter = addIntercept(globalMocks.intercept)
 
     const inter = getIntercept(newInter.id as string)
     expect(inter).toEqual(newInter)
@@ -45,7 +45,7 @@ describe('[intercept.intercept]', () => {
   })
 
   it('should updateIntercept', () => {
-    const newInter = addIntercept({ pattern: 'example.com', enabled: true })
+    const newInter = addIntercept(globalMocks.intercept)
     const id = newInter.id as string
     let updatedInter = updateIntercept(id as string, {
       pattern: 'eixample.com',
@@ -72,7 +72,7 @@ describe('[intercept.intercept]', () => {
   })
 
   it('should have 0 intercepts after removeIntercept', () => {
-    const inter = addIntercept({ pattern: 'example.com', enabled: true })
+    const inter = addIntercept(globalMocks.intercept)
     removeIntercept(inter.id as string)
     expect(intercepts).toBeArrayOfSize(0)
   })

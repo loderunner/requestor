@@ -26,17 +26,22 @@ const onDebuggerEvent = (
         continue
       }
 
-      let re: RegExp
-      try {
-        re = new RegExp(inter.pattern, 'i')
-      } catch (error) {
-        continue
-      }
-
       // Dispatch event if the intercept matches
       // then break from loop to avoid duplicate capture
       const req = event.request
-      if (re.test(req.url)) {
+      let match = false
+      if (inter.regexp) {
+        let re: RegExp
+        try {
+          re = new RegExp(inter.pattern, 'i')
+        } catch (error) {
+          continue
+        }
+        match = re.test(req.url)
+      } else {
+        match = req.url.includes(inter.pattern)
+      }
+      if (match) {
         pushRequest({ id: event.requestId, ...req })
         break
       }
