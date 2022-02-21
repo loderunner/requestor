@@ -53,7 +53,7 @@ interface ObjectProps {
 }
 
 const ObjectView = ({ obj, depth, foldButtonRef }: ObjectProps) => {
-  const [folded, setFolded] = useState(depth !== 0)
+  const [folded, setFolded] = useState(depth > 1)
   const style: CSSProperties = useMemo(
     () => ({ marginLeft: `${depth}rem` }),
     [depth]
