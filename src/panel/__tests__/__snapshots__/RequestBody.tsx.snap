@@ -3,7 +3,7 @@
 exports[`[RequestBody] should match initial snapshot 1`] = `
 <div>
   <div
-    class=""
+    class="mt-8 "
   >
     <div
       class="space-y-1"
@@ -19,7 +19,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           :
         </pre>
         <pre
-          class="text-sky-400"
+          class="whitespace-pre-wrap break-all text-sky-400"
         >
           "world"
         </pre>
@@ -60,7 +60,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             :
           </pre>
           <pre
-            class="text-sky-400"
+            class="whitespace-pre-wrap break-all text-sky-400"
           >
             "rochechouart"
           </pre>
@@ -76,7 +76,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             :
           </pre>
           <pre
-            class="text-rose-500"
+            class="whitespace-pre-wrap break-all text-rose-500"
           >
             1
           </pre>
@@ -92,7 +92,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             :
           </pre>
           <pre
-            class="text-purple-500"
+            class="whitespace-pre-wrap break-all text-purple-500"
           >
             null
           </pre>
@@ -133,7 +133,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
               :
             </pre>
             <pre
-              class="text-rose-500"
+              class="whitespace-pre-wrap break-all text-rose-500"
             >
               0.7309955249202127
             </pre>
@@ -149,7 +149,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
               :
             </pre>
             <pre
-              class="text-rose-500"
+              class="whitespace-pre-wrap break-all text-rose-500"
             >
               0.45152102178420384
             </pre>
@@ -165,7 +165,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
               :
             </pre>
             <pre
-              class="text-rose-500"
+              class="whitespace-pre-wrap break-all text-rose-500"
             >
               0.3101491368469109
             </pre>
@@ -181,7 +181,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
               :
             </pre>
             <pre
-              class="text-rose-500"
+              class="whitespace-pre-wrap break-all text-rose-500"
             >
               0.33964078594296154
             </pre>
@@ -197,7 +197,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
               :
             </pre>
             <pre
-              class="text-rose-500"
+              class="whitespace-pre-wrap break-all text-rose-500"
             >
               0.579201406715314
             </pre>
@@ -239,7 +239,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
               :
             </pre>
             <pre
-              class="text-rose-500"
+              class="whitespace-pre-wrap break-all text-rose-500"
             >
               1138
             </pre>
@@ -255,7 +255,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
               :
             </pre>
             <pre
-              class="text-sky-400"
+              class="whitespace-pre-wrap break-all text-sky-400"
             >
               "wars"
             </pre>
@@ -273,7 +273,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           :
         </pre>
         <pre
-          class="text-green-500"
+          class="whitespace-pre-wrap break-all text-green-500"
         >
           true
         </pre>

@@ -67,7 +67,7 @@ const RequestView = ({ requestId }: Props) => {
   }, [tab])
 
   return (
-    <div className="max-w-5xl mx-24 mt-8 px-8 pt-2">
+    <div className="max-w-5xl mx-24 my-8 px-8 pt-2">
       <div className="flex space-x-4 mb-4">{buttons}</div>
       {content}
     </div>

@@ -34,7 +34,7 @@ const RequestBody = ({ request, className = '' }: Props) => {
         JSON.parse(request.postData)
       }
       return (
-        <div className={className}>
+        <div className={`mt-8 ${className}`}>
           <JSONBodyView jsonData={request.postData} />
         </div>
       )
@@ -44,7 +44,7 @@ const RequestBody = ({ request, className = '' }: Props) => {
   }
 
   return (
-    <div className={className}>
+    <div className={`mt-8 ${className}`}>
       <pre className={`bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all`}>
         {request.postData}
       </pre>
