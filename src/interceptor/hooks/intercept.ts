@@ -90,14 +90,16 @@ export const useIntercept = (id: string) => {
   throw new Error('intercept not found')
 }
 
+const debuggerPausedValueAtom = atom(Debugger.paused())
 const debuggerPausedAtom = atom(
-  () => Debugger.paused(),
+  (get) => get(debuggerPausedValueAtom),
   (get, set, newPaused: boolean) => {
     if (newPaused) {
       Debugger.pause()
     } else {
       Debugger.unpause()
     }
+    set(debuggerPausedValueAtom, newPaused)
   }
 )
 
