@@ -22,7 +22,7 @@ const RequestView = ({ requestId }: Props) => {
   const [tab, setTab] = useState<Tab>('headers')
 
   useEffect(() => {
-    setTab('body')
+    setTab('headers')
   }, [requestId])
 
   const content = useMemo(() => {
