@@ -18,9 +18,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       <pre
         class="text-sky-400"
       >
-        "
-        world
-        "
+        "world"
       </pre>
     </div>
     <div
@@ -61,9 +59,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         <pre
           class="text-sky-400"
         >
-          "
-          rochechouart
-          "
+          "rochechouart"
         </pre>
       </div>
       <div
@@ -258,9 +254,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           <pre
             class="text-sky-400"
           >
-            "
-            wars
-            "
+            "wars"
           </pre>
         </div>
       </div>

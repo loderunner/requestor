@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <RequestProvider>
-      <div id="App" className="h-screen">
+      <div id="App">
         <Sidebar className="fixed top-0 left-0 bottom-0 w-64" />
         <Main className="ml-64" />
       </div>
