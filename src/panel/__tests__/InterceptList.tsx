@@ -28,18 +28,18 @@ describe('InterceptList', () => {
     expect(mockedHooks.useIntercepts).toHaveBeenCalled()
 
     const addButton = getByRole('button', { name: 'Add intercept' })
-    fireEvent.click(addButton)
     const addInterceptFn =
-      mockedHooks.useIntercepts.mock.results[0].value.addIntercept
+      mockedHooks.useIntercepts.mock.results.at(-1)?.value.addIntercept
+    fireEvent.click(addButton)
     expect(addInterceptFn).toHaveBeenCalled()
-    const interceptId = addInterceptFn.mock.results[0].value.id
+    const interceptId = addInterceptFn.mock.results.at(-1)?.value.id
     expect(mockedHooks.useIntercept).toHaveBeenCalledWith(interceptId)
     expect(container).toMatchSnapshot()
 
     const enabledCheckbox = getByRole('checkbox')
     fireEvent.click(enabledCheckbox)
     expect(
-      mockedHooks.useIntercept.mock.results[0].value.updateIntercept
+      mockedHooks.useIntercept.mock.results.at(-1)?.value.updateIntercept
     ).toHaveBeenCalled()
     expect(container).toMatchSnapshot()
 
