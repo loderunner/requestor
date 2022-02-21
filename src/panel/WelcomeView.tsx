@@ -15,7 +15,7 @@ const WelcomeView = ({ className = '' }: Props) => {
   const { addIntercept } = useIntercepts()
 
   const onClick = useCallback(() => {
-    const inter = addIntercept({ pattern: '', enabled: true })
+    const inter = addIntercept({ pattern: '', enabled: true, regexp: false })
     setSelection({ ...inter })
   }, [addIntercept, setSelection])
 
