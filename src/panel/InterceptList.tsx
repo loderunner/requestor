@@ -180,7 +180,8 @@ const InterceptList = ({ className }: Props) => {
           editOnRender={!firstRender}
         />
       )),
-    [firstRender, intercepts, onDeleteIntercept]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [intercepts, onDeleteIntercept]
   )
 
   return (
