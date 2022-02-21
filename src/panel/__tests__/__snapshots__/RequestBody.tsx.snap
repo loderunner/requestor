@@ -47,7 +47,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </pre>
       </div>
       <div
-        class="space-y-1 hidden"
+        class="space-y-1"
       >
         <div
           class="flex items-baseline space-x-1"

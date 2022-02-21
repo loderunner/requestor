@@ -233,7 +233,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="space-y-1 hidden"
+          class="space-y-1"
         >
           <div
             class="flex items-baseline space-x-1"
@@ -703,7 +703,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="space-y-1 hidden"
+          class="space-y-1"
         >
           <div
             class="flex items-baseline space-x-1"
@@ -1173,7 +1173,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="space-y-1 hidden"
+          class="space-y-1"
         >
           <div
             class="flex items-baseline space-x-1"
