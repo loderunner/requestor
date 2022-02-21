@@ -21,17 +21,21 @@ exports[`[RequestView] should match body snapshot 1`] = `
       </button>
     </div>
     <div
-      class=""
+      class="space-y-1"
     >
       <div
         class="flex items-baseline space-x-1"
         style="margin-left: 0rem;"
       >
-        <pre>
+        <pre
+          class="text-amber-700"
+        >
           hello
           :
         </pre>
-        <pre>
+        <pre
+          class="text-sky-400"
+        >
           "
           world
           "
@@ -41,7 +45,9 @@ exports[`[RequestView] should match body snapshot 1`] = `
         class="flex items-baseline space-x-1"
         style="margin-left: 0rem;"
       >
-        <pre>
+        <pre
+          class="text-amber-700"
+        >
           obj
           :
         </pre>
@@ -58,17 +64,21 @@ exports[`[RequestView] should match body snapshot 1`] = `
         </pre>
       </div>
       <div
-        class="hidden"
+        class="space-y-1 hidden"
       >
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             barbes
             :
           </pre>
-          <pre>
+          <pre
+            class="text-sky-400"
+          >
             "
             rochechouart
             "
@@ -76,33 +86,43 @@ exports[`[RequestView] should match body snapshot 1`] = `
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             version
             :
           </pre>
-          <pre>
+          <pre
+            class="text-rose-500"
+          >
             1
           </pre>
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             toto
             :
           </pre>
-          <pre>
+          <pre
+            class="text-purple-500"
+          >
             null
           </pre>
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             arr
             :
           </pre>
@@ -119,74 +139,96 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="hidden"
+          class="space-y-1 hidden"
         >
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               0
               :
             </pre>
-            <pre>
-              0.9802657571255342
+            <pre
+              class="text-rose-500"
+            >
+              0.2465824503173042
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               1
               :
             </pre>
-            <pre>
-              0.8438731871816791
+            <pre
+              class="text-rose-500"
+            >
+              0.60719202486616
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               2
               :
             </pre>
-            <pre>
-              0.4651316804382688
+            <pre
+              class="text-rose-500"
+            >
+              0.26701568069183446
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               3
               :
             </pre>
-            <pre>
-              0.4917543916836147
+            <pre
+              class="text-rose-500"
+            >
+              0.5234321778771487
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               4
               :
             </pre>
-            <pre>
-              0.2831577372494458
+            <pre
+              class="text-rose-500"
+            >
+              0.6401775340896823
             </pre>
           </div>
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             nested
             :
           </pre>
@@ -203,35 +245,59 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="hidden"
+          class="space-y-1 hidden"
         >
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               thx
               :
             </pre>
-            <pre>
+            <pre
+              class="text-rose-500"
+            >
               1138
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               star
               :
             </pre>
-            <pre>
+            <pre
+              class="text-sky-400"
+            >
               "
               wars
               "
             </pre>
           </div>
         </div>
+      </div>
+      <div
+        class="flex items-baseline space-x-1"
+        style="margin-left: 0rem;"
+      >
+        <pre
+          class="text-amber-700"
+        >
+          done
+          :
+        </pre>
+        <pre
+          class="text-green-500"
+        >
+          true
+        </pre>
       </div>
     </div>
   </div>
@@ -543,17 +609,21 @@ exports[`[RequestView] should match initial snapshot 1`] = `
       </button>
     </div>
     <div
-      class=""
+      class="space-y-1"
     >
       <div
         class="flex items-baseline space-x-1"
         style="margin-left: 0rem;"
       >
-        <pre>
+        <pre
+          class="text-amber-700"
+        >
           hello
           :
         </pre>
-        <pre>
+        <pre
+          class="text-sky-400"
+        >
           "
           world
           "
@@ -563,7 +633,9 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         class="flex items-baseline space-x-1"
         style="margin-left: 0rem;"
       >
-        <pre>
+        <pre
+          class="text-amber-700"
+        >
           obj
           :
         </pre>
@@ -580,17 +652,21 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         </pre>
       </div>
       <div
-        class="hidden"
+        class="space-y-1 hidden"
       >
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             barbes
             :
           </pre>
-          <pre>
+          <pre
+            class="text-sky-400"
+          >
             "
             rochechouart
             "
@@ -598,33 +674,43 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             version
             :
           </pre>
-          <pre>
+          <pre
+            class="text-rose-500"
+          >
             1
           </pre>
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             toto
             :
           </pre>
-          <pre>
+          <pre
+            class="text-purple-500"
+          >
             null
           </pre>
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             arr
             :
           </pre>
@@ -641,74 +727,96 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="hidden"
+          class="space-y-1 hidden"
         >
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               0
               :
             </pre>
-            <pre>
-              0.9802657571255342
+            <pre
+              class="text-rose-500"
+            >
+              0.2465824503173042
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               1
               :
             </pre>
-            <pre>
-              0.8438731871816791
+            <pre
+              class="text-rose-500"
+            >
+              0.60719202486616
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               2
               :
             </pre>
-            <pre>
-              0.4651316804382688
+            <pre
+              class="text-rose-500"
+            >
+              0.26701568069183446
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               3
               :
             </pre>
-            <pre>
-              0.4917543916836147
+            <pre
+              class="text-rose-500"
+            >
+              0.5234321778771487
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               4
               :
             </pre>
-            <pre>
-              0.2831577372494458
+            <pre
+              class="text-rose-500"
+            >
+              0.6401775340896823
             </pre>
           </div>
         </div>
         <div
           class="flex items-baseline space-x-1"
-          style="margin-left: 0.75rem;"
+          style="margin-left: 1rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             nested
             :
           </pre>
@@ -725,35 +833,59 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="hidden"
+          class="space-y-1 hidden"
         >
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               thx
               :
             </pre>
-            <pre>
+            <pre
+              class="text-rose-500"
+            >
               1138
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 1.5rem;"
+            style="margin-left: 2rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               star
               :
             </pre>
-            <pre>
+            <pre
+              class="text-sky-400"
+            >
               "
               wars
               "
             </pre>
           </div>
         </div>
+      </div>
+      <div
+        class="flex items-baseline space-x-1"
+        style="margin-left: 0rem;"
+      >
+        <pre
+          class="text-amber-700"
+        >
+          done
+          :
+        </pre>
+        <pre
+          class="text-green-500"
+        >
+          true
+        </pre>
       </div>
     </div>
   </div>

@@ -110,17 +110,21 @@ exports[`[Main] should match request selection snapshot 1`] = `
         </button>
       </div>
       <div
-        class=""
+        class="space-y-1"
       >
         <div
           class="flex items-baseline space-x-1"
           style="margin-left: 0rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             hello
             :
           </pre>
-          <pre>
+          <pre
+            class="text-sky-400"
+          >
             "
             world
             "
@@ -130,7 +134,9 @@ exports[`[Main] should match request selection snapshot 1`] = `
           class="flex items-baseline space-x-1"
           style="margin-left: 0rem;"
         >
-          <pre>
+          <pre
+            class="text-amber-700"
+          >
             obj
             :
           </pre>
@@ -147,17 +153,21 @@ exports[`[Main] should match request selection snapshot 1`] = `
           </pre>
         </div>
         <div
-          class="hidden"
+          class="space-y-1 hidden"
         >
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 0.75rem;"
+            style="margin-left: 1rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               barbes
               :
             </pre>
-            <pre>
+            <pre
+              class="text-sky-400"
+            >
               "
               rochechouart
               "
@@ -165,33 +175,43 @@ exports[`[Main] should match request selection snapshot 1`] = `
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 0.75rem;"
+            style="margin-left: 1rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               version
               :
             </pre>
-            <pre>
+            <pre
+              class="text-rose-500"
+            >
               1
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 0.75rem;"
+            style="margin-left: 1rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               toto
               :
             </pre>
-            <pre>
+            <pre
+              class="text-purple-500"
+            >
               null
             </pre>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 0.75rem;"
+            style="margin-left: 1rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               arr
               :
             </pre>
@@ -208,74 +228,96 @@ exports[`[Main] should match request selection snapshot 1`] = `
             </pre>
           </div>
           <div
-            class="hidden"
+            class="space-y-1 hidden"
           >
             <div
               class="flex items-baseline space-x-1"
-              style="margin-left: 1.5rem;"
+              style="margin-left: 2rem;"
             >
-              <pre>
+              <pre
+                class="text-amber-700"
+              >
                 0
                 :
               </pre>
-              <pre>
-                0.6159157567001794
+              <pre
+                class="text-rose-500"
+              >
+                0.6844456033428357
               </pre>
             </div>
             <div
               class="flex items-baseline space-x-1"
-              style="margin-left: 1.5rem;"
+              style="margin-left: 2rem;"
             >
-              <pre>
+              <pre
+                class="text-amber-700"
+              >
                 1
                 :
               </pre>
-              <pre>
-                0.5779886345775558
+              <pre
+                class="text-rose-500"
+              >
+                0.27454394449064234
               </pre>
             </div>
             <div
               class="flex items-baseline space-x-1"
-              style="margin-left: 1.5rem;"
+              style="margin-left: 2rem;"
             >
-              <pre>
+              <pre
+                class="text-amber-700"
+              >
                 2
                 :
               </pre>
-              <pre>
-                0.12788977422828496
+              <pre
+                class="text-rose-500"
+              >
+                0.6507152691090319
               </pre>
             </div>
             <div
               class="flex items-baseline space-x-1"
-              style="margin-left: 1.5rem;"
+              style="margin-left: 2rem;"
             >
-              <pre>
+              <pre
+                class="text-amber-700"
+              >
                 3
                 :
               </pre>
-              <pre>
-                0.01828488330007394
+              <pre
+                class="text-rose-500"
+              >
+                0.14184114549793736
               </pre>
             </div>
             <div
               class="flex items-baseline space-x-1"
-              style="margin-left: 1.5rem;"
+              style="margin-left: 2rem;"
             >
-              <pre>
+              <pre
+                class="text-amber-700"
+              >
                 4
                 :
               </pre>
-              <pre>
-                0.7719620324431629
+              <pre
+                class="text-rose-500"
+              >
+                0.7227474729867112
               </pre>
             </div>
           </div>
           <div
             class="flex items-baseline space-x-1"
-            style="margin-left: 0.75rem;"
+            style="margin-left: 1rem;"
           >
-            <pre>
+            <pre
+              class="text-amber-700"
+            >
               nested
               :
             </pre>
@@ -292,35 +334,59 @@ exports[`[Main] should match request selection snapshot 1`] = `
             </pre>
           </div>
           <div
-            class="hidden"
+            class="space-y-1 hidden"
           >
             <div
               class="flex items-baseline space-x-1"
-              style="margin-left: 1.5rem;"
+              style="margin-left: 2rem;"
             >
-              <pre>
+              <pre
+                class="text-amber-700"
+              >
                 thx
                 :
               </pre>
-              <pre>
+              <pre
+                class="text-rose-500"
+              >
                 1138
               </pre>
             </div>
             <div
               class="flex items-baseline space-x-1"
-              style="margin-left: 1.5rem;"
+              style="margin-left: 2rem;"
             >
-              <pre>
+              <pre
+                class="text-amber-700"
+              >
                 star
                 :
               </pre>
-              <pre>
+              <pre
+                class="text-sky-400"
+              >
                 "
                 wars
                 "
               </pre>
             </div>
           </div>
+        </div>
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            done
+            :
+          </pre>
+          <pre
+            class="text-green-500"
+          >
+            true
+          </pre>
         </div>
       </div>
     </div>

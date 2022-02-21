@@ -27,6 +27,7 @@ const payload = {
       star: 'wars',
     },
   },
+  done: true,
 }
 
 const request: Request = {

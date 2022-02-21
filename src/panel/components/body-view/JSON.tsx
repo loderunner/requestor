@@ -32,14 +32,14 @@ interface PrimitiveProps {
 const PrimitiveView = ({ value }: PrimitiveProps) => {
   switch (typeof value) {
     case 'boolean':
-      return <pre>{value}</pre>
+      return <pre className="text-green-500">{`${value}`}</pre>
     case 'number':
-      return <pre>{value}</pre>
+      return <pre className="text-rose-500">{value}</pre>
     case 'string':
-      return <pre>&quot;{value}&quot;</pre>
+      return <pre className="text-sky-400">&quot;{value}&quot;</pre>
     case 'object': {
       if (value === null) {
-        return <pre>null</pre>
+        return <pre className="text-purple-500">null</pre>
       }
     }
   }
@@ -55,7 +55,7 @@ interface ObjectProps {
 const ObjectView = ({ obj, depth, foldButtonRef }: ObjectProps) => {
   const [folded, setFolded] = useState(depth !== 0)
   const style: CSSProperties = useMemo(
-    () => ({ marginLeft: `${depth * 0.75}rem` }),
+    () => ({ marginLeft: `${depth}rem` }),
     [depth]
   )
 
@@ -73,7 +73,7 @@ const ObjectView = ({ obj, depth, foldButtonRef }: ObjectProps) => {
       if (isPrimitive(v)) {
         items.push(
           <div key={k} className="flex items-baseline space-x-1" style={style}>
-            <pre>{k}:</pre>
+            <pre className="text-amber-700">{k}:</pre>
             <PrimitiveView value={v} />
           </div>
         )
@@ -86,7 +86,7 @@ const ObjectView = ({ obj, depth, foldButtonRef }: ObjectProps) => {
     return items
   }, [obj, style, depth])
 
-  return <div className={folded ? 'hidden' : ''}>{rows}</div>
+  return <div className={'space-y-1' + (folded ? ' hidden' : '')}>{rows}</div>
 }
 
 interface RowsProps {
@@ -111,7 +111,7 @@ const ObjectRows = ({ k, v, style, depth }: RowsProps) => {
   return (
     <>
       <div key={k} className="flex items-baseline space-x-1" style={style}>
-        <pre>{k}:</pre>
+        <pre className="text-amber-700">{k}:</pre>
         <pre className="flex items-center space-x-0.5">
           {leftGuard}
           <button
