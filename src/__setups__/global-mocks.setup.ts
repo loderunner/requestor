@@ -15,7 +15,10 @@ const payload = {
     barbes: 'rochechouart',
     version: 1,
     toto: null,
-    arr: new Array<number>(5).fill(0).map(() => Math.random()),
+    arr: [
+      0.7309955249202127, 0.45152102178420384, 0.3101491368469109,
+      0.33964078594296154, 0.579201406715314,
+    ],
     nested: {
       thx: 1138,
       star: 'wars',
