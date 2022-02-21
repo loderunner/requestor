@@ -35,7 +35,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
       <span
         class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        GET
+        POST
       </span>
     </div>
     <span
@@ -79,7 +79,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
     <span
       class="text-right font-medium text-gray-500 select-none"
     >
-      Accept
+      Content-Type
     </span>
     <div
       class="flex overflow-x-hidden space-x-1"
@@ -87,178 +87,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
       <span
         class="text-ellipsis overflow-x-hidden whitespace-nowrap"
       >
-        */*
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      Referer
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        https://www.google.com/
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      User-Agent
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua-arch
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        "x86"
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua-bitness
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        "64"
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua-full-version
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        "98.0.4758.102"
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua-mobile
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        ?0
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua-model
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      />
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua-platform
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        "macOS"
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      sec-ch-ua-platform-version
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        "12.1.0"
-      </span>
-    </div>
-    <span
-      class="text-lg font-semibold col-span-2 mt-4 select-none"
-    >
-      Cookies
-    </span>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      CONSENT
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        YES+srp.gws-20220217-0-RC1.en+FX+923
-      </span>
-    </div>
-    <span
-      class="text-right font-medium text-gray-500 select-none"
-    >
-      1P_JAR
-    </span>
-    <div
-      class="flex overflow-x-hidden space-x-1"
-    >
-      <span
-        class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-      >
-        2022-02-20-16
+        application/json
       </span>
     </div>
   </div>

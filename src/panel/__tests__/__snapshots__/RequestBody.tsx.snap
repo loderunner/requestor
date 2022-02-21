@@ -136,7 +136,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           <pre
             class="text-rose-500"
           >
-            0.930946514913239
+            0.7915989509268131
           </pre>
         </div>
         <div
@@ -152,7 +152,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           <pre
             class="text-rose-500"
           >
-            0.4790316041648308
+            0.46631535368658206
           </pre>
         </div>
         <div
@@ -168,7 +168,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           <pre
             class="text-rose-500"
           >
-            0.3211594553515169
+            0.37873481083595606
           </pre>
         </div>
         <div
@@ -184,7 +184,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           <pre
             class="text-rose-500"
           >
-            0.7526627668280859
+            0.7804188506511212
           </pre>
         </div>
         <div
@@ -200,7 +200,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           <pre
             class="text-rose-500"
           >
-            0.6419952170699992
+            0.7492658016034675
           </pre>
         </div>
       </div>
