@@ -40,6 +40,7 @@ module.exports = {
   },
   rules: {
     'no-debugger': 'off',
+    curly: ['error', 'all'],
     '@typescript-eslint/no-empty-function': 'off',
     ...importRules,
   },
