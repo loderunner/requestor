@@ -28,7 +28,7 @@ const Main = ({ className }: Props) => {
         return <RequestView requestId={req.id} />
       }
     }
-  }, [selection])
+  }, [selection, selectionType])
 
   return (
     <main id="main" className={`min-h-screen ${className}`}>

@@ -27,17 +27,20 @@ const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
   const [editing, setEditing] = useState(false)
   const patternLabelRef = useRef<HTMLSpanElement>(null)
 
-  useEffect(() => setEditing(editOnRender), [])
+  useEffect(() => setEditing(editOnRender), [editOnRender])
 
   const onToggleEnabled = useCallback(
     () => updateIntercept({ enabled: !intercept.enabled }),
-    [intercept]
+    [intercept.enabled, updateIntercept]
   )
 
-  const onChangeInput = useCallback((value) => {
-    updateIntercept({ pattern: value })
-    setEditing(false)
-  }, [])
+  const onChangeInput = useCallback(
+    (value) => {
+      updateIntercept({ pattern: value })
+      setEditing(false)
+    },
+    [updateIntercept]
+  )
 
   const onCancelInput = useCallback(() => setEditing(false), [])
 
@@ -54,7 +57,7 @@ const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
       e.stopPropagation()
       setSelection({ ...intercept })
     },
-    [intercept]
+    [intercept, setSelection]
   )
 
   const onDoubleClickPattern = useCallback((e: SyntheticEvent) => {
@@ -76,7 +79,7 @@ const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
       className += ' bg-blue-100'
     }
     return className
-  }, [selection, intercept])
+  }, [selectionType, selection, intercept.id])
 
   return (
     <div className={className} role="listitem" onClick={onSelect}>
@@ -139,7 +142,7 @@ const InterceptList = ({ className }: Props) => {
       }
       removeIntercept(inter.id)
     },
-    [selection]
+    [removeIntercept, selection, selectionType, setSelection]
   )
 
   const onAddIntercept = useCallback(
@@ -148,7 +151,7 @@ const InterceptList = ({ className }: Props) => {
       const inter = addIntercept({ pattern: '', enabled: true })
       setSelection({ ...inter })
     },
-    [intercepts]
+    [addIntercept, setSelection]
   )
 
   const header = useMemo(
@@ -164,7 +167,7 @@ const InterceptList = ({ className }: Props) => {
         </button>
       </div>
     ),
-    []
+    [onAddIntercept]
   )
 
   const items = useMemo(
@@ -177,7 +180,7 @@ const InterceptList = ({ className }: Props) => {
           editOnRender={!firstRender}
         />
       )),
-    [intercepts, selection]
+    [firstRender, intercepts, onDeleteIntercept]
   )
 
   return (
