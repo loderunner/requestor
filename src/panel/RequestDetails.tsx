@@ -104,10 +104,11 @@ const Section = ({ title, entries }: SectionProps) => {
 }
 
 interface Props {
+  className?: string
   request: Request
 }
 
-const RequestDetails = ({ request }: Props) => {
+const RequestDetails = ({ request, className = '' }: Props) => {
   const url = useMemo(() => new URL(request.url), [request])
 
   const querySection = useMemo(() => {
@@ -146,7 +147,7 @@ const RequestDetails = ({ request }: Props) => {
   }, [request])
 
   return (
-    <>
+    <div className={className}>
       <span className="text-3xl font-bold">{url.host}</span>
       <div className="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1">
         {/* URL */}
@@ -164,7 +165,7 @@ const RequestDetails = ({ request }: Props) => {
         {headerSection}
         {cookieSection}
       </div>
-    </>
+    </div>
   )
 }
 

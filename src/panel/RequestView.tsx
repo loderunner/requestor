@@ -25,14 +25,21 @@ const RequestView = ({ requestId }: Props) => {
     setTab('headers')
   }, [requestId])
 
-  const content = useMemo(() => {
-    switch (tab) {
-      case 'headers':
-        return <RequestDetails request={request} />
-      case 'body':
-        return <RequestBody request={request} />
-    }
-  }, [tab, request])
+  const content = useMemo(
+    () => (
+      <>
+        <RequestDetails
+          className={tab === 'headers' ? '' : 'hidden'}
+          request={request}
+        />
+        <RequestBody
+          className={tab === 'body' ? '' : 'hidden'}
+          request={request}
+        />
+      </>
+    ),
+    [tab, request]
+  )
 
   const buttons = useMemo(() => {
     return (

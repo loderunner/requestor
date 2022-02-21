@@ -7,14 +7,11 @@ import { JSONBodyView } from './components/body-view/JSON'
 import type { Request } from '@/interceptor'
 
 interface Props {
+  className?: string
   request: Request
 }
 
-interface Props {
-  request: Request
-}
-
-const RequestBody = ({ request }: Props) => {
+const RequestBody = ({ request, className = '' }: Props) => {
   const contentType = useMemo(() => {
     try {
       const contentTypeHeader = Object.entries(request.headers).find(
@@ -36,16 +33,22 @@ const RequestBody = ({ request }: Props) => {
       if (contentType === 'application/json' || contentType === 'text/plain') {
         JSON.parse(request.postData)
       }
-      return <JSONBodyView jsonData={request.postData} />
+      return (
+        <div className={className}>
+          <JSONBodyView jsonData={request.postData} />
+        </div>
+      )
     } catch (err) {
       // ignore error parsing JSON
     }
   }
 
   return (
-    <pre className="bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all">
-      {request.postData}
-    </pre>
+    <div className={className}>
+      <pre className={`bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all`}>
+        {request.postData}
+      </pre>
+    </div>
   )
 }
 
