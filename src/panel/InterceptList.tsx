@@ -125,9 +125,7 @@ interface Props {
 const InterceptList = ({ className }: Props) => {
   const { selection, setSelection, selectionType } = useSelection()
   const { intercepts, addIntercept, removeIntercept } = useIntercepts()
-  const [firstRender, setFirstRender] = useState(true)
-
-  useEffect(() => setFirstRender(false), [])
+  const [newIntercept, setNewIntercept] = useState<string>('')
 
   const onDeleteIntercept = useCallback(
     (inter: Intercept) => {
@@ -149,6 +147,7 @@ const InterceptList = ({ className }: Props) => {
     (e: SyntheticEvent) => {
       e.stopPropagation()
       const inter = addIntercept({ pattern: '', enabled: true })
+      setNewIntercept(inter.id)
       setSelection({ ...inter })
     },
     [addIntercept, setSelection]
@@ -177,11 +176,10 @@ const InterceptList = ({ className }: Props) => {
           key={inter.id}
           interceptId={inter.id}
           onDelete={onDeleteIntercept}
-          editOnRender={!firstRender}
+          editOnRender={newIntercept === inter.id}
         />
       )),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [intercepts, onDeleteIntercept]
+    [intercepts, onDeleteIntercept, newIntercept]
   )
 
   return (

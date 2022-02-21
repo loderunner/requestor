@@ -266,12 +266,6 @@ exports[`InterceptList should change selection after clicking items 1`] = `
           >
             example.com
           </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
         </div>
         <button
           class="self-stretch"
@@ -358,12 +352,6 @@ exports[`InterceptList should change selection after clicking items 2`] = `
           >
             example.com
           </span>
-          <input
-            class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
-            type="text"
-            value="example.com"
-          />
         </div>
         <button
           class="self-stretch"
