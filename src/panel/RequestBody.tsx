@@ -31,17 +31,22 @@ const RequestBody = ({ request }: Props) => {
     }
   }, [request])
 
-  if (!request.hasPostData || !request.postData) {
-    return null
-  } else if (contentType === 'application/json') {
-    return <JSONBodyView jsonData={request.postData} />
-  } else {
-    return (
-      <pre className="bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all">
-        {request.postData}
-      </pre>
-    )
+  if (request.postData) {
+    try {
+      if (contentType === 'application/json' || contentType === 'text/plain') {
+        JSON.parse(request.postData)
+      }
+      return <JSONBodyView jsonData={request.postData} />
+    } catch (err) {
+      // ignore error parsing JSON
+    }
   }
+
+  return (
+    <pre className="bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all">
+      {request.postData}
+    </pre>
+  )
 }
 
 export default RequestBody
