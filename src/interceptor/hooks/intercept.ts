@@ -69,15 +69,19 @@ export const useIntercept = (id: string) => {
       const interceptAtoms = useAtomValue(interceptAtomsAtom)
       const interceptAtom = interceptAtoms[i]
       const [intercept, setIntercept] = useAtom(interceptAtom)
-      return {
-        intercept: intercept as Readonly<Intercept>,
-        updateIntercept: (newInter: Partial<Intercept>) => {
+      const updateIntercept = useCallback(
+        (newInter: Partial<Intercept>) => {
           const inter = Interceptor.updateIntercept(id, newInter)
           if (inter === undefined) {
             throw new Error(`intercept '${id}' not found`)
           }
           setIntercept({ ...inter })
         },
+        [id, setIntercept]
+      )
+      return {
+        intercept: intercept as Readonly<Intercept>,
+        updateIntercept,
       }
     }
   }
