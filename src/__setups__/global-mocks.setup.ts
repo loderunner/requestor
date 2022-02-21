@@ -31,6 +31,12 @@ const globalMocks: GlobalMocks = {
   request: {
     id: 'request',
     headers: {
+      Accept: '*/*',
+      Cookie:
+        'CONSENT=YES+srp.gws-20220217-0-RC1.en+FX+923; 1P_JAR=2022-02-20-16',
+      Referer: 'https://www.google.com/',
+      'User-Agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
       'Content-Type': 'application/json',
     },
     initialPriority: 'High',
