@@ -46,7 +46,12 @@ const globalMocks: GlobalMocks = {
     hasPostData: true,
     postData: JSON.stringify(payload),
   },
-  intercept: { id: 'inter', pattern: 'example.com', enabled: true },
+  intercept: {
+    id: 'inter',
+    pattern: 'example.com',
+    enabled: true,
+    regexp: false,
+  },
 }
 
 Object.assign(global, { globalMocks })

@@ -2,6 +2,7 @@ export interface Intercept {
   id: string
   pattern: string
   enabled: boolean
+  regexp: boolean
 }
 
 export const intercepts: Intercept[] = []

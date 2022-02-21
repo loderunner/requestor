@@ -62,7 +62,7 @@ describe('[intercept]', () => {
   })
 
   it('should call subscribed callback with an intercept', () => {
-    addIntercept({ pattern: 'example.com', enabled: true })
+    addIntercept(globalMocks.intercept)
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
@@ -72,8 +72,8 @@ describe('[intercept]', () => {
   })
 
   it('should not call subscribed callback twice if 2 intercepts match', () => {
-    addIntercept({ pattern: 'example.com', enabled: true })
-    addIntercept({ pattern: 'example', enabled: true })
+    addIntercept(globalMocks.intercept)
+    addIntercept({ ...globalMocks.intercept, pattern: 'example' })
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
@@ -83,7 +83,7 @@ describe('[intercept]', () => {
   })
 
   it('should not call subscribed callback with a disabled intercept', () => {
-    addIntercept({ pattern: 'example.com', enabled: false })
+    addIntercept({ ...globalMocks.intercept, enabled: false })
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
@@ -93,7 +93,7 @@ describe('[intercept]', () => {
   })
 
   it('should not call subscribed callback without a matching intercept', () => {
-    addIntercept({ pattern: 'eixample.com', enabled: true })
+    addIntercept({ ...globalMocks.intercept, pattern: 'eixample.com' })
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
@@ -103,7 +103,10 @@ describe('[intercept]', () => {
   })
 
   it('should not call subscribed callback after removing intercept', () => {
-    const inter = addIntercept({ pattern: 'eixample.com', enabled: true })
+    const inter = addIntercept({
+      ...globalMocks.intercept,
+      pattern: 'eixample.com',
+    })
     removeIntercept(inter.id as string)
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
