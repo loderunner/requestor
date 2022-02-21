@@ -7,6 +7,11 @@ type TargetInfo = chrome.debugger.TargetInfo
 type Debuggee = chrome.debugger.Debuggee
 export type RequestPausedEvent = Protocol.Fetch.RequestPausedEvent
 
+let pausedFlag = false
+export const paused = () => pausedFlag
+export const pause = () => (pausedFlag = true)
+export const unpause = () => (pausedFlag = false)
+
 const onDebuggerEvent = (
   target: Debuggee,
   method: string,
@@ -14,36 +19,37 @@ const onDebuggerEvent = (
 ) => {
   if (method === 'Fetch.requestPaused') {
     const event: RequestPausedEvent = params as RequestPausedEvent
-
-    for (const inter of intercepts) {
-      // Ignore disabled intercept
-      if (!inter.enabled) {
-        continue
-      }
-
-      // Ignore empty intercepts
-      if (inter.pattern === undefined || inter.pattern === '') {
-        continue
-      }
-
-      // Dispatch event if the intercept matches
-      // then break from loop to avoid duplicate capture
-      const req = event.request
-      let match = false
-      if (inter.regexp) {
-        let re: RegExp
-        try {
-          re = new RegExp(inter.pattern, 'i')
-        } catch (error) {
+    if (!pausedFlag) {
+      for (const inter of intercepts) {
+        // Ignore disabled intercept
+        if (!inter.enabled) {
           continue
         }
-        match = re.test(req.url)
-      } else {
-        match = req.url.includes(inter.pattern)
-      }
-      if (match) {
-        pushRequest({ id: event.requestId, ...req })
-        break
+
+        // Ignore empty intercepts
+        if (inter.pattern === undefined || inter.pattern === '') {
+          continue
+        }
+
+        // Dispatch event if the intercept matches
+        // then break from loop to avoid duplicate capture
+        const req = event.request
+        let match = false
+        if (inter.regexp) {
+          let re: RegExp
+          try {
+            re = new RegExp(inter.pattern, 'i')
+          } catch (error) {
+            continue
+          }
+          match = re.test(req.url)
+        } else {
+          match = req.url.includes(inter.pattern)
+        }
+        if (match) {
+          pushRequest({ id: event.requestId, ...req })
+          break
+        }
       }
     }
 
