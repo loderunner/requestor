@@ -24,7 +24,7 @@ const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
     []
   )
 
-  const onBlur = useCallback(() => onChange(inputValue), [inputValue])
+  const onBlur = useCallback(() => onChange(inputValue), [inputValue, onChange])
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent<HTMLInputElement>) => {
@@ -40,7 +40,7 @@ const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
       }
       e.stopPropagation()
     },
-    [inputValue]
+    [inputValue, onCancel, onChange]
   )
 
   // Inline styles from element properties

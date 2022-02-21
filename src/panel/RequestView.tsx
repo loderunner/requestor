@@ -118,7 +118,7 @@ const RequestView = ({ requestId }: Props) => {
     }
 
     return <Section title="Query" entries={searchParams}></Section>
-  }, [request])
+  }, [url.searchParams])
 
   const headerSection = useMemo(() => {
     const headers = [...Object.entries(request.headers)].filter(

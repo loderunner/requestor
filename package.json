@@ -34,6 +34,7 @@
     "eslint-import-resolver-typescript": "2.5.0",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
     "jest": "27.5.1",
     "jest-chrome": "0.7.2",
     "jest-extended": "2.0.0",

@@ -23,7 +23,7 @@ const Children = ({ children }: Props) => {
     return Interceptor.subscribe(() => {
       setRequests([...Interceptor.requests])
     })
-  }, [])
+  }, [setRequests])
   return <>{children}</>
 }
 

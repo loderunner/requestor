@@ -43,13 +43,16 @@ export const useIntercepts = () => {
       setIntercepts([...Interceptor.intercepts])
       return ret
     },
-    []
+    [setIntercepts]
   )
 
-  const removeIntercept = useCallback((id: string) => {
-    Interceptor.removeIntercept(id)
-    setIntercepts([...Interceptor.intercepts])
-  }, [])
+  const removeIntercept = useCallback(
+    (id: string) => {
+      Interceptor.removeIntercept(id)
+      setIntercepts([...Interceptor.intercepts])
+    },
+    [setIntercepts]
+  )
 
   return {
     intercepts: intercepts as ReadonlyArray<Readonly<Intercept>>,

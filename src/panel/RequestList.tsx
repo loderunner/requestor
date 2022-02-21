@@ -22,7 +22,7 @@ const Item = ({ request }: ItemProps) => {
       e.stopPropagation()
       setSelection(clone(request))
     },
-    [request]
+    [request, setSelection]
   )
 
   const className = useMemo(() => {
@@ -36,7 +36,7 @@ const Item = ({ request }: ItemProps) => {
       className += ' bg-blue-100'
     }
     return className
-  }, [selection, request])
+  }, [selectionType, selection, request.id])
 
   return (
     <div className={className} role="listitem" onClick={onSelect}>
