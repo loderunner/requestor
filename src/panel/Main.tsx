@@ -31,7 +31,7 @@ const Main = ({ className }: Props) => {
   }, [selection, selectionType])
 
   return (
-    <main id="main" className={`min-h-screen ${className}`}>
+    <main id="main" className={className}>
       {view}
     </main>
   )

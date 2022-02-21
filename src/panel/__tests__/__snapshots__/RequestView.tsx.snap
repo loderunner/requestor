@@ -1,268 +1,1409 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[RequestView] should match body snapshot 1`] = `
+<div>
+  <div
+    class="max-w-5xl mx-24 mt-8 px-8 pt-2"
+  >
+    <div
+      class="flex space-x-4 mb-4"
+    >
+      <button
+        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
+      >
+        Headers
+      </button>
+      <button
+        class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+        disabled=""
+      >
+        Body
+      </button>
+    </div>
+    <div
+      class="hidden"
+    >
+      <span
+        class="text-3xl font-bold"
+      >
+        www.example.com
+      </span>
+      <div
+        class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
+      >
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          URL
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            https://www.example.com/complete/search
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Method
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            POST
+          </span>
+        </div>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
+        >
+          Query
+        </span>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          q
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            toto
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          client
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            gws-wiz
+          </span>
+        </div>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
+        >
+          Headers
+        </span>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Accept
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            */*
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Referer
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            https://www.google.com/
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          User-Agent
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Content-Type
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            application/json
+          </span>
+        </div>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
+        >
+          Cookies
+        </span>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          CONSENT
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            YES+srp.gws-20220217-0-RC1.en+FX+923
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          1P_JAR
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            2022-02-20-16
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+    >
+      <div
+        class="space-y-1"
+      >
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            hello
+            :
+          </pre>
+          <pre
+            class="text-sky-400"
+          >
+            "world"
+          </pre>
+        </div>
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            obj
+            :
+          </pre>
+          <pre
+            class="flex items-center space-x-0.5"
+          >
+            {
+            <button
+              class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+            >
+              <svg />
+            </button>
+            }
+          </pre>
+        </div>
+        <div
+          class="space-y-1 hidden"
+        >
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              barbes
+              :
+            </pre>
+            <pre
+              class="text-sky-400"
+            >
+              "rochechouart"
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              version
+              :
+            </pre>
+            <pre
+              class="text-rose-500"
+            >
+              1
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              toto
+              :
+            </pre>
+            <pre
+              class="text-purple-500"
+            >
+              null
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              arr
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              [
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              ]
+            </pre>
+          </div>
+          <div
+            class="space-y-1 hidden"
+          >
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                0
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.7309955249202127
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                1
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.45152102178420384
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                2
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.3101491368469109
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                3
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.33964078594296154
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                4
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.579201406715314
+              </pre>
+            </div>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              nested
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              {
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              }
+            </pre>
+          </div>
+          <div
+            class="space-y-1 hidden"
+          >
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                thx
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                1138
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                star
+                :
+              </pre>
+              <pre
+                class="text-sky-400"
+              >
+                "wars"
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            done
+            :
+          </pre>
+          <pre
+            class="text-green-500"
+          >
+            true
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[RequestView] should match headers snapshot 1`] = `
+<div>
+  <div
+    class="max-w-5xl mx-24 mt-8 px-8 pt-2"
+  >
+    <div
+      class="flex space-x-4 mb-4"
+    >
+      <button
+        class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+        disabled=""
+      >
+        Headers
+      </button>
+      <button
+        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
+      >
+        Body
+      </button>
+    </div>
+    <div
+      class=""
+    >
+      <span
+        class="text-3xl font-bold"
+      >
+        www.example.com
+      </span>
+      <div
+        class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
+      >
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          URL
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            https://www.example.com/complete/search
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Method
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            POST
+          </span>
+        </div>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
+        >
+          Query
+        </span>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          q
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            toto
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          client
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            gws-wiz
+          </span>
+        </div>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
+        >
+          Headers
+        </span>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Accept
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            */*
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Referer
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            https://www.google.com/
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          User-Agent
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Content-Type
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            application/json
+          </span>
+        </div>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
+        >
+          Cookies
+        </span>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          CONSENT
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            YES+srp.gws-20220217-0-RC1.en+FX+923
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          1P_JAR
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            2022-02-20-16
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="hidden"
+    >
+      <div
+        class="space-y-1"
+      >
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            hello
+            :
+          </pre>
+          <pre
+            class="text-sky-400"
+          >
+            "world"
+          </pre>
+        </div>
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            obj
+            :
+          </pre>
+          <pre
+            class="flex items-center space-x-0.5"
+          >
+            {
+            <button
+              class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+            >
+              <svg />
+            </button>
+            }
+          </pre>
+        </div>
+        <div
+          class="space-y-1 hidden"
+        >
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              barbes
+              :
+            </pre>
+            <pre
+              class="text-sky-400"
+            >
+              "rochechouart"
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              version
+              :
+            </pre>
+            <pre
+              class="text-rose-500"
+            >
+              1
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              toto
+              :
+            </pre>
+            <pre
+              class="text-purple-500"
+            >
+              null
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              arr
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              [
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              ]
+            </pre>
+          </div>
+          <div
+            class="space-y-1 hidden"
+          >
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                0
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.7309955249202127
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                1
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.45152102178420384
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                2
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.3101491368469109
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                3
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.33964078594296154
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                4
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.579201406715314
+              </pre>
+            </div>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              nested
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              {
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              }
+            </pre>
+          </div>
+          <div
+            class="space-y-1 hidden"
+          >
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                thx
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                1138
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                star
+                :
+              </pre>
+              <pre
+                class="text-sky-400"
+              >
+                "wars"
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            done
+            :
+          </pre>
+          <pre
+            class="text-green-500"
+          >
+            true
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`[RequestView] should match initial snapshot 1`] = `
 <div>
   <div
     class="max-w-5xl mx-24 mt-8 px-8 pt-2"
   >
-    <span
-      class="text-3xl font-bold"
-    >
-      www.example.com
-    </span>
     <div
-      class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
+      class="flex space-x-4 mb-4"
     >
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        URL
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          https://www.example.com/complete/search
-        </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        Method
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          GET
-        </span>
-      </div>
-      <span
-        class="text-lg font-semibold col-span-2 mt-4 select-none"
-      >
-        Query
-      </span>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        q
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          toto
-        </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        client
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        >
-          gws-wiz
-        </span>
-      </div>
-      <span
-        class="text-lg font-semibold col-span-2 mt-4 select-none"
+      <button
+        class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+        disabled=""
       >
         Headers
-      </span>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      </button>
+      <button
+        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
       >
-        Accept
+        Body
+      </button>
+    </div>
+    <div
+      class=""
+    >
+      <span
+        class="text-3xl font-bold"
+      >
+        www.example.com
       </span>
       <div
-        class="flex overflow-x-hidden space-x-1"
+        class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
       >
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-right font-medium text-gray-500 select-none"
         >
-          */*
+          URL
         </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        Referer
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        <div
+          class="flex overflow-x-hidden space-x-1"
         >
-          https://www.google.com/
-        </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        User-Agent
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            https://www.example.com/complete/search
+          </span>
+        </div>
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-right font-medium text-gray-500 select-none"
         >
-          Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+          Method
         </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        <div
+          class="flex overflow-x-hidden space-x-1"
         >
-          " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
-        </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-arch
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            POST
+          </span>
+        </div>
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
-          "x86"
+          Query
         </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-bitness
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-right font-medium text-gray-500 select-none"
         >
-          "64"
+          q
         </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-full-version
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        <div
+          class="flex overflow-x-hidden space-x-1"
         >
-          "98.0.4758.102"
-        </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-mobile
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            toto
+          </span>
+        </div>
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-right font-medium text-gray-500 select-none"
         >
-          ?0
+          client
         </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-model
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-        />
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-platform
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
-        <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+        <div
+          class="flex overflow-x-hidden space-x-1"
         >
-          "macOS"
-        </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        sec-ch-ua-platform-version
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            gws-wiz
+          </span>
+        </div>
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
-          "12.1.0"
+          Headers
         </span>
-      </div>
-      <span
-        class="text-lg font-semibold col-span-2 mt-4 select-none"
-      >
-        Cookies
-      </span>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        CONSENT
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-right font-medium text-gray-500 select-none"
         >
-          YES+srp.gws-20220217-0-RC1.en+FX+923
+          Accept
         </span>
-      </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
-      >
-        1P_JAR
-      </span>
-      <div
-        class="flex overflow-x-hidden space-x-1"
-      >
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            */*
+          </span>
+        </div>
         <span
-          class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          class="text-right font-medium text-gray-500 select-none"
         >
-          2022-02-20-16
+          Referer
         </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            https://www.google.com/
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          User-Agent
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          Content-Type
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            application/json
+          </span>
+        </div>
+        <span
+          class="text-lg font-semibold col-span-2 mt-4 select-none"
+        >
+          Cookies
+        </span>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          CONSENT
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            YES+srp.gws-20220217-0-RC1.en+FX+923
+          </span>
+        </div>
+        <span
+          class="text-right font-medium text-gray-500 select-none"
+        >
+          1P_JAR
+        </span>
+        <div
+          class="flex overflow-x-hidden space-x-1"
+        >
+          <span
+            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          >
+            2022-02-20-16
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="hidden"
+    >
+      <div
+        class="space-y-1"
+      >
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            hello
+            :
+          </pre>
+          <pre
+            class="text-sky-400"
+          >
+            "world"
+          </pre>
+        </div>
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            obj
+            :
+          </pre>
+          <pre
+            class="flex items-center space-x-0.5"
+          >
+            {
+            <button
+              class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+            >
+              <svg />
+            </button>
+            }
+          </pre>
+        </div>
+        <div
+          class="space-y-1 hidden"
+        >
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              barbes
+              :
+            </pre>
+            <pre
+              class="text-sky-400"
+            >
+              "rochechouart"
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              version
+              :
+            </pre>
+            <pre
+              class="text-rose-500"
+            >
+              1
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              toto
+              :
+            </pre>
+            <pre
+              class="text-purple-500"
+            >
+              null
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              arr
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              [
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              ]
+            </pre>
+          </div>
+          <div
+            class="space-y-1 hidden"
+          >
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                0
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.7309955249202127
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                1
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.45152102178420384
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                2
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.3101491368469109
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                3
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.33964078594296154
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                4
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                0.579201406715314
+              </pre>
+            </div>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 1rem;"
+          >
+            <pre
+              class="text-amber-700"
+            >
+              nested
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              {
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              }
+            </pre>
+          </div>
+          <div
+            class="space-y-1 hidden"
+          >
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                thx
+                :
+              </pre>
+              <pre
+                class="text-rose-500"
+              >
+                1138
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 2rem;"
+            >
+              <pre
+                class="text-amber-700"
+              >
+                star
+                :
+              </pre>
+              <pre
+                class="text-sky-400"
+              >
+                "wars"
+              </pre>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
+        >
+          <pre
+            class="text-amber-700"
+          >
+            done
+            :
+          </pre>
+          <pre
+            class="text-green-500"
+          >
+            true
+          </pre>
+        </div>
       </div>
     </div>
   </div>

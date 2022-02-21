@@ -3,7 +3,6 @@
 exports[`[App] matches snapshot 1`] = `
 <div>
   <div
-    class="h-screen"
     id="App"
   >
     <aside
@@ -52,7 +51,7 @@ exports[`[App] matches snapshot 1`] = `
       </div>
     </aside>
     <main
-      class="min-h-screen ml-64"
+      class="ml-64"
       id="main"
     >
       <div

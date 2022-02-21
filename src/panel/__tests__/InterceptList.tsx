@@ -1,6 +1,6 @@
+import '@testing-library/jest-dom'
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react'
 import * as React from 'react'
-import '@testing-library/jest-dom'
 
 import * as InterceptorHooks from '@/interceptor/hooks'
 
@@ -21,6 +21,32 @@ describe('InterceptList', () => {
     const { container } = render(<InterceptList />)
 
     expect(container).toMatchSnapshot()
+  })
+
+  it('should not show input modal on first render', () => {
+    const { queryByRole } = render(<InterceptList />)
+
+    expect(queryByRole('textbox')).toBeNull()
+  })
+
+  it('should show input modal on second render', () => {
+    let intercepts: Intercept[] = []
+    const addIntercept = jest.fn(() => {
+      intercepts = [globalMocks.intercept]
+      return globalMocks.intercept
+    })
+    const removeIntercept = jest.fn()
+    mockedHooks.useIntercepts.mockImplementation(() => ({
+      intercepts,
+      addIntercept,
+      removeIntercept,
+    }))
+    const { getByRole, queryByRole } = render(<InterceptList />)
+
+    const addButton = getByRole('button', { name: 'Add intercept' })
+    fireEvent.click(addButton)
+
+    expect(queryByRole('textbox')).not.toBeNull()
   })
 
   it('should add and remove children after clicking buttons', () => {
