@@ -21,7 +21,7 @@ const payload = {
     barbes: 'rochechouart',
     version: 1,
     toto: null,
-    arr: new Array<number>(5).map(() => Math.random()),
+    arr: new Array<number>(5).fill(0).map(() => Math.random()),
     nested: {
       thx: 1138,
       star: 'wars',
@@ -35,7 +35,7 @@ const request: Request = {
     'Content-Type': 'application/json',
   },
   initialPriority: 'High',
-  method: 'GET',
+  method: 'POST',
   referrerPolicy: 'origin',
   url: 'https://www.example.com/complete/search?q=toto&client=gws-wiz',
   hasPostData: true,

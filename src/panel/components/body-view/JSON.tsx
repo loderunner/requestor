@@ -1,7 +1,9 @@
 import * as React from 'react'
-import { Fragment, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import type { CSSProperties } from 'react'
+import { MoreHoriz as MoreHorizIcon } from '@/icons'
+
+import type { CSSProperties, MutableRefObject } from 'react'
 
 type JSONValue =
   | null
@@ -44,88 +46,86 @@ const PrimitiveView = ({ value }: PrimitiveProps) => {
   throw new Error('invalid JSON value')
 }
 
-interface ArrayProps {
-  array: JSONValue[]
-  depth: number
-}
-
-const ArrayView = ({ array, depth }: ArrayProps) => {
-  const style: CSSProperties = useMemo(
-    () => ({ marginLeft: `${depth / 2}rem` }),
-    [depth]
-  )
-
-  const items: React.ReactNode[] = []
-  for (const [i, v] of array.entries()) {
-    if (isPrimitive(v)) {
-      items.push(
-        <div key={i} className="flex" style={style}>
-          <span className="text-right">{i}:</span>
-          <PrimitiveView value={v} />
-        </div>
-      )
-    } else if (isArray(v)) {
-      items.push(
-        <div key={i} className="flex" style={style}>
-          <span>{i}:</span>
-        </div>,
-        <ArrayView array={v} depth={depth + 1} />
-      )
-    } else if (isObject(v)) {
-      items.push(
-        <div key={i} className="flex" style={style}>
-          <span>{i}:</span>
-        </div>,
-        <ObjectView obj={v} depth={depth + 1} />
-      )
-    } else {
-      throw new Error('invalid JSON value')
-    }
-  }
-
-  return <>{items}</>
-}
-
 interface ObjectProps {
-  obj: { [key: string]: JSONValue }
+  obj: { [key: string]: JSONValue } | JSONValue[]
   depth: number
+  foldButtonRef?: MutableRefObject<HTMLButtonElement | null>
 }
 
-const ObjectView = ({ obj, depth }: ObjectProps) => {
+const ObjectView = ({ obj, depth, foldButtonRef }: ObjectProps) => {
+  const [folded, setFolded] = useState(depth !== 0)
   const style: CSSProperties = useMemo(
-    () => ({ marginLeft: `${depth / 2}rem` }),
+    () => ({ marginLeft: `${depth * 0.75}rem` }),
     [depth]
   )
 
-  const items: React.ReactNode[] = []
-  for (const [k, v] of Object.entries(obj)) {
-    if (isPrimitive(v)) {
-      items.push(
-        <div key={k} className="flex" style={style}>
-          <span className="text-right">{k}:</span>
-          <PrimitiveView value={v} />
-        </div>
-      )
-    } else if (isArray(v)) {
-      items.push(
-        <div key={k} className="flex" style={style}>
-          <span>{k}:</span>
-        </div>,
-        <ArrayView array={v} depth={depth + 1} />
-      )
-    } else if (isObject(v)) {
-      items.push(
-        <div key={k} className="flex" style={style}>
-          <span>{k}:</span>
-        </div>,
-        <ObjectView obj={v} depth={depth + 1} />
-      )
-    } else {
-      throw new Error('invalid JSON value')
-    }
-  }
+  const onToggleFolded = useCallback(() => setFolded((f) => !f), [])
 
-  return <>{items}</>
+  useEffect(() => {
+    if (foldButtonRef?.current) {
+      foldButtonRef.current.onclick = onToggleFolded
+    }
+  })
+
+  const rows = useMemo<React.ReactNode[]>(() => {
+    const items = []
+    for (const [k, v] of Object.entries(obj)) {
+      if (isPrimitive(v)) {
+        items.push(
+          <div key={k} className="flex items-baseline space-x-1" style={style}>
+            <pre>{k}:</pre>
+            <PrimitiveView value={v} />
+          </div>
+        )
+      } else if (isArray(v) || isObject(v)) {
+        items.push(<ObjectRows key={k} {...{ k, v, style, depth }} />)
+      } else {
+        throw new Error('invalid JSON value')
+      }
+    }
+    return items
+  }, [obj, style, depth])
+
+  return <div className={folded ? 'hidden' : ''}>{rows}</div>
+}
+
+interface RowsProps {
+  k: string
+  v: { [key: string]: JSONValue } | JSONValue[]
+  style: CSSProperties
+  depth: number
+}
+
+const ObjectRows = ({ k, v, style, depth }: RowsProps) => {
+  const buttonRef = useRef<HTMLButtonElement | null>(null)
+
+  const [leftGuard, rightGuard] = useMemo(() => {
+    if (isArray(v)) {
+      return ['[', ']']
+    } else if (isObject(v)) {
+      return ['{', '}']
+    }
+    throw new Error('invalid JSON value')
+  }, [v])
+
+  return (
+    <>
+      <div key={k} className="flex items-baseline space-x-1" style={style}>
+        <pre>{k}:</pre>
+        <pre className="flex items-center space-x-0.5">
+          {leftGuard}
+          <button
+            className="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+            ref={buttonRef}
+          >
+            <MoreHorizIcon />
+          </button>
+          {rightGuard}
+        </pre>
+      </div>
+      <ObjectView obj={v} depth={depth + 1} foldButtonRef={buttonRef} />
+    </>
+  )
 }
 
 interface Props {
@@ -137,9 +137,7 @@ export const JSONBodyView = ({ jsonData }: Props) => {
   const view = useMemo(() => {
     if (isPrimitive(value)) {
       return <PrimitiveView value={value} />
-    } else if (isArray(value)) {
-      return <ArrayView array={value} depth={0} />
-    } else if (isObject(value)) {
+    } else if (isArray(value) || isObject(value)) {
       return <ObjectView obj={value} depth={0} />
     }
     throw new Error('invalid JSON value')

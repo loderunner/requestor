@@ -98,275 +98,229 @@ exports[`[Main] should match request selection snapshot 1`] = `
         class="flex space-x-4 mb-4"
       >
         <button
-          class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
-          disabled=""
+          class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
         >
           Headers
         </button>
         <button
-          class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
+          class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+          disabled=""
         >
           Body
         </button>
       </div>
-      <span
-        class="text-3xl font-bold"
-      >
-        www.example.com
-      </span>
       <div
-        class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
+        class=""
       >
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          URL
-        </span>
         <div
-          class="flex overflow-x-hidden space-x-1"
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
         >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            https://www.example.com/complete/search
-          </span>
+          <pre>
+            hello
+            :
+          </pre>
+          <pre>
+            "
+            world
+            "
+          </pre>
         </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          Method
-        </span>
         <div
-          class="flex overflow-x-hidden space-x-1"
+          class="flex items-baseline space-x-1"
+          style="margin-left: 0rem;"
         >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          <pre>
+            obj
+            :
+          </pre>
+          <pre
+            class="flex items-center space-x-0.5"
           >
-            GET
-          </span>
+            {
+            <button
+              class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+            >
+              <svg />
+            </button>
+            }
+          </pre>
         </div>
-        <span
-          class="text-lg font-semibold col-span-2 mt-4 select-none"
-        >
-          Query
-        </span>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          q
-        </span>
         <div
-          class="flex overflow-x-hidden space-x-1"
+          class="hidden"
         >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 0.75rem;"
           >
-            toto
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          client
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+            <pre>
+              barbes
+              :
+            </pre>
+            <pre>
+              "
+              rochechouart
+              "
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 0.75rem;"
           >
-            gws-wiz
-          </span>
-        </div>
-        <span
-          class="text-lg font-semibold col-span-2 mt-4 select-none"
-        >
-          Headers
-        </span>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          Accept
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+            <pre>
+              version
+              :
+            </pre>
+            <pre>
+              1
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 0.75rem;"
           >
-            */*
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          Referer
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+            <pre>
+              toto
+              :
+            </pre>
+            <pre>
+              null
+            </pre>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 0.75rem;"
           >
-            https://www.google.com/
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          User-Agent
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+            <pre>
+              arr
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              [
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              ]
+            </pre>
+          </div>
+          <div
+            class="hidden"
           >
-            Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 1.5rem;"
+            >
+              <pre>
+                0
+                :
+              </pre>
+              <pre>
+                0.30897904029805257
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 1.5rem;"
+            >
+              <pre>
+                1
+                :
+              </pre>
+              <pre>
+                0.8425920790714134
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 1.5rem;"
+            >
+              <pre>
+                2
+                :
+              </pre>
+              <pre>
+                0.9149628219130492
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 1.5rem;"
+            >
+              <pre>
+                3
+                :
+              </pre>
+              <pre>
+                0.7999741962486886
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 1.5rem;"
+            >
+              <pre>
+                4
+                :
+              </pre>
+              <pre>
+                0.6177321341014677
+              </pre>
+            </div>
+          </div>
+          <div
+            class="flex items-baseline space-x-1"
+            style="margin-left: 0.75rem;"
           >
-            " Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua-arch
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
+            <pre>
+              nested
+              :
+            </pre>
+            <pre
+              class="flex items-center space-x-0.5"
+            >
+              {
+              <button
+                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+              >
+                <svg />
+              </button>
+              }
+            </pre>
+          </div>
+          <div
+            class="hidden"
           >
-            "x86"
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua-bitness
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            "64"
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua-full-version
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            "98.0.4758.102"
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua-mobile
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            ?0
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua-model
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          />
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua-platform
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            "macOS"
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          sec-ch-ua-platform-version
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            "12.1.0"
-          </span>
-        </div>
-        <span
-          class="text-lg font-semibold col-span-2 mt-4 select-none"
-        >
-          Cookies
-        </span>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          CONSENT
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            YES+srp.gws-20220217-0-RC1.en+FX+923
-          </span>
-        </div>
-        <span
-          class="text-right font-medium text-gray-500 select-none"
-        >
-          1P_JAR
-        </span>
-        <div
-          class="flex overflow-x-hidden space-x-1"
-        >
-          <span
-            class="text-ellipsis overflow-x-hidden whitespace-nowrap"
-          >
-            2022-02-20-16
-          </span>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 1.5rem;"
+            >
+              <pre>
+                thx
+                :
+              </pre>
+              <pre>
+                1138
+              </pre>
+            </div>
+            <div
+              class="flex items-baseline space-x-1"
+              style="margin-left: 1.5rem;"
+            >
+              <pre>
+                star
+                :
+              </pre>
+              <pre>
+                "
+                wars
+                "
+              </pre>
+            </div>
+          </div>
         </div>
       </div>
     </div>
