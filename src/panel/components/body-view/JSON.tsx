@@ -108,18 +108,27 @@ const ObjectRows = ({ k, v, style, depth }: RowsProps) => {
     throw new Error('invalid JSON value')
   }, [v])
 
+  const button = useMemo(() => {
+    if (Object.keys(v).length === 0) {
+      return null
+    }
+    return (
+      <button
+        className="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+        ref={buttonRef}
+      >
+        <MoreHorizIcon />
+      </button>
+    )
+  }, [buttonRef, v])
+
   return (
     <>
       <div key={k} className="flex items-baseline space-x-1" style={style}>
         <pre className="text-amber-700">{k}:</pre>
         <pre className="flex items-center space-x-0.5">
           {leftGuard}
-          <button
-            className="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
-            ref={buttonRef}
-          >
-            <MoreHorizIcon />
-          </button>
+          {button}
           {rightGuard}
         </pre>
       </div>
