@@ -50,7 +50,7 @@ describe('InterceptList', () => {
   })
 
   it('should show input modal on double click', () => {
-    const { container, getByRole, queryByRole } = render(<InterceptList />)
+    const { container, getByRole } = render(<InterceptList />)
 
     const pauseButton = getByRole('button', { name: 'Pause intercepts' })
     fireEvent.click(pauseButton)
