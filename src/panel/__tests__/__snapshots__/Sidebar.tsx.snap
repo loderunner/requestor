@@ -26,13 +26,21 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
       role="list"
     >
       <div
-        class="flex select-none justify-between bg-slate-100 p-1"
+        class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
       >
         <span
-          class="font-bold"
+          class="font-bold flex-auto"
         >
           Intercepts
         </span>
+        <button
+          class="self-stretch"
+          title="Pause intercepts"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
         <button
           class="self-stretch"
           title="Add intercept"

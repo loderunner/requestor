@@ -1,8 +1,9 @@
-import { useAtom, useAtomValue } from 'jotai'
+import { atom, useAtom, useAtomValue } from 'jotai'
 import { atomWithStorage, splitAtom } from 'jotai/utils'
 import { useCallback } from 'react'
 
 import { addIntercept } from '..'
+import * as Debugger from '../debugger'
 import * as Interceptor from '../intercept'
 
 import type { Intercept } from '../intercept'
@@ -88,3 +89,18 @@ export const useIntercept = (id: string) => {
 
   throw new Error('intercept not found')
 }
+
+const debuggerPausedValueAtom = atom(Debugger.paused())
+const debuggerPausedAtom = atom(
+  (get) => get(debuggerPausedValueAtom),
+  (get, set, newPaused: boolean) => {
+    if (newPaused) {
+      Debugger.pause()
+    } else {
+      Debugger.unpause()
+    }
+    set(debuggerPausedValueAtom, newPaused)
+  }
+)
+
+export const usePaused = () => useAtom(debuggerPausedAtom)

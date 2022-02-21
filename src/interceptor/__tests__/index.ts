@@ -1,5 +1,6 @@
 import { chrome } from 'jest-chrome'
 
+import * as Debugger from '../debugger'
 import { RequestPausedEvent, listen, unlisten } from '../debugger'
 import {
   addIntercept,
@@ -32,6 +33,7 @@ describe('[intercept]', () => {
   const listener = jest.fn()
 
   beforeEach(async () => {
+    Debugger.unpause()
     jest.resetAllMocks()
     intercepts.splice(0, intercepts.length)
 
@@ -150,8 +152,19 @@ describe('[intercept]', () => {
     expect(listener).not.toBeCalled()
   })
 
-  it('should not call subscribed callback without an invalid regexp partern', () => {
+  it('should not call subscribed callback without an invalid regexp pattern', () => {
     addIntercept({ ...globalMocks.intercept, pattern: '(example' })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      event
+    )
+    expect(listener).not.toBeCalled()
+  })
+
+  it('should not call subscribed callback when debugger is paused', () => {
+    Debugger.pause()
+    addIntercept(globalMocks.intercept)
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',

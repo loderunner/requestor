@@ -2,6 +2,7 @@ import { act, cleanup, renderHook } from '@testing-library/react-hooks'
 
 import { useIntercept, useIntercepts } from '..'
 import * as Interceptor from '../../intercept'
+import { usePaused } from '../intercept'
 
 import type { Intercept } from '../../intercept'
 
@@ -111,7 +112,7 @@ describe('[InterceptHooks.useIntercept]', () => {
     expect(result.error).toBeDefined()
   })
 
-  it('shoud update intercept', () => {
+  it('should update intercept', () => {
     const { result: interceptsResult } = renderHook(() => useIntercepts())
 
     let i: Intercept
@@ -129,5 +130,16 @@ describe('[InterceptHooks.useIntercept]', () => {
       expect.any(String),
       inter2
     )
+  })
+})
+
+describe('[InterceptHooks.usePaused', () => {
+  it('should update paused', () => {
+    const { result } = renderHook(() => usePaused())
+
+    const [paused, setPaused] = result.current
+    expect(paused).toBeFalse()
+    act(() => setPaused(true))
+    expect(result.current[0]).toBeTrue()
   })
 })

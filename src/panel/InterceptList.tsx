@@ -1,8 +1,14 @@
 import * as React from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
+import {
+  Clear as ClearIcon,
+  Plus as PlusIcon,
+  Visibility as VisibilityIcon,
+  VisibilityOff as VisibilityOffIcon,
+} from '@/icons'
 import { useIntercept, useIntercepts } from '@/interceptor/hooks'
+import { usePaused } from '@/interceptor/hooks/intercept'
 
 import List from './components/List'
 import ModalInput from './components/ModalInput'
@@ -13,11 +19,12 @@ import type { SyntheticEvent } from 'react'
 
 interface ItemProps {
   interceptId?: string
+  paused: boolean
   onDelete: (inter: Intercept) => void
   editOnRender: boolean
 }
 
-const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
+const Item = ({ interceptId, onDelete, editOnRender, paused }: ItemProps) => {
   if (interceptId === undefined) {
     throw new Error('missing intercept id')
   }
@@ -86,13 +93,15 @@ const Item = ({ interceptId, onDelete, editOnRender }: ItemProps) => {
       <div className="flex flex-grow items-center overflow-hidden">
         <input
           type="checkbox"
-          className="mr-0.5 focus:ring-0"
+          className={`mr-0.5 focus:ring-0 ${paused ? 'text-gray-400' : ''}`}
           checked={intercept.enabled}
           onClick={(e) => e.stopPropagation()}
           onChange={onToggleEnabled}
         />
         <span
-          className="w-full mx-0.5 empty:before:content-['\200b'] overflow-hidden text-ellipsis whitespace-nowrap"
+          className={`w-full mx-0.5 empty:before:content-['\\200b'] overflow-hidden text-ellipsis whitespace-nowrap ${
+            paused ? 'text-gray-400' : ''
+          }`}
           onDoubleClick={onDoubleClickPattern}
           ref={patternLabelRef}
         >
@@ -123,9 +132,13 @@ interface Props {
 }
 
 const InterceptList = ({ className }: Props) => {
+  const [paused, setPaused] = usePaused()
   const { selection, setSelection, selectionType } = useSelection()
   const { intercepts, addIntercept, removeIntercept } = useIntercepts()
   const [newIntercept, setNewIntercept] = useState<string>('')
+
+  const onPause = useCallback(() => setPaused(true), [setPaused])
+  const onUnpause = useCallback(() => setPaused(false), [setPaused])
 
   const onDeleteIntercept = useCallback(
     (inter: Intercept) => {
@@ -153,10 +166,33 @@ const InterceptList = ({ className }: Props) => {
     [addIntercept, setSelection]
   )
 
-  const header = useMemo(
-    () => (
-      <div className="flex select-none justify-between bg-slate-100 p-1">
-        <span className="font-bold">Intercepts</span>
+  const pauseButton = useMemo(
+    () =>
+      paused ? (
+        <button
+          className="self-stretch"
+          title="Unpause intercepts"
+          onClick={onUnpause}
+        >
+          <VisibilityOffIcon className="h-full w-auto" />
+        </button>
+      ) : (
+        <button
+          className="self-stretch"
+          title="Pause intercepts"
+          onClick={onPause}
+        >
+          <VisibilityIcon className="h-full w-auto" />
+        </button>
+      ),
+    [onPause, onUnpause, paused]
+  )
+
+  const header = useMemo(() => {
+    return (
+      <div className="p-1 flex space-x-1 justify-between select-none bg-slate-100">
+        <span className="font-bold flex-auto">Intercepts</span>
+        {pauseButton}
         <button
           className="self-stretch"
           title="Add intercept"
@@ -165,9 +201,8 @@ const InterceptList = ({ className }: Props) => {
           <PlusIcon className="h-full w-auto" />
         </button>
       </div>
-    ),
-    [onAddIntercept]
-  )
+    )
+  }, [onAddIntercept, pauseButton])
 
   const items = useMemo(
     () =>
@@ -175,11 +210,12 @@ const InterceptList = ({ className }: Props) => {
         <Item
           key={inter.id}
           interceptId={inter.id}
+          paused={paused}
           onDelete={onDeleteIntercept}
           editOnRender={newIntercept === inter.id}
         />
       )),
-    [intercepts, onDeleteIntercept, newIntercept]
+    [intercepts, paused, onDeleteIntercept, newIntercept]
   )
 
   return (

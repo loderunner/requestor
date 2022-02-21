@@ -29,7 +29,7 @@ describe('InterceptList', () => {
     expect(queryByRole('textbox')).toBeNull()
   })
 
-  it('should show input modal on second render', () => {
+  it('should show input modal on double click', () => {
     let intercepts: Intercept[] = []
     const addIntercept = jest.fn(() => {
       intercepts = [globalMocks.intercept]
@@ -47,6 +47,15 @@ describe('InterceptList', () => {
     fireEvent.click(addButton)
 
     expect(queryByRole('textbox')).not.toBeNull()
+  })
+
+  it('should show input modal on double click', () => {
+    const { container, getByRole } = render(<InterceptList />)
+
+    const pauseButton = getByRole('button', { name: 'Pause intercepts' })
+    fireEvent.click(pauseButton)
+
+    expect(container).toMatchSnapshot()
   })
 
   it('should add and remove children after clicking buttons', () => {
