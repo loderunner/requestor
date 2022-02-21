@@ -1,8 +1,14 @@
 import * as React from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { Clear as ClearIcon, Plus as PlusIcon } from '@/icons'
+import {
+  Clear as ClearIcon,
+  Plus as PlusIcon,
+  Visibility as VisibilityIcon,
+  VisibilityOff as VisibilityOffIcon,
+} from '@/icons'
 import { useIntercept, useIntercepts } from '@/interceptor/hooks'
+import { usePaused } from '@/interceptor/hooks/intercept'
 
 import List from './components/List'
 import ModalInput from './components/ModalInput'
@@ -123,9 +129,13 @@ interface Props {
 }
 
 const InterceptList = ({ className }: Props) => {
+  const [paused, setPaused] = usePaused()
   const { selection, setSelection, selectionType } = useSelection()
   const { intercepts, addIntercept, removeIntercept } = useIntercepts()
   const [newIntercept, setNewIntercept] = useState<string>('')
+
+  const onPause = useCallback(() => setPaused(true), [setPaused])
+  const onUnpause = useCallback(() => setPaused(false), [setPaused])
 
   const onDeleteIntercept = useCallback(
     (inter: Intercept) => {
@@ -153,10 +163,33 @@ const InterceptList = ({ className }: Props) => {
     [addIntercept, setSelection]
   )
 
-  const header = useMemo(
-    () => (
-      <div className="flex select-none justify-between bg-slate-100 p-1">
-        <span className="font-bold">Intercepts</span>
+  const pauseButton = useMemo(
+    () =>
+      paused ? (
+        <button
+          className="self-stretch"
+          title="Unpause intercepts"
+          onClick={onUnpause}
+        >
+          <VisibilityOffIcon className="h-full w-auto" />
+        </button>
+      ) : (
+        <button
+          className="self-stretch"
+          title="Pause intercepts"
+          onClick={onPause}
+        >
+          <VisibilityIcon className="h-full w-auto" />
+        </button>
+      ),
+    [onPause, onUnpause, paused]
+  )
+
+  const header = useMemo(() => {
+    return (
+      <div className="p-1 flex space-x-1 justify-between select-none bg-slate-100">
+        <span className="font-bold flex-auto">Intercepts</span>
+        {pauseButton}
         <button
           className="self-stretch"
           title="Add intercept"
@@ -165,9 +198,8 @@ const InterceptList = ({ className }: Props) => {
           <PlusIcon className="h-full w-auto" />
         </button>
       </div>
-    ),
-    [onAddIntercept]
-  )
+    )
+  }, [onAddIntercept, pauseButton])
 
   const items = useMemo(
     () =>
