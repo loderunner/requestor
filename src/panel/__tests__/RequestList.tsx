@@ -37,4 +37,17 @@ describe('[RequestList]', () => {
     fireEvent.click(continueButton)
     expect(continueRequestFn).toHaveBeenCalled()
   })
+
+  it('should call failRequest', async () => {
+    const { getByRole } = render(
+      <RequestProvider>
+        <RequestList />
+      </RequestProvider>
+    )
+    const failRequestFn =
+      mockedHooks.useRequest.mock.results.at(-1)?.value.failRequest
+    const continueButton = getByRole('button', { name: 'Cancel request' })
+    fireEvent.click(continueButton)
+    expect(failRequestFn).toHaveBeenCalled()
+  })
 })
