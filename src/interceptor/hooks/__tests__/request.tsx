@@ -4,7 +4,6 @@ import {
   renderHook,
 } from '@testing-library/react-hooks'
 import * as React from 'react'
-import { act } from 'react-dom/test-utils'
 
 import { RequestProvider, useRequest, useRequests } from '..'
 import * as Interceptor from '../../request'
@@ -119,7 +118,7 @@ describe('[RequestHooks.useRequest]', () => {
       wrapper,
     })
 
-    await act(() => result.current.continueRequest())
+    await actHook(() => result.current.continueRequest())
 
     expect(mockedInterceptor.continueRequest).toHaveBeenCalled()
   })
