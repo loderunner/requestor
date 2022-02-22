@@ -4,6 +4,7 @@ import {
   renderHook,
 } from '@testing-library/react-hooks'
 import * as React from 'react'
+import { act } from 'react-dom/test-utils'
 
 import { RequestProvider, useRequest, useRequests } from '..'
 import * as Interceptor from '../../request'
@@ -67,6 +68,17 @@ describe('[RequestHooks.useRequest]', () => {
     expect(result.error).toBeDefined()
   })
 
+  it('should return  request', () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <RequestProvider>{children}</RequestProvider>
+    )
+    const { result } = renderHook(() => useRequest(globalMocks.request.id), {
+      wrapper,
+    })
+
+    expect(result.current.request).toMatchObject(globalMocks.request)
+  })
+
   it('should throw on missing request', () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <RequestProvider>{children}</RequestProvider>
@@ -96,6 +108,19 @@ describe('[RequestHooks.useRequest]', () => {
       listener(globalMocks.request)
     })
 
-    expect(result.current).toEqual(globalMocks.request)
+    expect(result.current.request).toEqual(globalMocks.request)
+  })
+
+  it('should continue request', async () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <RequestProvider>{children}</RequestProvider>
+    )
+    const { result } = renderHook(() => useRequest(globalMocks.request.id), {
+      wrapper,
+    })
+
+    await act(() => result.current.continueRequest())
+
+    expect(mockedInterceptor.continueRequest).toHaveBeenCalled()
   })
 })

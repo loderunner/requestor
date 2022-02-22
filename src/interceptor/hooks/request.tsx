@@ -1,10 +1,11 @@
 import {
   Provider as JotaiProvider,
   atom,
+  useAtom,
   useAtomValue,
   useSetAtom,
 } from 'jotai'
-import React, { useLayoutEffect } from 'react'
+import React, { useCallback, useLayoutEffect, useMemo } from 'react'
 
 import * as Interceptor from '..'
 
@@ -51,17 +52,26 @@ export const useRequests = () => {
 }
 
 export const useRequest = (id: string) => {
-  const requests = useAtomValue(requestsAtom, requestScope)
+  const [requests, setRequests] = useAtom(requestsAtom, requestScope)
   if (requests === undefined) {
     throw new Error(
       'no requests in scope\nDid you call useRequest inside a RequestProvider?'
     )
   }
 
-  const request = requests.find((r) => r.id === id)
+  const request = useMemo(
+    () => requests.find((r) => r.id === id),
+    [id, requests]
+  )
+
+  const continueRequest = useCallback(async () => {
+    await Interceptor.continueRequest(id)
+    setRequests([...Interceptor.requests])
+  }, [id, setRequests])
+
   if (request === undefined) {
     throw new Error('request not found')
   }
 
-  return request as Readonly<Interceptor.Request>
+  return { request: request as Readonly<Interceptor.Request>, continueRequest }
 }

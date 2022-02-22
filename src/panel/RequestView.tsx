@@ -18,7 +18,7 @@ const disabledButtonClassName =
   'text-base rounded py-2 px-4 font-medium border bg-blue-50'
 
 const RequestView = ({ requestId }: Props) => {
-  const request = useRequest(requestId)
+  const { request } = useRequest(requestId)
   const [tab, setTab] = useState<Tab>('headers')
 
   useEffect(() => {
