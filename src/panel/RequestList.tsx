@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { useCallback, useMemo } from 'react'
 
-import { PlayArrow as PlayArrowIcon } from '@/icons'
+import { PlayArrow as PlayArrowIcon, Stop as StopIcon } from '@/icons'
+import { Request } from '@/interceptor'
 import { useRequest, useRequests } from '@/interceptor/hooks'
 
 import List from './components/List'
 import { useSelection } from './selection'
 
-import type { Request } from '@/interceptor'
 import type { SyntheticEvent } from 'react'
 
 interface ItemProps {
@@ -15,7 +15,7 @@ interface ItemProps {
 }
 
 const Item = ({ requestId }: ItemProps) => {
-  const { request, continueRequest } = useRequest(requestId)
+  const { request, continueRequest, failRequest } = useRequest(requestId)
   const { selection, selectionType, setSelection } = useSelection()
 
   const onSelect = useCallback(
@@ -26,20 +26,20 @@ const Item = ({ requestId }: ItemProps) => {
     [request, setSelection]
   )
 
-  const className = useMemo(() => {
-    let className = 'px-1 flex space-x-1 select-none overflow-hidden'
+  const selectionClass = useMemo(() => {
+    let className = ''
     if (selectionType !== 'request') {
       return className
     }
     const s = selection as Request
     if (s.id === request.id) {
-      className += ' bg-blue-100'
+      className = 'bg-blue-100'
     }
     return className
   }, [selectionType, selection, request.id])
 
-  const onContinue = useCallback(
-    async (e: SyntheticEvent) => {
+  const onContinueOrFail = useCallback(
+    async (e: SyntheticEvent, continueOrFail: 'continue' | 'fail') => {
       e.stopPropagation()
       const wasSelected =
         selectionType === 'request' && selection?.id === requestId
@@ -47,7 +47,14 @@ const Item = ({ requestId }: ItemProps) => {
         setSelection(null)
       }
       try {
-        await continueRequest()
+        switch (continueOrFail) {
+          case 'continue':
+            await continueRequest()
+            break
+          case 'fail':
+            await failRequest()
+            break
+        }
       } catch (err) {
         // re-select request if continueRequest failed
         if (wasSelected) {
@@ -57,6 +64,7 @@ const Item = ({ requestId }: ItemProps) => {
     },
     [
       continueRequest,
+      failRequest,
       request,
       requestId,
       selection?.id,
@@ -65,11 +73,27 @@ const Item = ({ requestId }: ItemProps) => {
     ]
   )
 
+  const onContinue = useCallback(
+    (e: SyntheticEvent) => onContinueOrFail(e, 'continue'),
+    [onContinueOrFail]
+  )
+  const onFail = useCallback(
+    (e: SyntheticEvent) => onContinueOrFail(e, 'fail'),
+    [onContinueOrFail]
+  )
+
   return (
-    <div className={className} role="listitem" onClick={onSelect}>
-      <span className="flex-auto overflow-hidden text-ellipsis whitespace-nowrap">
+    <div
+      className={`px-1 flex select-none overflow-hidden ${selectionClass}`}
+      role="listitem"
+      onClick={onSelect}
+    >
+      <span className="flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap">
         {request.url}
       </span>
+      <button className="self-stretch" title="Cancel request" onClick={onFail}>
+        <StopIcon className="h-full w-auto" />
+      </button>
       <button
         className="self-stretch"
         title="Continue request"

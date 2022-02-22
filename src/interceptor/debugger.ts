@@ -101,7 +101,9 @@ export const unlisten = () => {
 const continueOrFailRequest = async (
   requestId: string,
   method: string,
-  commandParams: Record<string, any>
+  commandParams:
+    | Protocol.Fetch.ContinueRequestRequest
+    | Protocol.Fetch.FailRequestRequest
 ) => {
   if (debuggee === undefined) {
     throw new Error('Debugger not connected.\nDid you call listen() ?')
