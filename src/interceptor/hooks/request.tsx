@@ -64,14 +64,14 @@ export const useRequest = (id: string) => {
     [id, requests]
   )
 
+  if (request === undefined) {
+    throw new Error('request not found')
+  }
+
   const continueRequest = useCallback(async () => {
     await Interceptor.continueRequest(id)
     setRequests([...Interceptor.requests])
   }, [id, setRequests])
-
-  if (request === undefined) {
-    throw new Error('request not found')
-  }
 
   return { request: request as Readonly<Interceptor.Request>, continueRequest }
 }
