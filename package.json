@@ -28,7 +28,7 @@
     "@typescript-eslint/parser": "5.12.1",
     "content-type": "1.0.4",
     "cookie": "0.4.2",
-    "devtools-protocol": "0.0.973088",
+    "devtools-protocol": "0.0.973690",
     "esbuild": "0.14.23",
     "esbuild-plugin-svgr": "1.0.0",
     "eslint": "8.9.0",
