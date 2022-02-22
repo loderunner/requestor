@@ -55,11 +55,6 @@ describe('[Interceptor.subscribe]', () => {
       event
     )
     expect(listener).not.toBeCalled()
-    expect(chrome.debugger.sendCommand).toBeCalledWith(
-      { targetId: target.id },
-      'Fetch.continueRequest',
-      expect.anything()
-    )
   })
 
   it('should call subscribed callback with a matching string intercept', () => {
