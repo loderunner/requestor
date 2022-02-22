@@ -28,7 +28,7 @@ describe('[Interceptor.subscribe]', () => {
 
   beforeEach(async () => {
     Debugger.unpause()
-    jest.resetAllMocks()
+    jest.clearAllMocks()
     intercepts.splice(0, intercepts.length)
 
     chrome.debugger.getTargets.mockImplementation((callback) =>

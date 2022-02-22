@@ -9,7 +9,7 @@ describe('[Interceptor.pushRequest]', () => {
       callback([globalMocks.target])
     )
     await listen()
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   afterEach(() => {
@@ -29,7 +29,7 @@ describe('[Interceptor.continueRequest]', () => {
       callback([globalMocks.target])
     )
     await listen()
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   afterEach(() => {

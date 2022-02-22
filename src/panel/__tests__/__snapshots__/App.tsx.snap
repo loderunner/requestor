@@ -15,7 +15,7 @@ exports[`[App] matches snapshot 1`] = `
         role="list"
       >
         <div
-          class="flex select-none justify-between bg-slate-100 p-1 font-bold"
+          class="p-1 flex select-none justify-between bg-slate-100 font-bold"
         >
           Requests
         </div>

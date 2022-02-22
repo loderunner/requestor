@@ -1,24 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[RequestList] should match empty snapshot 1`] = `
-<div>
-  <div
-    class="flex flex-col "
-    id="request-list"
-    role="list"
-  >
-    <div
-      class="flex select-none justify-between bg-slate-100 p-1 font-bold"
-    >
-      Requests
-    </div>
-    <div
-      class="flex flex-col overflow-y-visible"
-    />
-  </div>
-</div>
-`;
-
 exports[`[RequestList] should match requestful snapshot 1`] = `
 <div>
   <div
@@ -27,13 +8,32 @@ exports[`[RequestList] should match requestful snapshot 1`] = `
     role="list"
   >
     <div
-      class="flex select-none justify-between bg-slate-100 p-1 font-bold"
+      class="p-1 flex select-none justify-between bg-slate-100 font-bold"
     >
       Requests
     </div>
     <div
       class="flex flex-col overflow-y-visible"
-    />
+    >
+      <div
+        class="px-1 flex space-x-1 select-none overflow-hidden"
+        role="listitem"
+      >
+        <span
+          class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap"
+        >
+          https://www.example.com/complete/search?q=toto&client=gws-wiz
+        </span>
+        <button
+          class="self-stretch"
+          title="Continue request"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;

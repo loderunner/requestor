@@ -10,7 +10,7 @@ describe('[intercept.debugger]', () => {
   })
 
   afterEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   it('should crash without targets', async () => {

@@ -36,7 +36,7 @@ const mockInterceptor = () => {
 
 describe('[InterceptHooks.useIntercepts]', () => {
   beforeEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
     mockInterceptor()
   })
   afterEach(() => {
@@ -73,7 +73,7 @@ describe('[InterceptHooks.useIntercepts]', () => {
 
 describe('[InterceptHooks.useIntercept]', () => {
   beforeEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
     mockInterceptor()
   })
   afterEach(() => {

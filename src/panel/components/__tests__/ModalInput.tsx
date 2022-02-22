@@ -9,7 +9,7 @@ describe('[ModalInput]', () => {
   const onChange = jest.fn()
   const onCancel = jest.fn()
   beforeEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   afterEach(() => {

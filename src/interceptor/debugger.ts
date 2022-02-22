@@ -103,7 +103,25 @@ export const continueRequest = async (requestId: string) => {
     throw new Error('Debugger not connected.\nDid you call listen() ?')
   }
 
-  await chrome.debugger.sendCommand(debuggee, 'Fetch.continueRequest', {
-    requestId,
-  })
+  try {
+    const request: Protocol.Fetch.ContinueRequestRequest = {
+      requestId,
+    }
+    await chrome.debugger.sendCommand(
+      debuggee,
+      'Fetch.continueRequest',
+      request
+    )
+  } catch (err) {
+    // Don't throw on Invalid ID error
+    try {
+      const jsonErr = JSON.parse((err as Error).message)
+      if (jsonErr.code === -32602) {
+        return
+      }
+    } catch (jsonErr) {
+      // Ignore JSON parse error
+    }
+    throw err
+  }
 }

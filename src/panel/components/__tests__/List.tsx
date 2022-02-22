@@ -7,7 +7,7 @@ import List from '../List'
 
 describe('[List]', () => {
   beforeEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   afterEach(() => {
