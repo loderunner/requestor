@@ -18,7 +18,7 @@ describe('[App]', () => {
   })
   afterEach(() => {
     cleanup()
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
 
   it('matches snapshot', () => {

@@ -1,8 +1,8 @@
-import { clone } from 'lodash'
 import * as React from 'react'
 import { useCallback, useMemo } from 'react'
 
-import { useRequests } from '@/interceptor/hooks'
+import { PlayArrow as PlayArrowIcon } from '@/icons'
+import { useRequest, useRequests } from '@/interceptor/hooks'
 
 import List from './components/List'
 import { useSelection } from './selection'
@@ -11,23 +11,23 @@ import type { Request } from '@/interceptor'
 import type { SyntheticEvent } from 'react'
 
 interface ItemProps {
-  request: Request
+  requestId: string
 }
 
-const Item = ({ request }: ItemProps) => {
+const Item = ({ requestId }: ItemProps) => {
+  const { request, continueRequest } = useRequest(requestId)
   const { selection, selectionType, setSelection } = useSelection()
 
   const onSelect = useCallback(
     (e: SyntheticEvent) => {
       e.stopPropagation()
-      setSelection(clone(request))
+      setSelection({ ...request })
     },
     [request, setSelection]
   )
 
   const className = useMemo(() => {
-    let className =
-      'select-none overflow-hidden text-ellipsis whitespace-nowrap'
+    let className = 'px-1 flex space-x-1 select-none overflow-hidden'
     if (selectionType !== 'request') {
       return className
     }
@@ -38,9 +38,45 @@ const Item = ({ request }: ItemProps) => {
     return className
   }, [selectionType, selection, request.id])
 
+  const onContinue = useCallback(
+    async (e: SyntheticEvent) => {
+      e.stopPropagation()
+      const wasSelected =
+        selectionType === 'request' && selection?.id === requestId
+      if (wasSelected) {
+        setSelection(null)
+      }
+      try {
+        await continueRequest()
+      } catch (err) {
+        // re-select request if continueRequest failed
+        if (wasSelected) {
+          setSelection({ ...request })
+        }
+      }
+    },
+    [
+      continueRequest,
+      request,
+      requestId,
+      selection?.id,
+      selectionType,
+      setSelection,
+    ]
+  )
+
   return (
     <div className={className} role="listitem" onClick={onSelect}>
-      <span>{request.url}</span>
+      <span className="flex-auto overflow-hidden text-ellipsis whitespace-nowrap">
+        {request.url}
+      </span>
+      <button
+        className="self-stretch"
+        title="Continue request"
+        onClick={onContinue}
+      >
+        <PlayArrowIcon className="h-full w-auto" />
+      </button>
     </div>
   )
 }
@@ -50,7 +86,7 @@ interface Props {
 }
 
 const header = (
-  <div className="flex select-none justify-between bg-slate-100 p-1 font-bold">
+  <div className="p-1 flex select-none justify-between bg-slate-100 font-bold">
     Requests
   </div>
 )
@@ -58,7 +94,7 @@ const header = (
 const RequestList = ({ className }: Props) => {
   const requests = useRequests()
   const items = useMemo(
-    () => requests.map((req, i) => <Item key={i} request={req} />),
+    () => requests.map((req, i) => <Item key={i} requestId={req.id} />),
     [requests]
   )
 

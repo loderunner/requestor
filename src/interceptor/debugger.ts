@@ -32,7 +32,6 @@ const onDebuggerEvent = (
         }
 
         // Dispatch event if the intercept matches
-        // then break from loop to avoid duplicate capture
         const req = event.request
         let match = false
         if (inter.regexp) {
@@ -48,11 +47,12 @@ const onDebuggerEvent = (
         }
         if (match) {
           pushRequest({ id: event.requestId, ...req })
-          break
+          return // return to avoid double capture
         }
       }
     }
 
+    // Continue request is no match
     chrome.debugger.sendCommand(target, 'Fetch.continueRequest', {
       requestId: event.requestId,
     })
@@ -96,4 +96,32 @@ export const unlisten = () => {
   chrome.debugger.onEvent.removeListener(onDebuggerEvent)
   chrome.debugger.detach(debuggee)
   debuggee = undefined
+}
+
+export const continueRequest = async (requestId: string) => {
+  if (debuggee === undefined) {
+    throw new Error('Debugger not connected.\nDid you call listen() ?')
+  }
+
+  try {
+    const request: Protocol.Fetch.ContinueRequestRequest = {
+      requestId,
+    }
+    await chrome.debugger.sendCommand(
+      debuggee,
+      'Fetch.continueRequest',
+      request
+    )
+  } catch (err) {
+    // Don't throw on Invalid ID error
+    try {
+      const jsonErr = JSON.parse((err as Error).message)
+      if (jsonErr.code === -32602) {
+        return
+      }
+    } catch (jsonErr) {
+      // Ignore JSON parse error
+    }
+    throw err
+  }
 }

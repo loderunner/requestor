@@ -6,6 +6,8 @@ import { RequestProvider } from '@/interceptor/hooks'
 
 import Sidebar from '../Sidebar'
 
+jest.mock('@/interceptor/hooks')
+
 describe('[Sidebar]', () => {
   afterEach(() => {
     cleanup()

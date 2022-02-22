@@ -5,7 +5,7 @@ import '../index'
 
 describe('[Background script]', () => {
   afterEach(() => {
-    jest.resetAllMocks()
+    jest.clearAllMocks()
   })
   it('should create a panel', () => {
     expect(chrome.devtools.panels.create).toBeCalled()
