@@ -29,6 +29,14 @@ export const continueRequest = async (requestId: string) => {
   }
 }
 
+export const failRequest = async (requestId: string) => {
+  await Debugger.failRequest(requestId)
+  const i = requests.findIndex((req) => req.id === requestId)
+  if (i !== -1) {
+    requests.splice(i, 1)
+  }
+}
+
 export type RequestEventListener = (req: Request) => void
 
 export const subscribe = (listener: RequestEventListener) => {

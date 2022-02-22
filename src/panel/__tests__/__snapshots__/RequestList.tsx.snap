@@ -16,14 +16,22 @@ exports[`[RequestList] should match requestful snapshot 1`] = `
       class="flex flex-col overflow-y-visible"
     >
       <div
-        class="px-1 flex space-x-1 select-none overflow-hidden"
+        class="px-1 flex select-none overflow-hidden "
         role="listitem"
       >
         <span
-          class="flex-auto overflow-hidden text-ellipsis whitespace-nowrap"
+          class="flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap"
         >
           https://www.example.com/complete/search?q=toto&client=gws-wiz
         </span>
+        <button
+          class="self-stretch"
+          title="Cancel request"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
         <button
           class="self-stretch"
           title="Continue request"

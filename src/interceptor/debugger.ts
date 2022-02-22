@@ -98,20 +98,19 @@ export const unlisten = () => {
   debuggee = undefined
 }
 
-export const continueRequest = async (requestId: string) => {
+const continueOrFailRequest = async (
+  requestId: string,
+  method: string,
+  commandParams:
+    | Protocol.Fetch.ContinueRequestRequest
+    | Protocol.Fetch.FailRequestRequest
+) => {
   if (debuggee === undefined) {
     throw new Error('Debugger not connected.\nDid you call listen() ?')
   }
 
   try {
-    const request: Protocol.Fetch.ContinueRequestRequest = {
-      requestId,
-    }
-    await chrome.debugger.sendCommand(
-      debuggee,
-      'Fetch.continueRequest',
-      request
-    )
+    await chrome.debugger.sendCommand(debuggee, method, commandParams)
   } catch (err) {
     // Don't throw on Invalid ID error
     try {
@@ -124,4 +123,21 @@ export const continueRequest = async (requestId: string) => {
     }
     throw err
   }
+}
+
+export const continueRequest = async (requestId: string) => {
+  const method = 'Fetch.continueRequest'
+  const commandParams: Protocol.Fetch.ContinueRequestRequest = {
+    requestId,
+  }
+  return continueOrFailRequest(requestId, method, commandParams)
+}
+
+export const failRequest = async (requestId: string) => {
+  const method = 'Fetch.failRequest'
+  const commandParams: Protocol.Fetch.FailRequestRequest = {
+    requestId,
+    errorReason: 'Aborted',
+  }
+  return continueOrFailRequest(requestId, method, commandParams)
 }
