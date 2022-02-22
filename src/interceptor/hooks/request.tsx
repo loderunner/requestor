@@ -73,5 +73,14 @@ export const useRequest = (id: string) => {
     setRequests([...Interceptor.requests])
   }, [id, setRequests])
 
-  return { request: request as Readonly<Interceptor.Request>, continueRequest }
+  const failRequest = useCallback(async () => {
+    await Interceptor.failRequest(id)
+    setRequests([...Interceptor.requests])
+  }, [id, setRequests])
+
+  return {
+    request: request as Readonly<Interceptor.Request>,
+    continueRequest,
+    failRequest,
+  }
 }

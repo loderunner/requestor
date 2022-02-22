@@ -15,5 +15,6 @@ export {
   RequestEventListener,
   subscribe,
   continueRequest,
+  failRequest,
 } from './request'
 export { Intercept, addIntercept, removeIntercept } from './intercept'

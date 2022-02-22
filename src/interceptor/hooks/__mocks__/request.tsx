@@ -8,9 +8,10 @@ export const RequestProvider = ({
 export const useRequests = jest.fn(() => [globalMocks.request])
 
 const continueRequest = jest.fn(() => {})
+const failRequest = jest.fn(() => {})
 export const useRequest = jest.fn((id: string) => {
   if (id === 'request') {
-    return { request: globalMocks.request, continueRequest }
+    return { request: globalMocks.request, continueRequest, failRequest }
   }
   throw new Error('Mock[useRequest]: request not found')
 })
