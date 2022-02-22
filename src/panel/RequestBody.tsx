@@ -2,7 +2,8 @@ import * as ContentType from 'content-type'
 import * as React from 'react'
 import { useMemo } from 'react'
 
-import { JSONBodyView } from './components/body-view/JSON'
+import JSONBodyView from './components/body-view/JSON'
+import PlainTextBodyView from './components/body-view/PlainText'
 
 import type { Request } from '@/interceptor'
 
@@ -45,9 +46,7 @@ const RequestBody = ({ request, className = '' }: Props) => {
 
   return (
     <div className={`mt-8 ${className}`}>
-      <pre className={`bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all`}>
-        {request.postData}
-      </pre>
+      <PlainTextBodyView data={request.postData} />
     </div>
   )
 }
