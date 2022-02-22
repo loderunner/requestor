@@ -10,13 +10,7 @@ import {
 } from '../intercept'
 import { subscribe } from '../request'
 
-const target: chrome.debugger.TargetInfo = {
-  attached: false,
-  id: 'target',
-  title: 'Title',
-  type: 'targetType',
-  url: 'https://example.com',
-}
+const target = globalMocks.target
 
 const event: RequestPausedEvent = {
   frameId: '1',
@@ -25,7 +19,7 @@ const event: RequestPausedEvent = {
   request: globalMocks.request,
 }
 
-describe('[intercept]', () => {
+describe('[Interceptor.subscribe]', () => {
   // unsubscribe callback placeholder - shared between tests
   let unsubscribe = () => {}
 

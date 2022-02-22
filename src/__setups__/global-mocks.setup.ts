@@ -3,6 +3,7 @@ import type { Intercept, Request } from '@/interceptor'
 interface GlobalMocks {
   request: Request
   intercept: Intercept
+  target: chrome.debugger.TargetInfo
 }
 
 declare global {
@@ -51,6 +52,13 @@ const globalMocks: GlobalMocks = {
     pattern: 'example.com',
     enabled: true,
     regexp: false,
+  },
+  target: {
+    attached: false,
+    id: 'target',
+    title: 'Title',
+    type: 'targetType',
+    url: 'https://example.com',
   },
 }
 

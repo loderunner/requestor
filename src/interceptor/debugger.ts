@@ -97,3 +97,13 @@ export const unlisten = () => {
   chrome.debugger.detach(debuggee)
   debuggee = undefined
 }
+
+export const continueRequest = async (requestId: string) => {
+  if (debuggee === undefined) {
+    throw new Error('Debugger not connected.\nDid you call listen() ?')
+  }
+
+  await chrome.debugger.sendCommand(debuggee, 'Fetch.continueRequest', {
+    requestId,
+  })
+}
