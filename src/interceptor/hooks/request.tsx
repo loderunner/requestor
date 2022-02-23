@@ -43,7 +43,7 @@ export const RequestProvider = ({ children }: Props) => {
 }
 
 export const useRequests = () => {
-  const requests = useAtomValue(requestsAtom, requestScope)
+  const [requests, setRequests] = useAtom(requestsAtom, requestScope)
 
   if (requests === undefined) {
     throw new Error(
@@ -51,7 +51,17 @@ export const useRequests = () => {
     )
   }
 
-  return requests as ReadonlyArray<Readonly<Interceptor.Request>>
+  const continueAllRequests = useCallback(async () => {
+    const resolutions = await Promise.allSettled(
+      requests.map((req) => Interceptor.continueRequest(req.id))
+    )
+    setRequests([...Interceptor.requests])
+  }, [requests, setRequests])
+
+  return {
+    requests: requests as ReadonlyArray<Readonly<Interceptor.Request>>,
+    continueAllRequests,
+  }
 }
 
 const requestAtom = atomFamily<

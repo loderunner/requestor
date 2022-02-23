@@ -4,6 +4,7 @@ import {
   renderHook,
 } from '@testing-library/react-hooks'
 import * as React from 'react'
+import { act } from 'react-dom/test-utils'
 
 import { RequestProvider, useRequest, useRequests } from '..'
 import * as Interceptor from '../../request'
@@ -16,6 +17,7 @@ const mockedInterceptor = Interceptor as jest.Mocked<typeof Interceptor>
 describe('[RequestHooks.useRequests]', () => {
   afterEach(() => {
     cleanupHooks()
+    mockedInterceptor.requests.splice(0, mockedInterceptor.requests.length)
   })
 
   it('should throw without a RequestProvider', () => {
@@ -29,7 +31,7 @@ describe('[RequestHooks.useRequests]', () => {
     )
     const { result } = renderHook(() => useRequests(), { wrapper })
 
-    expect(result.current).toBeArrayOfSize(0)
+    expect(result.current.requests).toBeArrayOfSize(0)
   })
 
   it('should add a request to the list on listener', () => {
@@ -52,14 +54,37 @@ describe('[RequestHooks.useRequests]', () => {
       listener(globalMocks.request)
     })
 
-    expect(result.current).toBeArrayOfSize(1)
-    expect(result.current).toContain(globalMocks.request)
+    expect(result.current.requests).toBeArrayOfSize(1)
+    expect(result.current.requests).toContain(globalMocks.request)
+  })
+
+  it('should continue all requests', async () => {
+    for (let i = 0; i < 10; i++) {
+      mockedInterceptor.requests.push({ ...globalMocks.request, id: `${i}` })
+    }
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <RequestProvider>{children}</RequestProvider>
+    )
+    const { result } = renderHook(() => useRequests(), { wrapper })
+    await act(() => result.current.continueAllRequests())
+
+    expect(mockedInterceptor.continueRequest).toHaveBeenCalledTimes(10)
+    for (let i = 0; i < 10; i++) {
+      expect(mockedInterceptor.continueRequest).toHaveBeenNthCalledWith(
+        i + 1,
+        `${i}`
+      )
+    }
   })
 })
 
 describe('[RequestHooks.useRequest]', () => {
+  beforeEach(() => {
+    mockedInterceptor.requests.push(globalMocks.request)
+  })
   afterEach(() => {
     cleanupHooks()
+    mockedInterceptor.requests.splice(0, mockedInterceptor.requests.length)
   })
 
   it('should throw without a RequestProvider', () => {
