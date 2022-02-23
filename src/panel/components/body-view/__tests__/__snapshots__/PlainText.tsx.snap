@@ -5,6 +5,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
   <pre
     class="bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all"
     contenteditable="true"
+    role="textbox"
   >
     toto
   </pre>

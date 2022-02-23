@@ -189,7 +189,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
       </div>
     </div>
     <div
-      class="mt-8 "
+      class="mt-8 flex flex-col justify-items-stretch "
     >
       <div
         class="space-y-1"
@@ -659,7 +659,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
       </div>
     </div>
     <div
-      class="mt-8 hidden"
+      class="mt-8 flex flex-col justify-items-stretch hidden"
     >
       <div
         class="space-y-1"
@@ -1129,7 +1129,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
       </div>
     </div>
     <div
-      class="mt-8 hidden"
+      class="mt-8 flex flex-col justify-items-stretch hidden"
     >
       <div
         class="space-y-1"
