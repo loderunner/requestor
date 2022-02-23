@@ -52,7 +52,7 @@ export const useRequests = () => {
   }
 
   const continueAllRequests = useCallback(async () => {
-    const resolutions = await Promise.allSettled(
+    await Promise.allSettled(
       requests.map((req) => Interceptor.continueRequest(req.id))
     )
     setRequests([...Interceptor.requests])

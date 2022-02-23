@@ -5,7 +5,11 @@ export const RequestProvider = ({
 }: {
   children: React.ReactNode
 }) => <>{children}</>
-export const useRequests = jest.fn(() => [globalMocks.request])
+
+export const useRequests = jest.fn(() => ({
+  requests: [globalMocks.request],
+  continueAllRequests: jest.fn(),
+}))
 
 const continueRequest = jest.fn(() => {})
 const failRequest = jest.fn(() => {})
