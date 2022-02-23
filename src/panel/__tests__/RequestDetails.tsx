@@ -13,7 +13,7 @@ describe('[RequestDetails]', () => {
 
   it('should match initial snapshot', () => {
     const { container } = render(
-      <RequestDetails request={globalMocks.request} />
+      <RequestDetails requestId={globalMocks.request.id} />
     )
     expect(container).toMatchSnapshot()
   })
