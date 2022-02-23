@@ -4,7 +4,13 @@
   input[type='text'] {
     @apply p-2;
     @apply bg-slate-100;
-    @apply rounded;
+  }
+
+  textarea {
+    @apply bg-slate-100;
+    @apply p-6;
+    @apply whitespace-pre-wrap;
+    @apply break-all;
   }
 }
 
