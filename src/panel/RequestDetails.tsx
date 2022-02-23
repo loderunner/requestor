@@ -6,8 +6,7 @@ import {
   UnfoldLess as UnfoldLessIcon,
   UnfoldMore as UnfoldMoreIcon,
 } from '@/icons'
-
-import type { Request } from '@/interceptor'
+import { useRequest } from '@/interceptor/hooks'
 
 const SectionValue = ({ value }: { value: string }) => {
   const [foldable, setFoldable] = useState(false)
@@ -105,10 +104,11 @@ const Section = ({ title, entries }: SectionProps) => {
 
 interface Props {
   className?: string
-  request: Request
+  requestId: string
 }
 
-const RequestDetails = ({ request, className = '' }: Props) => {
+const RequestDetails = ({ requestId, className = '' }: Props) => {
+  const { request } = useRequest(requestId)
   const url = useMemo(() => new URL(request.url), [request])
 
   const querySection = useMemo(() => {
