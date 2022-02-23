@@ -135,4 +135,22 @@ describe('[RequestHooks.useRequest]', () => {
 
     expect(mockedInterceptor.failRequest).toHaveBeenCalled()
   })
+
+  it('should update request', async () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <RequestProvider>{children}</RequestProvider>
+    )
+    const { result } = renderHook(() => useRequest(globalMocks.request.id), {
+      wrapper,
+    })
+
+    await actHook(() => result.current.updateRequest({ postData: 'toto' }))
+
+    expect(mockedInterceptor.updateRequest).toHaveBeenCalledWith(
+      globalMocks.request.id,
+      {
+        postData: 'toto',
+      }
+    )
+  })
 })

@@ -10,6 +10,8 @@ import React, { useCallback, useLayoutEffect, useMemo } from 'react'
 
 import * as Interceptor from '..'
 
+import type { WritableAtom } from 'jotai'
+
 const requestScope = Symbol('RequestProviderScope')
 
 interface Props {
@@ -52,10 +54,13 @@ export const useRequests = () => {
   return requests as ReadonlyArray<Readonly<Interceptor.Request>>
 }
 
-const requestAtom = atomFamily((id: string) =>
+const requestAtom = atomFamily<
+  string,
+  WritableAtom<Interceptor.Request, Partial<Interceptor.Request>>
+>((id: string) =>
   atom(
     (get) => get(requestsAtom)?.find((req) => req.id === id),
-    (get, set, arg: Interceptor.Request) => {
+    (get, set, arg) => {
       const req = Interceptor.updateRequest(id, arg)
       set(requestsAtom, [...Interceptor.requests])
       return req
@@ -75,7 +80,7 @@ export const useRequest = (id: string) => {
     )
   }
 
-  const [request] = useAtom(requestAtom(id), requestScope)
+  const [request, setRequest] = useAtom(requestAtom(id), requestScope)
 
   if (request === undefined) {
     throw new Error('request not found')
@@ -95,5 +100,6 @@ export const useRequest = (id: string) => {
     request: request as Readonly<Interceptor.Request>,
     continueRequest,
     failRequest,
+    updateRequest: setRequest,
   }
 }
