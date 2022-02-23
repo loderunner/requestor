@@ -21,8 +21,6 @@ const PlainTextBodyView = ({ data, onChange }: Props) => {
     [onChange]
   )
 
-  console.log('PlainTextBodyView render', { data, bodyData })
-
   return React.useMemo(
     () => (
       <pre
