@@ -77,12 +77,14 @@ describe('[Interceptor.continueRequest]', () => {
   })
 
   it('should call debugger', async () => {
+    pushRequest(globalMocks.request)
     await continueRequest(globalMocks.request.id)
     expect(chrome.debugger.sendCommand).toHaveBeenCalledWith(
       expect.objectContaining({ targetId: globalMocks.target.id }),
       'Fetch.continueRequest',
       expect.objectContaining({
         requestId: globalMocks.request.id,
+        postData: window.btoa(globalMocks.request.postData as string),
       })
     )
   })

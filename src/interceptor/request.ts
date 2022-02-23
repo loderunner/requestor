@@ -34,9 +34,9 @@ export const updateRequest = (
 }
 
 export const continueRequest = async (requestId: string) => {
-  await Debugger.continueRequest(requestId)
   const i = requests.findIndex((req) => req.id === requestId)
   if (i !== -1) {
+    await Debugger.continueRequest(requests[i])
     requests.splice(i, 1)
   }
 }
