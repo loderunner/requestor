@@ -21,6 +21,18 @@ export const pushRequest = (request: Request) => {
   requestEventTarget.dispatchEvent(new RequestEvent(request))
 }
 
+export const updateRequest = (
+  id: string,
+  request: Partial<Request>
+): Readonly<Request> | undefined => {
+  const current = requests.find((req) => req.id === id)
+  if (current !== undefined) {
+    current.postData = request.postData ?? current.postData
+    current.hasPostData = current.postData !== undefined
+  }
+  return current
+}
+
 export const continueRequest = async (requestId: string) => {
   await Debugger.continueRequest(requestId)
   const i = requests.findIndex((req) => req.id === requestId)
