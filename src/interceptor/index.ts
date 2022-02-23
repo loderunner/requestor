@@ -16,5 +16,6 @@ export {
   subscribe,
   continueRequest,
   failRequest,
+  updateRequest,
 } from './request'
 export { Intercept, addIntercept, removeIntercept } from './intercept'
