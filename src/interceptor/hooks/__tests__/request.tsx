@@ -67,7 +67,7 @@ describe('[RequestHooks.useRequest]', () => {
     expect(result.error).toBeDefined()
   })
 
-  it('should return  request', () => {
+  it('should return request', () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <RequestProvider>{children}</RequestProvider>
     )
