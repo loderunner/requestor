@@ -5,8 +5,8 @@ import {
   useAtomValue,
   useSetAtom,
 } from 'jotai'
-import { atomFamily, splitAtom } from 'jotai/utils'
-import React, { useCallback, useLayoutEffect, useMemo } from 'react'
+import { atomFamily } from 'jotai/utils'
+import React, { useCallback, useLayoutEffect } from 'react'
 
 import * as Interceptor from '..'
 
