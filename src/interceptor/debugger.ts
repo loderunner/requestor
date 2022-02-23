@@ -1,6 +1,7 @@
 import { intercepts } from './intercept'
 import { pushRequest } from './request'
 
+import type { Request } from './request'
 import type { Protocol } from 'devtools-protocol'
 
 type TargetInfo = chrome.debugger.TargetInfo
@@ -119,18 +120,19 @@ const continueOrFailRequest = async (
         return
       }
     } catch (jsonErr) {
-      // Ignore JSON parse error
+      // Fallthrough on JSON parse error
     }
     throw err
   }
 }
 
-export const continueRequest = async (requestId: string) => {
+export const continueRequest = async (request: Request) => {
   const method = 'Fetch.continueRequest'
   const commandParams: Protocol.Fetch.ContinueRequestRequest = {
-    requestId,
+    requestId: request.id,
+    postData: request.postData && window.btoa(request.postData),
   }
-  return continueOrFailRequest(requestId, method, commandParams)
+  return continueOrFailRequest(request.id, method, commandParams)
 }
 
 export const failRequest = async (requestId: string) => {

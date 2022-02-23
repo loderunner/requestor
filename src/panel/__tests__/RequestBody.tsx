@@ -12,7 +12,9 @@ describe('[RequestBody]', () => {
   })
 
   it('should match initial snapshot', () => {
-    const { container } = render(<RequestBody request={globalMocks.request} />)
+    const { container } = render(
+      <RequestBody requestId={globalMocks.request.id} />
+    )
     expect(container).toMatchSnapshot()
   })
 })

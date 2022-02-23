@@ -1,17 +1,19 @@
 import * as ContentType from 'content-type'
 import * as React from 'react'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 
-import { JSONBodyView } from './components/body-view/JSON'
+import { useRequest } from '@/interceptor/hooks'
 
-import type { Request } from '@/interceptor'
+import JSONBodyView from './components/body-view/JSON'
+import PlainTextBodyView from './components/body-view/PlainText'
 
 interface Props {
   className?: string
-  request: Request
+  requestId: string
 }
 
-const RequestBody = ({ request, className = '' }: Props) => {
+const RequestBody = ({ requestId, className = '' }: Props) => {
+  const { request, updateRequest } = useRequest(requestId)
   const contentType = useMemo(() => {
     try {
       const contentTypeHeader = Object.entries(request.headers).find(
@@ -28,26 +30,37 @@ const RequestBody = ({ request, className = '' }: Props) => {
     }
   }, [request])
 
-  if (request.postData) {
-    try {
-      if (contentType === 'application/json' || contentType === 'text/plain') {
-        JSON.parse(request.postData)
+  const onChangeBody = useCallback(
+    (body?: string) => updateRequest({ postData: body }),
+    [updateRequest]
+  )
+
+  const bodyView = useMemo(() => {
+    if (request.postData) {
+      try {
+        if (
+          contentType === 'application/json' ||
+          contentType === 'text/plain'
+        ) {
+          JSON.parse(request.postData)
+          return <JSONBodyView key={request.id} jsonData={request.postData} />
+        }
+      } catch (err) {
+        // ignore error parsing JSON
       }
-      return (
-        <div className={`mt-8 ${className}`}>
-          <JSONBodyView jsonData={request.postData} />
-        </div>
-      )
-    } catch (err) {
-      // ignore error parsing JSON
     }
-  }
+    return (
+      <PlainTextBodyView
+        key={request.id}
+        data={request.postData}
+        onChange={onChangeBody}
+      />
+    )
+  }, [contentType, onChangeBody, request.id, request.postData])
 
   return (
-    <div className={`mt-8 ${className}`}>
-      <pre className={`bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all`}>
-        {request.postData}
-      </pre>
+    <div className={`mt-8 flex flex-col justify-items-stretch ${className}`}>
+      {bodyView}
     </div>
   )
 }

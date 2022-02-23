@@ -2,18 +2,18 @@ import { cleanup, render } from '@testing-library/react'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import RequestDetails from '../RequestDetails'
+import JSONBodyView from '../JSON'
 
 jest.mock('@/interceptor/hooks')
 
-describe('[RequestDetails]', () => {
+describe('[RequestBody]', () => {
   afterEach(() => {
     cleanup()
   })
 
   it('should match initial snapshot', () => {
     const { container } = render(
-      <RequestDetails requestId={globalMocks.request.id} />
+      <JSONBodyView jsonData={globalMocks.request.postData as string} />
     )
     expect(container).toMatchSnapshot()
   })

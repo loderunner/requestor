@@ -67,7 +67,7 @@ describe('[RequestHooks.useRequest]', () => {
     expect(result.error).toBeDefined()
   })
 
-  it('should return  request', () => {
+  it('should return request', () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <RequestProvider>{children}</RequestProvider>
     )
@@ -134,5 +134,23 @@ describe('[RequestHooks.useRequest]', () => {
     await actHook(() => result.current.failRequest())
 
     expect(mockedInterceptor.failRequest).toHaveBeenCalled()
+  })
+
+  it('should update request', () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <RequestProvider>{children}</RequestProvider>
+    )
+    const { result } = renderHook(() => useRequest(globalMocks.request.id), {
+      wrapper,
+    })
+
+    actHook(() => result.current.updateRequest({ postData: 'toto' }))
+
+    expect(mockedInterceptor.updateRequest).toHaveBeenCalledWith(
+      globalMocks.request.id,
+      {
+        postData: 'toto',
+      }
+    )
   })
 })

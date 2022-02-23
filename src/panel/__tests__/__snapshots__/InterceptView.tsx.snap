@@ -39,7 +39,7 @@ exports[`[InterceptView] should match initial snapshot 1`] = `
         class="flex items-center space-x-2"
       >
         <input
-          class="block text-sm flex-auto"
+          class="block mt-1 text-sm flex-auto"
           placeholder="example.com"
           type="text"
           value="example.com"

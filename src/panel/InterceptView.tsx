@@ -55,7 +55,7 @@ const InterceptView = ({ interceptId }: Props) => {
         <div className="flex items-center space-x-2">
           <input
             type="text"
-            className="block text-sm flex-auto"
+            className="block mt-1 text-sm flex-auto"
             placeholder="example.com"
             value={pattern}
             onChange={onChangePattern}

@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { useEffect, useMemo, useState } from 'react'
 
-import { useRequest } from '@/interceptor/hooks'
-
 import RequestBody from './RequestBody'
 import RequestDetails from './RequestDetails'
 
@@ -18,7 +16,6 @@ const disabledButtonClassName =
   'text-base rounded py-2 px-4 font-medium border bg-blue-50'
 
 const RequestView = ({ requestId }: Props) => {
-  const { request } = useRequest(requestId)
   const [tab, setTab] = useState<Tab>('headers')
 
   useEffect(() => {
@@ -30,15 +27,15 @@ const RequestView = ({ requestId }: Props) => {
       <>
         <RequestDetails
           className={tab === 'headers' ? '' : 'hidden'}
-          request={request}
+          requestId={requestId}
         />
         <RequestBody
           className={tab === 'body' ? '' : 'hidden'}
-          request={request}
+          requestId={requestId}
         />
       </>
     ),
-    [tab, request]
+    [tab, requestId]
   )
 
   const buttons = useMemo(() => {

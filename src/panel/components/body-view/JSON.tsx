@@ -157,7 +157,7 @@ interface Props {
   jsonData: string
 }
 
-export const JSONBodyView = ({ jsonData }: Props) => {
+const JSONBodyView = ({ jsonData }: Props) => {
   const value = useMemo<JSONValue>(() => JSON.parse(jsonData), [jsonData])
   const view = useMemo(() => {
     if (isPrimitive(value)) {
@@ -169,3 +169,5 @@ export const JSONBodyView = ({ jsonData }: Props) => {
   }, [value])
   return view
 }
+
+export default JSONBodyView

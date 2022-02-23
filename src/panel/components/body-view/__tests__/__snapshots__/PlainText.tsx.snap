@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[RequestBody] should match initial snapshot 1`] = `
+<div>
+  <pre
+    class="bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all"
+    contenteditable="true"
+    role="textbox"
+  >
+    toto
+  </pre>
+</div>
+`;

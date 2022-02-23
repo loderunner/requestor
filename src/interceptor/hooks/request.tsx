@@ -5,9 +5,12 @@ import {
   useAtomValue,
   useSetAtom,
 } from 'jotai'
-import React, { useCallback, useLayoutEffect, useMemo } from 'react'
+import { atomFamily } from 'jotai/utils'
+import React, { useCallback, useLayoutEffect } from 'react'
 
 import * as Interceptor from '..'
+
+import type { WritableAtom } from 'jotai'
 
 const requestScope = Symbol('RequestProviderScope')
 
@@ -51,6 +54,24 @@ export const useRequests = () => {
   return requests as ReadonlyArray<Readonly<Interceptor.Request>>
 }
 
+const requestAtom = atomFamily<
+  string,
+  WritableAtom<Interceptor.Request, Partial<Interceptor.Request>>
+>((id: string) =>
+  atom(
+    (get) => get(requestsAtom)?.find((req) => req.id === id),
+    (get, set, arg) => {
+      const req = Interceptor.updateRequest(id, arg)
+      set(requestsAtom, [...Interceptor.requests])
+      return req
+    }
+  )
+)
+requestAtom.setShouldRemove(
+  (createdAt: number, id: string) =>
+    Interceptor.requests.find((req) => req.id === id) === undefined
+)
+
 export const useRequest = (id: string) => {
   const [requests, setRequests] = useAtom(requestsAtom, requestScope)
   if (requests === undefined) {
@@ -59,10 +80,7 @@ export const useRequest = (id: string) => {
     )
   }
 
-  const request = useMemo(
-    () => requests.find((r) => r.id === id),
-    [id, requests]
-  )
+  const [request, setRequest] = useAtom(requestAtom(id), requestScope)
 
   if (request === undefined) {
     throw new Error('request not found')
@@ -82,5 +100,6 @@ export const useRequest = (id: string) => {
     request: request as Readonly<Interceptor.Request>,
     continueRequest,
     failRequest,
+    updateRequest: setRequest,
   }
 }
