@@ -1,5 +1,6 @@
 export { default as Clear } from './clear.svg'
 export { default as Copy } from './copy.svg'
+export { default as Eject } from './eject.svg'
 export { default as LevelCrossing } from './level-crossing.svg'
 export { default as MoreHoriz } from './more-horiz.svg'
 export { default as PlayArrow } from './play-arrow.svg'
