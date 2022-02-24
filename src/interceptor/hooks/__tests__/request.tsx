@@ -17,6 +17,7 @@ const mockedInterceptor = Interceptor as jest.Mocked<typeof Interceptor>
 describe('[RequestHooks.useRequests]', () => {
   afterEach(() => {
     cleanupHooks()
+    jest.clearAllMocks()
     mockedInterceptor.requests.splice(0, mockedInterceptor.requests.length)
   })
 
@@ -84,6 +85,7 @@ describe('[RequestHooks.useRequest]', () => {
   })
   afterEach(() => {
     cleanupHooks()
+    jest.clearAllMocks()
     mockedInterceptor.requests.splice(0, mockedInterceptor.requests.length)
   })
 
