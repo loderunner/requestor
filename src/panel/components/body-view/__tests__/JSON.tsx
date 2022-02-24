@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event'
 import * as React from 'react'
 import '@testing-library/jest-dom'
 
-import * as InterceptorHooks from '@/interceptor/hooks'
-
 import JSONBodyView from '../JSON'
 
 jest.mock('@/interceptor/hooks')
