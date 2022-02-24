@@ -34,9 +34,14 @@ export const updateRequest = (
 }
 
 export const continueRequest = async (requestId: string) => {
+  const req = requests.find((req) => req.id === requestId)
+  if (req !== undefined) {
+    await Debugger.continueRequest(req)
+  }
+
+  // Search again because may have changed concurrently
   const i = requests.findIndex((req) => req.id === requestId)
   if (i !== -1) {
-    await Debugger.continueRequest(requests[i])
     requests.splice(i, 1)
   }
 }

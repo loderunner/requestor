@@ -15,9 +15,21 @@ exports[`[App] matches snapshot 1`] = `
         role="list"
       >
         <div
-          class="p-1 flex select-none justify-between bg-slate-100 font-bold"
+          class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
         >
-          Requests
+          <span
+            class="font-bold flex-auto"
+          >
+            Requests
+          </span>
+          <button
+            class="self-stretch"
+            title="Continue all requests"
+          >
+            <svg
+              class="h-full w-auto rotate-90"
+            />
+          </button>
         </div>
         <div
           class="flex flex-col overflow-y-visible"

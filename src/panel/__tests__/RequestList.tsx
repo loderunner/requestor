@@ -50,4 +50,19 @@ describe('[RequestList]', () => {
     fireEvent.click(continueButton)
     expect(failRequestFn).toHaveBeenCalled()
   })
+
+  it('should call continueAllRequests', async () => {
+    const { getByRole } = render(
+      <RequestProvider>
+        <RequestList />
+      </RequestProvider>
+    )
+    const continueAllFn =
+      mockedHooks.useRequests.mock.results.at(-1)?.value.continueAllRequests
+    const continueButton = getByRole('button', {
+      name: 'Continue all requests',
+    })
+    fireEvent.click(continueButton)
+    expect(continueAllFn).toHaveBeenCalled()
+  })
 })

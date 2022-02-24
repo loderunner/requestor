@@ -1,7 +1,11 @@
 import * as React from 'react'
 import { useCallback, useMemo } from 'react'
 
-import { PlayArrow as PlayArrowIcon, Stop as StopIcon } from '@/icons'
+import {
+  Eject as EjectIcon,
+  PlayArrow as PlayArrowIcon,
+  Stop as StopIcon,
+} from '@/icons'
 import { Request } from '@/interceptor'
 import { useRequest, useRequests } from '@/interceptor/hooks'
 
@@ -109,17 +113,27 @@ interface Props {
   className?: string
 }
 
-const header = (
-  <div className="p-1 flex select-none justify-between bg-slate-100 font-bold">
-    Requests
-  </div>
-)
-
 const RequestList = ({ className }: Props) => {
-  const requests = useRequests()
+  const { requests, continueAllRequests } = useRequests()
   const items = useMemo(
     () => requests.map((req, i) => <Item key={i} requestId={req.id} />),
     [requests]
+  )
+
+  const header = useMemo(
+    () => (
+      <div className="p-1 flex space-x-1 justify-between select-none bg-slate-100">
+        <span className="font-bold flex-auto">Requests</span>
+        <button
+          className="self-stretch"
+          title="Continue all requests"
+          onClick={continueAllRequests}
+        >
+          <EjectIcon className="h-full w-auto rotate-90" />
+        </button>
+      </div>
+    ),
+    [continueAllRequests]
   )
 
   return (
