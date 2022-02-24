@@ -5,13 +5,10 @@ import { MoreHoriz as MoreHorizIcon } from '@/icons'
 
 import type { CSSProperties, MutableRefObject } from 'react'
 
-type JSONValue =
-  | null
-  | boolean
-  | number
-  | string
-  | JSONValue[]
-  | { [key: string]: JSONValue }
+type JSONValue = null | boolean | number | string | JSONArray | JSONObject
+
+type JSONArray = JSONValue[]
+type JSONObject = { [key: string]: JSONValue }
 
 type PrimitiveValue = null | boolean | number | string
 
@@ -20,9 +17,8 @@ const isPrimitive = (value: JSONValue): value is PrimitiveValue =>
   typeof value === 'number' ||
   typeof value === 'string' ||
   value === null
-const isArray = (value: JSONValue): value is JSONValue[] =>
-  value instanceof Array
-const isObject = (value: JSONValue): value is { [key: string]: JSONValue } =>
+const isArray = (value: JSONValue): value is JSONArray => value instanceof Array
+const isObject = (value: JSONValue): value is JSONObject =>
   value instanceof Object
 
 interface PrimitiveProps {
@@ -63,7 +59,7 @@ const PrimitiveView = ({ value }: PrimitiveProps) => {
 }
 
 interface ObjectProps {
-  obj: { [key: string]: JSONValue } | JSONValue[]
+  obj: JSONObject | JSONArray
   depth: number
   foldButtonRef?: MutableRefObject<HTMLButtonElement | null>
 }
@@ -107,7 +103,7 @@ const ObjectView = ({ obj, depth, foldButtonRef }: ObjectProps) => {
 
 interface RowsProps {
   k: string
-  v: { [key: string]: JSONValue } | JSONValue[]
+  v: JSONObject | JSONArray
   style: CSSProperties
   depth: number
 }
