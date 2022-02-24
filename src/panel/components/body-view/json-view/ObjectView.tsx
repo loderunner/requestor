@@ -63,7 +63,7 @@ const ObjectRows = ({ k, v, style, depth, onChange }: RowsProps) => {
 
   const onChangeKey = useMemo(() => {
     if (isArray(v)) {
-      return null
+      return
     }
     return (oldKey: string, newKey: string) =>
       onChange(replace(oldKey, newKey, v))
@@ -71,7 +71,7 @@ const ObjectRows = ({ k, v, style, depth, onChange }: RowsProps) => {
 
   return (
     <>
-      <div key={k} className="flex items-baseline space-x-1" style={style}>
+      <div className="flex items-baseline space-x-1" style={style}>
         <KeyView name={k} editable={!isArray(v)} onChange={onChangeKey} />
         <pre className="flex items-center space-x-0.5">
           {leftGuard}
@@ -114,7 +114,7 @@ const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
 
   const onChangeKey = useMemo(() => {
     if (isArray(obj)) {
-      return null
+      return
     }
     return (oldKey: string, newKey: string) =>
       onChange(replace(oldKey, newKey, obj))
@@ -125,7 +125,7 @@ const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
     for (const [k, v] of Object.entries(obj)) {
       if (isPrimitive(v)) {
         items.push(
-          <div className="flex items-baseline space-x-1" style={style}>
+          <div key={k} className="flex items-baseline space-x-1" style={style}>
             <KeyView name={k} editable={!isArray(obj)} onChange={onChangeKey} />
             <PrimitiveView
               value={v}
