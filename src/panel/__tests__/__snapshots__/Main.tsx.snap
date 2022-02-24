@@ -305,11 +305,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
               hello
               :
             </pre>
-            <pre
-              class="whitespace-pre-wrap break-all text-sky-400"
+            <div
+              class="flex-auto"
             >
-              "world"
-            </pre>
+              <pre
+                class="whitespace-pre-wrap break-all text-sky-400"
+              >
+                "world"
+              </pre>
+            </div>
           </div>
           <div
             class="flex items-baseline space-x-1"
@@ -346,11 +350,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                 barbes
                 :
               </pre>
-              <pre
-                class="whitespace-pre-wrap break-all text-sky-400"
+              <div
+                class="flex-auto"
               >
-                "rochechouart"
-              </pre>
+                <pre
+                  class="whitespace-pre-wrap break-all text-sky-400"
+                >
+                  "rochechouart"
+                </pre>
+              </div>
             </div>
             <div
               class="flex items-baseline space-x-1"
@@ -362,11 +370,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                 version
                 :
               </pre>
-              <pre
-                class="whitespace-pre-wrap break-all text-rose-500"
+              <div
+                class="flex-auto"
               >
-                1
-              </pre>
+                <pre
+                  class="whitespace-pre-wrap break-all text-rose-500"
+                >
+                  1
+                </pre>
+              </div>
             </div>
             <div
               class="flex items-baseline space-x-1"
@@ -378,11 +390,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                 toto
                 :
               </pre>
-              <pre
-                class="whitespace-pre-wrap break-all text-purple-500"
+              <div
+                class="flex-auto"
               >
-                null
-              </pre>
+                <pre
+                  class="whitespace-pre-wrap break-all text-purple-500"
+                >
+                  null
+                </pre>
+              </div>
             </div>
             <div
               class="flex items-baseline space-x-1"
@@ -419,11 +435,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                   0
                   :
                 </pre>
-                <pre
-                  class="whitespace-pre-wrap break-all text-rose-500"
+                <div
+                  class="flex-auto"
                 >
-                  0.7309955249202127
-                </pre>
+                  <pre
+                    class="whitespace-pre-wrap break-all text-rose-500"
+                  >
+                    0.7309955249202127
+                  </pre>
+                </div>
               </div>
               <div
                 class="flex items-baseline space-x-1"
@@ -435,11 +455,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                   1
                   :
                 </pre>
-                <pre
-                  class="whitespace-pre-wrap break-all text-rose-500"
+                <div
+                  class="flex-auto"
                 >
-                  0.45152102178420384
-                </pre>
+                  <pre
+                    class="whitespace-pre-wrap break-all text-rose-500"
+                  >
+                    0.45152102178420384
+                  </pre>
+                </div>
               </div>
               <div
                 class="flex items-baseline space-x-1"
@@ -451,11 +475,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                   2
                   :
                 </pre>
-                <pre
-                  class="whitespace-pre-wrap break-all text-rose-500"
+                <div
+                  class="flex-auto"
                 >
-                  0.3101491368469109
-                </pre>
+                  <pre
+                    class="whitespace-pre-wrap break-all text-rose-500"
+                  >
+                    0.3101491368469109
+                  </pre>
+                </div>
               </div>
               <div
                 class="flex items-baseline space-x-1"
@@ -467,11 +495,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                   3
                   :
                 </pre>
-                <pre
-                  class="whitespace-pre-wrap break-all text-rose-500"
+                <div
+                  class="flex-auto"
                 >
-                  0.33964078594296154
-                </pre>
+                  <pre
+                    class="whitespace-pre-wrap break-all text-rose-500"
+                  >
+                    0.33964078594296154
+                  </pre>
+                </div>
               </div>
               <div
                 class="flex items-baseline space-x-1"
@@ -483,11 +515,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                   4
                   :
                 </pre>
-                <pre
-                  class="whitespace-pre-wrap break-all text-rose-500"
+                <div
+                  class="flex-auto"
                 >
-                  0.579201406715314
-                </pre>
+                  <pre
+                    class="whitespace-pre-wrap break-all text-rose-500"
+                  >
+                    0.579201406715314
+                  </pre>
+                </div>
               </div>
             </div>
             <div
@@ -525,11 +561,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                   thx
                   :
                 </pre>
-                <pre
-                  class="whitespace-pre-wrap break-all text-rose-500"
+                <div
+                  class="flex-auto"
                 >
-                  1138
-                </pre>
+                  <pre
+                    class="whitespace-pre-wrap break-all text-rose-500"
+                  >
+                    1138
+                  </pre>
+                </div>
               </div>
               <div
                 class="flex items-baseline space-x-1"
@@ -541,11 +581,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
                   star
                   :
                 </pre>
-                <pre
-                  class="whitespace-pre-wrap break-all text-sky-400"
+                <div
+                  class="flex-auto"
                 >
-                  "wars"
-                </pre>
+                  <pre
+                    class="whitespace-pre-wrap break-all text-sky-400"
+                  >
+                    "wars"
+                  </pre>
+                </div>
               </div>
             </div>
           </div>
@@ -559,11 +603,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
               done
               :
             </pre>
-            <pre
-              class="whitespace-pre-wrap break-all text-green-500"
+            <div
+              class="flex-auto"
             >
-              true
-            </pre>
+              <pre
+                class="whitespace-pre-wrap break-all text-green-500"
+              >
+                true
+              </pre>
+            </div>
           </div>
         </div>
       </div>
