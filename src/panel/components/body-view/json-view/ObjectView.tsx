@@ -4,6 +4,7 @@ import { useCallback, useMemo, useState } from 'react'
 import {
   Add as AddIcon,
   Clear as ClearIcon,
+  Plus as PlusIcon,
   Remove as RemoveIcon,
 } from '@/icons'
 
@@ -35,8 +36,7 @@ interface RowProps<T extends JSONValue> {
   k: string
   v: T
   keyEditable: boolean
-  style?: CSSProperties
-  depth?: number
+  depth: number
   onChangeKey?: (k: string) => void
   onChangeValue?: (v: T) => void
   onDelete?: () => void
@@ -45,7 +45,7 @@ interface RowProps<T extends JSONValue> {
 const PrimitiveRow = ({
   k,
   v,
-  style = {},
+  depth,
   onChangeKey,
   onChangeValue,
   onDelete,
@@ -55,8 +55,8 @@ const PrimitiveRow = ({
 
   return (
     <div
-      className="flex items-center space-x-1"
-      style={style}
+      className="mt-1 flex items-center space-x-1"
+      style={{ marginLeft: `${depth}rem` }}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
@@ -77,8 +77,7 @@ const ObjectRow = ({
   k,
   v,
   keyEditable,
-  style = {},
-  depth = 0,
+  depth,
   onChangeKey,
   onChangeValue,
   onDelete,
@@ -113,8 +112,8 @@ const ObjectRow = ({
   return (
     <>
       <div
-        className="flex items-center space-x-1"
-        style={style}
+        className="mt-1 flex items-center space-x-1"
+        style={{ marginLeft: `${depth}rem` }}
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
@@ -134,7 +133,7 @@ const ObjectRow = ({
         </pre>
       </div>
       <ObjectView
-        className={folded ? 'hidden' : ''}
+        className={`${folded ? 'hidden' : ''}`}
         obj={v}
         depth={depth + 1}
         onChange={onChangeValue}
@@ -143,6 +142,27 @@ const ObjectRow = ({
   )
 }
 
+interface AddButtonProps {
+  depth: number
+  onClick?: () => void
+}
+
+const AddButton = ({ depth, onClick }: AddButtonProps) => (
+  <button
+    className="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+    style={{
+      marginLeft: `${depth + 1}rem`,
+      width: `calc(100% - ${depth + 1}rem)`,
+      zIndex: depth,
+    }}
+    onClick={onClick}
+  >
+    <div className="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500" />
+    <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500">
+      <PlusIcon className=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500" />
+    </div>
+  </button>
+)
 interface Props {
   obj: JSONObject | JSONArray
   depth: number
@@ -151,11 +171,6 @@ interface Props {
 }
 
 const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
-  const style: CSSProperties = useMemo(
-    () => ({ marginLeft: `${depth}rem` }),
-    [depth]
-  )
-
   const onChangeKey = useCallback(
     (oldKey: string, newKey: string) => {
       if (isArray(obj)) {
@@ -198,12 +213,13 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
 
   const rows = useMemo<React.ReactNode[]>(() => {
     const items = []
-    for (const [k, v] of Object.entries(obj)) {
+    for (const [i, [k, v]] of [...Object.entries(obj)].entries()) {
+      items.push(<AddButton key={`add-button-${i}`} depth={depth} />)
       if (isPrimitive(v)) {
         items.push(
           <PrimitiveRow
             key={k}
-            {...{ k, v, style }}
+            {...{ k, v, depth }}
             keyEditable={!isArray(obj)}
             onChangeKey={(newK) => onChangeKey(k, newK)}
             onChangeValue={(newV) => onChangeValue(k, newV)}
@@ -214,7 +230,7 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
         items.push(
           <ObjectRow
             key={k}
-            {...{ k, v, style, depth }}
+            {...{ k, v, depth }}
             keyEditable={!isArray(obj)}
             onChangeKey={(newK) => onChangeKey(k, newK)}
             onChangeValue={(newV) => onChangeValue(k, newV)}
@@ -225,10 +241,16 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
         throw new Error('invalid JSON value')
       }
     }
+    items.push(
+      <AddButton
+        key={`add-button-${Object.entries(obj).length}`}
+        depth={depth}
+      />
+    )
     return items
-  }, [obj, style, onChangeKey, onChangeValue, depth])
+  }, [obj, depth, onChangeKey, onChangeValue, onDelete])
 
-  return <div className={`space-y-1 ${className}`}>{rows}</div>
+  return <div className={`relative ${className}`}>{rows}</div>
 }
 
 export default ObjectView

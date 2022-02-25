@@ -8,6 +8,7 @@ describe('[JSON.ObjectView]', () => {
   afterEach(() => {
     cleanup()
   })
+
   it('should match initial snapshot', () => {
     const { container } = render(
       <ObjectView
