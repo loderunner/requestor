@@ -5,8 +5,6 @@ import '@testing-library/jest-dom'
 
 import JSONBodyView from '../JSON'
 
-jest.mock('@/interceptor/hooks')
-
 describe('[RequestBody]', () => {
   afterEach(() => {
     cleanup()

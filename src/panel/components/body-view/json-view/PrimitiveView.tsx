@@ -8,7 +8,7 @@ import type { SyntheticEvent } from 'react'
 
 interface Props {
   value: JSONPrimitive
-  onChange: (value: JSONPrimitive) => void
+  onChange?: (value: JSONPrimitive) => void
 }
 
 const PrimitiveView = ({ value, onChange }: Props) => {
@@ -25,7 +25,9 @@ const PrimitiveView = ({ value, onChange }: Props) => {
 
   const onChangeInput = useCallback(
     (value) => {
-      onChange(JSON.parse(value))
+      if (onChange !== undefined) {
+        onChange(JSON.parse(value))
+      }
       setEditing(false)
     },
     [onChange]

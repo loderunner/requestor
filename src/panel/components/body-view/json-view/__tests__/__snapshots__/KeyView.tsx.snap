@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[JSON.KeyView] should match initial snapshot 1`] = `
+<div>
+  <pre
+    class="text-amber-700"
+  >
+    key
+    :
+  </pre>
+   
+</div>
+`;
