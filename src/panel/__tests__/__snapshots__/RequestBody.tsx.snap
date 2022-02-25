@@ -6,12 +6,19 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
     class="mt-8 flex flex-col justify-items-stretch "
   >
     <div
-      class="space-y-1"
+      class="space-y-1 -ml-4"
     >
       <div
-        class="flex items-baseline space-x-1"
+        class="flex items-center space-x-1"
         style="margin-left: 0rem;"
       >
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
         <pre
           class="text-amber-700"
         >
@@ -30,9 +37,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
       </div>
       <div
-        class="flex items-baseline space-x-1"
+        class="flex items-center space-x-1"
         style="margin-left: 0rem;"
       >
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
         <pre
           class="text-amber-700"
         >
@@ -53,12 +67,19 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </pre>
       </div>
       <div
-        class="space-y-1"
+        class="space-y-1 "
       >
         <div
-          class="flex items-baseline space-x-1"
+          class="flex items-center space-x-1"
           style="margin-left: 1rem;"
         >
+          <button
+            class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+          >
+            <svg
+              class="fill-white"
+            />
+          </button>
           <pre
             class="text-amber-700"
           >
@@ -77,9 +98,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           </div>
         </div>
         <div
-          class="flex items-baseline space-x-1"
+          class="flex items-center space-x-1"
           style="margin-left: 1rem;"
         >
+          <button
+            class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+          >
+            <svg
+              class="fill-white"
+            />
+          </button>
           <pre
             class="text-amber-700"
           >
@@ -98,9 +126,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           </div>
         </div>
         <div
-          class="flex items-baseline space-x-1"
+          class="flex items-center space-x-1"
           style="margin-left: 1rem;"
         >
+          <button
+            class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+          >
+            <svg
+              class="fill-white"
+            />
+          </button>
           <pre
             class="text-amber-700"
           >
@@ -119,9 +154,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           </div>
         </div>
         <div
-          class="flex items-baseline space-x-1"
+          class="flex items-center space-x-1"
           style="margin-left: 1rem;"
         >
+          <button
+            class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 invisible"
+          >
+            <svg
+              class="fill-white"
+            />
+          </button>
           <pre
             class="text-amber-700"
           >
@@ -145,9 +187,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           class="space-y-1 hidden"
         >
           <div
-            class="flex items-baseline space-x-1"
+            class="flex items-center space-x-1"
             style="margin-left: 2rem;"
           >
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
             <pre
               class="text-amber-700"
             >
@@ -166,9 +215,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             </div>
           </div>
           <div
-            class="flex items-baseline space-x-1"
+            class="flex items-center space-x-1"
             style="margin-left: 2rem;"
           >
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
             <pre
               class="text-amber-700"
             >
@@ -187,9 +243,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             </div>
           </div>
           <div
-            class="flex items-baseline space-x-1"
+            class="flex items-center space-x-1"
             style="margin-left: 2rem;"
           >
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
             <pre
               class="text-amber-700"
             >
@@ -208,9 +271,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             </div>
           </div>
           <div
-            class="flex items-baseline space-x-1"
+            class="flex items-center space-x-1"
             style="margin-left: 2rem;"
           >
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
             <pre
               class="text-amber-700"
             >
@@ -229,9 +299,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             </div>
           </div>
           <div
-            class="flex items-baseline space-x-1"
+            class="flex items-center space-x-1"
             style="margin-left: 2rem;"
           >
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
             <pre
               class="text-amber-700"
             >
@@ -251,9 +328,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           </div>
         </div>
         <div
-          class="flex items-baseline space-x-1"
+          class="flex items-center space-x-1"
           style="margin-left: 1rem;"
         >
+          <button
+            class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 invisible"
+          >
+            <svg
+              class="fill-white"
+            />
+          </button>
           <pre
             class="text-amber-700"
           >
@@ -277,9 +361,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
           class="space-y-1 hidden"
         >
           <div
-            class="flex items-baseline space-x-1"
+            class="flex items-center space-x-1"
             style="margin-left: 2rem;"
           >
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
             <pre
               class="text-amber-700"
             >
@@ -298,9 +389,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
             </div>
           </div>
           <div
-            class="flex items-baseline space-x-1"
+            class="flex items-center space-x-1"
             style="margin-left: 2rem;"
           >
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
             <pre
               class="text-amber-700"
             >
@@ -321,9 +419,16 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
       </div>
       <div
-        class="flex items-baseline space-x-1"
+        class="flex items-center space-x-1"
         style="margin-left: 0rem;"
       >
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
         <pre
           class="text-amber-700"
         >

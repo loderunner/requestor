@@ -41,9 +41,9 @@ const JSONBodyView = ({ jsonData, onChange }: Props) => {
     } else if (isArray(value) || isObject(value)) {
       return (
         <ObjectView
+          className="-ml-4"
           obj={value}
           depth={0}
-          folded={false}
           onChange={onBodyChange}
         />
       )

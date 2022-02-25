@@ -1,7 +1,11 @@
 import * as React from 'react'
 import { useCallback, useMemo, useState } from 'react'
 
-import { Add as AddIcon, Remove as RemoveIcon } from '@/icons'
+import {
+  Add as AddIcon,
+  Clear as ClearIcon,
+  Remove as RemoveIcon,
+} from '@/icons'
 
 import { JSONPrimitive, isArray, isObject, isPrimitive } from '../JSON'
 
@@ -35,6 +39,7 @@ interface RowProps<T extends JSONValue> {
   depth?: number
   onChangeKey?: (k: string) => void
   onChangeValue?: (v: T) => void
+  onDelete?: () => void
 }
 
 const PrimitiveRow = ({
@@ -43,13 +48,30 @@ const PrimitiveRow = ({
   style = {},
   onChangeKey,
   onChangeValue,
+  onDelete,
   keyEditable = onChangeKey !== undefined,
-}: RowProps<JSONPrimitive>) => (
-  <div className="flex items-baseline space-x-1" style={style}>
-    <KeyView name={k} editable={keyEditable} onChange={onChangeKey} />
-    <PrimitiveView value={v} onChange={onChangeValue} />
-  </div>
-)
+}: RowProps<JSONPrimitive>) => {
+  const [hovering, setHovering] = useState(false)
+
+  return (
+    <div
+      className="flex items-center space-x-1"
+      style={style}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    >
+      <button
+        className={`rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 ${
+          hovering ? '' : ' invisible'
+        }`}
+      >
+        <ClearIcon className="fill-white" onClick={onDelete} />
+      </button>
+      <KeyView name={k} editable={keyEditable} onChange={onChangeKey} />
+      <PrimitiveView value={v} onChange={onChangeValue} />
+    </div>
+  )
+}
 
 const ObjectRow = ({
   k,
@@ -59,7 +81,9 @@ const ObjectRow = ({
   depth = 0,
   onChangeKey,
   onChangeValue,
+  onDelete,
 }: RowProps<JSONArray | JSONObject>) => {
+  const [hovering, setHovering] = useState(false)
   const [folded, setFolded] = useState(depth >= 1)
 
   const [leftGuard, rightGuard] = useMemo(() => {
@@ -75,7 +99,7 @@ const ObjectRow = ({
     setFolded((f) => !f)
   }, [])
 
-  const button = useMemo(() => {
+  const foldButton = useMemo(() => {
     return (
       <button
         className="mx-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
@@ -88,18 +112,31 @@ const ObjectRow = ({
 
   return (
     <>
-      <div className="flex items-baseline space-x-1" style={style}>
+      <div
+        className="flex items-center space-x-1"
+        style={style}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+      >
+        <button
+          className={`rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 ${
+            hovering ? '' : 'invisible'
+          }`}
+          onClick={onDelete}
+        >
+          <ClearIcon className="fill-white" />
+        </button>
         <KeyView name={k} editable={keyEditable} onChange={onChangeKey} />
         <pre className="flex items-center space-x-0.5">
           {leftGuard}
-          {button}
+          {foldButton}
           {rightGuard}
         </pre>
       </div>
       <ObjectView
+        className={folded ? 'hidden' : ''}
         obj={v}
         depth={depth + 1}
-        folded={folded}
         onChange={onChangeValue}
       />
     </>
@@ -108,12 +145,12 @@ const ObjectRow = ({
 
 interface Props {
   obj: JSONObject | JSONArray
-  folded: boolean
   depth: number
+  className?: string
   onChange?: (obj: JSONObject | JSONArray) => void
 }
 
-const ObjectView = ({ obj, depth, onChange, folded }: Props) => {
+const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
   const style: CSSProperties = useMemo(
     () => ({ marginLeft: `${depth}rem` }),
     [depth]
@@ -140,6 +177,25 @@ const ObjectView = ({ obj, depth, onChange, folded }: Props) => {
     [obj, onChange]
   )
 
+  const onDelete = useCallback(
+    (key: string) => {
+      let newObj: typeof obj
+      if (isArray(obj)) {
+        const k = parseInt(key)
+        newObj = [...obj.slice(0, k), ...obj.slice(k + 1)]
+      } else {
+        // Drop [key] from obj with object destructuring syntax
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { [key]: _, ...rest } = obj
+        newObj = rest
+      }
+      if (onChange !== undefined) {
+        onChange(newObj)
+      }
+    },
+    [obj, onChange]
+  )
+
   const rows = useMemo<React.ReactNode[]>(() => {
     const items = []
     for (const [k, v] of Object.entries(obj)) {
@@ -151,6 +207,7 @@ const ObjectView = ({ obj, depth, onChange, folded }: Props) => {
             keyEditable={!isArray(obj)}
             onChangeKey={(newK) => onChangeKey(k, newK)}
             onChangeValue={(newV) => onChangeValue(k, newV)}
+            onDelete={() => onDelete(k)}
           />
         )
       } else if (isArray(v) || isObject(v)) {
@@ -161,6 +218,7 @@ const ObjectView = ({ obj, depth, onChange, folded }: Props) => {
             keyEditable={!isArray(obj)}
             onChangeKey={(newK) => onChangeKey(k, newK)}
             onChangeValue={(newV) => onChangeValue(k, newV)}
+            onDelete={() => onDelete(k)}
           />
         )
       } else {
@@ -170,7 +228,7 @@ const ObjectView = ({ obj, depth, onChange, folded }: Props) => {
     return items
   }, [obj, style, onChangeKey, onChangeValue, depth])
 
-  return <div className={'space-y-1' + (folded ? ' hidden' : '')}>{rows}</div>
+  return <div className={`space-y-1 ${className}`}>{rows}</div>
 }
 
 export default ObjectView
