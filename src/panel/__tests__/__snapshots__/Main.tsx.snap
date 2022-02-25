@@ -332,7 +332,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             >
               {
               <button
-                class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+                class="mx-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
               >
                 <svg />
               </button>
@@ -421,7 +421,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               >
                 [
                 <button
-                  class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+                  class="mx-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
                 >
                   <svg />
                 </button>
@@ -553,7 +553,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               >
                 {
                 <button
-                  class="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+                  class="mx-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
                 >
                   <svg />
                 </button>

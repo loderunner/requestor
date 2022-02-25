@@ -8,7 +8,7 @@ import type { SyntheticEvent } from 'react'
 interface Props {
   name: string
   editable: boolean
-  onChange?: (oldName: string, newName: string) => void
+  onChange?: (name: string) => void
 }
 
 const KeyView = ({ name, editable, onChange }: Props) => {
@@ -31,11 +31,11 @@ const KeyView = ({ name, editable, onChange }: Props) => {
   const onChangeInput = useCallback(
     (value) => {
       if (onChange !== undefined) {
-        onChange(name, value)
+        onChange(value)
       }
       setEditing(false)
     },
-    [name, onChange]
+    [onChange]
   )
 
   const onCancelInput = useCallback(() => setEditing(false), [])

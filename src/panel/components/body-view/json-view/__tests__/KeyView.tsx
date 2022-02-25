@@ -55,6 +55,6 @@ describe('[JSON.KeyView]', () => {
     await user.dblClick(pre)
     await user.keyboard('toto{Enter}')
 
-    expect(onChange).toHaveBeenCalledWith('key', 'toto')
+    expect(onChange).toHaveBeenCalledWith('toto')
   })
 })

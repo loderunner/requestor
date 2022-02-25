@@ -39,7 +39,14 @@ const JSONBodyView = ({ jsonData, onChange }: Props) => {
     if (isPrimitive(value)) {
       return <PrimitiveView value={value} onChange={onBodyChange} />
     } else if (isArray(value) || isObject(value)) {
-      return <ObjectView obj={value} depth={0} onChange={onBodyChange} />
+      return (
+        <ObjectView
+          obj={value}
+          depth={0}
+          folded={false}
+          onChange={onBodyChange}
+        />
+      )
     }
     throw new Error('invalid JSON value')
   }, [onBodyChange, value])

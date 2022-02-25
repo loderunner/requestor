@@ -1,15 +1,15 @@
 import * as React from 'react'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
-import { MoreHoriz as MoreHorizIcon } from '@/icons'
+import { Add as AddIcon, Remove as RemoveIcon } from '@/icons'
 
-import { isArray, isObject, isPrimitive } from '../JSON'
+import { JSONPrimitive, isArray, isObject, isPrimitive } from '../JSON'
 
 import KeyView from './KeyView'
 import PrimitiveView from './PrimitiveView'
 
 import type { JSONArray, JSONObject, JSONValue } from '../JSON'
-import type { CSSProperties, MutableRefObject } from 'react'
+import type { CSSProperties } from 'react'
 
 const replace = (
   oldKey: string,
@@ -27,16 +27,40 @@ const replace = (
   return newObj
 }
 
-interface RowsProps {
+interface RowProps<T extends JSONValue> {
   k: string
-  v: JSONObject | JSONArray
-  style: CSSProperties
-  depth: number
-  onChange: (v: JSONValue | JSONArray) => void
+  v: T
+  keyEditable: boolean
+  style?: CSSProperties
+  depth?: number
+  onChangeKey?: (k: string) => void
+  onChangeValue?: (v: T) => void
 }
 
-const ObjectRows = ({ k, v, style, depth, onChange }: RowsProps) => {
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
+const PrimitiveRow = ({
+  k,
+  v,
+  style = {},
+  onChangeKey,
+  onChangeValue,
+  keyEditable = onChangeKey !== undefined,
+}: RowProps<JSONPrimitive>) => (
+  <div className="flex items-baseline space-x-1" style={style}>
+    <KeyView name={k} editable={keyEditable} onChange={onChangeKey} />
+    <PrimitiveView value={v} onChange={onChangeValue} />
+  </div>
+)
+
+const ObjectRow = ({
+  k,
+  v,
+  keyEditable,
+  style = {},
+  depth = 0,
+  onChangeKey,
+  onChangeValue,
+}: RowProps<JSONArray | JSONObject>) => {
+  const [folded, setFolded] = useState(depth >= 1)
 
   const [leftGuard, rightGuard] = useMemo(() => {
     if (isArray(v)) {
@@ -47,32 +71,25 @@ const ObjectRows = ({ k, v, style, depth, onChange }: RowsProps) => {
     throw new Error('invalid JSON value')
   }, [v])
 
+  const onToggleFolded = useCallback(() => {
+    setFolded((f) => !f)
+  }, [])
+
   const button = useMemo(() => {
-    if (Object.keys(v).length === 0) {
-      return null
-    }
     return (
       <button
-        className="rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
-        ref={buttonRef}
+        className="mx-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+        onClick={onToggleFolded}
       >
-        <MoreHorizIcon />
+        {folded ? <AddIcon /> : <RemoveIcon />}
       </button>
     )
-  }, [buttonRef, v])
-
-  const onChangeKey = useMemo(() => {
-    if (isArray(v)) {
-      return
-    }
-    return (oldKey: string, newKey: string) =>
-      onChange(replace(oldKey, newKey, v))
-  }, [v, onChange])
+  }, [folded, onToggleFolded])
 
   return (
     <>
       <div className="flex items-baseline space-x-1" style={style}>
-        <KeyView name={k} editable={!isArray(v)} onChange={onChangeKey} />
+        <KeyView name={k} editable={keyEditable} onChange={onChangeKey} />
         <pre className="flex items-center space-x-0.5">
           {leftGuard}
           {button}
@@ -82,8 +99,8 @@ const ObjectRows = ({ k, v, style, depth, onChange }: RowsProps) => {
       <ObjectView
         obj={v}
         depth={depth + 1}
-        foldButtonRef={buttonRef}
-        onChange={(newV) => onChange(newV)}
+        folded={folded}
+        onChange={onChangeValue}
       />
     </>
   )
@@ -91,37 +108,28 @@ const ObjectRows = ({ k, v, style, depth, onChange }: RowsProps) => {
 
 interface Props {
   obj: JSONObject | JSONArray
+  folded: boolean
   depth: number
-  foldButtonRef?: MutableRefObject<HTMLButtonElement | null>
   onChange?: (obj: JSONObject | JSONArray) => void
 }
 
-const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
-  const [folded, setFolded] = useState(depth > 1)
-
+const ObjectView = ({ obj, depth, onChange, folded }: Props) => {
   const style: CSSProperties = useMemo(
     () => ({ marginLeft: `${depth}rem` }),
     [depth]
   )
 
-  const onToggleFolded = useCallback(() => setFolded((f) => !f), [])
-
-  useEffect(() => {
-    if (foldButtonRef?.current) {
-      foldButtonRef.current.onclick = onToggleFolded
-    }
-  })
-
-  const onChangeKey = useMemo(() => {
-    if (isArray(obj)) {
-      return
-    }
-    return (oldKey: string, newKey: string) => {
+  const onChangeKey = useCallback(
+    (oldKey: string, newKey: string) => {
+      if (isArray(obj)) {
+        return
+      }
       if (onChange !== undefined) {
         onChange(replace(oldKey, newKey, obj))
       }
-    }
-  }, [obj, onChange])
+    },
+    [obj, onChange]
+  )
 
   const onChangeValue = useCallback(
     (key: string, value: JSONValue) => {
@@ -137,20 +145,22 @@ const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
     for (const [k, v] of Object.entries(obj)) {
       if (isPrimitive(v)) {
         items.push(
-          <div key={k} className="flex items-baseline space-x-1" style={style}>
-            <KeyView name={k} editable={!isArray(obj)} onChange={onChangeKey} />
-            <PrimitiveView
-              value={v}
-              onChange={(newV) => onChangeValue(k, newV)}
-            />
-          </div>
+          <PrimitiveRow
+            key={k}
+            {...{ k, v, style }}
+            keyEditable={!isArray(obj)}
+            onChangeKey={(newK) => onChangeKey(k, newK)}
+            onChangeValue={(newV) => onChangeValue(k, newV)}
+          />
         )
       } else if (isArray(v) || isObject(v)) {
         items.push(
-          <ObjectRows
+          <ObjectRow
             key={k}
             {...{ k, v, style, depth }}
-            onChange={(newV) => onChangeValue(k, newV)}
+            keyEditable={!isArray(obj)}
+            onChangeKey={(newK) => onChangeKey(k, newK)}
+            onChangeValue={(newV) => onChangeValue(k, newV)}
           />
         )
       } else {

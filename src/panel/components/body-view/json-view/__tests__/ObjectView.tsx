@@ -13,6 +13,7 @@ describe('[JSON.ObjectView]', () => {
       <ObjectView
         obj={JSON.parse(globalMocks.request.postData as string)}
         depth={0}
+        folded={false}
       />
     )
     expect(container).toMatchSnapshot()
