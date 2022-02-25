@@ -93,7 +93,7 @@ interface Props {
   obj: JSONObject | JSONArray
   depth: number
   foldButtonRef?: MutableRefObject<HTMLButtonElement | null>
-  onChange: (obj: JSONObject | JSONArray) => void
+  onChange?: (obj: JSONObject | JSONArray) => void
 }
 
 const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
@@ -116,9 +116,21 @@ const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
     if (isArray(obj)) {
       return
     }
-    return (oldKey: string, newKey: string) =>
-      onChange(replace(oldKey, newKey, obj))
+    return (oldKey: string, newKey: string) => {
+      if (onChange !== undefined) {
+        onChange(replace(oldKey, newKey, obj))
+      }
+    }
   }, [obj, onChange])
+
+  const onChangeValue = useCallback(
+    (key: string, value: JSONValue) => {
+      if (onChange !== undefined) {
+        onChange({ ...obj, [key]: value })
+      }
+    },
+    [obj, onChange]
+  )
 
   const rows = useMemo<React.ReactNode[]>(() => {
     const items = []
@@ -129,7 +141,7 @@ const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
             <KeyView name={k} editable={!isArray(obj)} onChange={onChangeKey} />
             <PrimitiveView
               value={v}
-              onChange={(newV) => onChange({ ...obj, [k]: newV })}
+              onChange={(newV) => onChangeValue(k, newV)}
             />
           </div>
         )
@@ -138,7 +150,7 @@ const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
           <ObjectRows
             key={k}
             {...{ k, v, style, depth }}
-            onChange={(newV) => onChange({ ...obj, [k]: newV })}
+            onChange={(newV) => onChangeValue(k, newV)}
           />
         )
       } else {
@@ -146,7 +158,7 @@ const ObjectView = ({ obj, depth, foldButtonRef, onChange }: Props) => {
       }
     }
     return items
-  }, [obj, style, onChangeKey, onChange, depth])
+  }, [obj, style, onChangeKey, onChangeValue, depth])
 
   return <div className={'space-y-1' + (folded ? ' hidden' : '')}>{rows}</div>
 }
