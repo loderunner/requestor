@@ -11,7 +11,7 @@ describe('[JSON.AddButton]', () => {
   })
 
   it('should match initial snapshot', () => {
-    const { container } = render(<AddButton depth={0} />)
+    const { container } = render(<AddButton />)
     expect(container).toMatchSnapshot()
   })
 
@@ -23,7 +23,7 @@ describe('[JSON.AddButton]', () => {
   it('should call onClick', async () => {
     const user = userEvent.setup()
     const onClick = jest.fn()
-    const { getByRole } = render(<AddButton depth={0} onClick={onClick} />)
+    const { getByRole } = render(<AddButton onClick={onClick} />)
 
     const button = getByRole('button')
     await user.click(button)

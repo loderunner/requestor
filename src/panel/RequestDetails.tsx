@@ -8,6 +8,7 @@ import {
 } from '@/icons'
 import { useRequest } from '@/interceptor/hooks'
 
+import AddButton from './components/AddButton'
 import ModalInput from './components/ModalInput'
 
 interface SectionValueProps {
@@ -108,6 +109,59 @@ const SectionValue = ({
   )
 }
 
+interface SectionAddProps {
+  onChange?: (name: string, value: string) => void
+  onCancel?: () => void
+}
+
+const SectionAdd = ({ onChange, onCancel }: SectionAddProps) => {
+  const [name, setName] = useState('')
+  const [step, setStep] = useState<null | 'name' | 'value'>(null)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useLayoutEffect(() => setStep('name'), [])
+
+  const nameRef = useRef(null)
+  const valueRef = useRef(null)
+
+  return (
+    <>
+      <span
+        className="text-right font-medium text-gray-500 select-none"
+        ref={nameRef}
+      >
+        {name}
+      </span>
+      {step === 'name' && nameRef.current ? (
+        <ModalInput
+          element={nameRef.current}
+          value=""
+          onChange={(v) => {
+            setName(v)
+            setStep('value')
+          }}
+          onCancel={onCancel}
+        />
+      ) : null}
+      <span className="w-full" ref={valueRef}>
+        {'\u200b'}
+      </span>
+      {step === 'value' && valueRef.current ? (
+        <ModalInput
+          element={valueRef.current}
+          value=""
+          onChange={(v) => {
+            if (onChange !== undefined) {
+              onChange(name, v)
+            }
+          }}
+          onCancel={onCancel}
+        />
+      ) : null}
+    </>
+  )
+}
+
 interface SectionProps {
   title: string
   entries: [string, string][]
@@ -122,11 +176,16 @@ const Section = ({
   onChange,
   editable = false,
 }: SectionProps) => {
+  const [adding, setAdding] = useState(false)
+
+  const onAdd = useCallback(() => setAdding(true), [])
+
   const onChangeEntry = useCallback(
     (name: string, value: string) => {
       if (onChange !== undefined) {
         onChange(name, value)
       }
+      setAdding(false)
     },
     [onChange]
   )
@@ -154,6 +213,12 @@ const Section = ({
         {title}
       </span>
       {rows}
+      {editable && !adding ? (
+        <div className="relative col-span-2">
+          <AddButton onClick={onAdd} />
+        </div>
+      ) : null}
+      {adding ? <SectionAdd onChange={onChangeEntry} /> : null}
     </>
   )
 }

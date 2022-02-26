@@ -142,7 +142,7 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
       rows.push(
         <AddButton
           key={`add-button-${i}`}
-          depth={depth}
+          depth={depth + 1}
           onClick={() => {
             setAdding(true)
             setAddingRow(i)
@@ -193,7 +193,7 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
     rows.push(
       <AddButton
         key={`add-button-${i}`}
-        depth={depth}
+        depth={depth + 1}
         onClick={() => {
           setAdding(true)
           setAddingRow(i)

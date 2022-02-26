@@ -92,6 +92,25 @@ exports[`[RequestView] should match body snapshot 1`] = `
             gws-wiz
           </span>
         </div>
+        <div
+          class="relative col-span-2"
+        >
+          <button
+            class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+            style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+          >
+            <div
+              class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+            />
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+            >
+              <svg
+                class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+              />
+            </div>
+          </button>
+        </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -153,6 +172,25 @@ exports[`[RequestView] should match body snapshot 1`] = `
             application/json
           </span>
         </div>
+        <div
+          class="relative col-span-2"
+        >
+          <button
+            class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+            style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+          >
+            <div
+              class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+            />
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+            >
+              <svg
+                class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+              />
+            </div>
+          </button>
+        </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -196,7 +234,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
       >
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -239,7 +277,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -287,7 +325,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
         >
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -330,7 +368,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -373,7 +411,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -416,7 +454,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -464,7 +502,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -507,7 +545,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -550,7 +588,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -593,7 +631,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -636,7 +674,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -679,7 +717,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -695,7 +733,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -743,7 +781,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -786,7 +824,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -829,7 +867,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -845,7 +883,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -861,7 +899,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -904,7 +942,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1015,6 +1053,25 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             gws-wiz
           </span>
         </div>
+        <div
+          class="relative col-span-2"
+        >
+          <button
+            class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+            style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+          >
+            <div
+              class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+            />
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+            >
+              <svg
+                class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+              />
+            </div>
+          </button>
+        </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -1076,6 +1133,25 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             application/json
           </span>
         </div>
+        <div
+          class="relative col-span-2"
+        >
+          <button
+            class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+            style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+          >
+            <div
+              class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+            />
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+            >
+              <svg
+                class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+              />
+            </div>
+          </button>
+        </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -1119,7 +1195,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
       >
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1162,7 +1238,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1210,7 +1286,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         >
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1253,7 +1329,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1296,7 +1372,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1339,7 +1415,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1387,7 +1463,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1430,7 +1506,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1473,7 +1549,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1516,7 +1592,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1559,7 +1635,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1602,7 +1678,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1618,7 +1694,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1666,7 +1742,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1709,7 +1785,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1752,7 +1828,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1768,7 +1844,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1784,7 +1860,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1827,7 +1903,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1938,6 +2014,25 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             gws-wiz
           </span>
         </div>
+        <div
+          class="relative col-span-2"
+        >
+          <button
+            class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+            style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+          >
+            <div
+              class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+            />
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+            >
+              <svg
+                class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+              />
+            </div>
+          </button>
+        </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -1999,6 +2094,25 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             application/json
           </span>
         </div>
+        <div
+          class="relative col-span-2"
+        >
+          <button
+            class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+            style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+          >
+            <div
+              class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+            />
+            <div
+              class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+            >
+              <svg
+                class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+              />
+            </div>
+          </button>
+        </div>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -2042,7 +2156,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
       >
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2085,7 +2199,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2133,7 +2247,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         >
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2176,7 +2290,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2219,7 +2333,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2262,7 +2376,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2310,7 +2424,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2353,7 +2467,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2396,7 +2510,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2439,7 +2553,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2482,7 +2596,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2525,7 +2639,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2541,7 +2655,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2589,7 +2703,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2632,7 +2746,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2675,7 +2789,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+              style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2691,7 +2805,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+            style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2707,7 +2821,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -2750,7 +2864,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+          style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
