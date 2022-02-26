@@ -8,11 +8,17 @@ import type { SyntheticEvent } from 'react'
 
 interface Props {
   value?: JSONPrimitive
-  onChange?: (value: JSONPrimitive) => void
   editingInitial?: boolean
+  onChange?: (value: JSONPrimitive) => void
+  onCancel?: () => void
 }
 
-const PrimitiveView = ({ value, onChange, editingInitial = false }: Props) => {
+const PrimitiveView = ({
+  value,
+  editingInitial = false,
+  onChange,
+  onCancel,
+}: Props) => {
   const preRef = useRef<HTMLPreElement>(null)
   const [editing, setEditing] = useState(false)
 
@@ -37,7 +43,12 @@ const PrimitiveView = ({ value, onChange, editingInitial = false }: Props) => {
     [onChange]
   )
 
-  const onCancelInput = useCallback(() => setEditing(false), [])
+  const onCancelInput = useCallback(() => {
+    if (onCancel !== undefined) {
+      onCancel()
+    }
+    setEditing(false)
+  }, [onCancel])
 
   const textColor = useMemo(() => {
     switch (typeof value) {

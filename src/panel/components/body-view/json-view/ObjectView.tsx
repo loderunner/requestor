@@ -202,9 +202,10 @@ const AddRow = ({ depth, keyEditable, onAdd, onCancel }: AddRowProps) => {
           setKey(k)
           setStep('value')
         }}
+        onCancel={onCancel}
       />
     ),
-    [key, keyEditable, step]
+    [key, keyEditable, onCancel, step]
   )
 
   const valueView = useMemo(
@@ -216,9 +217,10 @@ const AddRow = ({ depth, keyEditable, onAdd, onCancel }: AddRowProps) => {
             onAdd(key, value)
           }
         }}
+        onCancel={onCancel}
       />
     ),
-    [key, onAdd, step]
+    [key, onAdd, onCancel, step]
   )
 
   return (
@@ -316,72 +318,22 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
     [obj, onChange]
   )
 
-  const rows = useMemo<React.ReactNode[]>(() => {
-    const items = []
-    for (const [i, [k, v]] of [...Object.entries(obj)].entries()) {
-      if (adding) {
-        if (i === addingRow) {
-          items.push(
-            <AddRow
-              key={`add-row-${i}`}
-              depth={depth}
-              keyEditable={!isArray(obj)}
-              onAdd={(k, v) => onAdd(i, k, v)}
-            />
-          )
-        }
-      } else {
-        items.push(
-          <AddButton
-            key={`add-button-${i}`}
-            depth={depth}
-            onClick={() => {
-              setAdding(true)
-              setAddingRow(i)
-            }}
-          />
-        )
-      }
-      if (isPrimitive(v)) {
-        items.push(
-          <PrimitiveRow
-            key={k}
-            {...{ k, v, depth }}
-            keyEditable={!isArray(obj)}
-            onChangeKey={(newK) => onChangeKey(k, newK)}
-            onChangeValue={(newV) => onChangeValue(k, newV)}
-            onDelete={() => onDelete(k)}
-          />
-        )
-      } else if (isArray(v) || isObject(v)) {
-        items.push(
-          <ObjectRow
-            key={k}
-            {...{ k, v, depth }}
-            keyEditable={!isArray(obj)}
-            onChangeKey={(newK) => onChangeKey(k, newK)}
-            onChangeValue={(newV) => onChangeValue(k, newV)}
-            onDelete={() => onDelete(k)}
-          />
-        )
-      } else {
-        throw new Error('invalid JSON value')
-      }
-    }
-    const i = Object.entries(obj).length
+  const rows = []
+  for (const [i, [k, v]] of [...Object.entries(obj)].entries()) {
     if (adding) {
       if (i === addingRow) {
-        items.push(
+        rows.push(
           <AddRow
             key={`add-row-${i}`}
             depth={depth}
             keyEditable={!isArray(obj)}
             onAdd={(k, v) => onAdd(i, k, v)}
+            onCancel={() => setAdding(false)}
           />
         )
       }
     } else {
-      items.push(
+      rows.push(
         <AddButton
           key={`add-button-${i}`}
           depth={depth}
@@ -392,8 +344,57 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
         />
       )
     }
-    return items
-  }, [obj, depth, adding, addingRow, onChangeKey, onChangeValue, onDelete])
+    if (isPrimitive(v)) {
+      rows.push(
+        <PrimitiveRow
+          key={k}
+          {...{ k, v, depth }}
+          keyEditable={!isArray(obj)}
+          onChangeKey={(newK) => onChangeKey(k, newK)}
+          onChangeValue={(newV) => onChangeValue(k, newV)}
+          onDelete={() => onDelete(k)}
+        />
+      )
+    } else if (isArray(v) || isObject(v)) {
+      rows.push(
+        <ObjectRow
+          key={k}
+          {...{ k, v, depth }}
+          keyEditable={!isArray(obj)}
+          onChangeKey={(newK) => onChangeKey(k, newK)}
+          onChangeValue={(newV) => onChangeValue(k, newV)}
+          onDelete={() => onDelete(k)}
+        />
+      )
+    } else {
+      throw new Error('invalid JSON value')
+    }
+  }
+  const i = Object.entries(obj).length
+  if (adding) {
+    if (i === addingRow) {
+      rows.push(
+        <AddRow
+          key={`add-row-${i}`}
+          depth={depth}
+          keyEditable={!isArray(obj)}
+          onAdd={(k, v) => onAdd(i, k, v)}
+          onCancel={() => setAdding(false)}
+        />
+      )
+    }
+  } else {
+    rows.push(
+      <AddButton
+        key={`add-button-${i}`}
+        depth={depth}
+        onClick={() => {
+          setAdding(true)
+          setAddingRow(i)
+        }}
+      />
+    )
+  }
 
   return <div className={`relative ${className}`}>{rows}</div>
 }

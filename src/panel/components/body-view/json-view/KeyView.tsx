@@ -10,6 +10,7 @@ interface Props {
   editable: boolean
   editingInitial?: boolean
   onChange?: (name: string) => void
+  onCancel?: () => void
 }
 
 const KeyView = ({
@@ -17,6 +18,7 @@ const KeyView = ({
   editable,
   editingInitial = false,
   onChange,
+  onCancel,
 }: Props) => {
   const [editing, setEditing] = useState(false)
   const preRef = useRef(null)
@@ -47,7 +49,12 @@ const KeyView = ({
     [onChange]
   )
 
-  const onCancelInput = useCallback(() => setEditing(false), [])
+  const onCancelInput = useCallback(() => {
+    if (onCancel !== undefined) {
+      onCancel()
+    }
+    setEditing(false)
+  }, [onCancel])
 
   return (
     <>
