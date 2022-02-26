@@ -336,6 +336,15 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     )
   }, [request.headers])
 
+  const onChangeURL = useCallback(
+    (value: string) => {
+      const newURL = new URL(value)
+      newURL.search = url.search
+      updateRequest({ url: newURL.toString() })
+    },
+    [updateRequest, url.search]
+  )
+
   const onChangeMethod = useCallback(
     (method: string) => updateRequest({ method }),
     [updateRequest]
@@ -349,7 +358,11 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         <span className="text-right font-medium text-gray-500 select-none">
           URL
         </span>
-        <SectionValue value={`${url.origin}${url.pathname}`} />
+        <SectionValue
+          value={`${url.origin}${url.pathname}`}
+          editable
+          onChange={onChangeURL}
+        />
         {/* Method */}
         <span className="text-right font-medium text-gray-500 select-none">
           Method
