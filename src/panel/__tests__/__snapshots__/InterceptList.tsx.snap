@@ -54,7 +54,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
           </span>
           <input
             class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
+            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
           />
@@ -127,7 +127,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
           </span>
           <input
             class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
+            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
           />
@@ -200,7 +200,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
           </span>
           <input
             class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
+            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
           />
@@ -528,7 +528,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
           </span>
           <input
             class="fixed"
-            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem);"
+            style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
           />

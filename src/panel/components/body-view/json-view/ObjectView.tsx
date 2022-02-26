@@ -14,7 +14,6 @@ import KeyView from './KeyView'
 import PrimitiveView from './PrimitiveView'
 
 import type { JSONArray, JSONObject, JSONValue } from '../JSON'
-import type { CSSProperties } from 'react'
 
 const replace = (
   oldKey: string,
@@ -30,6 +29,44 @@ const replace = (
     }
   }
   return newObj
+}
+
+const insertArray = (
+  i: number,
+  value: JSONValue,
+  arr: JSONArray
+): JSONArray => [...arr.slice(0, i), value, ...arr.slice(i)]
+
+const insertObject = (
+  index: number,
+  key: string,
+  value: JSONValue,
+  obj: JSONObject
+): JSONObject => {
+  const newObj: JSONObject = {}
+  for (const [i, [k, v]] of [...Object.entries(obj)].entries()) {
+    if (i === index) {
+      newObj[key] = value
+    }
+    newObj[k] = v
+  }
+  if (index === Object.entries(obj).length) {
+    newObj[key] = value
+  }
+  return newObj
+}
+
+const insert = <T extends JSONObject | JSONArray>(
+  index: number,
+  key: string,
+  value: JSONValue,
+  obj: T
+): JSONObject | JSONArray => {
+  if (isArray(obj)) {
+    return insertArray(index, value, obj)
+  } else {
+    return insertObject(index, key, value, obj)
+  }
 }
 
 interface RowProps<T extends JSONValue> {
@@ -142,6 +179,61 @@ const ObjectRow = ({
   )
 }
 
+interface AddRowProps {
+  depth: number
+  keyEditable: boolean
+  onAdd?: (key: string, value: JSONValue) => void
+  onCancel?: () => void
+}
+
+const AddRow = ({ depth, keyEditable, onAdd, onCancel }: AddRowProps) => {
+  const [step, setStep] = useState<'key' | 'value'>(
+    keyEditable ? 'key' : 'value'
+  )
+  const [key, setKey] = useState('')
+
+  const keyView = useMemo(
+    () => (
+      <KeyView
+        name={key}
+        editable={keyEditable}
+        editingInitial={step === 'key'}
+        onChange={(k) => {
+          setKey(k)
+          setStep('value')
+        }}
+      />
+    ),
+    [key, keyEditable, step]
+  )
+
+  const valueView = useMemo(
+    () => (
+      <PrimitiveView
+        editingInitial={step === 'value'}
+        onChange={(value) => {
+          if (onAdd !== undefined) {
+            onAdd(key, value)
+          }
+        }}
+      />
+    ),
+    [key, onAdd, step]
+  )
+
+  return (
+    <div
+      className="mt-1 flex items-center space-x-1"
+      style={{ marginLeft: `${depth}rem` }}
+    >
+      {/* Placeholder icon for alignment */}
+      <ClearIcon className="opacity-0 fill-white" />
+      {keyView}
+      {step === 'value' ? valueView : null}
+    </div>
+  )
+}
+
 interface AddButtonProps {
   depth: number
   onClick?: () => void
@@ -171,6 +263,9 @@ interface Props {
 }
 
 const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
+  const [adding, setAdding] = useState(false)
+  const [addingRow, setAddingRow] = useState(0)
+
   const onChangeKey = useCallback(
     (oldKey: string, newKey: string) => {
       if (isArray(obj)) {
@@ -211,10 +306,42 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
     [obj, onChange]
   )
 
+  const onAdd = useCallback(
+    (index: number, key: string, value: JSONValue) => {
+      if (onChange !== undefined) {
+        onChange(insert(index, key, value, obj))
+      }
+      setAdding(false)
+    },
+    [obj, onChange]
+  )
+
   const rows = useMemo<React.ReactNode[]>(() => {
     const items = []
     for (const [i, [k, v]] of [...Object.entries(obj)].entries()) {
-      items.push(<AddButton key={`add-button-${i}`} depth={depth} />)
+      if (adding) {
+        if (i === addingRow) {
+          items.push(
+            <AddRow
+              key={`add-row-${i}`}
+              depth={depth}
+              keyEditable={!isArray(obj)}
+              onAdd={(k, v) => onAdd(i, k, v)}
+            />
+          )
+        }
+      } else {
+        items.push(
+          <AddButton
+            key={`add-button-${i}`}
+            depth={depth}
+            onClick={() => {
+              setAdding(true)
+              setAddingRow(i)
+            }}
+          />
+        )
+      }
       if (isPrimitive(v)) {
         items.push(
           <PrimitiveRow
@@ -241,14 +368,32 @@ const ObjectView = ({ obj, depth, onChange, className = '' }: Props) => {
         throw new Error('invalid JSON value')
       }
     }
-    items.push(
-      <AddButton
-        key={`add-button-${Object.entries(obj).length}`}
-        depth={depth}
-      />
-    )
+    const i = Object.entries(obj).length
+    if (adding) {
+      if (i === addingRow) {
+        items.push(
+          <AddRow
+            key={`add-row-${i}`}
+            depth={depth}
+            keyEditable={!isArray(obj)}
+            onAdd={(k, v) => onAdd(i, k, v)}
+          />
+        )
+      }
+    } else {
+      items.push(
+        <AddButton
+          key={`add-button-${i}`}
+          depth={depth}
+          onClick={() => {
+            setAdding(true)
+            setAddingRow(i)
+          }}
+        />
+      )
+    }
     return items
-  }, [obj, depth, onChangeKey, onChangeValue, onDelete])
+  }, [obj, depth, adding, addingRow, onChangeKey, onChangeValue, onDelete])
 
   return <div className={`relative ${className}`}>{rows}</div>
 }

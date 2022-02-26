@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import ModalInput from '../../ModalInput'
 
@@ -7,13 +7,17 @@ import type { JSONPrimitive } from '../JSON'
 import type { SyntheticEvent } from 'react'
 
 interface Props {
-  value: JSONPrimitive
+  value?: JSONPrimitive
   onChange?: (value: JSONPrimitive) => void
+  editingInitial?: boolean
 }
 
-const PrimitiveView = ({ value, onChange }: Props) => {
+const PrimitiveView = ({ value, onChange, editingInitial = false }: Props) => {
   const preRef = useRef<HTMLPreElement>(null)
   const [editing, setEditing] = useState(false)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useLayoutEffect(() => setEditing(editingInitial), [])
 
   const onDoubleClick = useCallback((e: SyntheticEvent) => {
     if (!preRef.current) {
@@ -37,6 +41,8 @@ const PrimitiveView = ({ value, onChange }: Props) => {
 
   const textColor = useMemo(() => {
     switch (typeof value) {
+      case 'undefined':
+        return ''
       case 'boolean':
         return 'text-green-500'
       case 'number':
@@ -54,6 +60,11 @@ const PrimitiveView = ({ value, onChange }: Props) => {
     }
   }, [value])
 
+  const valueString = useMemo(
+    () => (value !== undefined ? JSON.stringify(value) : ''),
+    [value]
+  )
+
   return (
     <div className="flex-auto">
       <pre
@@ -61,12 +72,12 @@ const PrimitiveView = ({ value, onChange }: Props) => {
         ref={preRef}
         onDoubleClick={onDoubleClick}
       >
-        {JSON.stringify(value)}
+        {valueString}
       </pre>
       {editing && preRef.current ? (
         <ModalInput
           element={preRef.current}
-          value={JSON.stringify(value)}
+          value={valueString}
           onChange={onChangeInput}
           onCancel={onCancelInput}
         />

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import ModalInput from '../../ModalInput'
 
@@ -8,12 +8,21 @@ import type { SyntheticEvent } from 'react'
 interface Props {
   name: string
   editable: boolean
+  editingInitial?: boolean
   onChange?: (name: string) => void
 }
 
-const KeyView = ({ name, editable, onChange }: Props) => {
+const KeyView = ({
+  name,
+  editable,
+  editingInitial = false,
+  onChange,
+}: Props) => {
   const [editing, setEditing] = useState(false)
   const preRef = useRef(null)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useLayoutEffect(() => setEditing(editingInitial), [])
 
   const onDoubleClick = useMemo(() => {
     if (!editable) {

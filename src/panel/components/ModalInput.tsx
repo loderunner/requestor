@@ -56,6 +56,7 @@ const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
       left: `${rect.left}px`,
       top: `${rect.top}px`,
       width: `calc(${rect.width}px + 2 * 0.25rem)`,
+      minWidth: '120px',
     }
   }, [element])
 
