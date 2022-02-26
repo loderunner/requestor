@@ -131,6 +131,10 @@ export const continueRequest = async (request: Request) => {
   const commandParams: Protocol.Fetch.ContinueRequestRequest = {
     requestId: request.id,
     url: request.url,
+    headers: Object.entries(request.headers).map(([name, value]) => ({
+      name,
+      value,
+    })),
     postData: request.postData && window.btoa(request.postData),
   }
   return continueOrFailRequest(request.id, method, commandParams)

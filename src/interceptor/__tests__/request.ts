@@ -85,6 +85,12 @@ describe('[Interceptor.continueRequest]', () => {
       expect.objectContaining({
         requestId: globalMocks.request.id,
         url: globalMocks.request.url,
+        headers: Object.entries(globalMocks.request.headers).map(
+          ([name, value]) => ({
+            name,
+            value,
+          })
+        ),
         postData: window.btoa(globalMocks.request.postData as string),
       })
     )

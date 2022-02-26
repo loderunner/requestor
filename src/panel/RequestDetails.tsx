@@ -172,12 +172,25 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     )
   }, [onChangeQuery, url.searchParams])
 
+  const onChangeHeader = useCallback(
+    (name: string, value: string) => {
+      updateRequest({ headers: { ...request.headers, [name]: value } })
+    },
+    [request.headers, updateRequest]
+  )
+
   const headerSection = useMemo(() => {
     const headers = Object.entries(request.headers).filter(
       ([headerName]) => headerName.toLowerCase() !== 'cookie'
     )
-    return <Section title="Headers" entries={headers}></Section>
-  }, [request.headers])
+    return (
+      <Section
+        title="Headers"
+        entries={headers}
+        onChange={onChangeHeader}
+      ></Section>
+    )
+  }, [onChangeHeader, request.headers])
 
   const cookieSection = useMemo(() => {
     const cookieHeader = Object.entries(request.headers).find(

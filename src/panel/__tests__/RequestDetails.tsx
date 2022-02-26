@@ -39,4 +39,22 @@ describe('[RequestDetails]', () => {
       url: expect.stringContaining('q=hello'),
     })
   })
+
+  it('should update headers', async () => {
+    const user = userEvent.setup()
+    const { getByText } = render(
+      <RequestDetails requestId={globalMocks.request.id} />
+    )
+
+    const queryVariable = getByText('application/json')
+
+    const updateRequestFn =
+      mockedHooks.useRequest.mock.results.at(-1)?.value.updateRequest
+    await user.dblClick(queryVariable)
+    await user.keyboard('text/plain{Enter}')
+
+    expect(updateRequestFn).toHaveBeenCalledWith({
+      headers: expect.objectContaining({ 'Content-Type': 'text/plain' }),
+    })
+  })
 })
