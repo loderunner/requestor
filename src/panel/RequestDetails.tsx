@@ -8,17 +8,25 @@ import {
 } from '@/icons'
 import { useRequest } from '@/interceptor/hooks'
 
-const SectionValue = ({ value }: { value: string }) => {
+import ModalInput from './components/ModalInput'
+
+interface SectionValueProps {
+  value: string
+  onChange?: (v: string) => void
+}
+
+const SectionValue = ({ value, onChange }: SectionValueProps) => {
   const [foldable, setFoldable] = useState(false)
   const [folded, setFolded] = useState(true)
   const [showButtons, setShowButtons] = useState(false)
+  const [editing, setEditing] = useState(false)
   const spanRef = useRef<HTMLSpanElement>(null)
 
   useLayoutEffect(() => {
     if (spanRef.current) {
       setFoldable(spanRef.current.scrollWidth > spanRef.current.clientWidth)
     }
-  }, [spanRef])
+  }, [value])
 
   const className = useMemo(() => {
     if (folded) {
@@ -58,6 +66,16 @@ const SectionValue = ({ value }: { value: string }) => {
 
   const onHoverStart = useCallback(() => setShowButtons(true), [])
   const onHoverEnd = useCallback(() => setShowButtons(false), [])
+  const onDoubleClick = useCallback(() => setEditing(true), [])
+  const onChangeInput = useCallback(
+    (v: string) => {
+      if (onChange !== undefined) {
+        onChange(v)
+      }
+      setEditing(false)
+    },
+    [onChange]
+  )
 
   return (
     <div
@@ -65,10 +83,18 @@ const SectionValue = ({ value }: { value: string }) => {
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
     >
-      <span className={className} ref={spanRef}>
+      <span className={className} ref={spanRef} onDoubleClick={onDoubleClick}>
         {value}
       </span>
       {unfoldButton}
+      {editing && spanRef.current !== null ? (
+        <ModalInput
+          element={spanRef.current}
+          value={value}
+          onChange={onChangeInput}
+          onCancel={() => setEditing(false)}
+        />
+      ) : null}
     </div>
   )
 }
@@ -76,9 +102,20 @@ const SectionValue = ({ value }: { value: string }) => {
 interface SectionProps {
   title: string
   entries: [string, string][]
+  onChange?: (name: string, value: string) => void
+  onDelete?: (name: string) => void
 }
 
-const Section = ({ title, entries }: SectionProps) => {
+const Section = ({ title, entries, onChange }: SectionProps) => {
+  const onChangeEntry = useCallback(
+    (name: string, value: string) => {
+      if (onChange !== undefined) {
+        onChange(name, value)
+      }
+    },
+    [onChange]
+  )
+
   const rows = useMemo(
     () =>
       entries.map(([name, value]) => (
@@ -86,10 +123,13 @@ const Section = ({ title, entries }: SectionProps) => {
           <span className="text-right font-medium text-gray-500 select-none">
             {name}
           </span>
-          <SectionValue value={value} />
+          <SectionValue
+            value={value}
+            onChange={(v: string) => onChangeEntry(name, v)}
+          />
         </React.Fragment>
       )),
-    [entries]
+    [entries, onChangeEntry]
   )
 
   return (
@@ -108,43 +148,47 @@ interface Props {
 }
 
 const RequestDetails = ({ requestId, className = '' }: Props) => {
-  const { request } = useRequest(requestId)
-  const url = useMemo(() => new URL(request.url), [request])
+  const { request, updateRequest } = useRequest(requestId)
+  const url = useMemo(() => new URL(request.url), [request.url])
+
+  const onChangeQuery = useCallback(
+    (name: string, value: string) => {
+      const searchParams = url.searchParams
+      searchParams.set(name, value)
+      url.search = searchParams.toString()
+      updateRequest({ url: url.toString() })
+    },
+    [updateRequest, url]
+  )
 
   const querySection = useMemo(() => {
-    const searchParams = [...url.searchParams.entries()]
-    if (searchParams.length === 0) {
-      return null
-    }
-
-    return <Section title="Query" entries={searchParams}></Section>
-  }, [url.searchParams])
+    const searchParams = [...url.searchParams]
+    return (
+      <Section
+        title="Query"
+        entries={searchParams}
+        onChange={onChangeQuery}
+      ></Section>
+    )
+  }, [onChangeQuery, url.searchParams])
 
   const headerSection = useMemo(() => {
     const headers = Object.entries(request.headers).filter(
       ([headerName]) => headerName.toLowerCase() !== 'cookie'
     )
-    if (headers.length === 0) {
-      return null
-    }
-
     return <Section title="Headers" entries={headers}></Section>
-  }, [request])
+  }, [request.headers])
 
   const cookieSection = useMemo(() => {
     const cookieHeader = Object.entries(request.headers).find(
       ([headerName]) => headerName.toLowerCase() === 'cookie'
     )
-    if (cookieHeader === undefined) {
-      return null
-    }
-
-    const cookies = cookie.parse(cookieHeader[1])
+    const cookies = cookieHeader ? cookie.parse(cookieHeader[1]) : []
 
     return (
       <Section title="Cookies" entries={[...Object.entries(cookies)]}></Section>
     )
-  }, [request])
+  }, [request.headers])
 
   return (
     <div className={className}>

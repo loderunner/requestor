@@ -27,6 +27,7 @@ export const updateRequest = (
 ): Readonly<Request> | undefined => {
   const current = requests.find((req) => req.id === id)
   if (current !== undefined) {
+    current.url = request.url ?? current.url
     current.postData = request.postData ?? current.postData
     current.hasPostData = current.postData !== undefined
   }
