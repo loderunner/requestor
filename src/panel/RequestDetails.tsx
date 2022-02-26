@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import {
+  Clear as ClearIcon,
   UnfoldLess as UnfoldLessIcon,
   UnfoldMore as UnfoldMoreIcon,
 } from '@/icons'
@@ -174,6 +175,7 @@ const Section = ({
   title,
   entries,
   onChange,
+  onDelete,
   editable = false,
 }: SectionProps) => {
   const [adding, setAdding] = useState(false)
@@ -190,13 +192,34 @@ const Section = ({
     [onChange]
   )
 
+  const onDeleteEntry = useCallback(
+    (name: string) => {
+      if (onDelete !== undefined) {
+        onDelete(name)
+      }
+    },
+    [onDelete]
+  )
+
   const rows = useMemo(
     () =>
       entries.map(([name, value]) => (
         <React.Fragment key={`{title.toLowerCase()}-${name}`}>
-          <span className="text-right font-medium text-gray-500 select-none">
-            {name}
-          </span>
+          <div className="group flex justify-end items-center space-x-1">
+            {editable ? (
+              <button
+                className={`rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100`}
+              >
+                <ClearIcon
+                  className="fill-white"
+                  onClick={() => onDeleteEntry(name)}
+                />
+              </button>
+            ) : null}
+            <span className="font-medium text-gray-500 select-none">
+              {name}
+            </span>
+          </div>
           <SectionValue
             value={value}
             editable={editable}
@@ -242,6 +265,16 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     [updateRequest, url]
   )
 
+  const onDeleteQuery = useCallback(
+    (name: string) => {
+      const searchParams = url.searchParams
+      searchParams.delete(name)
+      url.search = searchParams.toString()
+      updateRequest({ url: url.toString() })
+    },
+    [updateRequest, url]
+  )
+
   const querySection = useMemo(() => {
     const searchParams = [...url.searchParams]
     return (
@@ -250,13 +283,23 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         entries={searchParams}
         editable
         onChange={onChangeQuery}
+        onDelete={onDeleteQuery}
       ></Section>
     )
-  }, [onChangeQuery, url.searchParams])
+  }, [onChangeQuery, onDeleteQuery, url.searchParams])
 
   const onChangeHeader = useCallback(
     (name: string, value: string) => {
       updateRequest({ headers: { ...request.headers, [name]: value } })
+    },
+    [request.headers, updateRequest]
+  )
+
+  const onDeleteHeader = useCallback(
+    (name: string) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { [name]: _, ...headers } = request.headers
+      updateRequest({ headers })
     },
     [request.headers, updateRequest]
   )
@@ -271,9 +314,10 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         entries={headers}
         editable
         onChange={onChangeHeader}
+        onDelete={onDeleteHeader}
       ></Section>
     )
-  }, [onChangeHeader, request.headers])
+  }, [onChangeHeader, onDeleteHeader, request.headers])
 
   const cookieSection = useMemo(() => {
     const cookieHeader = Object.entries(request.headers).find(
