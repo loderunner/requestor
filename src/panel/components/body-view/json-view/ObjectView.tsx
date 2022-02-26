@@ -75,7 +75,7 @@ interface RowProps<T extends JSONValue> {
   keyEditable: boolean
   depth: number
   onChangeKey?: (k: string) => void
-  onChangeValue?: (v: T) => void
+  onChangeValue?: (v: JSONValue) => void
   onDelete?: () => void
 }
 

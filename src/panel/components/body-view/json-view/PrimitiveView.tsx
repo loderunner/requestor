@@ -3,13 +3,13 @@ import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import ModalInput from '../../ModalInput'
 
-import type { JSONPrimitive } from '../JSON'
+import type { JSONPrimitive, JSONValue } from '../JSON'
 import type { SyntheticEvent } from 'react'
 
 interface Props {
   value?: JSONPrimitive
   editingInitial?: boolean
-  onChange?: (value: JSONPrimitive) => void
+  onChange?: (value: JSONValue) => void
   onCancel?: () => void
 }
 
