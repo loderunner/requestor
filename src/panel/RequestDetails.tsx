@@ -3,22 +3,37 @@ import * as React from 'react'
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import {
+  Clear as ClearIcon,
   UnfoldLess as UnfoldLessIcon,
   UnfoldMore as UnfoldMoreIcon,
 } from '@/icons'
 import { useRequest } from '@/interceptor/hooks'
 
-const SectionValue = ({ value }: { value: string }) => {
+import AddButton from './components/AddButton'
+import ModalInput from './components/ModalInput'
+
+interface SectionValueProps {
+  value: string
+  editable?: boolean
+  onChange?: (v: string) => void
+}
+
+const SectionValue = ({
+  value,
+  onChange,
+  editable = false,
+}: SectionValueProps) => {
   const [foldable, setFoldable] = useState(false)
   const [folded, setFolded] = useState(true)
   const [showButtons, setShowButtons] = useState(false)
+  const [editing, setEditing] = useState(false)
   const spanRef = useRef<HTMLSpanElement>(null)
 
   useLayoutEffect(() => {
     if (spanRef.current) {
       setFoldable(spanRef.current.scrollWidth > spanRef.current.clientWidth)
     }
-  }, [spanRef])
+  }, [value])
 
   const className = useMemo(() => {
     if (folded) {
@@ -58,6 +73,20 @@ const SectionValue = ({ value }: { value: string }) => {
 
   const onHoverStart = useCallback(() => setShowButtons(true), [])
   const onHoverEnd = useCallback(() => setShowButtons(false), [])
+  const onDoubleClick = useCallback(() => {
+    if (editable) {
+      setEditing(true)
+    }
+  }, [editable])
+  const onChangeInput = useCallback(
+    (v: string) => {
+      if (onChange !== undefined) {
+        onChange(v)
+      }
+      setEditing(false)
+    },
+    [onChange]
+  )
 
   return (
     <div
@@ -65,31 +94,140 @@ const SectionValue = ({ value }: { value: string }) => {
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
     >
-      <span className={className} ref={spanRef}>
+      <span className={className} ref={spanRef} onDoubleClick={onDoubleClick}>
         {value}
       </span>
       {unfoldButton}
+      {editing && spanRef.current !== null ? (
+        <ModalInput
+          element={spanRef.current}
+          value={value}
+          onChange={onChangeInput}
+          onCancel={() => setEditing(false)}
+        />
+      ) : null}
     </div>
+  )
+}
+
+interface SectionAddProps {
+  onChange?: (name: string, value: string) => void
+  onCancel?: () => void
+}
+
+const SectionAdd = ({ onChange, onCancel }: SectionAddProps) => {
+  const [name, setName] = useState('')
+  const [step, setStep] = useState<null | 'name' | 'value'>(null)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useLayoutEffect(() => setStep('name'), [])
+
+  const nameRef = useRef(null)
+  const valueRef = useRef(null)
+
+  return (
+    <>
+      <span
+        className="text-right font-medium text-gray-500 select-none"
+        ref={nameRef}
+      >
+        {name}
+      </span>
+      {step === 'name' && nameRef.current ? (
+        <ModalInput
+          element={nameRef.current}
+          value=""
+          onChange={(v) => {
+            setName(v)
+            setStep('value')
+          }}
+          onCancel={onCancel}
+        />
+      ) : null}
+      <span className="w-full" ref={valueRef}>
+        {'\u200b'}
+      </span>
+      {step === 'value' && valueRef.current ? (
+        <ModalInput
+          element={valueRef.current}
+          value=""
+          onChange={(v) => {
+            if (onChange !== undefined) {
+              onChange(name, v)
+            }
+          }}
+          onCancel={onCancel}
+        />
+      ) : null}
+    </>
   )
 }
 
 interface SectionProps {
   title: string
   entries: [string, string][]
+  editable?: boolean
+  onChange?: (name: string, value: string) => void
+  onDelete?: (name: string) => void
 }
 
-const Section = ({ title, entries }: SectionProps) => {
+const Section = ({
+  title,
+  entries,
+  onChange,
+  onDelete,
+  editable = false,
+}: SectionProps) => {
+  const [adding, setAdding] = useState(false)
+
+  const onAdd = useCallback(() => setAdding(true), [])
+
+  const onChangeEntry = useCallback(
+    (name: string, value: string) => {
+      if (onChange !== undefined) {
+        onChange(name, value)
+      }
+      setAdding(false)
+    },
+    [onChange]
+  )
+
+  const onDeleteEntry = useCallback(
+    (name: string) => {
+      if (onDelete !== undefined) {
+        onDelete(name)
+      }
+    },
+    [onDelete]
+  )
+
   const rows = useMemo(
     () =>
       entries.map(([name, value]) => (
         <React.Fragment key={`{title.toLowerCase()}-${name}`}>
-          <span className="text-right font-medium text-gray-500 select-none">
-            {name}
-          </span>
-          <SectionValue value={value} />
+          <div className="group flex justify-end items-center space-x-1">
+            {editable ? (
+              <button
+                className={`rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100`}
+              >
+                <ClearIcon
+                  className="fill-white"
+                  onClick={() => onDeleteEntry(name)}
+                />
+              </button>
+            ) : null}
+            <span className="font-medium text-gray-500 select-none">
+              {name}
+            </span>
+          </div>
+          <SectionValue
+            value={value}
+            editable={editable}
+            onChange={(v: string) => onChangeEntry(name, v)}
+          />
         </React.Fragment>
       )),
-    [entries]
+    [editable, entries, onChangeEntry, onDeleteEntry]
   )
 
   return (
@@ -98,6 +236,12 @@ const Section = ({ title, entries }: SectionProps) => {
         {title}
       </span>
       {rows}
+      {editable && !adding ? (
+        <div className="relative col-span-2">
+          <AddButton onClick={onAdd} />
+        </div>
+      ) : null}
+      {adding ? <SectionAdd onChange={onChangeEntry} /> : null}
     </>
   )
 }
@@ -108,43 +252,103 @@ interface Props {
 }
 
 const RequestDetails = ({ requestId, className = '' }: Props) => {
-  const { request } = useRequest(requestId)
-  const url = useMemo(() => new URL(request.url), [request])
+  const { request, updateRequest } = useRequest(requestId)
+  const url = useMemo(() => new URL(request.url), [request.url])
+
+  const onChangeQuery = useCallback(
+    (name: string, value: string) => {
+      const searchParams = url.searchParams
+      searchParams.set(name, value)
+      url.search = searchParams.toString()
+      updateRequest({ url: url.toString() })
+    },
+    [updateRequest, url]
+  )
+
+  const onDeleteQuery = useCallback(
+    (name: string) => {
+      const searchParams = url.searchParams
+      searchParams.delete(name)
+      url.search = searchParams.toString()
+      updateRequest({ url: url.toString() })
+    },
+    [updateRequest, url]
+  )
 
   const querySection = useMemo(() => {
-    const searchParams = [...url.searchParams.entries()]
-    if (searchParams.length === 0) {
-      return null
-    }
+    const searchParams = [...url.searchParams]
+    return (
+      <Section
+        title="Query"
+        entries={searchParams}
+        editable
+        onChange={onChangeQuery}
+        onDelete={onDeleteQuery}
+      ></Section>
+    )
+  }, [onChangeQuery, onDeleteQuery, url.searchParams])
 
-    return <Section title="Query" entries={searchParams}></Section>
-  }, [url.searchParams])
+  const onChangeHeader = useCallback(
+    (name: string, value: string) => {
+      updateRequest({ headers: { ...request.headers, [name]: value } })
+    },
+    [request.headers, updateRequest]
+  )
+
+  const onDeleteHeader = useCallback(
+    (name: string) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { [name]: _, ...headers } = request.headers
+      updateRequest({ headers })
+    },
+    [request.headers, updateRequest]
+  )
 
   const headerSection = useMemo(() => {
     const headers = Object.entries(request.headers).filter(
       ([headerName]) => headerName.toLowerCase() !== 'cookie'
     )
-    if (headers.length === 0) {
-      return null
-    }
-
-    return <Section title="Headers" entries={headers}></Section>
-  }, [request])
+    return (
+      <Section
+        title="Headers"
+        entries={headers}
+        editable
+        onChange={onChangeHeader}
+        onDelete={onDeleteHeader}
+      ></Section>
+    )
+  }, [onChangeHeader, onDeleteHeader, request.headers])
 
   const cookieSection = useMemo(() => {
     const cookieHeader = Object.entries(request.headers).find(
       ([headerName]) => headerName.toLowerCase() === 'cookie'
     )
-    if (cookieHeader === undefined) {
-      return null
-    }
-
-    const cookies = cookie.parse(cookieHeader[1])
+    const cookies: ReturnType<typeof cookie.parse> = cookieHeader
+      ? cookie.parse(cookieHeader[1])
+      : {}
 
     return (
-      <Section title="Cookies" entries={[...Object.entries(cookies)]}></Section>
+      <Section
+        title="Cookies"
+        entries={[...Object.entries(cookies)]}
+        editable={false}
+      ></Section>
     )
-  }, [request])
+  }, [request.headers])
+
+  const onChangeURL = useCallback(
+    (value: string) => {
+      const newURL = new URL(value)
+      newURL.search = url.search
+      updateRequest({ url: newURL.toString() })
+    },
+    [updateRequest, url.search]
+  )
+
+  const onChangeMethod = useCallback(
+    (method: string) => updateRequest({ method }),
+    [updateRequest]
+  )
 
   return (
     <div className={className}>
@@ -154,12 +358,20 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         <span className="text-right font-medium text-gray-500 select-none">
           URL
         </span>
-        <SectionValue value={`${url.origin}${url.pathname}`} />
+        <SectionValue
+          value={`${url.origin}${url.pathname}`}
+          editable
+          onChange={onChangeURL}
+        />
         {/* Method */}
         <span className="text-right font-medium text-gray-500 select-none">
           Method
         </span>
-        <SectionValue value={request.method} />
+        <SectionValue
+          value={request.method}
+          editable
+          onChange={onChangeMethod}
+        />
         {/* Sections */}
         {querySection}
         {headerSection}

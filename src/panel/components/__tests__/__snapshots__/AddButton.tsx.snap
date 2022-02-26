@@ -4,7 +4,7 @@ exports[`[JSON.AddButton] should match deep snapshot 1`] = `
 <div>
   <button
     class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-    style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
+    style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
   >
     <div
       class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -24,7 +24,7 @@ exports[`[JSON.AddButton] should match initial snapshot 1`] = `
 <div>
   <button
     class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-    style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+    style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
   >
     <div
       class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"

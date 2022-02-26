@@ -6,8 +6,8 @@ import type { CSSProperties, ChangeEvent, KeyboardEvent } from 'react'
 interface Props {
   element: HTMLElement
   value: string
-  onChange: (value: string) => void
-  onCancel: () => void
+  onChange?: (value: string) => void
+  onCancel?: () => void
 }
 
 const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
@@ -27,6 +27,9 @@ const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
 
   const onChangeSafe = useCallback(
     (value: string) => {
+      if (onChange === undefined) {
+        return
+      }
       try {
         onChange(value)
       } catch (err) {
@@ -48,7 +51,11 @@ const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
           onChangeSafe(inputValue)
           break
         case 'Escape':
-          onCancel()
+          {
+            if (onCancel !== undefined) {
+              onCancel()
+            }
+          }
           break
         default:
           return

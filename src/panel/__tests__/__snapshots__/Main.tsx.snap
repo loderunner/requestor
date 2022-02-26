@@ -168,11 +168,22 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             Query
           </span>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            q
-          </span>
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              q
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -182,11 +193,22 @@ exports[`[Main] should match request selection snapshot 1`] = `
               toto
             </span>
           </div>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            client
-          </span>
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              client
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -196,16 +218,46 @@ exports[`[Main] should match request selection snapshot 1`] = `
               gws-wiz
             </span>
           </div>
+          <div
+            class="relative col-span-2"
+          >
+            <button
+              class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+              style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+            >
+              <div
+                class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+              />
+              <div
+                class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+              >
+                <svg
+                  class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+                />
+              </div>
+            </button>
+          </div>
           <span
             class="text-lg font-semibold col-span-2 mt-4 select-none"
           >
             Headers
           </span>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            Accept
-          </span>
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              Accept
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -215,11 +267,22 @@ exports[`[Main] should match request selection snapshot 1`] = `
               */*
             </span>
           </div>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            Referer
-          </span>
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              Referer
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -229,11 +292,22 @@ exports[`[Main] should match request selection snapshot 1`] = `
               https://www.google.com/
             </span>
           </div>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            User-Agent
-          </span>
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              User-Agent
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -243,11 +317,22 @@ exports[`[Main] should match request selection snapshot 1`] = `
               Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
             </span>
           </div>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            Content-Type
-          </span>
+            <button
+              class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+            >
+              <svg
+                class="fill-white"
+              />
+            </button>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              Content-Type
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -257,16 +342,39 @@ exports[`[Main] should match request selection snapshot 1`] = `
               application/json
             </span>
           </div>
+          <div
+            class="relative col-span-2"
+          >
+            <button
+              class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
+              style="margin-left: 0rem; width: calc(100% - 0rem); z-index: 0;"
+            >
+              <div
+                class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
+              />
+              <div
+                class="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border rounded-sm bg-white border-slate-300 group-hover:border-slate-400 group-active:border-slate-500"
+              >
+                <svg
+                  class=" fill-slate-300  group-hover:fill-slate-400 group-active:fill-slate-500"
+                />
+              </div>
+            </button>
+          </div>
           <span
             class="text-lg font-semibold col-span-2 mt-4 select-none"
           >
             Cookies
           </span>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            CONSENT
-          </span>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              CONSENT
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -276,11 +384,15 @@ exports[`[Main] should match request selection snapshot 1`] = `
               YES+srp.gws-20220217-0-RC1.en+FX+923
             </span>
           </div>
-          <span
-            class="text-right font-medium text-gray-500 select-none"
+          <div
+            class="group flex justify-end items-center space-x-1"
           >
-            1P_JAR
-          </span>
+            <span
+              class="font-medium text-gray-500 select-none"
+            >
+              1P_JAR
+            </span>
+          </div>
           <div
             class="flex overflow-x-hidden space-x-1"
           >
@@ -300,7 +412,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
         >
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -343,7 +455,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -391,7 +503,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
           >
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -434,7 +546,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -477,7 +589,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -520,7 +632,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -568,7 +680,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             >
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -611,7 +723,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               </div>
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -654,7 +766,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               </div>
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -697,7 +809,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               </div>
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -740,7 +852,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               </div>
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -783,7 +895,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               </div>
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -799,7 +911,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -847,7 +959,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             >
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -890,7 +1002,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               </div>
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -933,7 +1045,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
               </div>
               <button
                 class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+                style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 3;"
               >
                 <div
                   class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -949,7 +1061,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             </div>
             <button
               class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+              style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 2;"
             >
               <div
                 class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -965,7 +1077,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -1008,7 +1120,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
           </div>
           <button
             class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+            style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 1;"
           >
             <div
               class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"

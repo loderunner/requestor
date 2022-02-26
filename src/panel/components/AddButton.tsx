@@ -3,16 +3,16 @@ import * as React from 'react'
 import { Plus as PlusIcon } from '@/icons'
 
 interface AddButtonProps {
-  depth: number
+  depth?: number
   onClick?: () => void
 }
 
-const AddButton = ({ depth, onClick }: AddButtonProps) => (
+const AddButton = ({ depth = 0, onClick }: AddButtonProps) => (
   <button
     className="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
     style={{
-      marginLeft: `${depth + 1}rem`,
-      width: `calc(100% - ${depth + 1}rem)`,
+      marginLeft: `${depth}rem`,
+      width: `calc(100% - ${depth}rem)`,
       zIndex: depth,
     }}
     onClick={onClick}
