@@ -10,12 +10,12 @@ import type { JSONValue } from '../JSON'
 
 interface Props {
   depth: number
-  keyEditable: boolean
+  keyEditable?: boolean
   onAdd?: (key: string, value: JSONValue) => void
   onCancel?: () => void
 }
 
-const AddRow = ({ depth, keyEditable, onAdd, onCancel }: Props) => {
+const AddRow = ({ depth, keyEditable = false, onAdd, onCancel }: Props) => {
   const [step, setStep] = useState<'key' | 'value'>(
     keyEditable ? 'key' : 'value'
   )

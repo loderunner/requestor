@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[JSON.AddRow] should match initial snapshot 1`] = `
+<div>
+  <div
+    class="mt-1 flex items-center space-x-1"
+    style="margin-left: 0rem;"
+  >
+    <svg
+      class="opacity-0 fill-white"
+    />
+    <pre
+      class="text-amber-700"
+    >
+      
+      :
+    </pre>
+     
+    <div
+      class="flex-auto"
+    >
+      <pre
+        class="whitespace-pre-wrap break-all "
+      >
+        ​
+      </pre>
+      <input
+        class="fixed "
+        style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;

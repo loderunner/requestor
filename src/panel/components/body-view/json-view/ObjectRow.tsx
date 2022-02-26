@@ -17,7 +17,7 @@ import type { JSONArray, JSONObject, JSONValue } from '../JSON'
 interface Props {
   k: string
   v: JSONArray | JSONObject
-  keyEditable: boolean
+  keyEditable?: boolean
   depth: number
   onChangeKey?: (k: string) => void
   onChangeValue?: (v: JSONValue) => void
@@ -27,11 +27,11 @@ interface Props {
 const ObjectRow = ({
   k,
   v,
-  keyEditable,
   depth,
   onChangeKey,
   onChangeValue,
   onDelete,
+  keyEditable = onChangeKey !== undefined,
 }: Props) => {
   const [hovering, setHovering] = useState(false)
   const [folded, setFolded] = useState(depth >= 1)

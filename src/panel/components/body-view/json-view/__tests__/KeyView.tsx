@@ -43,6 +43,22 @@ describe('[JSON.KeyView]', () => {
     expect(textbox).toBeNull()
   })
 
+  it('should not show text field on render', async () => {
+    const { queryByRole } = render(<KeyView name="key" editable={true} />)
+
+    const textbox = queryByRole('textbox')
+    expect(textbox).toBeNull()
+  })
+
+  it('should show text field on render with editingInitial', async () => {
+    const { queryByRole } = render(
+      <KeyView name="key" editable={true} editingInitial={true} />
+    )
+
+    const textbox = queryByRole('textbox')
+    expect(textbox).not.toBeNull()
+  })
+
   it('should call onChange on close', async () => {
     const user = userEvent.setup()
     const onChange = jest.fn()
@@ -56,5 +72,26 @@ describe('[JSON.KeyView]', () => {
     await user.keyboard('toto{Enter}')
 
     expect(onChange).toHaveBeenCalledWith('toto')
+  })
+
+  it('should call onCancel on Esc', async () => {
+    const user = userEvent.setup()
+    const onChange = jest.fn()
+    const onCancel = jest.fn()
+    const { getByText } = render(
+      <KeyView
+        name="key"
+        editable={true}
+        onChange={onChange}
+        onCancel={onCancel}
+      />
+    )
+
+    const pre = getByText('key:')
+
+    await user.dblClick(pre)
+    await user.keyboard('toto{Escape}')
+
+    expect(onChange).not.toHaveBeenCalled()
   })
 })

@@ -10,3 +10,19 @@ exports[`[ModalInput] should match empty snapshot 1`] = `
   />
 </div>
 `;
+
+exports[`[ModalInput] should match snapshot after onChange error 1`] = `
+<div>
+  <input
+    class="fixed bg-rose-100"
+    style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
+    type="text"
+    value="hello world"
+  />
+  <span
+    class="absolute pt-0.5 text-xs bg-rose-100 rounded-b-sm text-rose-500"
+  >
+    Error message
+  </span>
+</div>
+`;

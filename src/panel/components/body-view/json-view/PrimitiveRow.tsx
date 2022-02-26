@@ -11,7 +11,7 @@ import type { JSONPrimitive, JSONValue } from '../JSON'
 interface Props {
   k: string
   v: JSONPrimitive
-  keyEditable: boolean
+  keyEditable?: boolean
   depth: number
   onChangeKey?: (k: string) => void
   onChangeValue?: (v: JSONValue) => void
