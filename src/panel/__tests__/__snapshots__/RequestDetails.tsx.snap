@@ -46,11 +46,22 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
       >
         Query
       </span>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        q
-      </span>
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          q
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
@@ -60,11 +71,22 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           toto
         </span>
       </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        client
-      </span>
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          client
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
@@ -98,11 +120,22 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
       >
         Headers
       </span>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        Accept
-      </span>
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          Accept
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
@@ -112,11 +145,22 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           */*
         </span>
       </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        Referer
-      </span>
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          Referer
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
@@ -126,11 +170,22 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           https://www.google.com/
         </span>
       </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        User-Agent
-      </span>
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          User-Agent
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
@@ -140,11 +195,22 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
         </span>
       </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        Content-Type
-      </span>
+        <button
+          class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 opacity-0 group-hover:opacity-100"
+        >
+          <svg
+            class="fill-white"
+          />
+        </button>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          Content-Type
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
@@ -178,11 +244,15 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
       >
         Cookies
       </span>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        CONSENT
-      </span>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          CONSENT
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
@@ -192,11 +262,15 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           YES+srp.gws-20220217-0-RC1.en+FX+923
         </span>
       </div>
-      <span
-        class="text-right font-medium text-gray-500 select-none"
+      <div
+        class="group flex justify-end items-center space-x-1"
       >
-        1P_JAR
-      </span>
+        <span
+          class="font-medium text-gray-500 select-none"
+        >
+          1P_JAR
+        </span>
+      </div>
       <div
         class="flex overflow-x-hidden space-x-1"
       >
