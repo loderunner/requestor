@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { useCallback, useState } from 'react'
 
+import AddButton from '../../AddButton'
 import { isArray, isObject, isPrimitive } from '../JSON'
 
-import AddButton from './AddButton'
 import AddRow from './AddRow'
 import ObjectRow from './ObjectRow'
 import PrimitiveRow from './PrimitiveRow'
