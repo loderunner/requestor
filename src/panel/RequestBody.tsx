@@ -43,7 +43,13 @@ const RequestBody = ({ requestId, className = '' }: Props) => {
           contentType === 'text/plain'
         ) {
           JSON.parse(request.postData)
-          return <JSONBodyView key={request.id} jsonData={request.postData} />
+          return (
+            <JSONBodyView
+              key={request.id}
+              jsonData={request.postData}
+              onChange={onChangeBody}
+            />
+          )
         }
       } catch (err) {
         // ignore error parsing JSON

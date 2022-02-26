@@ -131,7 +131,7 @@ interface Props {
   className?: string
 }
 
-const InterceptList = ({ className }: Props) => {
+const InterceptList = ({ className = '' }: Props) => {
   const [paused, setPaused] = usePaused()
   const { selection, setSelection, selectionType } = useSelection()
   const { intercepts, addIntercept, removeIntercept } = useIntercepts()

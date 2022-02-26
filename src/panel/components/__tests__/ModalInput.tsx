@@ -109,6 +109,29 @@ describe('[ModalInput]', () => {
     expect(onCancel).not.toBeCalled()
   })
 
+  it('should match snapshot after onChange error', async () => {
+    const user = userEvent.setup()
+    const onChange = () => {
+      throw new Error('Error message')
+    }
+    const { container: spanContainer } = render(<span>Hello World!</span>)
+    const { container, findByRole } = render(
+      <ModalInput
+        element={spanContainer}
+        value="toto"
+        onChange={onChange}
+        onCancel={onCancel}
+      />
+    )
+
+    await findByRole('textbox')
+
+    await user.keyboard('hello world')
+    await user.click(spanContainer as HTMLSpanElement)
+
+    expect(container).toMatchSnapshot()
+  })
+
   it('should fire onChange event on Enter key down', async () => {
     const user = userEvent.setup()
     const { container: spanContainer } = render(<span>Hello World!</span>)

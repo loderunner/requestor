@@ -113,7 +113,7 @@ interface Props {
   className?: string
 }
 
-const RequestList = ({ className }: Props) => {
+const RequestList = ({ className = '' }: Props) => {
   const { requests, continueAllRequests } = useRequests()
   const items = useMemo(
     () => requests.map((req, i) => <Item key={i} requestId={req.id} />),

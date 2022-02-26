@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[JSON.PrimitiveView] should match boolean snapshot 1`] = `
+<div>
+  <div
+    class="flex-auto"
+  >
+    <pre
+      class="whitespace-pre-wrap break-all text-green-500"
+    >
+      true
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`[JSON.PrimitiveView] should match null snapshot 1`] = `
+<div>
+  <div
+    class="flex-auto"
+  >
+    <pre
+      class="whitespace-pre-wrap break-all text-purple-500"
+    >
+      null
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`[JSON.PrimitiveView] should match number snapshot 1`] = `
+<div>
+  <div
+    class="flex-auto"
+  >
+    <pre
+      class="whitespace-pre-wrap break-all text-rose-500"
+    >
+      11.38
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`[JSON.PrimitiveView] should match string snapshot 1`] = `
+<div>
+  <div
+    class="flex-auto"
+  >
+    <pre
+      class="whitespace-pre-wrap break-all text-sky-400"
+    >
+      "Hello World"
+    </pre>
+  </div>
+</div>
+`;

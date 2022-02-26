@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[RequestBody] should match initial snapshot 1`] = `
+exports[`[JSON.ObjectView] should match initial snapshot 1`] = `
 <div>
   <div
-    class="relative -ml-4"
+    class="relative "
   >
     <button
       class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"

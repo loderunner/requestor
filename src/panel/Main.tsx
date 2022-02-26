@@ -12,7 +12,7 @@ interface Props {
   className?: string
 }
 
-const Main = ({ className }: Props) => {
+const Main = ({ className = '' }: Props) => {
   const { selection, selectionType } = useSelection()
 
   const view: React.ReactNode = useMemo(() => {

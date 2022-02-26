@@ -1,13 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[RequestBody] should match initial snapshot 1`] = `
+exports[`[JSON.ObjectRow] should match initial snapshot 1`] = `
 <div>
   <div
-    class="relative -ml-4"
+    class="mt-1 flex items-center space-x-1"
+    style="margin-left: 0rem;"
+  >
+    <button
+      class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 invisible"
+    >
+      <svg
+        class="fill-white"
+      />
+    </button>
+    <pre
+      class="text-amber-700"
+    >
+      key
+      :
+    </pre>
+     
+    <pre
+      class="flex items-center space-x-0.5"
+    >
+      {
+      <button
+        class="mx-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600"
+      >
+        <svg />
+      </button>
+      }
+    </pre>
+  </div>
+  <div
+    class="relative "
   >
     <button
       class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-      style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+      style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
     >
       <div
         class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -22,7 +52,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
     </button>
     <div
       class="mt-1 flex items-center space-x-1"
-      style="margin-left: 0rem;"
+      style="margin-left: 1rem;"
     >
       <button
         class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -50,7 +80,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
     </div>
     <button
       class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-      style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+      style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
     >
       <div
         class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -65,7 +95,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
     </button>
     <div
       class="mt-1 flex items-center space-x-1"
-      style="margin-left: 0rem;"
+      style="margin-left: 1rem;"
     >
       <button
         class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 invisible"
@@ -94,11 +124,11 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </pre>
     </div>
     <div
-      class="relative "
+      class="relative hidden"
     >
       <button
         class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-        style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+        style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
       >
         <div
           class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -113,7 +143,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </button>
       <div
         class="mt-1 flex items-center space-x-1"
-        style="margin-left: 1rem;"
+        style="margin-left: 2rem;"
       >
         <button
           class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -141,7 +171,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </div>
       <button
         class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-        style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+        style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
       >
         <div
           class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -156,7 +186,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </button>
       <div
         class="mt-1 flex items-center space-x-1"
-        style="margin-left: 1rem;"
+        style="margin-left: 2rem;"
       >
         <button
           class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -184,7 +214,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </div>
       <button
         class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-        style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+        style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
       >
         <div
           class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -199,7 +229,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </button>
       <div
         class="mt-1 flex items-center space-x-1"
-        style="margin-left: 1rem;"
+        style="margin-left: 2rem;"
       >
         <button
           class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -227,7 +257,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </div>
       <button
         class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-        style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+        style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
       >
         <div
           class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -242,7 +272,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </button>
       <div
         class="mt-1 flex items-center space-x-1"
-        style="margin-left: 1rem;"
+        style="margin-left: 2rem;"
       >
         <button
           class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 invisible"
@@ -275,7 +305,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       >
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -290,7 +320,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </button>
         <div
           class="mt-1 flex items-center space-x-1"
-          style="margin-left: 2rem;"
+          style="margin-left: 3rem;"
         >
           <button
             class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -318,7 +348,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -333,7 +363,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </button>
         <div
           class="mt-1 flex items-center space-x-1"
-          style="margin-left: 2rem;"
+          style="margin-left: 3rem;"
         >
           <button
             class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -361,7 +391,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -376,7 +406,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </button>
         <div
           class="mt-1 flex items-center space-x-1"
-          style="margin-left: 2rem;"
+          style="margin-left: 3rem;"
         >
           <button
             class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -404,7 +434,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -419,7 +449,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </button>
         <div
           class="mt-1 flex items-center space-x-1"
-          style="margin-left: 2rem;"
+          style="margin-left: 3rem;"
         >
           <button
             class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -447,7 +477,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -462,7 +492,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </button>
         <div
           class="mt-1 flex items-center space-x-1"
-          style="margin-left: 2rem;"
+          style="margin-left: 3rem;"
         >
           <button
             class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -490,7 +520,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -506,7 +536,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </div>
       <button
         class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-        style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+        style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
       >
         <div
           class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -521,7 +551,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </button>
       <div
         class="mt-1 flex items-center space-x-1"
-        style="margin-left: 1rem;"
+        style="margin-left: 2rem;"
       >
         <button
           class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700 invisible"
@@ -554,7 +584,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       >
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -569,7 +599,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </button>
         <div
           class="mt-1 flex items-center space-x-1"
-          style="margin-left: 2rem;"
+          style="margin-left: 3rem;"
         >
           <button
             class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -597,7 +627,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -612,7 +642,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </button>
         <div
           class="mt-1 flex items-center space-x-1"
-          style="margin-left: 2rem;"
+          style="margin-left: 3rem;"
         >
           <button
             class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -640,7 +670,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
         </div>
         <button
           class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-          style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
+          style="margin-left: 4rem; width: calc(100% - 4rem); z-index: 3;"
         >
           <div
             class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -656,7 +686,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
       </div>
       <button
         class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-        style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
+        style="margin-left: 3rem; width: calc(100% - 3rem); z-index: 2;"
       >
         <div
           class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -672,7 +702,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
     </div>
     <button
       class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-      style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+      style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
     >
       <div
         class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
@@ -687,7 +717,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
     </button>
     <div
       class="mt-1 flex items-center space-x-1"
-      style="margin-left: 0rem;"
+      style="margin-left: 1rem;"
     >
       <button
         class="rounded-sm bg-red-500 hover:bg-red-600 active:bg-red-700  invisible"
@@ -715,7 +745,7 @@ exports[`[RequestBody] should match initial snapshot 1`] = `
     </div>
     <button
       class="absolute h-2 -mt-0.5 first:-mt-1.5 group opacity-0 hover:opacity-100"
-      style="margin-left: 1rem; width: calc(100% - 1rem); z-index: 0;"
+      style="margin-left: 2rem; width: calc(100% - 2rem); z-index: 1;"
     >
       <div
         class="absolute left-0 right-0 h-0.5 -translate-y-1/2 bg-slate-300 group-hover:bg-slate-400 group-active:bg-slate-500"
