@@ -18,17 +18,13 @@ import type { Intercept } from '@/interceptor'
 import type { SyntheticEvent } from 'react'
 
 interface ItemProps {
-  interceptId?: string
+  interceptId: string
   paused: boolean
   onDelete: (inter: Intercept) => void
   editOnRender: boolean
 }
 
 const Item = ({ interceptId, onDelete, editOnRender, paused }: ItemProps) => {
-  if (interceptId === undefined) {
-    throw new Error('missing intercept id')
-  }
-
   const { selection, setSelection, selectionType } = useSelection()
   const { intercept, updateIntercept } = useIntercept(interceptId)
   const [editing, setEditing] = useState(false)
@@ -99,13 +95,13 @@ const Item = ({ interceptId, onDelete, editOnRender, paused }: ItemProps) => {
           onChange={onToggleEnabled}
         />
         <span
-          className={`w-full mx-0.5 empty:before:content-['\\200b'] overflow-hidden text-ellipsis whitespace-nowrap ${
+          className={`w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap ${
             paused ? 'text-gray-400' : ''
           }`}
           onDoubleClick={onDoubleClickPattern}
           ref={patternLabelRef}
         >
-          {intercept.pattern}
+          {intercept.pattern === '' ? '\u200b' : intercept.pattern}
         </span>
         {editing && patternLabelRef.current ? (
           <ModalInput

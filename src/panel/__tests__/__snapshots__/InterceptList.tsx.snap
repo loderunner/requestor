@@ -48,7 +48,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -121,7 +121,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -194,7 +194,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -267,7 +267,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -294,7 +294,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -361,7 +361,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -388,7 +388,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -455,7 +455,7 @@ exports[`InterceptList should match empty snapshot 1`] = `
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap "
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap "
           >
             example.com
           </span>
@@ -522,7 +522,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>
@@ -595,7 +595,7 @@ exports[`InterceptList should show input modal on double click 1`] = `
             type="checkbox"
           />
           <span
-            class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
+            class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap text-gray-400"
           >
             example.com
           </span>

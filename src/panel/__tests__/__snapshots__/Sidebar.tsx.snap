@@ -105,7 +105,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
               type="checkbox"
             />
             <span
-              class="w-full mx-0.5 empty:before:content-['\\\\200b'] overflow-hidden text-ellipsis whitespace-nowrap "
+              class="w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap "
             >
               example.com
             </span>
