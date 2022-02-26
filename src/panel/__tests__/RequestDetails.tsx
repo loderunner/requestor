@@ -70,4 +70,22 @@ describe('[RequestDetails]', () => {
 
     expect(queryByRole('textbox')).toBeNull()
   })
+
+  it('should update method', async () => {
+    const user = userEvent.setup()
+    const { getByText } = render(
+      <RequestDetails requestId={globalMocks.request.id} />
+    )
+
+    const queryVariable = getByText('POST')
+
+    const updateRequestFn =
+      mockedHooks.useRequest.mock.results.at(-1)?.value.updateRequest
+    await user.dblClick(queryVariable)
+    await user.keyboard('PUT{Enter}')
+
+    expect(updateRequestFn).toHaveBeenCalledWith({
+      method: 'PUT',
+    })
+  })
 })

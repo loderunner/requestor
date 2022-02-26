@@ -28,6 +28,7 @@ export const updateRequest = (
   const current = requests.find((req) => req.id === id)
   if (current !== undefined) {
     current.url = request.url ?? current.url
+    current.method = request.method ?? current.method
     current.headers = request.headers ?? current.headers
     current.postData = request.postData ?? current.postData
     current.hasPostData = current.postData !== undefined

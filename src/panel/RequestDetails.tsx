@@ -227,7 +227,7 @@ const Section = ({
           />
         </React.Fragment>
       )),
-    [editable, entries, onChangeEntry]
+    [editable, entries, onChangeEntry, onDeleteEntry]
   )
 
   return (
@@ -336,6 +336,11 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     )
   }, [request.headers])
 
+  const onChangeMethod = useCallback(
+    (method: string) => updateRequest({ method }),
+    [updateRequest]
+  )
+
   return (
     <div className={className}>
       <span className="text-3xl font-bold">{url.host}</span>
@@ -349,7 +354,11 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         <span className="text-right font-medium text-gray-500 select-none">
           Method
         </span>
-        <SectionValue value={request.method} />
+        <SectionValue
+          value={request.method}
+          editable
+          onChange={onChangeMethod}
+        />
         {/* Sections */}
         {querySection}
         {headerSection}

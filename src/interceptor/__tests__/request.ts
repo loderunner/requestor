@@ -85,6 +85,7 @@ describe('[Interceptor.continueRequest]', () => {
       expect.objectContaining({
         requestId: globalMocks.request.id,
         url: globalMocks.request.url,
+        method: globalMocks.request.method,
         headers: Object.entries(globalMocks.request.headers).map(
           ([name, value]) => ({
             name,

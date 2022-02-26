@@ -131,6 +131,7 @@ export const continueRequest = async (request: Request) => {
   const commandParams: Protocol.Fetch.ContinueRequestRequest = {
     requestId: request.id,
     url: request.url,
+    method: request.method,
     headers: Object.entries(request.headers).map(([name, value]) => ({
       name,
       value,
