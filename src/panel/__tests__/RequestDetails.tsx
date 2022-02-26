@@ -57,4 +57,17 @@ describe('[RequestDetails]', () => {
       headers: expect.objectContaining({ 'Content-Type': 'text/plain' }),
     })
   })
+
+  it('should not be able to update cookies', async () => {
+    const user = userEvent.setup()
+    const { getByText, queryByRole } = render(
+      <RequestDetails requestId={globalMocks.request.id} />
+    )
+
+    const queryVariable = getByText('2022-02-20-16')
+
+    await user.dblClick(queryVariable)
+
+    expect(queryByRole('textbox')).toBeNull()
+  })
 })

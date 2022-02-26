@@ -12,10 +12,15 @@ import ModalInput from './components/ModalInput'
 
 interface SectionValueProps {
   value: string
+  editable?: boolean
   onChange?: (v: string) => void
 }
 
-const SectionValue = ({ value, onChange }: SectionValueProps) => {
+const SectionValue = ({
+  value,
+  onChange,
+  editable = false,
+}: SectionValueProps) => {
   const [foldable, setFoldable] = useState(false)
   const [folded, setFolded] = useState(true)
   const [showButtons, setShowButtons] = useState(false)
@@ -66,7 +71,11 @@ const SectionValue = ({ value, onChange }: SectionValueProps) => {
 
   const onHoverStart = useCallback(() => setShowButtons(true), [])
   const onHoverEnd = useCallback(() => setShowButtons(false), [])
-  const onDoubleClick = useCallback(() => setEditing(true), [])
+  const onDoubleClick = useCallback(() => {
+    if (editable) {
+      setEditing(true)
+    }
+  }, [editable])
   const onChangeInput = useCallback(
     (v: string) => {
       if (onChange !== undefined) {
@@ -102,11 +111,17 @@ const SectionValue = ({ value, onChange }: SectionValueProps) => {
 interface SectionProps {
   title: string
   entries: [string, string][]
+  editable?: boolean
   onChange?: (name: string, value: string) => void
   onDelete?: (name: string) => void
 }
 
-const Section = ({ title, entries, onChange }: SectionProps) => {
+const Section = ({
+  title,
+  entries,
+  onChange,
+  editable = false,
+}: SectionProps) => {
   const onChangeEntry = useCallback(
     (name: string, value: string) => {
       if (onChange !== undefined) {
@@ -125,11 +140,12 @@ const Section = ({ title, entries, onChange }: SectionProps) => {
           </span>
           <SectionValue
             value={value}
+            editable={editable}
             onChange={(v: string) => onChangeEntry(name, v)}
           />
         </React.Fragment>
       )),
-    [entries, onChangeEntry]
+    [editable, entries, onChangeEntry]
   )
 
   return (
@@ -167,6 +183,7 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
       <Section
         title="Query"
         entries={searchParams}
+        editable
         onChange={onChangeQuery}
       ></Section>
     )
@@ -187,6 +204,7 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
       <Section
         title="Headers"
         entries={headers}
+        editable
         onChange={onChangeHeader}
       ></Section>
     )
@@ -196,10 +214,16 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     const cookieHeader = Object.entries(request.headers).find(
       ([headerName]) => headerName.toLowerCase() === 'cookie'
     )
-    const cookies = cookieHeader ? cookie.parse(cookieHeader[1]) : []
+    const cookies: ReturnType<typeof cookie.parse> = cookieHeader
+      ? cookie.parse(cookieHeader[1])
+      : {}
 
     return (
-      <Section title="Cookies" entries={[...Object.entries(cookies)]}></Section>
+      <Section
+        title="Cookies"
+        entries={[...Object.entries(cookies)]}
+        editable={false}
+      ></Section>
     )
   }, [request.headers])
 
