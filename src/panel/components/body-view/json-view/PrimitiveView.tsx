@@ -71,11 +71,6 @@ const PrimitiveView = ({
     }
   }, [value])
 
-  const valueString = useMemo(
-    () => (value !== undefined ? JSON.stringify(value) : ''),
-    [value]
-  )
-
   return (
     <div className="flex-auto">
       <pre
@@ -83,12 +78,12 @@ const PrimitiveView = ({
         ref={preRef}
         onDoubleClick={onDoubleClick}
       >
-        {valueString}
+        {value !== undefined ? JSON.stringify(value) : '\u200b'}
       </pre>
       {editing && preRef.current ? (
         <ModalInput
           element={preRef.current}
-          value={valueString}
+          value={value !== undefined ? JSON.stringify(value) : ''}
           onChange={onChangeInput}
           onCancel={onCancelInput}
         />
