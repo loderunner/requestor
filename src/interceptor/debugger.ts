@@ -13,6 +13,75 @@ export const paused = () => pausedFlag
 export const pause = () => (pausedFlag = true)
 export const unpause = () => (pausedFlag = false)
 
+const onRequestEvent = (event: RequestPausedEvent, target: Debuggee) => {
+  if (!pausedFlag) {
+    for (const inter of intercepts) {
+      // Ignore disabled intercept
+      if (!inter.enabled) {
+        continue
+      }
+
+      // Ignore empty intercepts
+      if (inter.pattern === undefined || inter.pattern === '') {
+        continue
+      }
+
+      // Dispatch event if the intercept matches
+      const req = event.request
+      let match = false
+      if (inter.regexp) {
+        let re: RegExp
+        try {
+          re = new RegExp(inter.pattern, 'i')
+        } catch (error) {
+          continue
+        }
+        match = re.test(req.url)
+      } else {
+        match = req.url.includes(inter.pattern)
+      }
+      if (match) {
+        pushRequest({
+          id: event.requestId,
+          interceptResponse: inter.interceptResponse,
+          stage: 'Request',
+          ...req,
+        })
+        return // return to avoid double capture
+      }
+    }
+  }
+
+  // Continue request if no match
+  chrome.debugger.sendCommand(target, 'Fetch.continueRequest', {
+    requestId: event.requestId,
+  })
+}
+
+const onResponseEvent = (event: RequestPausedEvent, target: Debuggee) => {
+  if (event.responseErrorReason) {
+    const params: Protocol.Fetch.FailRequestRequest = {
+      requestId: event.requestId,
+      errorReason: event.responseErrorReason,
+    }
+    chrome.debugger.sendCommand(target, 'Fetch.failRequest', params)
+    return
+  }
+
+  // pushRequest({
+  //   id: event.requestId,
+  //   interceptResponse: true,
+  //   stage: 'Response',
+  // })
+
+  const params: Protocol.Fetch.FulfillRequestRequest = {
+    requestId: event.requestId,
+    responseCode: event.responseStatusCode as number,
+    responseHeaders: event.responseHeaders,
+  }
+  chrome.debugger.sendCommand(target, 'Fetch.fulfillRequest', params)
+}
+
 const onDebuggerEvent = (
   target: Debuggee,
   method: string,
@@ -20,43 +89,12 @@ const onDebuggerEvent = (
 ) => {
   if (method === 'Fetch.requestPaused') {
     const event: RequestPausedEvent = params as RequestPausedEvent
-    if (!pausedFlag) {
-      for (const inter of intercepts) {
-        // Ignore disabled intercept
-        if (!inter.enabled) {
-          continue
-        }
 
-        // Ignore empty intercepts
-        if (inter.pattern === undefined || inter.pattern === '') {
-          continue
-        }
-
-        // Dispatch event if the intercept matches
-        const req = event.request
-        let match = false
-        if (inter.regexp) {
-          let re: RegExp
-          try {
-            re = new RegExp(inter.pattern, 'i')
-          } catch (error) {
-            continue
-          }
-          match = re.test(req.url)
-        } else {
-          match = req.url.includes(inter.pattern)
-        }
-        if (match) {
-          pushRequest({ id: event.requestId, ...req })
-          return // return to avoid double capture
-        }
-      }
+    if (event.responseStatusCode || event.responseErrorReason) {
+      onResponseEvent(event, target)
+    } else {
+      onRequestEvent(event, target)
     }
-
-    // Continue request is no match
-    chrome.debugger.sendCommand(target, 'Fetch.continueRequest', {
-      requestId: event.requestId,
-    })
   }
 }
 
@@ -130,6 +168,7 @@ export const continueRequest = async (request: Request) => {
   const method = 'Fetch.continueRequest'
   const commandParams: Protocol.Fetch.ContinueRequestRequest = {
     requestId: request.id,
+    interceptResponse: request.interceptResponse,
     url: request.url,
     method: request.method,
     headers: Object.entries(request.headers).map(([name, value]) => ({

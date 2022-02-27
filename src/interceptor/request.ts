@@ -2,7 +2,15 @@ import * as Debugger from './debugger'
 
 import type { Protocol } from 'devtools-protocol'
 
-export type Request = Protocol.Network.Request & { id: string }
+export type Request = Protocol.Network.Request & {
+  id: string
+  interceptResponse: boolean
+  stage: Protocol.Fetch.RequestStage
+
+  // Response properties
+  statusCode?: number
+  statusText?: string
+}
 
 export const requests: Request[] = []
 
@@ -32,6 +40,8 @@ export const updateRequest = (
     current.headers = request.headers ?? current.headers
     current.postData = request.postData ?? current.postData
     current.hasPostData = current.postData !== undefined
+    current.interceptResponse =
+      request.interceptResponse ?? current.interceptResponse
   }
   return current
 }

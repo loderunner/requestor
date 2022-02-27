@@ -155,7 +155,12 @@ const InterceptList = ({ className = '' }: Props) => {
   const onAddIntercept = useCallback(
     (e: SyntheticEvent) => {
       e.stopPropagation()
-      const inter = addIntercept({ pattern: '', enabled: true, regexp: false })
+      const inter = addIntercept({
+        pattern: '',
+        enabled: true,
+        regexp: false,
+        interceptResponse: false,
+      })
       setNewIntercept(inter.id)
       setSelection({ ...inter })
     },

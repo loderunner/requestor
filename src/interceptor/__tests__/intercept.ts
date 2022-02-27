@@ -17,12 +17,14 @@ describe('[intercept.intercept]', () => {
   })
 
   it('should have 1 intercept after addIntercept', () => {
-    const newInter = { pattern: 'example.com', enabled: true, regexp: false }
-    const inter = addIntercept(newInter)
+    const inter = addIntercept(globalMocks.intercept)
     expect(intercepts).toBeArrayOfSize(1)
     expect(intercepts).toContainEqual(inter)
     expect(inter.id).toBeDefined()
-    expect(inter).toMatchObject(newInter)
+    expect(inter).toMatchObject({
+      ...globalMocks.intercept,
+      id: expect.any(String),
+    })
   })
 
   it('should have 10 intercepts after addIntercept', () => {
@@ -50,18 +52,35 @@ describe('[intercept.intercept]', () => {
     let updatedInter = updateIntercept(id as string, {
       pattern: 'eixample.com',
     })
-    expect(updateIntercept).toBeDefined()
-    expect(updatedInter?.id).toBe(id)
-    expect(updatedInter?.pattern).toBe('eixample.com')
-    expect(updatedInter?.enabled).toBe(true)
+    expect(updatedInter).toBeDefined()
+    expect(updatedInter).toMatchObject({
+      id,
+      pattern: 'eixample.com',
+      enabled: true,
+      interceptResponse: false,
+    })
 
     updatedInter = updateIntercept(id as string, {
       enabled: false,
     })
-    expect(updateIntercept).toBeDefined()
-    expect(updatedInter?.id).toBe(id)
-    expect(updatedInter?.pattern).toBe('eixample.com')
-    expect(updatedInter?.enabled).toBe(false)
+    expect(updatedInter).toBeDefined()
+    expect(updatedInter).toMatchObject({
+      id,
+      pattern: 'eixample.com',
+      enabled: false,
+      interceptResponse: false,
+    })
+
+    updatedInter = updateIntercept(id as string, {
+      interceptResponse: true,
+    })
+    expect(updatedInter).toBeDefined()
+    expect(updatedInter).toMatchObject({
+      id,
+      pattern: 'eixample.com',
+      enabled: false,
+      interceptResponse: true,
+    })
   })
 
   it('should not updateIntercept with invalid id', () => {

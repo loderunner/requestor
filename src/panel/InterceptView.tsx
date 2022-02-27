@@ -29,6 +29,10 @@ const InterceptView = ({ interceptId }: Props) => {
     updateIntercept({ regexp: !intercept.regexp })
   }, [intercept.regexp, updateIntercept])
 
+  const onToggleInterceptResponse = useCallback(() => {
+    updateIntercept({ interceptResponse: !intercept.interceptResponse })
+  }, [intercept.interceptResponse, updateIntercept])
+
   const onChangePattern = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       setPattern(e.target.value)
@@ -69,6 +73,14 @@ const InterceptView = ({ interceptId }: Props) => {
             <span className="ml-1 text-sm text-gray-700">Regexp</span>
           </label>
         </div>
+      </label>
+      <label className="mt-1 inline-flex items-center">
+        <input
+          type="checkbox"
+          checked={intercept.interceptResponse}
+          onChange={onToggleInterceptResponse}
+        />
+        <span className="ml-1 text-sm text-gray-700">Intercept response</span>
       </label>
     </div>
   )

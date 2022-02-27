@@ -133,7 +133,7 @@ describe('[InterceptHooks.useIntercept]', () => {
   })
 })
 
-describe('[InterceptHooks.usePaused', () => {
+describe('[InterceptHooks.usePaused]', () => {
   it('should update paused', () => {
     const { result } = renderHook(() => usePaused())
 

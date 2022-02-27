@@ -20,6 +20,18 @@ exports[`[RequestView] should match body snapshot 1`] = `
         Body
       </button>
     </div>
+    <label
+      class="mt-1 inline-flex items-center"
+    >
+      <input
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Intercept response
+      </span>
+    </label>
     <div
       class="hidden"
     >
@@ -277,7 +289,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           <span
             class="text-ellipsis overflow-x-hidden whitespace-nowrap"
           >
-            YES+srp.gws-20220217-0-RC1.en+FX+923
+            YES
           </span>
         </div>
         <div
@@ -286,7 +298,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           <span
             class="font-medium text-gray-500 select-none"
           >
-            1P_JAR
+            DATE
           </span>
         </div>
         <div
@@ -1055,6 +1067,18 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         Body
       </button>
     </div>
+    <label
+      class="mt-1 inline-flex items-center"
+    >
+      <input
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Intercept response
+      </span>
+    </label>
     <div
       class=""
     >
@@ -1312,7 +1336,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           <span
             class="text-ellipsis overflow-x-hidden whitespace-nowrap"
           >
-            YES+srp.gws-20220217-0-RC1.en+FX+923
+            YES
           </span>
         </div>
         <div
@@ -1321,7 +1345,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           <span
             class="font-medium text-gray-500 select-none"
           >
-            1P_JAR
+            DATE
           </span>
         </div>
         <div
@@ -2090,6 +2114,18 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         Body
       </button>
     </div>
+    <label
+      class="mt-1 inline-flex items-center"
+    >
+      <input
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Intercept response
+      </span>
+    </label>
     <div
       class=""
     >
@@ -2347,7 +2383,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           <span
             class="text-ellipsis overflow-x-hidden whitespace-nowrap"
           >
-            YES+srp.gws-20220217-0-RC1.en+FX+923
+            YES
           </span>
         </div>
         <div
@@ -2356,7 +2392,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           <span
             class="font-medium text-gray-500 select-none"
           >
-            1P_JAR
+            DATE
           </span>
         </div>
         <div

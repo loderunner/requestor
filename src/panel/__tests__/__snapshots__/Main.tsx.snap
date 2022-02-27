@@ -95,6 +95,18 @@ exports[`[Main] should match intercept selection snapshot 1`] = `
           </label>
         </div>
       </label>
+      <label
+        class="mt-1 inline-flex items-center"
+      >
+        <input
+          type="checkbox"
+        />
+        <span
+          class="ml-1 text-sm text-gray-700"
+        >
+          Intercept response
+        </span>
+      </label>
     </div>
   </main>
 </div>
@@ -124,6 +136,18 @@ exports[`[Main] should match request selection snapshot 1`] = `
           Body
         </button>
       </div>
+      <label
+        class="mt-1 inline-flex items-center"
+      >
+        <input
+          type="checkbox"
+        />
+        <span
+          class="ml-1 text-sm text-gray-700"
+        >
+          Intercept response
+        </span>
+      </label>
       <div
         class=""
       >
@@ -381,7 +405,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             <span
               class="text-ellipsis overflow-x-hidden whitespace-nowrap"
             >
-              YES+srp.gws-20220217-0-RC1.en+FX+923
+              YES
             </span>
           </div>
           <div
@@ -390,7 +414,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
             <span
               class="font-medium text-gray-500 select-none"
             >
-              1P_JAR
+              DATE
             </span>
           </div>
           <div
