@@ -30,7 +30,7 @@ const responseEvent: RequestPausedEvent = {
   resourceType: 'Fetch',
   request: globalMocks.response,
   responseStatusCode: 200,
-  responseStatusText: '',
+  responseStatusText: 'OK',
   responseHeaders: headersToEntries(globalMocks.response.headers),
 }
 

@@ -47,7 +47,13 @@ export const useRequests = () => {
 
   const continueAllRequests = useCallback(async () => {
     await Promise.allSettled(
-      requests.map((req) => Interceptor.continueRequest(req.id))
+      requests.map((req) => {
+        if (req.stage === 'Request') {
+          return Interceptor.continueRequest(req.id)
+        } else if (req.stage === 'Response') {
+          return Interceptor.fulfillRequest(req.id)
+        }
+      })
     )
     setRequests([...Interceptor.requests])
   }, [requests, setRequests])

@@ -64,7 +64,7 @@ const globalMocks: GlobalMocks = {
     referrerPolicy: 'unsafe-url',
     url: 'https://www.example.com/complete/search?q=toto&client=gws-wiz',
     statusCode: 200,
-    statusText: '',
+    statusText: 'OK',
   },
   intercept: {
     id: 'inter',
