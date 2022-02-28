@@ -3,6 +3,7 @@ import { useCallback, useMemo } from 'react'
 
 import {
   Eject as EjectIcon,
+  MultipleStop as MultipleStopIcon,
   PlayArrow as PlayArrowIcon,
   Stop as StopIcon,
 } from '@/icons'
@@ -22,6 +23,12 @@ const Item = ({ requestId }: ItemProps) => {
   const { request, continueRequest, failRequest } = useRequest(requestId)
   const { selection, selectionType, setSelection } = useSelection()
 
+  const selected = useMemo(
+    () =>
+      selectionType === 'request' && (selection as Request).id === request.id,
+    [request.id, selection, selectionType]
+  )
+
   const onSelect = useCallback(
     (e: SyntheticEvent) => {
       e.stopPropagation()
@@ -30,17 +37,41 @@ const Item = ({ requestId }: ItemProps) => {
     [request, setSelection]
   )
 
-  const selectionClass = useMemo(() => {
-    let className = ''
-    if (selectionType !== 'request') {
-      return className
+  const bgColor = useMemo(() => {
+    if (selected) {
+      if (request.stage === 'Request') {
+        return 'bg-blue-100'
+      } else if (request.stage === 'Response') {
+        const statusCode = request.statusCode ?? 0
+        if (statusCode >= 200 && statusCode < 300) {
+          return 'bg-lime-100'
+        } else if (statusCode >= 300 && statusCode < 400) {
+          return 'bg-indigo-100'
+        } else if (statusCode >= 400 && statusCode < 500) {
+          return 'bg-yellow-100'
+        } else if (statusCode >= 500 && statusCode < 600) {
+          return 'bg-red-100'
+        }
+      }
     }
-    const s = selection as Request
-    if (s.id === request.id) {
-      className = 'bg-blue-100'
+    return ''
+  }, [request.stage, request.statusCode, selected])
+
+  const iconColor = useMemo(() => {
+    if (request.stage === 'Response') {
+      const statusCode = request.statusCode ?? 0
+      if (statusCode >= 200 && statusCode < 300) {
+        return 'fill-green-600'
+      } else if (statusCode >= 300 && statusCode < 400) {
+        return 'fill-indigo-600'
+      } else if (statusCode >= 400 && statusCode < 500) {
+        return 'fill-amber-600'
+      } else if (statusCode >= 500 && statusCode < 600) {
+        return 'fill-red-600'
+      }
     }
-    return className
-  }, [selectionType, selection, request.id])
+    return ''
+  }, [request.stage, request.statusCode])
 
   const onContinueOrFail = useCallback(
     async (e: SyntheticEvent, continueOrFail: 'continue' | 'fail') => {
@@ -88,10 +119,15 @@ const Item = ({ requestId }: ItemProps) => {
 
   return (
     <div
-      className={`px-1 flex select-none overflow-hidden ${selectionClass}`}
+      className={`px-1 flex select-none overflow-hidden ${bgColor}`}
       role="listitem"
       onClick={onSelect}
     >
+      {request.stage === 'Response' ? (
+        <span className="self-stretch">
+          <MultipleStopIcon className={`h-full w-auto ${iconColor}`} />
+        </span>
+      ) : null}
       <span className="flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap">
         {request.url}
       </span>
