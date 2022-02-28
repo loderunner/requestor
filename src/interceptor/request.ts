@@ -67,6 +67,19 @@ export const failRequest = async (requestId: string) => {
   }
 }
 
+export const fulfillRequest = async (requestId: string) => {
+  const req = requests.find((req) => req.id === requestId)
+  if (req !== undefined) {
+    await Debugger.fulfillRequest(req)
+  }
+
+  // Search again because may have changed concurrently
+  const i = requests.findIndex((req) => req.id === requestId)
+  if (i !== -1) {
+    requests.splice(i, 1)
+  }
+}
+
 export type RequestEventListener = (req: Request) => void
 
 export const subscribe = (listener: RequestEventListener) => {

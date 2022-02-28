@@ -2,6 +2,7 @@ import type { Intercept, Request } from '@/interceptor'
 
 interface GlobalMocks {
   request: Request
+  response: Request
   intercept: Intercept
   target: chrome.debugger.TargetInfo
 }
@@ -47,6 +48,23 @@ const globalMocks: GlobalMocks = {
     url: 'https://www.example.com/complete/search?q=toto&client=gws-wiz',
     hasPostData: true,
     postData: JSON.stringify(payload),
+  },
+  response: {
+    id: 'response',
+    interceptResponse: true,
+    stage: 'Response',
+    headers: {
+      date: 'Sun, 27 Feb 2022 19:44:34 GMT',
+      'content-type': 'text/html; charset=utf-8',
+      'content-length': '0',
+      server: 'gunicorn/19.9.0',
+    },
+    initialPriority: 'High',
+    method: 'OPTIONS',
+    referrerPolicy: 'unsafe-url',
+    url: 'https://www.example.com/complete/search?q=toto&client=gws-wiz',
+    statusCode: 200,
+    statusText: '',
   },
   intercept: {
     id: 'inter',

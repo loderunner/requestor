@@ -8,6 +8,19 @@ type TargetInfo = chrome.debugger.TargetInfo
 type Debuggee = chrome.debugger.Debuggee
 export type RequestPausedEvent = Protocol.Fetch.RequestPausedEvent
 
+export const headersToEntries = (
+  headers: Protocol.Network.Headers
+): Protocol.Fetch.HeaderEntry[] =>
+  Object.entries(headers).map(([name, value]) => ({
+    name,
+    value,
+  }))
+
+export const entriesToHeaders = (
+  entries: Protocol.Fetch.HeaderEntry[]
+): Protocol.Network.Headers =>
+  Object.fromEntries(entries.map(({ name, value }) => [name, value]))
+
 let pausedFlag = false
 export const paused = () => pausedFlag
 export const pause = () => (pausedFlag = true)
@@ -68,18 +81,16 @@ const onResponseEvent = (event: RequestPausedEvent, target: Debuggee) => {
     return
   }
 
-  // pushRequest({
-  //   id: event.requestId,
-  //   interceptResponse: true,
-  //   stage: 'Response',
-  // })
-
-  const params: Protocol.Fetch.FulfillRequestRequest = {
-    requestId: event.requestId,
-    responseCode: event.responseStatusCode as number,
-    responseHeaders: event.responseHeaders,
-  }
-  chrome.debugger.sendCommand(target, 'Fetch.fulfillRequest', params)
+  const req = event.request
+  pushRequest({
+    id: event.requestId,
+    interceptResponse: true,
+    stage: 'Response',
+    ...req,
+    headers: entriesToHeaders(event.responseHeaders ?? []),
+    statusCode: event.responseStatusCode,
+    statusText: event.responseStatusText,
+  })
 }
 
 const onDebuggerEvent = (
@@ -137,12 +148,12 @@ export const unlisten = () => {
   debuggee = undefined
 }
 
-const continueOrFailRequest = async (
-  requestId: string,
+const sendRequestCommand = async (
   method: string,
   commandParams:
     | Protocol.Fetch.ContinueRequestRequest
     | Protocol.Fetch.FailRequestRequest
+    | Protocol.Fetch.FulfillRequestRequest
 ) => {
   if (debuggee === undefined) {
     throw new Error('Debugger not connected.\nDid you call listen() ?')
@@ -157,7 +168,7 @@ const continueOrFailRequest = async (
       if (jsonErr.code === -32602) {
         return
       }
-    } catch (jsonErr) {
+    } catch (parseErr) {
       // Fallthrough on JSON parse error
     }
     throw err
@@ -165,19 +176,19 @@ const continueOrFailRequest = async (
 }
 
 export const continueRequest = async (request: Request) => {
+  if (request.stage !== 'Request') {
+    throw new Error(`cannot continue request at the ${request.stage} stage`)
+  }
   const method = 'Fetch.continueRequest'
   const commandParams: Protocol.Fetch.ContinueRequestRequest = {
     requestId: request.id,
     interceptResponse: request.interceptResponse,
     url: request.url,
     method: request.method,
-    headers: Object.entries(request.headers).map(([name, value]) => ({
-      name,
-      value,
-    })),
+    headers: headersToEntries(request.headers),
     postData: request.postData && window.btoa(request.postData),
   }
-  return continueOrFailRequest(request.id, method, commandParams)
+  return sendRequestCommand(method, commandParams)
 }
 
 export const failRequest = async (requestId: string) => {
@@ -186,5 +197,17 @@ export const failRequest = async (requestId: string) => {
     requestId,
     errorReason: 'Aborted',
   }
-  return continueOrFailRequest(requestId, method, commandParams)
+  return sendRequestCommand(method, commandParams)
+}
+
+export const fulfillRequest = async (response: Request) => {
+  const method = 'Fetch.fulfillRequest'
+
+  const commandParams: Protocol.Fetch.FulfillRequestRequest = {
+    requestId: response.id,
+    responseCode: response.statusCode as number,
+    responsePhrase: response.statusText as string,
+    responseHeaders: headersToEntries(response.headers),
+  }
+  return sendRequestCommand(method, commandParams)
 }

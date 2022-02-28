@@ -1,7 +1,12 @@
 import { chrome } from 'jest-chrome'
 
 import * as Debugger from '../debugger'
-import { RequestPausedEvent, listen, unlisten } from '../debugger'
+import {
+  RequestPausedEvent,
+  headersToEntries,
+  listen,
+  unlisten,
+} from '../debugger'
 import {
   addIntercept,
   intercepts,
@@ -12,11 +17,29 @@ import { subscribe } from '../request'
 
 const target = globalMocks.target
 
-const event: RequestPausedEvent = {
+const requestEvent: RequestPausedEvent = {
   frameId: '1',
   requestId: '1',
   resourceType: 'Fetch',
   request: globalMocks.request,
+}
+
+const responseEvent: RequestPausedEvent = {
+  frameId: '1',
+  requestId: '1',
+  resourceType: 'Fetch',
+  request: globalMocks.response,
+  responseStatusCode: 200,
+  responseStatusText: '',
+  responseHeaders: headersToEntries(globalMocks.response.headers),
+}
+
+const responseErrorEvent: RequestPausedEvent = {
+  frameId: '1',
+  requestId: '1',
+  resourceType: 'Fetch',
+  request: globalMocks.request,
+  responseErrorReason: 'ConnectionClosed',
 }
 
 describe('[Interceptor.subscribe]', () => {
@@ -52,7 +75,7 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).not.toBeCalled()
   })
@@ -62,9 +85,12 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
-    expect(listener).toBeCalledWith({ id: event.requestId, ...event.request })
+    expect(listener).toBeCalledWith({
+      id: requestEvent.requestId,
+      ...requestEvent.request,
+    })
   })
 
   it('should call subscribed callback with a matching regexp intercept', () => {
@@ -72,9 +98,12 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
-    expect(listener).toBeCalledWith({ id: event.requestId, ...event.request })
+    expect(listener).toBeCalledWith({
+      id: requestEvent.requestId,
+      ...requestEvent.request,
+    })
 
     addIntercept({
       ...globalMocks.intercept,
@@ -84,9 +113,12 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
-    expect(listener).toBeCalledWith({ id: event.requestId, ...event.request })
+    expect(listener).toBeCalledWith({
+      id: requestEvent.requestId,
+      ...requestEvent.request,
+    })
   })
 
   it('should not call subscribed callback twice if 2 intercepts match', () => {
@@ -95,7 +127,7 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).toBeCalledTimes(1)
   })
@@ -105,7 +137,7 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).not.toBeCalled()
   })
@@ -115,17 +147,17 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).not.toBeCalled()
   })
 
-  it('should not call subscribed callback without a matching regexp partern', () => {
+  it('should not call subscribed callback without a matching regexp pattern', () => {
     addIntercept({ ...globalMocks.intercept, pattern: '.*' })
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).not.toBeCalled()
 
@@ -136,7 +168,7 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).not.toBeCalled()
   })
@@ -146,7 +178,29 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
+    )
+    expect(listener).not.toBeCalled()
+  })
+
+  it('should call subscribed callback for a response event', () => {
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      responseEvent
+    )
+    expect(listener).toBeCalledWith({
+      id: responseEvent.requestId,
+      stage: 'Response',
+      ...responseEvent.request,
+    })
+  })
+
+  it('should not call subscribed callback for a response error event', () => {
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      responseErrorEvent
     )
     expect(listener).not.toBeCalled()
   })
@@ -157,7 +211,7 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).not.toBeCalled()
   })
@@ -171,7 +225,7 @@ describe('[Interceptor.subscribe]', () => {
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
-      event
+      requestEvent
     )
     expect(listener).not.toBeCalled()
   })
