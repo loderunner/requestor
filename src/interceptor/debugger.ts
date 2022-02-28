@@ -89,7 +89,8 @@ const onResponseEvent = (event: RequestPausedEvent, target: Debuggee) => {
     ...req,
     headers: entriesToHeaders(event.responseHeaders ?? []),
     statusCode: event.responseStatusCode,
-    statusText: event.responseStatusText,
+    statusText:
+      event.responseStatusText !== '' ? event.responseStatusText : undefined,
   })
 }
 
@@ -162,16 +163,14 @@ const sendRequestCommand = async (
   try {
     await chrome.debugger.sendCommand(debuggee, method, commandParams)
   } catch (err) {
-    // Don't throw on Invalid ID error
+    let e = err as Error
     try {
       const jsonErr = JSON.parse((err as Error).message)
-      if (jsonErr.code === -32602) {
-        return
-      }
+      e = new Error(jsonErr.message)
     } catch (parseErr) {
       // Fallthrough on JSON parse error
     }
-    throw err
+    throw e
   }
 }
 

@@ -89,7 +89,7 @@ const SectionValue = ({
   )
 
   return (
-    <div
+    <span
       className="flex overflow-x-hidden space-x-1"
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
@@ -106,7 +106,7 @@ const SectionValue = ({
           onCancel={() => setEditing(false)}
         />
       ) : null}
-    </div>
+    </span>
   )
 }
 
@@ -358,6 +358,20 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     [updateRequest]
   )
 
+  const onChangeStatusCode = useCallback(
+    (statusCode: string) => {
+      if (request.stage !== 'Response') {
+        throw new Error(`cannot change status code at ${request.stage} stage`)
+      }
+      const code = parseInt(statusCode)
+      if (Number.isNaN(code)) {
+        throw new Error('invalid status code')
+      }
+      updateRequest({ statusCode: code })
+    },
+    [request.stage, updateRequest]
+  )
+
   return (
     <div className={className}>
       <span className="text-3xl font-bold">{url.host}</span>
@@ -369,9 +383,9 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
               Status
             </span>
             <SectionValue
-              value={`${url.origin}${url.pathname}`}
-              editable={!isResponse}
-              onChange={onChangeURL}
+              value={`${request.statusCode}`}
+              editable
+              onChange={onChangeStatusCode}
             />
           </>
         ) : null}
