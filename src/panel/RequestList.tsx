@@ -1,4 +1,3 @@
-import { setSelection } from '@testing-library/user-event/dist/types/utils'
 import * as React from 'react'
 import { useCallback, useMemo } from 'react'
 
@@ -176,7 +175,7 @@ const RequestList = ({ className = '' }: Props) => {
         </button>
       </div>
     ),
-    [continueAllRequests]
+    [onContinueAll]
   )
 
   return (
