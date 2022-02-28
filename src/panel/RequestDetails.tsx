@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import {
+  Circle as CircleIcon,
   Clear as ClearIcon,
   UnfoldLess as UnfoldLessIcon,
   UnfoldMore as UnfoldMoreIcon,
@@ -358,6 +359,22 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     [updateRequest]
   )
 
+  const iconColor = useMemo(() => {
+    if (request.stage === 'Response') {
+      const statusCode = request.statusCode ?? 0
+      if (statusCode >= 200 && statusCode < 300) {
+        return 'fill-green-600'
+      } else if (statusCode >= 300 && statusCode < 400) {
+        return 'fill-indigo-600'
+      } else if (statusCode >= 400 && statusCode < 500) {
+        return 'fill-yellow-500'
+      } else if (statusCode >= 500 && statusCode < 600) {
+        return 'fill-red-600'
+      }
+    }
+    return ''
+  }, [request.stage, request.statusCode])
+
   const onChangeStatusCode = useCallback(
     (statusCode: string) => {
       if (request.stage !== 'Response') {
@@ -382,11 +399,16 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
             <span className="text-right font-medium text-gray-500 select-none">
               Status
             </span>
-            <SectionValue
-              value={`${request.statusCode}`}
-              editable
-              onChange={onChangeStatusCode}
-            />
+            <div className="inline-flex items-center space-x-1">
+              <span>
+                <CircleIcon className={`h-full w-auto ${iconColor}`} />
+              </span>
+              <SectionValue
+                value={`${request.statusCode}`}
+                editable
+                onChange={onChangeStatusCode}
+              />
+            </div>
           </>
         ) : null}
         {/* URL */}

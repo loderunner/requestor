@@ -1,4 +1,5 @@
 export { default as Add } from './add.svg'
+export { default as Circle } from './circle.svg'
 export { default as Clear } from './clear.svg'
 export { default as Copy } from './copy.svg'
 export { default as Eject } from './eject.svg'
