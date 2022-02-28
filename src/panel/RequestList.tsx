@@ -1,3 +1,4 @@
+import { setSelection } from '@testing-library/user-event/dist/types/utils'
 import * as React from 'react'
 import { useCallback, useMemo } from 'react'
 
@@ -150,11 +151,17 @@ interface Props {
 }
 
 const RequestList = ({ className = '' }: Props) => {
+  const { setSelection } = useSelection()
   const { requests, continueAllRequests } = useRequests()
   const items = useMemo(
     () => requests.map((req, i) => <Item key={i} requestId={req.id} />),
     [requests]
   )
+
+  const onContinueAll = useCallback(() => {
+    setSelection(null)
+    continueAllRequests()
+  }, [continueAllRequests, setSelection])
 
   const header = useMemo(
     () => (
@@ -163,7 +170,7 @@ const RequestList = ({ className = '' }: Props) => {
         <button
           className="self-stretch"
           title="Continue all requests"
-          onClick={continueAllRequests}
+          onClick={onContinueAll}
         >
           <EjectIcon className="h-full w-auto rotate-90" />
         </button>
