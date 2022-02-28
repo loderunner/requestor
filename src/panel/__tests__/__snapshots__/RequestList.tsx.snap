@@ -57,3 +57,68 @@ exports[`[RequestList] should match requestful snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`[RequestList] should match responseful snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col "
+    id="request-list"
+    role="list"
+  >
+    <div
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+    >
+      <span
+        class="font-bold flex-auto"
+      >
+        Requests
+      </span>
+      <button
+        class="self-stretch"
+        title="Continue all requests"
+      >
+        <svg
+          class="h-full w-auto rotate-90"
+        />
+      </button>
+    </div>
+    <div
+      class="flex flex-col overflow-y-visible"
+    >
+      <div
+        class="px-1 flex select-none overflow-hidden "
+        role="listitem"
+      >
+        <span
+          class="self-stretch"
+        >
+          <svg
+            class="h-full w-auto fill-green-600"
+          />
+        </span>
+        <span
+          class="flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap"
+        >
+          https://www.example.com/complete/search?q=toto&client=gws-wiz
+        </span>
+        <button
+          class="self-stretch"
+          title="Cancel request"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+        <button
+          class="self-stretch"
+          title="Continue request"
+        >
+          <svg
+            class="h-full w-auto"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

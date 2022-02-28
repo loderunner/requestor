@@ -1,5 +1,7 @@
 import * as React from 'react'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+
+import { useRequest } from '@/interceptor/hooks'
 
 import RequestBody from './RequestBody'
 import RequestDetails from './RequestDetails'
@@ -16,6 +18,7 @@ const disabledButtonClassName =
   'text-base rounded py-2 px-4 font-medium border bg-blue-50'
 
 const RequestView = ({ requestId }: Props) => {
+  const { request, updateRequest } = useRequest(requestId)
   const [tab, setTab] = useState<Tab>('headers')
 
   useEffect(() => {
@@ -63,9 +66,21 @@ const RequestView = ({ requestId }: Props) => {
     )
   }, [tab])
 
+  const onToggleInterceptResponse = useCallback(() => {
+    updateRequest({ interceptResponse: !request.interceptResponse })
+  }, [request.interceptResponse, updateRequest])
+
   return (
     <div className="max-w-5xl mx-24 my-8 px-8 pt-2">
       <div className="flex space-x-4 mb-4">{buttons}</div>
+      <label className="mt-1 inline-flex items-center">
+        <input
+          type="checkbox"
+          checked={request.interceptResponse}
+          onChange={onToggleInterceptResponse}
+        />
+        <span className="ml-1 text-sm text-gray-700">Intercept response</span>
+      </label>
       {content}
     </div>
   )

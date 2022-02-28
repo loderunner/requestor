@@ -3,6 +3,7 @@ export interface Intercept {
   pattern: string
   enabled: boolean
   regexp: boolean
+  interceptResponse: boolean
 }
 
 export const intercepts: Intercept[] = []
@@ -29,6 +30,8 @@ export const updateIntercept = (
     current.pattern = inter.pattern ?? current.pattern
     current.enabled = inter.enabled ?? current.enabled
     current.regexp = inter.regexp ?? current.regexp
+    current.interceptResponse =
+      inter.interceptResponse ?? current.interceptResponse
   }
   return current
 }

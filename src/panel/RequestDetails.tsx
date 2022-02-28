@@ -3,6 +3,7 @@ import * as React from 'react'
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
 import {
+  Circle as CircleIcon,
   Clear as ClearIcon,
   UnfoldLess as UnfoldLessIcon,
   UnfoldMore as UnfoldMoreIcon,
@@ -89,7 +90,7 @@ const SectionValue = ({
   )
 
   return (
-    <div
+    <span
       className="flex overflow-x-hidden space-x-1"
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
@@ -106,7 +107,7 @@ const SectionValue = ({
           onCancel={() => setEditing(false)}
         />
       ) : null}
-    </div>
+    </span>
   )
 }
 
@@ -216,7 +217,7 @@ const Section = ({
                 />
               </button>
             ) : null}
-            <span className="font-medium text-gray-500 select-none">
+            <span className="font-medium text-right text-gray-500 select-none">
               {name}
             </span>
           </div>
@@ -254,6 +255,10 @@ interface Props {
 const RequestDetails = ({ requestId, className = '' }: Props) => {
   const { request, updateRequest } = useRequest(requestId)
   const url = useMemo(() => new URL(request.url), [request.url])
+  const isResponse = useMemo(
+    () => request.stage === 'Response',
+    [request.stage]
+  )
 
   const onChangeQuery = useCallback(
     (name: string, value: string) => {
@@ -281,12 +286,12 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
       <Section
         title="Query"
         entries={searchParams}
-        editable
+        editable={!isResponse}
         onChange={onChangeQuery}
         onDelete={onDeleteQuery}
       ></Section>
     )
-  }, [onChangeQuery, onDeleteQuery, url.searchParams])
+  }, [isResponse, onChangeQuery, onDeleteQuery, url.searchParams])
 
   const onChangeHeader = useCallback(
     (name: string, value: string) => {
@@ -320,6 +325,10 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
   }, [onChangeHeader, onDeleteHeader, request.headers])
 
   const cookieSection = useMemo(() => {
+    if (isResponse) {
+      return null
+    }
+
     const cookieHeader = Object.entries(request.headers).find(
       ([headerName]) => headerName.toLowerCase() === 'cookie'
     )
@@ -334,7 +343,7 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         editable={false}
       ></Section>
     )
-  }, [request.headers])
+  }, [isResponse, request.headers])
 
   const onChangeURL = useCallback(
     (value: string) => {
@@ -350,17 +359,65 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
     [updateRequest]
   )
 
+  const iconColor = useMemo(() => {
+    if (request.stage === 'Response') {
+      const statusCode = request.statusCode ?? 0
+      if (statusCode >= 200 && statusCode < 300) {
+        return 'fill-green-600'
+      } else if (statusCode >= 300 && statusCode < 400) {
+        return 'fill-indigo-600'
+      } else if (statusCode >= 400 && statusCode < 500) {
+        return 'fill-yellow-500'
+      } else if (statusCode >= 500 && statusCode < 600) {
+        return 'fill-red-600'
+      }
+    }
+    return ''
+  }, [request.stage, request.statusCode])
+
+  const onChangeStatusCode = useCallback(
+    (statusCode: string) => {
+      if (request.stage !== 'Response') {
+        throw new Error(`cannot change status code at ${request.stage} stage`)
+      }
+      const code = parseInt(statusCode)
+      if (Number.isNaN(code)) {
+        throw new Error('invalid status code')
+      }
+      updateRequest({ statusCode: code })
+    },
+    [request.stage, updateRequest]
+  )
+
   return (
     <div className={className}>
       <span className="text-3xl font-bold">{url.host}</span>
       <div className="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1">
+        {/* Response status */}
+        {isResponse ? (
+          <>
+            <span className="text-right font-medium text-gray-500 select-none">
+              Status
+            </span>
+            <div className="inline-flex items-center space-x-1">
+              <span>
+                <CircleIcon className={`h-full w-auto ${iconColor}`} />
+              </span>
+              <SectionValue
+                value={`${request.statusCode}`}
+                editable
+                onChange={onChangeStatusCode}
+              />
+            </div>
+          </>
+        ) : null}
         {/* URL */}
         <span className="text-right font-medium text-gray-500 select-none">
           URL
         </span>
         <SectionValue
           value={`${url.origin}${url.pathname}`}
-          editable
+          editable={!isResponse}
           onChange={onChangeURL}
         />
         {/* Method */}
@@ -369,7 +426,7 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         </span>
         <SectionValue
           value={request.method}
-          editable
+          editable={!isResponse}
           onChange={onChangeMethod}
         />
         {/* Sections */}

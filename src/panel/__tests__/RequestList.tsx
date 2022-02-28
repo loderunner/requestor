@@ -25,6 +25,24 @@ describe('[RequestList]', () => {
     expect(container).toMatchSnapshot()
   })
 
+  it('should match responseful snapshot', async () => {
+    const mockImpl =
+      mockedHooks.useRequest.getMockImplementation() as typeof mockedHooks.useRequest
+    mockedHooks.useRequest.mockImplementation((id: string) => {
+      const ret = mockImpl(id)
+      return {
+        ...ret,
+        request: globalMocks.response,
+      }
+    })
+    const { container } = render(
+      <RequestProvider>
+        <RequestList />
+      </RequestProvider>
+    )
+    expect(container).toMatchSnapshot()
+  })
+
   it('should call continueRequest', async () => {
     const { getByRole } = render(
       <RequestProvider>

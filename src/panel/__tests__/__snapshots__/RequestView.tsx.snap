@@ -20,6 +20,18 @@ exports[`[RequestView] should match body snapshot 1`] = `
         Body
       </button>
     </div>
+    <label
+      class="mt-1 inline-flex items-center"
+    >
+      <input
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Intercept response
+      </span>
+    </label>
     <div
       class="hidden"
     >
@@ -36,7 +48,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
         >
           URL
         </span>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -44,13 +56,13 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             https://www.example.com/complete/search
           </span>
-        </div>
+        </span>
         <span
           class="text-right font-medium text-gray-500 select-none"
         >
           Method
         </span>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -58,7 +70,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             POST
           </span>
-        </div>
+        </span>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -75,12 +87,12 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             q
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -88,7 +100,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             toto
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -100,12 +112,12 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             client
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -113,7 +125,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             gws-wiz
           </span>
-        </div>
+        </span>
         <div
           class="relative col-span-2"
         >
@@ -149,12 +161,12 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Accept
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -162,7 +174,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             */*
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -174,12 +186,12 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Referer
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -187,7 +199,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             https://www.google.com/
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -199,12 +211,12 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             User-Agent
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -212,7 +224,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -224,12 +236,12 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Content-Type
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -237,7 +249,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             application/json
           </span>
-        </div>
+        </span>
         <div
           class="relative col-span-2"
         >
@@ -266,30 +278,30 @@ exports[`[RequestView] should match body snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             CONSENT
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
             class="text-ellipsis overflow-x-hidden whitespace-nowrap"
           >
-            YES+srp.gws-20220217-0-RC1.en+FX+923
+            YES
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
-            1P_JAR
+            DATE
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -297,7 +309,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           >
             2022-02-20-16
           </span>
-        </div>
+        </span>
       </div>
     </div>
     <div
@@ -1055,6 +1067,18 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         Body
       </button>
     </div>
+    <label
+      class="mt-1 inline-flex items-center"
+    >
+      <input
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Intercept response
+      </span>
+    </label>
     <div
       class=""
     >
@@ -1071,7 +1095,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         >
           URL
         </span>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1079,13 +1103,13 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             https://www.example.com/complete/search
           </span>
-        </div>
+        </span>
         <span
           class="text-right font-medium text-gray-500 select-none"
         >
           Method
         </span>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1093,7 +1117,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             POST
           </span>
-        </div>
+        </span>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -1110,12 +1134,12 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             q
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1123,7 +1147,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             toto
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -1135,12 +1159,12 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             client
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1148,7 +1172,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             gws-wiz
           </span>
-        </div>
+        </span>
         <div
           class="relative col-span-2"
         >
@@ -1184,12 +1208,12 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Accept
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1197,7 +1221,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             */*
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -1209,12 +1233,12 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Referer
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1222,7 +1246,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             https://www.google.com/
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -1234,12 +1258,12 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             User-Agent
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1247,7 +1271,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -1259,12 +1283,12 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Content-Type
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1272,7 +1296,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             application/json
           </span>
-        </div>
+        </span>
         <div
           class="relative col-span-2"
         >
@@ -1301,30 +1325,30 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             CONSENT
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
             class="text-ellipsis overflow-x-hidden whitespace-nowrap"
           >
-            YES+srp.gws-20220217-0-RC1.en+FX+923
+            YES
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
-            1P_JAR
+            DATE
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -1332,7 +1356,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           >
             2022-02-20-16
           </span>
-        </div>
+        </span>
       </div>
     </div>
     <div
@@ -2090,6 +2114,18 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         Body
       </button>
     </div>
+    <label
+      class="mt-1 inline-flex items-center"
+    >
+      <input
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Intercept response
+      </span>
+    </label>
     <div
       class=""
     >
@@ -2106,7 +2142,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         >
           URL
         </span>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2114,13 +2150,13 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             https://www.example.com/complete/search
           </span>
-        </div>
+        </span>
         <span
           class="text-right font-medium text-gray-500 select-none"
         >
           Method
         </span>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2128,7 +2164,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             POST
           </span>
-        </div>
+        </span>
         <span
           class="text-lg font-semibold col-span-2 mt-4 select-none"
         >
@@ -2145,12 +2181,12 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             q
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2158,7 +2194,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             toto
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -2170,12 +2206,12 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             client
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2183,7 +2219,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             gws-wiz
           </span>
-        </div>
+        </span>
         <div
           class="relative col-span-2"
         >
@@ -2219,12 +2255,12 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Accept
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2232,7 +2268,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             */*
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -2244,12 +2280,12 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Referer
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2257,7 +2293,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             https://www.google.com/
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -2269,12 +2305,12 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             User-Agent
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2282,7 +2318,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
@@ -2294,12 +2330,12 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             Content-Type
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2307,7 +2343,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             application/json
           </span>
-        </div>
+        </span>
         <div
           class="relative col-span-2"
         >
@@ -2336,30 +2372,30 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
             CONSENT
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
             class="text-ellipsis overflow-x-hidden whitespace-nowrap"
           >
-            YES+srp.gws-20220217-0-RC1.en+FX+923
+            YES
           </span>
-        </div>
+        </span>
         <div
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-gray-500 select-none"
+            class="font-medium text-right text-gray-500 select-none"
           >
-            1P_JAR
+            DATE
           </span>
         </div>
-        <div
+        <span
           class="flex overflow-x-hidden space-x-1"
         >
           <span
@@ -2367,7 +2403,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           >
             2022-02-20-16
           </span>
-        </div>
+        </span>
       </div>
     </div>
     <div

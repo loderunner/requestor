@@ -17,5 +17,6 @@ export {
   continueRequest,
   failRequest,
   updateRequest,
+  fulfillRequest,
 } from './request'
 export { Intercept, addIntercept, removeIntercept } from './intercept'

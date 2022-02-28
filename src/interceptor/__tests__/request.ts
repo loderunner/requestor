@@ -1,13 +1,17 @@
 import { chrome } from 'jest-chrome'
 
 import { listen, unlisten } from '..'
+import { headersToEntries } from '../debugger'
 import {
   continueRequest,
   failRequest,
+  fulfillRequest,
   pushRequest,
   requests,
   updateRequest,
 } from '../request'
+
+import type { Protocol } from 'devtools-protocol'
 
 describe('[Interceptor.pushRequest]', () => {
   beforeEach(async () => {
@@ -84,14 +88,10 @@ describe('[Interceptor.continueRequest]', () => {
       'Fetch.continueRequest',
       expect.objectContaining({
         requestId: globalMocks.request.id,
+        interceptResponse: globalMocks.request.interceptResponse,
         url: globalMocks.request.url,
         method: globalMocks.request.method,
-        headers: Object.entries(globalMocks.request.headers).map(
-          ([name, value]) => ({
-            name,
-            value,
-          })
-        ),
+        headers: headersToEntries(globalMocks.request.headers),
         postData: window.btoa(globalMocks.request.postData as string),
       })
     )
@@ -136,6 +136,47 @@ describe('[Interceptor.failRequest]', () => {
     expect(requests).toBeArrayOfSize(1)
 
     await failRequest(globalMocks.request.id)
+    expect(requests).toBeArrayOfSize(0)
+  })
+})
+
+describe('[Interceptor.fulfillRequest]', () => {
+  beforeEach(async () => {
+    chrome.debugger.getTargets.mockImplementation((callback) =>
+      callback([globalMocks.target])
+    )
+    await listen()
+    jest.clearAllMocks()
+  })
+
+  afterEach(() => {
+    unlisten()
+  })
+
+  it('should call debugger', async () => {
+    pushRequest(globalMocks.response)
+    await fulfillRequest(globalMocks.response.id)
+    expect(chrome.debugger.sendCommand).toHaveBeenCalledWith(
+      expect.objectContaining<chrome.debugger.Debuggee>({
+        targetId: globalMocks.target.id,
+      }),
+      'Fetch.fulfillRequest',
+      expect.objectContaining<Protocol.Fetch.FulfillRequestRequest>({
+        requestId: globalMocks.response.id,
+        responseCode: globalMocks.response.statusCode as number,
+        responsePhrase: globalMocks.response.statusText as string,
+        responseHeaders: expect.arrayContaining<Protocol.Fetch.HeaderEntry>(
+          headersToEntries(globalMocks.response.headers)
+        ),
+      })
+    )
+  })
+
+  it('should remove request from requests list', async () => {
+    pushRequest(globalMocks.response)
+    expect(requests).toBeArrayOfSize(1)
+
+    await fulfillRequest(globalMocks.response.id)
     expect(requests).toBeArrayOfSize(0)
   })
 })

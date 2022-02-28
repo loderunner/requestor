@@ -2,6 +2,7 @@ import type { Intercept, Request } from '@/interceptor'
 
 interface GlobalMocks {
   request: Request
+  response: Request
   intercept: Intercept
   target: chrome.debugger.TargetInfo
 }
@@ -31,10 +32,11 @@ const payload = {
 const globalMocks: GlobalMocks = {
   request: {
     id: 'request',
+    interceptResponse: false,
+    stage: 'Request',
     headers: {
       Accept: '*/*',
-      Cookie:
-        'CONSENT=YES+srp.gws-20220217-0-RC1.en+FX+923; 1P_JAR=2022-02-20-16',
+      Cookie: 'CONSENT=YES; DATE=2022-02-20-16',
       Referer: 'https://www.google.com/',
       'User-Agent':
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
@@ -47,11 +49,29 @@ const globalMocks: GlobalMocks = {
     hasPostData: true,
     postData: JSON.stringify(payload),
   },
+  response: {
+    id: 'response',
+    interceptResponse: true,
+    stage: 'Response',
+    headers: {
+      date: 'Sun, 27 Feb 2022 19:44:34 GMT',
+      'content-type': 'text/html; charset=utf-8',
+      'content-length': '0',
+      server: 'gunicorn/19.9.0',
+    },
+    initialPriority: 'High',
+    method: 'OPTIONS',
+    referrerPolicy: 'unsafe-url',
+    url: 'https://www.example.com/complete/search?q=toto&client=gws-wiz',
+    statusCode: 200,
+    statusText: 'OK',
+  },
   intercept: {
     id: 'inter',
     pattern: 'example.com',
     enabled: true,
     regexp: false,
+    interceptResponse: false,
   },
   target: {
     attached: false,

@@ -58,6 +58,18 @@ exports[`[InterceptView] should match initial snapshot 1`] = `
         </label>
       </div>
     </label>
+    <label
+      class="mt-1 inline-flex items-center"
+    >
+      <input
+        type="checkbox"
+      />
+      <span
+        class="ml-1 text-sm text-gray-700"
+      >
+        Intercept response
+      </span>
+    </label>
   </div>
 </div>
 `;
