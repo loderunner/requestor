@@ -14,6 +14,7 @@ export const useRequests = jest.fn(() => ({
 const continueRequest = jest.fn(() => {})
 const failRequest = jest.fn(() => {})
 const updateRequest = jest.fn(() => {})
+const fulfillRequest = jest.fn(() => {})
 export const useRequest = jest.fn((id: string) => {
   if (id === 'request') {
     return {
@@ -21,6 +22,7 @@ export const useRequest = jest.fn((id: string) => {
       continueRequest,
       failRequest,
       updateRequest,
+      fulfillRequest,
     }
   }
   throw new Error('Mock[useRequest]: request not found')

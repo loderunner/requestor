@@ -147,7 +147,9 @@ describe('[RequestHooks.useRequest]', () => {
 
     await actHook(() => result.current.continueRequest())
 
-    expect(mockedInterceptor.continueRequest).toHaveBeenCalled()
+    expect(mockedInterceptor.continueRequest).toHaveBeenCalledWith(
+      globalMocks.request.id
+    )
   })
 
   it('should fail request', async () => {
@@ -160,7 +162,9 @@ describe('[RequestHooks.useRequest]', () => {
 
     await actHook(() => result.current.failRequest())
 
-    expect(mockedInterceptor.failRequest).toHaveBeenCalled()
+    expect(mockedInterceptor.failRequest).toHaveBeenCalledWith(
+      globalMocks.request.id
+    )
   })
 
   it('should update request', () => {
@@ -178,6 +182,22 @@ describe('[RequestHooks.useRequest]', () => {
       {
         postData: 'toto',
       }
+    )
+  })
+
+  it('should fulfill request on continue response', async () => {
+    mockedInterceptor.requests.push(globalMocks.response)
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <RequestProvider>{children}</RequestProvider>
+    )
+    const { result } = renderHook(() => useRequest(globalMocks.response.id), {
+      wrapper,
+    })
+
+    await actHook(() => result.current.continueRequest())
+
+    expect(mockedInterceptor.fulfillRequest).toHaveBeenCalledWith(
+      globalMocks.response.id
     )
   })
 })

@@ -91,9 +91,13 @@ export const useRequest = (id: string) => {
   }
 
   const continueRequest = useCallback(async () => {
-    await Interceptor.continueRequest(id)
+    if (request.stage === 'Request') {
+      await Interceptor.continueRequest(id)
+    } else if (request.stage === 'Response') {
+      await Interceptor.fulfillRequest(id)
+    }
     setRequests([...Interceptor.requests])
-  }, [id, setRequests])
+  }, [id, request.stage, setRequests])
 
   const failRequest = useCallback(async () => {
     await Interceptor.failRequest(id)
