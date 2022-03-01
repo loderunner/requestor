@@ -71,7 +71,7 @@ const onRequestEvent = (event: RequestPausedEvent, target: Debuggee) => {
   })
 }
 
-const onResponseEvent = (event: RequestPausedEvent, target: Debuggee) => {
+const onResponseEvent = async (event: RequestPausedEvent, target: Debuggee) => {
   if (event.responseErrorReason) {
     const params: Protocol.Fetch.FailRequestRequest = {
       requestId: event.requestId,
@@ -82,6 +82,15 @@ const onResponseEvent = (event: RequestPausedEvent, target: Debuggee) => {
   }
 
   const req = event.request
+  const params: Protocol.Fetch.GetResponseBodyRequest = {
+    requestId: event.requestId,
+  }
+  const res = (await chrome.debugger.sendCommand(
+    target,
+    'Fetch.getResponseBody',
+    params
+  )) as Protocol.Fetch.GetResponseBodyResponse
+  const body = res.base64Encoded ? window.atob(res.body) : res.body
   pushRequest({
     id: event.requestId,
     interceptResponse: true,
@@ -91,6 +100,8 @@ const onResponseEvent = (event: RequestPausedEvent, target: Debuggee) => {
     statusCode: event.responseStatusCode,
     statusText:
       event.responseStatusText !== '' ? event.responseStatusText : undefined,
+    postData: body,
+    hasPostData: body?.length > 0 ?? false,
   })
 }
 
@@ -112,18 +123,12 @@ const onDebuggerEvent = (
 
 let debuggee: chrome.debugger.Debuggee | undefined
 
-const getTargets = async () => {
-  return new Promise<TargetInfo[]>((resolve) =>
-    chrome.debugger.getTargets((targets) => resolve(targets))
-  )
-}
-
 export const listen = async () => {
   if (debuggee !== undefined) {
     return
   }
 
-  const targets = await getTargets()
+  const targets = await chrome.debugger.getTargets()
   const target = targets.find(
     (t) => t.tabId === chrome.devtools.inspectedWindow.tabId
   )
@@ -207,6 +212,7 @@ export const fulfillRequest = async (response: Request) => {
     responseCode: response.statusCode as number,
     responsePhrase: response.statusText as string,
     responseHeaders: headersToEntries(response.headers),
+    body: response.postData && window.btoa(response.postData),
   }
   return sendRequestCommand(method, commandParams)
 }

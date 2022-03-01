@@ -15,16 +15,16 @@ import type { Protocol } from 'devtools-protocol'
 
 describe('[Interceptor.pushRequest]', () => {
   beforeEach(async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([globalMocks.target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([globalMocks.target])
     )
     requests.splice(0, requests.length)
     await listen()
-    jest.clearAllMocks()
   })
 
   afterEach(() => {
     unlisten()
+    jest.clearAllMocks()
   })
 
   it('should add requests to list', () => {
@@ -35,16 +35,16 @@ describe('[Interceptor.pushRequest]', () => {
 
 describe('[Interceptor.updateRequest]', () => {
   beforeEach(async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([globalMocks.target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([globalMocks.target])
     )
     requests.splice(0, requests.length)
     await listen()
-    jest.clearAllMocks()
   })
 
   afterEach(() => {
     unlisten()
+    jest.clearAllMocks()
   })
 
   it('should update request', () => {
@@ -68,16 +68,16 @@ describe('[Interceptor.updateRequest]', () => {
 
 describe('[Interceptor.continueRequest]', () => {
   beforeEach(async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([globalMocks.target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([globalMocks.target])
     )
     requests.splice(0, requests.length)
     await listen()
-    jest.clearAllMocks()
   })
 
   afterEach(() => {
     unlisten()
+    jest.clearAllMocks()
   })
 
   it('should call debugger', async () => {
@@ -108,15 +108,15 @@ describe('[Interceptor.continueRequest]', () => {
 
 describe('[Interceptor.failRequest]', () => {
   beforeEach(async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([globalMocks.target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([globalMocks.target])
     )
     await listen()
-    jest.clearAllMocks()
   })
 
   afterEach(() => {
     unlisten()
+    jest.clearAllMocks()
   })
 
   it('should call debugger', async () => {
@@ -142,15 +142,15 @@ describe('[Interceptor.failRequest]', () => {
 
 describe('[Interceptor.fulfillRequest]', () => {
   beforeEach(async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([globalMocks.target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([globalMocks.target])
     )
     await listen()
-    jest.clearAllMocks()
   })
 
   afterEach(() => {
     unlisten()
+    jest.clearAllMocks()
   })
 
   it('should call debugger', async () => {

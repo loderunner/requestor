@@ -21,14 +21,14 @@ describe('[Interceptor.debugger]', () => {
   })
 
   it('should crash without targets', async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) => callback([]))
+    chrome.debugger.getTargets.mockImplementation(() => Promise.resolve([]))
 
     await expect(listen()).rejects.toThrow()
   })
 
   it('should add a listener to debugger events', async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([target])
     )
 
     await listen()
@@ -37,8 +37,8 @@ describe('[Interceptor.debugger]', () => {
   })
 
   it('should remove the listener from debugger events', async () => {
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([target])
     )
 
     await listen()
