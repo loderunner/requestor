@@ -29,11 +29,11 @@ const RequestView = ({ requestId }: Props) => {
     () => (
       <>
         <RequestDetails
-          className={tab === 'headers' ? '' : 'hidden'}
+          className={`mt-8 ${tab === 'headers' ? '' : 'hidden'}`}
           requestId={requestId}
         />
         <RequestBody
-          className={tab === 'body' ? '' : 'hidden'}
+          className={`mt-8 ${tab === 'body' ? '' : 'hidden'}`}
           requestId={requestId}
         />
       </>
@@ -73,14 +73,16 @@ const RequestView = ({ requestId }: Props) => {
   return (
     <div className="max-w-5xl mx-24 my-8 px-8 pt-2">
       <div className="flex space-x-4 mb-4">{buttons}</div>
-      <label className="mt-1 inline-flex items-center">
-        <input
-          type="checkbox"
-          checked={request.interceptResponse}
-          onChange={onToggleInterceptResponse}
-        />
-        <span className="ml-1 text-sm text-gray-700">Intercept response</span>
-      </label>
+      {request.stage !== 'Response' ? (
+        <label className="mt-1 inline-flex items-center">
+          <input
+            type="checkbox"
+            checked={request.interceptResponse}
+            onChange={onToggleInterceptResponse}
+          />
+          <span className="ml-1 text-sm text-gray-700">Intercept response</span>
+        </label>
+      ) : null}
       {content}
     </div>
   )

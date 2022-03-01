@@ -3,7 +3,7 @@
 exports[`[RequestBody] should match initial snapshot 1`] = `
 <div>
   <div
-    class="mt-8 flex flex-col justify-items-stretch "
+    class="flex flex-col justify-items-stretch "
   >
     <div
       class="relative -ml-4"

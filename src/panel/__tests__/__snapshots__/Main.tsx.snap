@@ -149,7 +149,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
         </span>
       </label>
       <div
-        class=""
+        class="mt-8 "
       >
         <span
           class="text-3xl font-bold"
@@ -429,7 +429,7 @@ exports[`[Main] should match request selection snapshot 1`] = `
         </div>
       </div>
       <div
-        class="mt-8 flex flex-col justify-items-stretch hidden"
+        class="flex flex-col justify-items-stretch mt-8 hidden"
       >
         <div
           class="relative -ml-4"

@@ -65,7 +65,7 @@ const RequestBody = ({ requestId, className = '' }: Props) => {
   }, [contentType, onChangeBody, request.id, request.postData])
 
   return (
-    <div className={`mt-8 flex flex-col justify-items-stretch ${className}`}>
+    <div className={`flex flex-col justify-items-stretch ${className}`}>
       {bodyView}
     </div>
   )
