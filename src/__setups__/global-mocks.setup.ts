@@ -29,6 +29,8 @@ const payload = {
   done: true,
 }
 
+const payloadJSON = JSON.stringify(payload)
+
 const globalMocks: GlobalMocks = {
   request: {
     id: 'request',
@@ -47,7 +49,7 @@ const globalMocks: GlobalMocks = {
     referrerPolicy: 'origin',
     url: 'https://www.example.com/complete/search?q=toto&client=gws-wiz',
     hasPostData: true,
-    postData: JSON.stringify(payload),
+    postData: payloadJSON,
   },
   response: {
     id: 'response',
@@ -55,8 +57,8 @@ const globalMocks: GlobalMocks = {
     stage: 'Response',
     headers: {
       date: 'Sun, 27 Feb 2022 19:44:34 GMT',
-      'content-type': 'text/html; charset=utf-8',
-      'content-length': '0',
+      'content-type': 'application/json; charset=utf-8',
+      'content-length': `${payloadJSON.length}`,
       server: 'gunicorn/19.9.0',
     },
     initialPriority: 'High',
@@ -77,7 +79,7 @@ const globalMocks: GlobalMocks = {
     attached: false,
     id: 'target',
     title: 'Title',
-    type: 'targetType',
+    type: 'page',
     url: 'https://example.com',
   },
 }

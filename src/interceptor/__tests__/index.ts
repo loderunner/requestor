@@ -15,6 +15,8 @@ import {
 } from '../intercept'
 import { subscribe } from '../request'
 
+import type { Protocol } from 'devtools-protocol'
+
 const target = globalMocks.target
 
 const requestEvent: RequestPausedEvent = {
@@ -54,8 +56,8 @@ describe('[Interceptor.subscribe]', () => {
     jest.clearAllMocks()
     intercepts.splice(0, intercepts.length)
 
-    chrome.debugger.getTargets.mockImplementation((callback) =>
-      callback([target])
+    chrome.debugger.getTargets.mockImplementation(() =>
+      Promise.resolve([target])
     )
 
     await listen()
@@ -183,16 +185,51 @@ describe('[Interceptor.subscribe]', () => {
     expect(listener).not.toBeCalled()
   })
 
-  it('should call subscribed callback for a response event', () => {
+  it('should call subscribed callback for a response event', async () => {
+    chrome.debugger.sendCommand.mockImplementation((target, method) => {
+      if (method === 'Fetch.getResponseBody') {
+        return Promise.resolve<Protocol.Fetch.GetResponseBodyResponse>({
+          base64Encoded: false,
+          body: globalMocks.request.postData as string,
+        })
+      }
+    })
     chrome.debugger.onEvent.callListeners(
       { targetId: target.id },
       'Fetch.requestPaused',
       responseEvent
     )
+    await new Promise((resolve) => requestAnimationFrame(resolve))
     expect(listener).toBeCalledWith({
       id: responseEvent.requestId,
       stage: 'Response',
       ...responseEvent.request,
+      hasPostData: true,
+      postData: globalMocks.request.postData,
+    })
+  })
+
+  it('should call subscribed callback for a base64 encoded response event', async () => {
+    chrome.debugger.sendCommand.mockImplementation((target, method) => {
+      if (method === 'Fetch.getResponseBody') {
+        return Promise.resolve<Protocol.Fetch.GetResponseBodyResponse>({
+          base64Encoded: true,
+          body: window.btoa(globalMocks.request.postData as string),
+        })
+      }
+    })
+    chrome.debugger.onEvent.callListeners(
+      { targetId: target.id },
+      'Fetch.requestPaused',
+      responseEvent
+    )
+    await new Promise((resolve) => requestAnimationFrame(resolve))
+    expect(listener).toBeCalledWith({
+      id: responseEvent.requestId,
+      stage: 'Response',
+      ...responseEvent.request,
+      hasPostData: true,
+      postData: globalMocks.request.postData,
     })
   })
 
