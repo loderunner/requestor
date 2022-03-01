@@ -4,7 +4,6 @@ import { pushRequest } from './request'
 import type { Request } from './request'
 import type { Protocol } from 'devtools-protocol'
 
-type TargetInfo = chrome.debugger.TargetInfo
 type Debuggee = chrome.debugger.Debuggee
 export type RequestPausedEvent = Protocol.Fetch.RequestPausedEvent
 

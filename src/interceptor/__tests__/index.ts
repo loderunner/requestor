@@ -1,4 +1,3 @@
-import Protocol from 'devtools-protocol'
 import { chrome } from 'jest-chrome'
 
 import * as Debugger from '../debugger'
@@ -15,6 +14,8 @@ import {
   updateIntercept,
 } from '../intercept'
 import { subscribe } from '../request'
+
+import type { Protocol } from 'devtools-protocol'
 
 const target = globalMocks.target
 
