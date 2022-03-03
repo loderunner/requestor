@@ -28,7 +28,7 @@
     "content-type": "1.0.4",
     "cookie": "0.4.2",
     "devtools-protocol": "0.0.975963",
-    "esbuild": "0.14.23",
+    "esbuild": "0.14.24",
     "esbuild-plugin-svgr": "1.0.0",
     "eslint": "8.10.0",
     "eslint-config-prettier": "8.4.0",
