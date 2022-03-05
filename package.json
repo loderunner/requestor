@@ -27,7 +27,7 @@
     "chrome-types": "0.1.92",
     "content-type": "1.0.4",
     "cookie": "0.4.2",
-    "devtools-protocol": "0.0.977795",
+    "devtools-protocol": "0.0.977936",
     "esbuild": "0.14.25",
     "esbuild-plugin-svgr": "1.0.0",
     "eslint": "8.10.0",
