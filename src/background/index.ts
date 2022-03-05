@@ -1,1 +1,1 @@
-chrome.devtools.panels.create('Interceptor', '', 'static/panel.html')
+chrome.devtools.panels.create('Rqst', '', 'static/panel.html')

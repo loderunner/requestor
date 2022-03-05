@@ -1,7 +1,7 @@
 {
-  "name": "interceptor",
-  "version": "0.0.0",
-  "description": "A Chrome devtools extension for intercepting and modifying HTTP requests",
+  "name": "rqst",
+  "version": "0.1.0",
+  "description": "A Chrome devtools extension for intercepting and modifying HTTP requests and responses",
   "license": "Apache-2.0",
   "author": "",
   "main": "out/index.js",

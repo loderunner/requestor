@@ -20,7 +20,7 @@ exports[`[Main] should match empty selection snapshot 1`] = `
       <div
         class="text-4xl font-bold"
       >
-        Interceptor
+        Rqst
       </div>
       <button
         class="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
