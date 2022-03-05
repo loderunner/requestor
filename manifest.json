@@ -1,5 +1,5 @@
 {
-  "name": "Rqst",
+  "name": "Requestor",
   "description": "A chrome extension to intercept and modify HTTP requests and responses",
   "version": "0.1.0",
   "manifest_version": 3,

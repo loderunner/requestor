@@ -1,3 +1,3 @@
-# Rqst
+# Requestor
 
 A Chrome extension to intercept and modify HTTP requests and responses.

@@ -1,1 +1,1 @@
-chrome.devtools.panels.create('Rqst', '', 'static/panel.html')
+chrome.devtools.panels.create('Requestor', '', 'static/panel.html')
