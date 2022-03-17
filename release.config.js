@@ -28,6 +28,17 @@ module.exports = {
         assets: ['package.json', 'package-lock.json', 'CHANGELOG.md'],
       },
     ],
-    '@semantic-release/github',
+    [
+      '@semantic-release/github',
+      {
+        assets: [{ path: 'requestor-${nextRelease.version}.zip' }],
+      },
+    ],
+    [
+      'semantic-release-chrome',
+      {
+        asset: 'requestor-${nextRelease.version}.zip',
+      },
+    ],
   ],
 }
