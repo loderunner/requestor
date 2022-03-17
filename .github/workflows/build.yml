@@ -58,4 +58,6 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
       - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run release
