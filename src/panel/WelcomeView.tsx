@@ -32,7 +32,7 @@ const WelcomeView = ({ className = '' }: Props) => {
       <div className="container max-w-xs">
         <LevelCrossing className="h-auto w-full fill-indigo-700" />
       </div>
-      <div className="text-4xl font-bold">Interceptor</div>
+      <div className="text-4xl font-bold">Requestor</div>
       <button
         className="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
         title="Add intercept"

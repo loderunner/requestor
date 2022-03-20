@@ -1,7 +1,7 @@
 {
-  "name": "Interceptor",
-  "description": "A chrome extension to intercept and modify HTTP requests",
-  "version": "1.0",
+  "name": "Requestor",
+  "description": "A chrome extension to intercept and modify HTTP requests and responses",
+  "version": "0.1.0",
   "manifest_version": 3,
   "devtools_page": "static/background.html",
   "permissions": ["debugger"]
