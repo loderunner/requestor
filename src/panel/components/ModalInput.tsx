@@ -85,7 +85,11 @@ const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
   return (
     <>
       <input
-        className={`fixed ${validationError !== null ? 'bg-rose-100' : ''}`}
+        className={`fixed ${
+          validationError !== null
+            ? 'bg-rose-100 dark:bg-rose-400'
+            : 'dark:bg-slate-600 dark:text-slate-100'
+        }`}
         style={inlineStyles}
         type="text"
         value={inputValue}
@@ -95,7 +99,7 @@ const ModalInput = ({ element, value, onChange, onCancel }: Props) => {
         ref={ref}
       />
       {validationError !== null ? (
-        <span className="absolute pt-0.5 text-xs bg-rose-100 rounded-b-sm text-rose-500">
+        <span className="absolute pt-0.5 text-xs rounded-b-sm  bg-rose-100 text-rose-500 dark:bg-rose-400 dark:text-rose-50">
           {validationError.message}
         </span>
       ) : null}

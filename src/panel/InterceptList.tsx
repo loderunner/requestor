@@ -32,6 +32,13 @@ const Item = ({ interceptId, onDelete, editOnRender, paused }: ItemProps) => {
 
   useEffect(() => setEditing(editOnRender), [editOnRender])
 
+  const selected = useMemo(
+    () =>
+      selectionType === 'intercept' &&
+      (selection as Intercept).id === interceptId,
+    [interceptId, selection, selectionType]
+  )
+
   const onToggleEnabled = useCallback(
     () => updateIntercept({ enabled: !intercept.enabled }),
     [intercept.enabled, updateIntercept]
@@ -71,33 +78,32 @@ const Item = ({ interceptId, onDelete, editOnRender, paused }: ItemProps) => {
     setEditing(true)
   }, [])
 
-  // Computed className from selection
-  const className = useMemo(() => {
-    let className = 'flex w-full select-none justify-between p-1'
-    if (selectionType !== 'intercept') {
-      return className
+  const bgColor = useMemo(() => (selected ? 'bg-blue-100' : ''), [selected])
+  const textColor = useMemo(() => {
+    if (paused) {
+      return 'text-gray-400'
+    } else if (selected) {
+      return 'dark:text-black'
     }
-    const s = selection as Intercept
-    if (s.id === intercept.id) {
-      className += ' bg-blue-100'
-    }
-    return className
-  }, [selectionType, selection, intercept.id])
+    return ''
+  }, [paused, selected])
 
   return (
-    <div className={className} role="listitem" onClick={onSelect}>
+    <div
+      className={`flex w-full select-none justify-between p-1 ${bgColor}`}
+      role="listitem"
+      onClick={onSelect}
+    >
       <div className="flex flex-grow items-center overflow-hidden">
         <input
           type="checkbox"
-          className={`mr-0.5 focus:ring-0 ${paused ? 'text-gray-400' : ''}`}
+          className={`mr-0.5 focus:ring-0 ${paused ? 'accent-gray-400' : ''}`}
           checked={intercept.enabled}
           onClick={(e) => e.stopPropagation()}
           onChange={onToggleEnabled}
         />
         <span
-          className={`w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap ${
-            paused ? 'text-gray-400' : ''
-          }`}
+          className={`w-full mx-0.5 overflow-hidden text-ellipsis whitespace-nowrap ${textColor}`}
           onDoubleClick={onDoubleClickPattern}
           ref={patternLabelRef}
         >
@@ -117,7 +123,9 @@ const Item = ({ interceptId, onDelete, editOnRender, paused }: ItemProps) => {
         title="Delete intercept"
         onClick={onClickDelete}
       >
-        <ClearIcon className="h-full w-auto" />
+        <ClearIcon
+          className={`h-full w-auto ${selected ? '' : 'dark:fill-slate-50'}`}
+        />
       </button>
     </div>
   )
@@ -175,7 +183,7 @@ const InterceptList = ({ className = '' }: Props) => {
           title="Unpause intercepts"
           onClick={onUnpause}
         >
-          <VisibilityOffIcon className="h-full w-auto" />
+          <VisibilityOffIcon className="h-full w-auto dark:fill-slate-50" />
         </button>
       ) : (
         <button
@@ -183,7 +191,7 @@ const InterceptList = ({ className = '' }: Props) => {
           title="Pause intercepts"
           onClick={onPause}
         >
-          <VisibilityIcon className="h-full w-auto" />
+          <VisibilityIcon className="h-full w-auto dark:fill-slate-50" />
         </button>
       ),
     [onPause, onUnpause, paused]
@@ -191,7 +199,7 @@ const InterceptList = ({ className = '' }: Props) => {
 
   const header = useMemo(() => {
     return (
-      <div className="p-1 flex space-x-1 justify-between select-none bg-slate-100">
+      <div className="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700">
         <span className="font-bold flex-auto">Intercepts</span>
         {pauseButton}
         <button
@@ -199,7 +207,7 @@ const InterceptList = ({ className = '' }: Props) => {
           title="Add intercept"
           onClick={onAddIntercept}
         >
-          <PlusIcon className="h-full w-auto" />
+          <PlusIcon className="h-full w-auto dark:fill-slate-50" />
         </button>
       </div>
     )

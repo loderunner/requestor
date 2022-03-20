@@ -52,14 +52,18 @@ const InterceptView = ({ interceptId }: Props) => {
           checked={intercept.enabled}
           onChange={onToggleEnabled}
         />
-        <span className="ml-1 text-sm text-gray-700">Enabled</span>
+        <span className="ml-1 text-sm text-gray-700 dark:text-slate-100">
+          Enabled
+        </span>
       </label>
       <label className="mt-1 block">
-        <span className="text-sm text-gray-700">If URL matches</span>
+        <span className="text-sm text-gray-700 dark:text-slate-100">
+          If URL matches
+        </span>
         <div className="flex items-center space-x-2">
           <input
             type="text"
-            className="block mt-1 text-sm flex-auto"
+            className="block mt-1 text-sm flex-auto dark:bg-slate-600 dark:text-slate-100"
             placeholder="example.com"
             value={pattern}
             onChange={onChangePattern}
@@ -70,7 +74,9 @@ const InterceptView = ({ interceptId }: Props) => {
               checked={intercept.regexp}
               onChange={onToggleRegexp}
             />
-            <span className="ml-1 text-sm text-gray-700">Regexp</span>
+            <span className="ml-1 text-sm text-gray-700 dark:text-slate-100">
+              Regexp
+            </span>
           </label>
         </div>
       </label>
@@ -80,7 +86,9 @@ const InterceptView = ({ interceptId }: Props) => {
           checked={intercept.interceptResponse}
           onChange={onToggleInterceptResponse}
         />
-        <span className="ml-1 text-sm text-gray-700">Intercept response</span>
+        <span className="ml-1 text-sm text-gray-700 dark:text-slate-100">
+          Intercept response
+        </span>
       </label>
     </div>
   )

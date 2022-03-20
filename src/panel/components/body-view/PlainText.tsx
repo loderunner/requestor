@@ -24,7 +24,7 @@ const PlainTextBodyView = ({ data, onChange }: Props) => {
   return React.useMemo(
     () => (
       <pre
-        className="bg-slate-100 px-6 py-6 whitespace-pre-wrap break-all"
+        className="px-6 py-6 whitespace-pre-wrap break-all bg-slate-100 dark:bg-slate-600 dark:text-slate-100"
         contentEditable="true"
         suppressContentEditableWarning
         role="textbox"
