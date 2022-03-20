@@ -3,7 +3,7 @@
 exports[`[Sidebar] should match empty snapshot 1`] = `
 <div>
   <aside
-    class="flex flex-col justify-between border-r border-slate-300 "
+    class="flex flex-col justify-between border-r border-slate-300 dark:border-slate-500 "
     id="sidebar"
   >
     <div
@@ -12,7 +12,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
       role="list"
     >
       <div
-        class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+        class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
       >
         <span
           class="font-bold flex-auto"
@@ -24,7 +24,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
           title="Continue all requests"
         >
           <svg
-            class="h-full w-auto rotate-90"
+            class="h-full w-auto rotate-90 dark:fill-slate-50"
           />
         </button>
       </div>
@@ -36,7 +36,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
           role="listitem"
         >
           <span
-            class="flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap"
+            class="flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap "
           >
             https://www.example.com/complete/search?q=toto&client=gws-wiz
           </span>
@@ -45,7 +45,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
             title="Cancel request"
           >
             <svg
-              class="h-full w-auto"
+              class="h-full w-auto dark:fill-slate-50"
             />
           </button>
           <button
@@ -53,7 +53,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
             title="Continue request"
           >
             <svg
-              class="h-full w-auto"
+              class="h-full w-auto dark:fill-slate-50"
             />
           </button>
         </div>
@@ -65,7 +65,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
       role="list"
     >
       <div
-        class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+        class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
       >
         <span
           class="font-bold flex-auto"
@@ -77,7 +77,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
           title="Pause intercepts"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto dark:fill-slate-50"
           />
         </button>
         <button
@@ -85,7 +85,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
           title="Add intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto dark:fill-slate-50"
           />
         </button>
       </div>
@@ -93,7 +93,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
         class="flex flex-col overflow-y-visible"
       >
         <div
-          class="flex w-full select-none justify-between p-1"
+          class="flex w-full select-none justify-between p-1 "
           role="listitem"
         >
           <div
@@ -115,7 +115,7 @@ exports[`[Sidebar] should match empty snapshot 1`] = `
             title="Delete intercept"
           >
             <svg
-              class="h-full w-auto"
+              class="h-full w-auto dark:fill-slate-50"
             />
           </button>
         </div>

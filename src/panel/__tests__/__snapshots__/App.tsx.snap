@@ -6,7 +6,7 @@ exports[`[App] matches snapshot 1`] = `
     id="App"
   >
     <aside
-      class="flex flex-col justify-between border-r border-slate-300 fixed top-0 left-0 bottom-0 w-64"
+      class="flex flex-col justify-between border-r border-slate-300 dark:border-slate-500 fixed top-0 left-0 bottom-0 w-64"
       id="sidebar"
     >
       <div
@@ -15,7 +15,7 @@ exports[`[App] matches snapshot 1`] = `
         role="list"
       >
         <div
-          class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+          class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
         >
           <span
             class="font-bold flex-auto"
@@ -27,7 +27,7 @@ exports[`[App] matches snapshot 1`] = `
             title="Continue all requests"
           >
             <svg
-              class="h-full w-auto rotate-90"
+              class="h-full w-auto rotate-90 dark:fill-slate-50"
             />
           </button>
         </div>
@@ -41,7 +41,7 @@ exports[`[App] matches snapshot 1`] = `
         role="list"
       >
         <div
-          class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+          class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
         >
           <span
             class="font-bold flex-auto"
@@ -53,7 +53,7 @@ exports[`[App] matches snapshot 1`] = `
             title="Pause intercepts"
           >
             <svg
-              class="h-full w-auto"
+              class="h-full w-auto dark:fill-slate-50"
             />
           </button>
           <button
@@ -61,7 +61,7 @@ exports[`[App] matches snapshot 1`] = `
             title="Add intercept"
           >
             <svg
-              class="h-full w-auto"
+              class="h-full w-auto dark:fill-slate-50"
             />
           </button>
         </div>
@@ -75,7 +75,7 @@ exports[`[App] matches snapshot 1`] = `
       id="main"
     >
       <div
-        class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
+        class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 dark:bg-slate-900 "
         id="welcome-view"
       >
         <div
@@ -86,7 +86,7 @@ exports[`[App] matches snapshot 1`] = `
           />
         </div>
         <div
-          class="text-4xl font-bold"
+          class="text-4xl font-bold dark:text-white"
         >
           Requestor
         </div>

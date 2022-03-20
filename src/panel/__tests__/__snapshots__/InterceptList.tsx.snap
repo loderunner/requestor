@@ -8,7 +8,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -20,7 +20,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
         title="Unpause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -28,7 +28,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -44,7 +44,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -53,7 +53,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
             example.com
           </span>
           <input
-            class="fixed "
+            class="fixed dark:bg-slate-600 dark:text-slate-100"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
@@ -64,7 +64,7 @@ exports[`InterceptList should add and remove children after clicking buttons 1`]
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto "
           />
         </button>
       </div>
@@ -81,7 +81,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -93,7 +93,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
         title="Unpause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -101,7 +101,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -117,7 +117,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -126,7 +126,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
             example.com
           </span>
           <input
-            class="fixed "
+            class="fixed dark:bg-slate-600 dark:text-slate-100"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
@@ -137,7 +137,7 @@ exports[`InterceptList should add and remove children after clicking buttons 2`]
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto "
           />
         </button>
       </div>
@@ -154,7 +154,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -166,7 +166,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
         title="Unpause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -174,7 +174,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -182,7 +182,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
       class="flex flex-col overflow-y-visible"
     >
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 "
         role="listitem"
       >
         <div
@@ -190,7 +190,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -199,7 +199,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
             example.com
           </span>
           <input
-            class="fixed "
+            class="fixed dark:bg-slate-600 dark:text-slate-100"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
@@ -210,7 +210,7 @@ exports[`InterceptList should add and remove children after clicking buttons 3`]
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto dark:fill-slate-50"
           />
         </button>
       </div>
@@ -227,7 +227,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -239,7 +239,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
         title="Unpause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -247,7 +247,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -263,7 +263,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -277,12 +277,12 @@ exports[`InterceptList should change selection after clicking items 1`] = `
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto "
           />
         </button>
       </div>
       <div
-        class="flex w-full select-none justify-between p-1 bg-blue-100"
+        class="flex w-full select-none justify-between p-1 "
         role="listitem"
       >
         <div
@@ -290,7 +290,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -304,7 +304,7 @@ exports[`InterceptList should change selection after clicking items 1`] = `
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto dark:fill-slate-50"
           />
         </button>
       </div>
@@ -321,7 +321,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -333,7 +333,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
         title="Unpause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -341,7 +341,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -357,7 +357,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -371,12 +371,12 @@ exports[`InterceptList should change selection after clicking items 2`] = `
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto "
           />
         </button>
       </div>
       <div
-        class="flex w-full select-none justify-between p-1 bg-blue-100"
+        class="flex w-full select-none justify-between p-1 "
         role="listitem"
       >
         <div
@@ -384,7 +384,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -398,7 +398,7 @@ exports[`InterceptList should change selection after clicking items 2`] = `
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto dark:fill-slate-50"
           />
         </button>
       </div>
@@ -415,7 +415,7 @@ exports[`InterceptList should match empty snapshot 1`] = `
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -427,7 +427,7 @@ exports[`InterceptList should match empty snapshot 1`] = `
         title="Pause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -435,7 +435,7 @@ exports[`InterceptList should match empty snapshot 1`] = `
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -443,7 +443,7 @@ exports[`InterceptList should match empty snapshot 1`] = `
       class="flex flex-col overflow-y-visible"
     >
       <div
-        class="flex w-full select-none justify-between p-1"
+        class="flex w-full select-none justify-between p-1 "
         role="listitem"
       >
         <div
@@ -465,7 +465,7 @@ exports[`InterceptList should match empty snapshot 1`] = `
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto dark:fill-slate-50"
           />
         </button>
       </div>
@@ -482,7 +482,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -494,7 +494,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
         title="Unpause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -502,7 +502,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -518,7 +518,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -527,7 +527,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
             example.com
           </span>
           <input
-            class="fixed "
+            class="fixed dark:bg-slate-600 dark:text-slate-100"
             style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
             type="text"
             value="example.com"
@@ -538,7 +538,7 @@ exports[`InterceptList should show and hide pattern edit modal 1`] = `
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto "
           />
         </button>
       </div>
@@ -555,7 +555,7 @@ exports[`InterceptList should show input modal on double click 1`] = `
     role="list"
   >
     <div
-      class="p-1 flex space-x-1 justify-between select-none bg-slate-100"
+      class="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700"
     >
       <span
         class="font-bold flex-auto"
@@ -567,7 +567,7 @@ exports[`InterceptList should show input modal on double click 1`] = `
         title="Unpause intercepts"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
       <button
@@ -575,7 +575,7 @@ exports[`InterceptList should show input modal on double click 1`] = `
         title="Add intercept"
       >
         <svg
-          class="h-full w-auto"
+          class="h-full w-auto dark:fill-slate-50"
         />
       </button>
     </div>
@@ -591,7 +591,7 @@ exports[`InterceptList should show input modal on double click 1`] = `
         >
           <input
             checked=""
-            class="mr-0.5 focus:ring-0 text-gray-400"
+            class="mr-0.5 focus:ring-0 accent-gray-400"
             type="checkbox"
           />
           <span
@@ -605,7 +605,7 @@ exports[`InterceptList should show input modal on double click 1`] = `
           title="Delete intercept"
         >
           <svg
-            class="h-full w-auto"
+            class="h-full w-auto "
           />
         </button>
       </div>
