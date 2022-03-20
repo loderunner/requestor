@@ -73,6 +73,16 @@ const Item = ({ requestId }: ItemProps) => {
     return ''
   }, [request.stage, request.statusCode])
 
+  const textColor = useMemo(
+    () => (selected ? 'dark:text-black' : ''),
+    [selected]
+  )
+
+  const buttonColor = useMemo(
+    () => (selected ? '' : 'dark:fill-slate-50'),
+    [selected]
+  )
+
   const onContinueOrFail = useCallback(
     async (e: SyntheticEvent, continueOrFail: 'continue' | 'fail') => {
       e.stopPropagation()
@@ -128,18 +138,20 @@ const Item = ({ requestId }: ItemProps) => {
           <MultipleStopIcon className={`h-full w-auto ${iconColor}`} />
         </span>
       ) : null}
-      <span className="flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap">
+      <span
+        className={`flex-auto mr-1 overflow-hidden text-ellipsis whitespace-nowrap ${textColor}`}
+      >
         {request.url}
       </span>
       <button className="self-stretch" title="Cancel request" onClick={onFail}>
-        <StopIcon className="h-full w-auto" />
+        <StopIcon className={`h-full w-auto ${buttonColor}`} />
       </button>
       <button
         className="self-stretch"
         title="Continue request"
         onClick={onContinue}
       >
-        <PlayArrowIcon className="h-full w-auto" />
+        <PlayArrowIcon className={`h-full w-auto ${buttonColor}`} />
       </button>
     </div>
   )
@@ -164,14 +176,14 @@ const RequestList = ({ className = '' }: Props) => {
 
   const header = useMemo(
     () => (
-      <div className="p-1 flex space-x-1 justify-between select-none bg-slate-100">
+      <div className="p-1 flex space-x-1 justify-between select-none bg-slate-100 dark:bg-slate-700">
         <span className="font-bold flex-auto">Requests</span>
         <button
           className="self-stretch"
           title="Continue all requests"
           onClick={onContinueAll}
         >
-          <EjectIcon className="h-full w-auto rotate-90" />
+          <EjectIcon className="h-full w-auto rotate-90 dark:fill-slate-50" />
         </button>
       </div>
     ),

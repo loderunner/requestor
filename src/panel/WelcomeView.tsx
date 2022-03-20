@@ -27,12 +27,12 @@ const WelcomeView = ({ className = '' }: Props) => {
   return (
     <div
       id="welcome-view"
-      className={`container flex min-h-screen flex-col items-center justify-center bg-slate-50 ${className}`}
+      className={`container flex min-h-screen flex-col items-center justify-center bg-slate-50 dark:bg-slate-900 ${className}`}
     >
       <div className="container max-w-xs">
         <LevelCrossing className="h-auto w-full fill-indigo-700" />
       </div>
-      <div className="text-4xl font-bold">Requestor</div>
+      <div className="text-4xl font-bold dark:text-white">Requestor</div>
       <button
         className="my-6 rounded bg-indigo-700 px-9 py-3 text-sm font-semibold text-white hover:opacity-75 active:opacity-100"
         title="Add intercept"

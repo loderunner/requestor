@@ -10,7 +10,7 @@ interface Props {
 const Sidebar = ({ className = '' }: Props) => (
   <aside
     id="sidebar"
-    className={`flex flex-col justify-between border-r border-slate-300 ${className}`}
+    className={`flex flex-col justify-between border-r border-slate-300 dark:border-slate-500 ${className}`}
   >
     <RequestList className="flex-initial overflow-y-auto" />
 

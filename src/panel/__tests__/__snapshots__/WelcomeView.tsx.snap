@@ -3,7 +3,7 @@
 exports[`[WelcomeView] should click button 1`] = `
 <div>
   <div
-    class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
+    class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 dark:bg-slate-900 "
     id="welcome-view"
   >
     <div
@@ -14,7 +14,7 @@ exports[`[WelcomeView] should click button 1`] = `
       />
     </div>
     <div
-      class="text-4xl font-bold"
+      class="text-4xl font-bold dark:text-white"
     >
       Requestor
     </div>
@@ -31,7 +31,7 @@ exports[`[WelcomeView] should click button 1`] = `
 exports[`[WelcomeView] should match empty snapshot 1`] = `
 <div>
   <div
-    class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 "
+    class="container flex min-h-screen flex-col items-center justify-center bg-slate-50 dark:bg-slate-900 "
     id="welcome-view"
   >
     <div
@@ -42,7 +42,7 @@ exports[`[WelcomeView] should match empty snapshot 1`] = `
       />
     </div>
     <div
-      class="text-4xl font-bold"
+      class="text-4xl font-bold dark:text-white"
     >
       Requestor
     </div>

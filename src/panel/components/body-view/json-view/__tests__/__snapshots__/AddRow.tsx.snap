@@ -25,7 +25,7 @@ exports[`[JSON.AddRow] should match initial snapshot 1`] = `
         ​
       </pre>
       <input
-        class="fixed "
+        class="fixed dark:bg-slate-600 dark:text-slate-100"
         style="padding: 0.25rem; left: 0px; top: 0px; width: calc(0px + 2 * 0.25rem); min-width: 120px;"
         type="text"
         value=""

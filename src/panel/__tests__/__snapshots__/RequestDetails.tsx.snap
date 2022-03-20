@@ -14,7 +14,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
       class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
     >
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
       >
         URL
       </span>
@@ -28,7 +28,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
         </span>
       </span>
       <span
-        class="text-right font-medium text-gray-500 select-none"
+        class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
       >
         Method
       </span>
@@ -57,7 +57,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           />
         </button>
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           q
         </span>
@@ -82,7 +82,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           />
         </button>
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           client
         </span>
@@ -131,7 +131,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           />
         </button>
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           Accept
         </span>
@@ -156,7 +156,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           />
         </button>
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           Referer
         </span>
@@ -181,7 +181,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           />
         </button>
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           User-Agent
         </span>
@@ -206,7 +206,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
           />
         </button>
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           Content-Type
         </span>
@@ -248,7 +248,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
         class="group flex justify-end items-center space-x-1"
       >
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           CONSENT
         </span>
@@ -266,7 +266,7 @@ exports[`[RequestDetails] should match initial snapshot 1`] = `
         class="group flex justify-end items-center space-x-1"
       >
         <span
-          class="font-medium text-right text-gray-500 select-none"
+          class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
         >
           DATE
         </span>

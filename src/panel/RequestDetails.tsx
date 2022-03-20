@@ -47,22 +47,17 @@ const SectionValue = ({
   const onFold = useCallback(() => setFolded(true), [])
   const onUnfold = useCallback(() => setFolded(false), [])
 
-  const buttonClassName = useMemo(() => {
-    let className =
-      'h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600'
-    if (!showButtons) {
-      className += ' invisible'
-    }
-    return className
-  }, [showButtons])
-
   const unfoldButton = useMemo(() => {
     if (!foldable) {
       return null
     }
 
     return (
-      <button className={buttonClassName}>
+      <button
+        className={`h-4 w-4 p-0.5 rounded-sm bg-slate-400 hover:bg-slate-500 active:bg-slate-600 ${
+          showButtons ? '' : 'invisible'
+        }`}
+      >
         {folded ? (
           <UnfoldMoreIcon className="fill-white" onClick={onUnfold} />
         ) : (
@@ -70,7 +65,7 @@ const SectionValue = ({
         )}
       </button>
     )
-  }, [foldable, folded, buttonClassName, onFold, onUnfold])
+  }, [foldable, showButtons, folded, onUnfold, onFold])
 
   const onHoverStart = useCallback(() => setShowButtons(true), [])
   const onHoverEnd = useCallback(() => setShowButtons(false), [])
@@ -129,7 +124,7 @@ const SectionAdd = ({ onChange, onCancel }: SectionAddProps) => {
   return (
     <>
       <span
-        className="text-right font-medium text-gray-500 select-none"
+        className="text-right font-medium select-none text-gray-500 dark:text-slate-400"
         ref={nameRef}
       >
         {name}
@@ -217,7 +212,7 @@ const Section = ({
                 />
               </button>
             ) : null}
-            <span className="font-medium text-right text-gray-500 select-none">
+            <span className="font-medium text-right select-none text-gray-500 dark:text-slate-400">
               {name}
             </span>
           </div>
@@ -396,7 +391,7 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
         {/* Response status */}
         {isResponse ? (
           <>
-            <span className="text-right font-medium text-gray-500 select-none">
+            <span className="text-right font-medium select-none text-gray-500 dark:text-slate-400">
               Status
             </span>
             <div className="inline-flex items-center space-x-1">
@@ -412,7 +407,7 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
           </>
         ) : null}
         {/* URL */}
-        <span className="text-right font-medium text-gray-500 select-none">
+        <span className="text-right font-medium select-none text-gray-500 dark:text-slate-400">
           URL
         </span>
         <SectionValue
@@ -421,7 +416,7 @@ const RequestDetails = ({ requestId, className = '' }: Props) => {
           onChange={onChangeURL}
         />
         {/* Method */}
-        <span className="text-right font-medium text-gray-500 select-none">
+        <span className="text-right font-medium select-none text-gray-500 dark:text-slate-400">
           Method
         </span>
         <SectionValue

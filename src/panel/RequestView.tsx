@@ -13,9 +13,9 @@ interface Props {
 type Tab = 'headers' | 'body'
 
 const enabledButtonClassName =
-  'text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400'
+  'text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400 dark:hover:bg-slate-700 dark:hover:bg-slate-600 dark:border-slate-600'
 const disabledButtonClassName =
-  'text-base rounded py-2 px-4 font-medium border bg-blue-50'
+  'text-base rounded py-2 px-4 font-medium border bg-blue-50 dark:bg-slate-700 dark:border-slate-600'
 
 const RequestView = ({ requestId }: Props) => {
   const { request, updateRequest } = useRequest(requestId)
@@ -80,7 +80,9 @@ const RequestView = ({ requestId }: Props) => {
             checked={request.interceptResponse}
             onChange={onToggleInterceptResponse}
           />
-          <span className="ml-1 text-sm text-gray-700">Intercept response</span>
+          <span className="ml-1 text-sm text-gray-700 dark:text-slate-100">
+            Intercept response
+          </span>
         </label>
       ) : null}
       {content}

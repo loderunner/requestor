@@ -9,12 +9,12 @@ exports[`[RequestView] should match body snapshot 1`] = `
       class="flex space-x-4 mb-4"
     >
       <button
-        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
+        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400 dark:hover:bg-slate-700 dark:hover:bg-slate-600 dark:border-slate-600"
       >
         Headers
       </button>
       <button
-        class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+        class="text-base rounded py-2 px-4 font-medium border bg-blue-50 dark:bg-slate-700 dark:border-slate-600"
         disabled=""
       >
         Body
@@ -27,7 +27,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
         type="checkbox"
       />
       <span
-        class="ml-1 text-sm text-gray-700"
+        class="ml-1 text-sm text-gray-700 dark:text-slate-100"
       >
         Intercept response
       </span>
@@ -44,7 +44,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
         class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
       >
         <span
-          class="text-right font-medium text-gray-500 select-none"
+          class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
         >
           URL
         </span>
@@ -58,7 +58,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           </span>
         </span>
         <span
-          class="text-right font-medium text-gray-500 select-none"
+          class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
         >
           Method
         </span>
@@ -87,7 +87,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             q
           </span>
@@ -112,7 +112,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             client
           </span>
@@ -161,7 +161,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Accept
           </span>
@@ -186,7 +186,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Referer
           </span>
@@ -211,7 +211,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             User-Agent
           </span>
@@ -236,7 +236,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Content-Type
           </span>
@@ -278,7 +278,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             CONSENT
           </span>
@@ -296,7 +296,7 @@ exports[`[RequestView] should match body snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             DATE
           </span>
@@ -1056,13 +1056,13 @@ exports[`[RequestView] should match headers snapshot 1`] = `
       class="flex space-x-4 mb-4"
     >
       <button
-        class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+        class="text-base rounded py-2 px-4 font-medium border bg-blue-50 dark:bg-slate-700 dark:border-slate-600"
         disabled=""
       >
         Headers
       </button>
       <button
-        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
+        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400 dark:hover:bg-slate-700 dark:hover:bg-slate-600 dark:border-slate-600"
       >
         Body
       </button>
@@ -1074,7 +1074,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         type="checkbox"
       />
       <span
-        class="ml-1 text-sm text-gray-700"
+        class="ml-1 text-sm text-gray-700 dark:text-slate-100"
       >
         Intercept response
       </span>
@@ -1091,7 +1091,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
         class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
       >
         <span
-          class="text-right font-medium text-gray-500 select-none"
+          class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
         >
           URL
         </span>
@@ -1105,7 +1105,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           </span>
         </span>
         <span
-          class="text-right font-medium text-gray-500 select-none"
+          class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
         >
           Method
         </span>
@@ -1134,7 +1134,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             q
           </span>
@@ -1159,7 +1159,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             client
           </span>
@@ -1208,7 +1208,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Accept
           </span>
@@ -1233,7 +1233,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Referer
           </span>
@@ -1258,7 +1258,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             User-Agent
           </span>
@@ -1283,7 +1283,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Content-Type
           </span>
@@ -1325,7 +1325,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             CONSENT
           </span>
@@ -1343,7 +1343,7 @@ exports[`[RequestView] should match headers snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             DATE
           </span>
@@ -2103,13 +2103,13 @@ exports[`[RequestView] should match initial snapshot 1`] = `
       class="flex space-x-4 mb-4"
     >
       <button
-        class="text-base rounded py-2 px-4 font-medium border bg-blue-50"
+        class="text-base rounded py-2 px-4 font-medium border bg-blue-50 dark:bg-slate-700 dark:border-slate-600"
         disabled=""
       >
         Headers
       </button>
       <button
-        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400"
+        class="text-base rounded py-2 px-4 font-medium border hover:bg-gray-300 active:bg-gray-400 dark:hover:bg-slate-700 dark:hover:bg-slate-600 dark:border-slate-600"
       >
         Body
       </button>
@@ -2121,7 +2121,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         type="checkbox"
       />
       <span
-        class="ml-1 text-sm text-gray-700"
+        class="ml-1 text-sm text-gray-700 dark:text-slate-100"
       >
         Intercept response
       </span>
@@ -2138,7 +2138,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
         class="my-8 grid grid-cols-[10rem_1fr] gap-x-4 gap-y-1"
       >
         <span
-          class="text-right font-medium text-gray-500 select-none"
+          class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
         >
           URL
         </span>
@@ -2152,7 +2152,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           </span>
         </span>
         <span
-          class="text-right font-medium text-gray-500 select-none"
+          class="text-right font-medium select-none text-gray-500 dark:text-slate-400"
         >
           Method
         </span>
@@ -2181,7 +2181,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             q
           </span>
@@ -2206,7 +2206,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             client
           </span>
@@ -2255,7 +2255,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Accept
           </span>
@@ -2280,7 +2280,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Referer
           </span>
@@ -2305,7 +2305,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             User-Agent
           </span>
@@ -2330,7 +2330,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
             />
           </button>
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             Content-Type
           </span>
@@ -2372,7 +2372,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             CONSENT
           </span>
@@ -2390,7 +2390,7 @@ exports[`[RequestView] should match initial snapshot 1`] = `
           class="group flex justify-end items-center space-x-1"
         >
           <span
-            class="font-medium text-right text-gray-500 select-none"
+            class="font-medium text-right select-none text-gray-500 dark:text-slate-400"
           >
             DATE
           </span>
