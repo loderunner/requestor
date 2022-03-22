@@ -1,3 +1,10 @@
+## [0.2.0](https://github.com/loderunner/requestor/compare/v0.1.0...v0.2.0) (2022-03-22)
+
+
+### Features
+
+* **ui:** dark mode ([#144](https://github.com/loderunner/requestor/issues/144)) ([2751a82](https://github.com/loderunner/requestor/commit/2751a8227644abc5594d97bc95f94de1a338ced0))
+
 ## [0.2.0](https://github.com/loderunner/requestor/compare/v0.1.0...v0.2.0) (2022-03-20)
 
 
