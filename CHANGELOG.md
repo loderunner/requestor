@@ -1,3 +1,10 @@
+## [0.3.0](https://github.com/loderunner/requestor/compare/v0.2.0...v0.3.0) (2022-03-22)
+
+
+### Features
+
+* **release:** fake release ([4c0fd79](https://github.com/loderunner/requestor/commit/4c0fd791ed0cc3cf9ba6f18a739707914dce37d7))
+
 ## [0.2.0](https://github.com/loderunner/requestor/compare/v0.1.0...v0.2.0) (2022-03-22)
 
 
