@@ -16,7 +16,7 @@ describe('[WelcomeView]', () => {
 
   it('should click button', () => {
     const { container, getByRole } = render(<WelcomeView />)
-    const button = getByRole('button', { name: 'Add intercept' })
+    const button = getByRole('button', { name: 'Add Intercept' })
     fireEvent.click(button)
 
     expect(container).toMatchSnapshot()
