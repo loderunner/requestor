@@ -32,7 +32,7 @@
     "conventional-changelog-conventionalcommits": "^4.6.3",
     "cookie": "0.4.2",
     "devtools-protocol": "0.0.982423",
-    "esbuild": "0.14.30",
+    "esbuild": "0.14.31",
     "esbuild-plugin-svgr": "1.0.0",
     "eslint": "8.11.0",
     "eslint-config-prettier": "8.5.0",
