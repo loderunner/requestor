@@ -24,7 +24,7 @@
     "@types/jest": "27.4.1",
     "@types/lodash": "4.14.181",
     "@types/react": "17.0.44",
-    "@types/react-dom": "17.0.15",
+    "@types/react-dom": "18.0.5",
     "@typescript-eslint/eslint-plugin": "5.29.0",
     "@typescript-eslint/parser": "5.29.0",
     "chrome-types": "0.1.99",
