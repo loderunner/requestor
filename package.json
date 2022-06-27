@@ -29,7 +29,7 @@
     "@typescript-eslint/parser": "5.29.0",
     "chrome-types": "0.1.118",
     "content-type": "1.0.4",
-    "conventional-changelog-conventionalcommits": "^4.6.3",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
     "cookie": "0.5.0",
     "devtools-protocol": "0.0.1011705",
     "esbuild": "0.14.47",
