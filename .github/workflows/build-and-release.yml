@@ -46,6 +46,8 @@ jobs:
             manifest.json
             README.md
   release:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     needs:
       - lint
