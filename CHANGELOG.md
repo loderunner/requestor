@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/loderunner/requestor/compare/v0.3.0...v0.3.1) (2022-07-07)
+
+
+### Bug Fixes
+
+* fake commit to trigger release ([2ad8871](https://github.com/loderunner/requestor/commit/2ad8871dea149013e171863db4f098bde7198484))
+
 ## [0.3.0](https://github.com/loderunner/requestor/compare/v0.2.0...v0.3.0) (2022-03-22)
 
 
