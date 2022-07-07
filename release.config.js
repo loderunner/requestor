@@ -42,9 +42,8 @@ module.exports = {
     [
       'semantic-release-chrome',
       {
-        extensionId: 'bldeigcbieaclhoogjejelbipeklpckg',
         asset: 'requestor-${nextRelease.version}.zip',
-        target: 'trustedTesters',
+        extensionId: 'bldeigcbieaclhoogjejelbipeklpckg',
       },
     ],
   ],
