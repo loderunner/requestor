@@ -13,8 +13,8 @@
     "release": "semantic-release"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/changelog": "6.0.1",
+    "@semantic-release/git": "10.0.1",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "12.1.5",
     "@testing-library/react-hooks": "8.0.1",
@@ -29,7 +29,7 @@
     "@typescript-eslint/parser": "5.30.5",
     "chrome-types": "0.1.120",
     "content-type": "1.0.4",
-    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "conventional-changelog-conventionalcommits": "5.0.0",
     "cookie": "0.5.0",
     "devtools-protocol": "0.0.1019158",
     "esbuild": "0.14.48",
@@ -48,8 +48,8 @@
     "prettier": "2.7.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "semantic-release": "^19.0.3",
-    "semantic-release-chrome": "^2.0.0",
+    "semantic-release": "19.0.3",
+    "semantic-release-chrome": "2.0.0",
     "tailwindcss": "3.1.4",
     "ts-jest": "27.1.4",
     "typescript": "4.7.4"
