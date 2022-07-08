@@ -1,3 +1,10 @@
+## [0.3.4](https://github.com/loderunner/requestor/compare/v0.3.3...v0.3.4) (2022-07-08)
+
+
+### Bug Fixes
+
+* fix chrome semantic release automation ([89c316c](https://github.com/loderunner/requestor/commit/89c316c767e55ad3a54f0a195b21513c4b4f746b))
+
 ## [0.3.3](https://github.com/loderunner/requestor/compare/v0.3.2...v0.3.3) (2022-07-07)
 
 

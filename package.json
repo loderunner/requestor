@@ -1,6 +1,6 @@
 {
   "name": "requestor",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A Chrome devtools extension for intercepting and modifying HTTP requests and responses",
   "license": "Apache-2.0",
   "author": "",
