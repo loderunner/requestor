@@ -34,7 +34,7 @@
     "devtools-protocol": "0.0.1029622",
     "esbuild": "0.14.51",
     "esbuild-plugin-svgr": "1.0.1",
-    "eslint": "8.20.0",
+    "eslint": "8.21.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "3.3.0",
     "eslint-plugin-import": "2.26.0",
