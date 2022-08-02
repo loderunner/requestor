@@ -43,7 +43,7 @@
     "jest": "27.5.1",
     "jest-chrome": "0.7.2",
     "jest-extended": "3.0.1",
-    "jotai": "1.7.6",
+    "jotai": "1.7.7",
     "lodash": "4.17.21",
     "prettier": "2.7.1",
     "react": "17.0.2",
