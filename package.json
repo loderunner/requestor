@@ -27,7 +27,7 @@
     "@types/react-dom": "17.0.15",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
-    "chrome-types": "0.1.160",
+    "chrome-types": "0.1.161",
     "content-type": "1.0.4",
     "conventional-changelog-conventionalcommits": "5.0.0",
     "cookie": "0.5.0",
