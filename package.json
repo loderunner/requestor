@@ -31,7 +31,7 @@
     "content-type": "1.0.5",
     "conventional-changelog-conventionalcommits": "5.0.0",
     "cookie": "0.5.0",
-    "devtools-protocol": "0.0.1100268",
+    "devtools-protocol": "0.0.1100832",
     "esbuild": "0.16.17",
     "esbuild-plugin-svgr": "1.0.1",
     "eslint": "8.33.0",
